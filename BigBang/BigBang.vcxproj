@@ -152,6 +152,29 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CudaCompile Include="kernel.cu" />
+    <CudaCompile Include="src\test\test_tensor_gpu.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\big_bang.cpp" />
+    <ClCompile Include="src\synced_memory.cpp" />
+    <ClCompile Include="src\test\test.cpp" />
+    <ClCompile Include="src\test\test_tensor_cpu.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\base.h" />
+    <ClInclude Include="include\big_bang.h" />
+    <ClInclude Include="include\device_log.h" />
+    <ClInclude Include="include\gpu_config.h" />
+    <ClInclude Include="include\layer.h" />
+    <ClInclude Include="include\layer_factory.h" />
+    <ClInclude Include="include\layer_params_manage.h" />
+    <ClInclude Include="include\log.h" />
+    <ClInclude Include="include\math_function_ptr.h" />
+    <ClInclude Include="include\solver.h" />
+    <ClInclude Include="include\synced_memory.h" />
+    <ClInclude Include="include\tensor.h" />
+    <ClInclude Include="include\util.h" />
+    <ClInclude Include="src\test\test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
