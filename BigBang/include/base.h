@@ -21,8 +21,18 @@
 #define CHECK_LTE(a, b) \
 	CHECK_OP(<=, a, b)
 
+#define THROW_EXCEPTION assert(false)
+
+#define VALIDATE_POINTER(p) \
+	assert(p != nullptr);
+
+
 #define DISABLE_COPY_AND_ASSIGNMENT(classname) \
 	classname(const classname& c) = delete; \
 	classname& operator=(const classname& c) = delete;
+
+#define INSTANTIATE_CLASS(classname) \
+	template class classname<float>; \
+	template class classname<double>;
 
 #endif

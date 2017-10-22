@@ -5,6 +5,9 @@
     <CudaCompile Include="src\test\test_tensor_gpu.cu">
       <Filter>src\test</Filter>
     </CudaCompile>
+    <CudaCompile Include="src\layers\conv_layer.cu">
+      <Filter>src\layers</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -22,6 +25,12 @@
     <Filter Include="src\test">
       <UniqueIdentifier>{3fb54038-d3be-4bf5-b0c7-78c95f12bf62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include\util">
+      <UniqueIdentifier>{933e0f41-4561-4406-ae10-9ddb5b7af20e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{3992b531-a43d-4168-b7a0-2d1d7f1c34bf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\big_bang.cpp">
@@ -34,6 +43,24 @@
       <Filter>src\test</Filter>
     </ClCompile>
     <ClCompile Include="src\test\test_tensor_cpu.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\layers\conv_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\im2col.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\math_function_ptr.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test_conv_layer.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\layers\inner_product_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test_inner_product.cpp">
       <Filter>src\test</Filter>
     </ClCompile>
   </ItemGroup>
@@ -79,6 +106,36 @@
     </ClInclude>
     <ClInclude Include="src\test\test.h">
       <Filter>src\test</Filter>
+    </ClInclude>
+    <ClInclude Include="include\net.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\filler.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\activation_func_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\cost_func_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\layer_type_macro.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\neuron_func_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\conv_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\im2col.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\common.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\inner_product_layer.h">
+      <Filter>include\layers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

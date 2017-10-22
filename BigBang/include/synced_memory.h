@@ -12,7 +12,7 @@ namespace BigBang {
 
 class SyncedMemory {
 public:
-	SyncedMemory(size_t size) :
+	explicit SyncedMemory(size_t size) :
 		size_(size), cpu_data_(nullptr), 
 		gpu_data_(nullptr), mem_state_(UNINITIALIZED) {
 #ifndef CPU_ONLY

@@ -16,7 +16,7 @@ class Tensor {
 public:
 	DISABLE_COPY_AND_ASSIGNMENT(Tensor)
 
-	Tensor(const std::vector<int>& shape) :
+	explicit Tensor(const std::vector<int>& shape) :
 		shape_(shape), dimension_(shape_.size()), size_(0) {
 		if (dimension_) {
 			size_ = shape_[0];
@@ -52,11 +52,11 @@ public:
 	}
 
 	const dtype* cpu_diff_data() const {
-		return static_cast<dtype*>(diff_data_->cpu_data());
+		return reinterpret_cast<const dtype*>(diff_data_->cpu_data());
 	}
 
 	const dtype* gpu_diff_data() const {
-		return static_cast<dtype*>(diff_data_->gpu_data());
+		return reinterpret_cast<const dtype*>(diff_data_->gpu_data());
 	}
 
 	dtype* mutable_cpu_data() {
