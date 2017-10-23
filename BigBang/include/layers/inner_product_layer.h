@@ -2,7 +2,7 @@
 #define INNER_PRODUCT_LAYER_H
 
 #include <memory>
-#ifdef _DEBUG
+#ifdef BIGBANG_TEST
 #include <vector>
 #endif
 
@@ -25,13 +25,13 @@ public:
 		biases_ = params_.biases_;
 	}
 
-	virtual void SetUp(const Tensor<dtype>* bottom, Tensor<dtype>* top);
+	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 
 	virtual inline const char* Type() const override {
 		return INNER_PRODUCT_LAYER_TYPE;
 	}
 
-#ifdef TEST
+#ifdef BIGBANG_TEST
 	std::vector<std::shared_ptr<Tensor<dtype>>> GetParams() {
 		std::vector<std::shared_ptr<Tensor<dtype>>> test;
 		test.push_back(weights_);
@@ -47,13 +47,12 @@ protected:
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override {};
 
 private:
-	void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top);
-	void Check(const Tensor<dtype>* bottom, Tensor<dtype>* top);
+	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
+	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void UpdateParams(const dtype* bottom_data, const dtype* delta);
 
 private:
 	InnerProductLayerParams<dtype> params_;
-
 	bool use_biases_;
 	dtype alpha_;
 	dtype lambda_;

@@ -12,7 +12,7 @@
 namespace BigBang {
 
 template<typename dtype>
-void ConvLayer<dtype>::SetUp(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+void ConvLayer<dtype>::SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
 	VALIDATE_POINTER(bottom);
 	VALIDATE_POINTER(top);
 	Prepare(bottom, top);
@@ -20,7 +20,7 @@ void ConvLayer<dtype>::SetUp(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 }
 
 template<typename dtype>
-void ConvLayer<dtype>::Check(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+void ConvLayer<dtype>::Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
 	CHECK_EQ(bottom->shape(0), top->shape(0));
 	CHECK_EQ(kernels_->dimension(), PARAMS_DIMENSION);
 	CHECK_EQ(kernels_->shape(0), kernel_groups_);
@@ -44,7 +44,7 @@ void ConvLayer<dtype>::Check(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 }
 
 template<typename dtype>
-void ConvLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+void ConvLayer<dtype>::Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
 	CHECK_EQ(bottom->dimension(), DATA_DIMENSION);
 	CHECK_EQ(top->dimension(), DATA_DIMENSION);
 	nums_ = bottom->shape(0);

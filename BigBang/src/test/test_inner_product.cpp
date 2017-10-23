@@ -27,10 +27,10 @@ void Test::TestInnerProduct() {
 	manage.use_gpu_ = false;
 	manage.type_ = "InnerProduct";
 	manage.inner_product_layer_params_ = params;
-	std::shared_ptr<InnerProductLayer<float>> layer(new InnerProductLayer<float>(manage));
+	InnerProductLayer<float> layer(manage);
 	Tensor<float> output(std::vector<int>{4, 1, 1, 2});
-	layer->SetUp(&input, &output);
-	layer->Forward(&input, &output);
+	layer.SetUp(&input, &output);
+	layer.Forward(&input, &output);
 	const float* output_data = output.cpu_data();
 	const float true_result[] = { 12, 12, 27, 27, 42, 42, 57, 57 };
 	for (int i = 0; i < 8; ++i)
@@ -43,12 +43,10 @@ void Test::TestInnerProductBackward() {
 
 	float* weights_data = weights->mutable_cpu_data();
 	float* biases_data = biases->mutable_cpu_data();
-
 	Tensor<float> input(std::vector<int>{1, 1, 1, 2});
 	float* input_data = input.mutable_cpu_data();
 	input_data[0] = 1;
 	input_data[1] = 2;
-
 	weights_data[0] = 2;
 	weights_data[1] = 3;
 	weights_data[2] = 2;
@@ -67,10 +65,10 @@ void Test::TestInnerProductBackward() {
 	manage.use_gpu_ = false;
 	manage.type_ = "InnerProduct";
 	manage.inner_product_layer_params_ = params;
-	std::shared_ptr<InnerProductLayer<float>> layer(new InnerProductLayer<float>(manage));
+	InnerProductLayer<float> layer(manage);
 	Tensor<float> output(std::vector<int>{1, 1, 1, 3});
-	layer->SetUp(&input, &output);
-	layer->Forward(&input, &output);
+	layer.SetUp(&input, &output);
+	layer.Forward(&input, &output);
 	float* output_data = output.mutable_cpu_data();
 	float true_result[] = { 5, 9, 15 };
 	for (int i = 0; i < 3; ++i) {
@@ -80,7 +78,7 @@ void Test::TestInnerProductBackward() {
 	for (int i = 0; i < 3; ++i) {
 		output_diff_data[i] = 0.1*(i + 1);
 	}
-	layer->Backward(&output, &input);
+	layer.Backward(&output, &input);
 	const float* input_diff_data = input.cpu_diff_data();
 	float true_result1[] = { 1.4, 2.0 };
 	for (int i = 0; i < 2; ++i) {
@@ -89,7 +87,7 @@ void Test::TestInnerProductBackward() {
 			std::cout << __FILE__ << std::endl;
 		}
 	}
-	std::vector<std::shared_ptr<Tensor<float>>> hyper_params = layer->GetParams();
+	std::vector<std::shared_ptr<Tensor<float>>> hyper_params = layer.GetParams();
 	const float* weights_diff_data = hyper_params[0]->cpu_diff_data();
 	for (int i = 0; i < 6; ++i) {
 		std::cout << weights_diff_data[i] << std::endl;

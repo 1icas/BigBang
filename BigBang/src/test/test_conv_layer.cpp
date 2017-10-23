@@ -62,9 +62,9 @@ void Test::TestConvLayerFeedForward() {
 	manage.use_gpu_ = false;
 	manage.type_ = "conv";
 	manage.conv_layer_params_ = conv_params;
-	std::shared_ptr<ConvLayer<float>> conv_layer(new ConvLayer<float>(manage));
-	conv_layer->SetUp(&input, &output);
-	conv_layer->Forward(&input, &output);
+	ConvLayer<float> conv_layer(manage);
+	conv_layer.SetUp(&input, &output);
+	conv_layer.Forward(&input, &output);
 
 
 	//conv_layer.FeedForward(&input, &output);
@@ -169,9 +169,9 @@ void Test::TestConvLayerBackward() {
 	manage.use_gpu_ = false;
 	manage.type_ = "conv";
 	manage.conv_layer_params_ = conv_params;
-	std::shared_ptr<ConvLayer<float>> conv_layer(new ConvLayer<float>(manage));
-	conv_layer->SetUp(&input, &output);
-	conv_layer->Forward(&input, &output);
+	ConvLayer<float> conv_layer(manage);
+	conv_layer.SetUp(&input, &output);
+	conv_layer.Forward(&input, &output);
 
 	const float* output_data = output.cpu_data();
 	float true_result[] = {
@@ -179,12 +179,9 @@ void Test::TestConvLayerBackward() {
 		125, 102, 61,
 		103, 131, 74
 	};
-
 	for (int i = 0; i < 9; ++i) {
 		CHECK_EQ(true_result[i], output_data[i]);
 	}
-
-
 	float* output_diff = output.mutable_cpu_diff_data();
 	output_diff[0] = 0.1;
 	output_diff[1] = 0.0;
@@ -196,7 +193,7 @@ void Test::TestConvLayerBackward() {
 	output_diff[7] = 0.1;
 	output_diff[8] = 0.1;
 
-	conv_layer->Backward(&output, &input);
+	conv_layer.Backward(&output, &input);
 
 	for (int i = 0; i < 48; ++i) {
 		std::cout << input.cpu_diff_data()[i] << std::endl;

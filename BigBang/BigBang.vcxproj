@@ -159,11 +159,14 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\big_bang.cpp" />
     <ClCompile Include="src\layers\conv_layer.cpp" />
     <ClCompile Include="src\layers\inner_product_layer.cpp" />
+    <ClCompile Include="src\layers\pooling_layer.cpp" />
+    <ClCompile Include="src\layers\sigmoid_layer.cpp" />
     <ClCompile Include="src\math_function_ptr.cpp" />
     <ClCompile Include="src\synced_memory.cpp" />
     <ClCompile Include="src\test\test.cpp" />
     <ClCompile Include="src\test\test_conv_layer.cpp" />
     <ClCompile Include="src\test\test_inner_product.cpp" />
+    <ClCompile Include="src\test\test_pooling_layer.cpp" />
     <ClCompile Include="src\test\test_tensor_cpu.cpp" />
     <ClCompile Include="src\util\im2col.cpp" />
   </ItemGroup>
@@ -180,6 +183,8 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\layers\inner_product_layer.h" />
     <ClInclude Include="include\layers\layer_type_macro.h" />
     <ClInclude Include="include\layers\neuron_func_layer.h" />
+    <ClInclude Include="include\layers\pooling_layer.h" />
+    <ClInclude Include="include\layers\sigmoid_layer.h" />
     <ClInclude Include="include\layer_factory.h" />
     <ClInclude Include="include\layer_params_manage.h" />
     <ClInclude Include="include\log.h" />

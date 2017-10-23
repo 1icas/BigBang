@@ -11,7 +11,7 @@
 namespace BigBang {
 
 template<typename dtype>
-void InnerProductLayer<dtype>::SetUp(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+void InnerProductLayer<dtype>::SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
 	VALIDATE_POINTER(bottom);
 	VALIDATE_POINTER(top);
 	VALIDATE_POINTER(weights_.get());
@@ -24,7 +24,7 @@ void InnerProductLayer<dtype>::SetUp(const Tensor<dtype>* bottom, Tensor<dtype>*
 // so we should be see the bottom shape(0) dimension as a row
 // and the other dimension(shape(1), shape(2), shape(3)) as a column
 template<typename dtype>
-void InnerProductLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+void InnerProductLayer<dtype>::Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
 	CHECK_EQ(bottom->dimension(), DATA_DIMENSION);
 	CHECK_EQ(top->dimension(), DATA_DIMENSION);
 	CHECK_EQ(weights_->dimension(), PARAMS_DIMENSION);
@@ -45,7 +45,7 @@ void InnerProductLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype
 }
 
 template<typename dtype>
-void InnerProductLayer<dtype>::Check(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+void InnerProductLayer<dtype>::Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
 	CHECK_EQ(bottom_row_, top_row_);
 	CHECK_EQ(bottom_column_, weights_row_);
 	CHECK_EQ(top_column_, weights_column_);

@@ -15,15 +15,13 @@ public:
 		return ACTIVATION_FUNC_TYPE;
 	}
 
-	virtual void SetUp(const Tensor<dtype>* bottom, Tensor<dtype>* top) = 0;
-	virtual void Forward(const Tensor<dtype>* bottom, Tensor<dtype>* top) = 0;
-	virtual void Backward(const Tensor<dtype>* top, Tensor<dtype>* bottom) = 0;
+	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override = 0;
 
 protected:
-	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) = 0;
-	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) = 0;
-	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) = 0;
-	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) = 0;
+	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override  = 0;
+	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override  = 0;
+	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override = 0;
+	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override  = 0;
 };
 
 

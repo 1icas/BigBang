@@ -19,14 +19,14 @@ struct PoolingLayerParams {
 	};
 
 	PoolingLayerParams() = default;
-	PoolingLayerParams(const Pool& pool, const int pool_h, const int pool_w, const int pool_stride_h,  const int pool_stride_w) :
-		pool_(pool), pool_h_(pool_h), pool_w_(pool_w), pool_stride_h_(pool_stride_h), pool_stride_w_(pool_stride_w) {}
+	PoolingLayerParams(const Pool& pool, const int pool_h, const int pool_w, const int stride_h,  const int stride_w) :
+		pool_(pool), pool_h_(pool_h), pool_w_(pool_w), stride_h_(stride_h), stride_w_(stride_w) {}
 
 	Pool pool_ = Pool::MaxPool;
 	int pool_h_ = 1;
 	int pool_w_ = 1;
-	int pool_stride_h_ = 1;
-	int pool_stride_w_ = 1;
+	int stride_h_ = 1;
+	int stride_w_ = 1;
 };
 
 template<typename dtype>
@@ -76,7 +76,7 @@ template<typename dtype>
 struct LayerParamsManage {
 	std::string type_;
 	bool use_gpu_;
-	PoolingLayerParams<dtype> pooling_layer_params;
+	PoolingLayerParams<dtype> pooling_layer_params_;
 	ConvLayerParams<dtype> conv_layer_params_;
 	InnerProductLayerParams<dtype> inner_product_layer_params_;
 };

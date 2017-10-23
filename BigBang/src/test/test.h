@@ -1,7 +1,7 @@
 #ifndef TEST_H
 #define TEST_H
 
-#define TEST
+#define BIGBANG_TEST
 
 #include <vector>
 #include <memory>
@@ -16,6 +16,7 @@
 #include "../../include/tensor.h"
 #include "../../include/layers/conv_layer.h"
 #include "../../include/layers/inner_product_layer.h"
+#include "../../include/layers/pooling_layer.h"
 using namespace BigBang;
 
 
@@ -33,6 +34,8 @@ public:
 		TestConvLayerBackward();*/
 		TestInnerProduct();
 		TestInnerProductBackward();
+		TestMaxPoolLayerFeedForward();
+		TestMaxPoolLayerBackward();
 	}
 
 private:
@@ -42,6 +45,8 @@ private:
 	void TestConvLayerBackward();
 	void TestInnerProduct();
 	void TestInnerProductBackward();
+	void TestMaxPoolLayerFeedForward();
+	void TestMaxPoolLayerBackward();
 };
 
 #endif

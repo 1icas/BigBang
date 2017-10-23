@@ -32,11 +32,11 @@ public:
 		biases_ = conv_params_.biases_;
 	}
 
-	virtual inline const char* Type() const override{
+	virtual inline const char* Type() const override {
 		return CONV_LAYER_TYPE;
 	}
 
-	virtual void SetUp(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
+	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 
 protected:
 	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
@@ -48,9 +48,8 @@ private:
 
 	// check the bootom tensor and top tensor format
 	// guarantee all the tensor have the right dimension info
-	void Check(const Tensor<dtype>* bottom, Tensor<dtype>* top);
-	void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top);
-
+	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
+	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void UpdateParams(const dtype* bottom_data, const dtype* delta);
 
 private:

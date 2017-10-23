@@ -20,7 +20,7 @@ public:
 
 	virtual inline const char* FunctionType() const { return " "; }
 	virtual inline const char* Type() const { return " "; }
-	virtual void SetUp(const Tensor<dtype>* bottom, Tensor<dtype>* top) = 0;
+	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) = 0;
 	void Forward(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 		if (use_gpu_) {
 			Forward_GPU(bottom, top);

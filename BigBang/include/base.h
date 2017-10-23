@@ -35,4 +35,5 @@
 	template class classname<float>; \
 	template class classname<double>;
 
+
 #endif
