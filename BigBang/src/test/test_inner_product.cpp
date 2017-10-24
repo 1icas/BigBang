@@ -19,8 +19,8 @@ void Test::TestInnerProduct() {
 	biases_data[0] = 1;
 	biases_data[1] = 2;
 
-	InnerProductLayerParams<float> params(1.0, 1.0, true, FillerParameters::NORMAL_DISTRIBUTION,
-		FillerParameters::NORMAL_DISTRIBUTION);
+	InnerProductLayerParams<float> params(1.0, 1.0, true, FillerParams<float>(),
+		FillerParams<float>());
 	params.weights_ = weights;
 	params.biases_ = biases;
 	LayerParamsManage<float> manage;
@@ -57,8 +57,8 @@ void Test::TestInnerProductBackward() {
 	biases_data[1] = 2;
 	biases_data[2] = 3;
 
-	InnerProductLayerParams<float> params(1.0, 1.0, true, FillerParameters::NORMAL_DISTRIBUTION,
-		FillerParameters::NORMAL_DISTRIBUTION);
+	InnerProductLayerParams<float> params(1.0, 1.0, true, FillerParams<float>(),
+		FillerParams<float>());
 	params.weights_ = weights;
 	params.biases_ = biases;
 	LayerParamsManage<float> manage;

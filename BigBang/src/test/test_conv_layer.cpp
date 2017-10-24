@@ -55,7 +55,7 @@ void Test::TestConvLayerFeedForward() {
 		0, 0,
 		1.0, 1.0,
 		true,
-		FillerParameters::NORMAL_DISTRIBUTION, FillerParameters::NORMAL_DISTRIBUTION);
+		FillerParams<float>(), FillerParams<float>());
 	conv_params.kernels_ = kernel;
 	conv_params.biases_ = biases;
 	LayerParamsManage<float> manage;
@@ -162,7 +162,7 @@ void Test::TestConvLayerBackward() {
 		0, 0,
 		1.0, 1.0,
 		true,
-		FillerParameters::NORMAL_DISTRIBUTION, FillerParameters::NORMAL_DISTRIBUTION);
+		FillerParams<float>(), FillerParams<float>());
 	conv_params.kernels_ = kernel;
 	conv_params.biases_ = biases;
 	LayerParamsManage<float> manage;

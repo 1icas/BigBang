@@ -72,6 +72,9 @@
     <ClCompile Include="src\layers\sigmoid_layer.cpp">
       <Filter>src\layers</Filter>
     </ClCompile>
+    <ClCompile Include="src\layers\mse_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\big_bang.h">
@@ -150,6 +153,12 @@
       <Filter>include\layers</Filter>
     </ClInclude>
     <ClInclude Include="include\layers\sigmoid_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\mse_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\image_func_layer.h">
       <Filter>include\layers</Filter>
     </ClInclude>
   </ItemGroup>

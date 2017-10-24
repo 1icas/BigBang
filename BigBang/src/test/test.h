@@ -26,12 +26,11 @@ public:
 		CUDA_CHECK(cudaSetDevice(0));
 	}
 
-
 	void TestAll() {
-	/*	TestTensor_CPU();
+		TestTensor_CPU();
 		TestTensor_GPU();
 		TestConvLayerFeedForward();
-		TestConvLayerBackward();*/
+		TestConvLayerBackward();
 		TestInnerProduct();
 		TestInnerProductBackward();
 		TestMaxPoolLayerFeedForward();

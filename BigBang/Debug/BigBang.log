@@ -33,6 +33,7 @@ d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: �
 d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\git\bigbang\bigbang\include\filler.h(57): warning : statement is unreachable
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -100,10 +101,27 @@ d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
   test_tensor_gpu.cu
-cl : 命令行 warning D9028: 最小重新生成失败，正在转换为标准生成
   conv_layer.cpp
-  inner_product_layer.cpp
-  pooling_layer.cpp
+  正在生成代码...
+  正在编译...
+  test_tensor_cpu.cpp
+d:\git\bigbang\bigbang\src\test\test_tensor_cpu.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  test_pooling_layer.cpp
+  test_inner_product.cpp
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(9): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(79): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(83): warning C4838: 从“double”转换到“float”需要收缩转换
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(83): warning C4305: “初始化”: 从“double”到“float”截断
+  test_conv_layer.cpp
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(9): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(186): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(188): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(189): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(190): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(193): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(194): warning C4305: “=”: 从“double”到“float”截断
+  test.cpp
   sigmoid_layer.cpp
 d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(46): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
   d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(40): note: 编译类 模板 成员函数“void BigBang::SigmoidLayer<float>::Backward_CPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”时
@@ -123,24 +141,9 @@ d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(11): warning C4244: “retur
           [
               dtype=float
           ]
-  test.cpp
-  test_conv_layer.cpp
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(9): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(186): warning C4305: “=”: 从“double”到“float”截断
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(188): warning C4305: “=”: 从“double”到“float”截断
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(189): warning C4305: “=”: 从“double”到“float”截断
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(190): warning C4305: “=”: 从“double”到“float”截断
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(193): warning C4305: “=”: 从“double”到“float”截断
-d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(194): warning C4305: “=”: 从“double”到“float”截断
-  test_inner_product.cpp
-d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(9): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
-d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(79): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
-d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(83): warning C4838: 从“double”转换到“float”需要收缩转换
-d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(83): warning C4305: “初始化”: 从“double”到“float”截断
-  test_pooling_layer.cpp
-  test_tensor_cpu.cpp
-d:\git\bigbang\bigbang\src\test\test_tensor_cpu.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+  pooling_layer.cpp
+  mse_layer.cpp
+  inner_product_layer.cpp
   正在生成代码...
   BigBang.vcxproj -> D:\git\BigBang\Debug\BigBang.exe
   BigBang.vcxproj -> D:\git\BigBang\Debug\BigBang.pdb (Full PDB)

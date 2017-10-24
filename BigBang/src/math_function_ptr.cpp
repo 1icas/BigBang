@@ -4,8 +4,13 @@
 
 #include "../include/util/common.h"
 
-namespace BigBang {
+int GenerateSeed() {
+	struct timeb timeSeed;
+	ftime(&timeSeed);
+	return timeSeed.time * 1000 + timeSeed.millitm;
+}
 
+namespace BigBang {
 template<typename dtype>
 void transpose(const dtype* a, const int row, const int column, dtype* b) {
 	int size = row * column;
@@ -114,5 +119,16 @@ void row_sum_plus(const dtype* a, const int row, const int column, dtype* b) {
 }
 template void row_sum_plus<float>(const float* a, const int row, const int column, float* b);
 template void row_sum_plus<double>(const double* a, const int row, const int column, double* b);
+
+template<typename dtype>
+void GaussianDistribution(const dtype mean, const dtype std, const int size, dtype* b) {
+	std::default_random_engine e(GenerateSeed());
+	std::uniform_real_distribution<dtype> urd(mean, std);
+	for (int i = 0; i < size; ++i) {
+		b[i] = urd(e);
+	}
+}
+template void GaussianDistribution<float>(const float mean, const float std, const int size, float* b);
+template void GaussianDistribution<double>(const double mean, const double std, const int size, double* b);
 
 }
