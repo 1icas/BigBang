@@ -1,11 +1,11 @@
-#include "../include/math_function_ptr.h"
+#include "../../include/util/math_function_ptr.h"
 
 //#include <cuda_runtime.h>
 //#include <device_launch_parameters.h>
 //
 //#include "cublas_v2.h"
 
-#include "../include/gpu_config.h"
+#include "../../include/gpu_config.h"
 
 template<typename dtype>
 __global__ void gpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {

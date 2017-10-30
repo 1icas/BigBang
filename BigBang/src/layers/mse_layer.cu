@@ -1,6 +1,5 @@
 #include "../../include/layers/mse_layer.h"
-
-#include "../../include/math_function_ptr.h"
+#include "../../include/util/math_function_ptr.h"
 
 namespace BigBang {
 

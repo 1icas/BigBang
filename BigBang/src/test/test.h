@@ -14,13 +14,12 @@
 #include "../../include/gpu_config.h"
 #include "../../include/layer.h"
 #include "../../include/log.h"
-#include "../../include/math_function_ptr.h"
 #include "../../include/tensor.h"
 #include "../../include/layers/conv_layer.h"
 #include "../../include/layers/inner_product_layer.h"
 #include "../../include/layers/pooling_layer.h"
+#include "../../include/util/math_function_ptr.h"
 using namespace BigBang;
-
 
 class Test {
 public:
@@ -29,14 +28,14 @@ public:
 	}
 
 	void TestAll() {
-	/*	TestTensor_CPU();
+		TestTensor_CPU();
 		TestTensor_GPU();
 		TestConvLayerFeedForward();
 		TestConvLayerBackward();
 		TestInnerProduct();
 		TestInnerProductBackward();
 		TestMaxPoolLayerFeedForward();
-		TestMaxPoolLayerBackward();*/
+		TestMaxPoolLayerBackward();
 		TestGpuGemm();
 	}
 

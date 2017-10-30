@@ -392,9 +392,6 @@ D:\vs2015\VC\include\vector
 d:\git\bigbang\bigbang\include\base.h
 D:\vs2015\VC\include\cassert
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
-d:\git\bigbang\bigbang\include\math_function_ptr.h
-D:\vs2015\VC\include\random
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\sys/timeb.h
 d:\git\bigbang\bigbang\include\tensor.h
 d:\git\bigbang\bigbang\include\log.h
 d:\git\bigbang\bigbang\include\device_log.h
@@ -404,3 +401,6 @@ D:\CUDAInstalled\Development\include\cuda_runtime.h
 d:\git\bigbang\bigbang\include\synced_memory.h
 D:\CUDAInstalled\Development\include\cuda_runtime.h
 d:\git\bigbang\bigbang\include\util/common.h
+d:\git\bigbang\bigbang\include\util/math_function_ptr.h
+D:\vs2015\VC\include\random
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\sys/timeb.h

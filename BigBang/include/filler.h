@@ -4,8 +4,8 @@
 #include <vector>
 
 #include "base.h"
-#include "math_function_ptr.h"
 #include "tensor.h"
+#include "util/math_function_ptr.h"
 
 namespace BigBang {
 

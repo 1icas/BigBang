@@ -1,4 +1,4 @@
-Identity=src\math_function_ptr.cu
+Identity=src\util\math_function_ptr.cu
 AdditionalCompilerOptions=
 AdditionalCompilerOptions=
 AdditionalDependencies=

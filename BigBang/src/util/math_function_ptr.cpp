@@ -1,8 +1,8 @@
-#include "../include/math_function_ptr.h"
+#include "../../include/util/math_function_ptr.h"
 
 #include <algorithm>
 
-#include "../include/util/common.h"
+#include "../../include/util/common.h"
 
 int GenerateSeed() {
 	struct timeb timeSeed;

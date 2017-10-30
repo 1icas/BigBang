@@ -4,9 +4,9 @@
 
 #include "../../include/base.h"
 #include "../../include/layer_factory.h"
-#include "../../include/math_function_ptr.h"
 #include "../../include/layers/layer_type_macro.h"
 #include "../../include/util/common.h"
+#include "../../include/util/math_function_ptr.h"
 
 namespace BigBang {
 
