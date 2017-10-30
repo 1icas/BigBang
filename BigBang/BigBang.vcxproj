@@ -81,7 +81,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;cublas.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
@@ -97,7 +97,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;cublas.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
@@ -153,6 +153,9 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <CudaCompile Include="kernel.cu" />
     <CudaCompile Include="src\layers\conv_layer.cu" />
+    <CudaCompile Include="src\layers\mse_layer.cu" />
+    <CudaCompile Include="src\layers\sigmoid_layer.cu" />
+    <CudaCompile Include="src\math_function_ptr.cu" />
     <CudaCompile Include="src\test\test_tensor_gpu.cu" />
   </ItemGroup>
   <ItemGroup>
@@ -163,13 +166,17 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\layers\pooling_layer.cpp" />
     <ClCompile Include="src\layers\sigmoid_layer.cpp" />
     <ClCompile Include="src\math_function_ptr.cpp" />
+    <ClCompile Include="src\net.cpp" />
     <ClCompile Include="src\synced_memory.cpp" />
     <ClCompile Include="src\test\test.cpp" />
     <ClCompile Include="src\test\test_conv_layer.cpp" />
+    <ClCompile Include="src\test\test_gpu_gemm.cpp" />
     <ClCompile Include="src\test\test_inner_product.cpp" />
     <ClCompile Include="src\test\test_pooling_layer.cpp" />
     <ClCompile Include="src\test\test_tensor_cpu.cpp" />
+    <ClCompile Include="src\util\data_reader.cpp" />
     <ClCompile Include="src\util\im2col.cpp" />
+    <ClCompile Include="src\util\load_data.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\base.h" />
@@ -198,7 +205,9 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\tensor.h" />
     <ClInclude Include="include\util.h" />
     <ClInclude Include="include\util\common.h" />
+    <ClInclude Include="include\util\data_reader.h" />
     <ClInclude Include="include\util\im2col.h" />
+    <ClInclude Include="include\util\load_data.h" />
     <ClInclude Include="src\test\test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

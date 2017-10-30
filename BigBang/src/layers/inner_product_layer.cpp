@@ -58,7 +58,7 @@ void InnerProductLayer<dtype>::Check(const Tensor<dtype>* bottom, const Tensor<d
 
 template <typename dtype>
 void InnerProductLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
-	gemm(bottom->cpu_data(), bottom_row_, bottom_column_, false, weights_->cpu_data(), 
+	bigbang_cpu_gemm(bottom->cpu_data(), bottom_row_, bottom_column_, false, weights_->cpu_data(), 
 		weights_row_, weights_column_, false, 1.0, use_biases_ ? biases_->cpu_data() : (dtype*)nullptr, 
 		biases_row_, biases_column_, false, top->mutable_cpu_data());
 }
@@ -71,7 +71,7 @@ void InnerProductLayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dty
 	const dtype* bottom_data = bottom->cpu_data();
 	const dtype* top_diff_data = top->cpu_diff_data();
 	//get the delta
-	gemm(top_diff_data, top_row_, top_column_, false, weights_->cpu_data(), weights_row_,
+	bigbang_cpu_gemm(top_diff_data, top_row_, top_column_, false, weights_->cpu_data(), weights_row_,
 		weights_column_, true, 1.0, (dtype*)nullptr, 0, 0, false, bottom->mutable_cpu_diff_data());
 
 	UpdateParams(bottom_data, top_diff_data);
@@ -84,16 +84,16 @@ void InnerProductLayer<dtype>::UpdateParams(const dtype* bottom_data, const dtyp
 	if (use_biases_) {
 		dtype* biases_mutable_diff_data = biases_->mutable_cpu_data();
 		column_sum_plus(delta, bottom_row_, biases_row_, biases_mutable_diff_data);
-		minus(biases_->cpu_data(), biases_mutable_diff_data, biases_row_, alpha_ / bottom_row_, 
+		bigbang_cpu_minus(biases_->cpu_data(), biases_mutable_diff_data, biases_row_, alpha_ / bottom_row_, 
 			biases_->mutable_cpu_data());
 	}
 
 	//update the weights
 	dtype* weights_diff_data = weights_->mutable_cpu_diff_data();
 	bigbangmemset(weights_diff_data, 0, sizeof(dtype)*weights_row_*weights_column_);
-	gemm(bottom_data, bottom_row_, bottom_column_, true, delta, top_row_, top_column_,
+	bigbang_cpu_gemm(bottom_data, bottom_row_, bottom_column_, true, delta, top_row_, top_column_,
 		false, alpha_ / bottom_row_, (dtype*)nullptr, 0, 0, false, weights_diff_data);
-	minus(weights_->cpu_data(), weights_diff_data, weights_row_*weights_column_, static_cast<dtype>(1.0), weights_->mutable_cpu_data());
+	bigbang_cpu_minus(weights_->cpu_data(), weights_diff_data, weights_row_*weights_column_, static_cast<dtype>(1.0), weights_->mutable_cpu_data());
 }
 
 INSTANTIATE_CLASS(InnerProductLayer);

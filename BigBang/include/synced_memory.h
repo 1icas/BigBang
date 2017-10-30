@@ -7,6 +7,7 @@
 #include <cuda_runtime.h>
 
 #include "log.h"
+#include "util/common.h"
 
 namespace BigBang {
 
@@ -37,7 +38,7 @@ private:
 	void Init() {
 		if (mem_state_ == SyncedState::UNINITIALIZED) {
 			cpu_data_ = malloc(size_);
-			memset(cpu_data_, 0, size_);
+			bigbangmemset(cpu_data_, 0, size_);
 #ifndef CPU_ONLY
 			cudaMalloc(&gpu_data_, size_);
 			cudaMemset(gpu_data_, 0, size_);

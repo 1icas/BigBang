@@ -47,9 +47,7 @@ void SigmoidLayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* 
 	}
 }
 
-template class SigmoidLayer<float>;
-template class SigmoidLayer<double>;
-
+INSTANTIATE_CLASS(SigmoidLayer);
 REGISTRY_LAYER(Sigmoid);
 }
 

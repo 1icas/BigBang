@@ -1,0 +1,21 @@
+﻿  test_gpu_gemm.cpp
+d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(15): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\include\tensor.h(23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(22): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(7): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(7): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<float>”的引用
+  BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.exe
+  BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.pdb (Full PDB)
+  copy "D:\CUDAInstalled\Development\bin\cudart*.dll" "D:\git\BigBang\x64\Debug\"
+  D:\CUDAInstalled\Development\bin\cudart32_80.dll
+  D:\CUDAInstalled\Development\bin\cudart64_80.dll
+  已复制         2 个文件。

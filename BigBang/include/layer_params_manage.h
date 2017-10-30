@@ -33,10 +33,14 @@ struct ConvLayerParams {
 	ConvLayerParams(const int kernel_groups, const int kernel_channels, const int kernel_h, 
 		const int kernel_w, const int stride_h, const int stride_w, const int padding_h, const int padding_w, const dtype lambda, 
 		const dtype alpha, bool use_biases, const FillerParams<dtype>& weights_filler,
-		const FillerParams<dtype>& biases_filler) : kernel_groups_(kernel_groups), kernel_channels_(kernel_channels), kernel_h_(kernel_h),
+		const FillerParams<dtype>& biases_filler, const std::shared_ptr<Tensor<dtype>> kernels = nullptr,
+		const std::shared_ptr<Tensor<dtype>> biases = nullptr) : kernel_groups_(kernel_groups), kernel_channels_(kernel_channels), kernel_h_(kernel_h),
 		kernel_w_(kernel_w), stride_h_(stride_h), stride_w_(stride_w), padding_h_(padding_h), 
 		padding_w_(padding_w), lambda_(lambda), alpha_(alpha),
-		use_biases_(use_biases), kernels_filler_(weights_filler), biases_filler_(biases_filler){}
+		use_biases_(use_biases), kernels_filler_(weights_filler), biases_filler_(biases_filler),
+		kernels_(kernels), biases_(biases) {
+		filler_params();
+	}
 	int kernel_groups_ = 1;
 	int kernel_channels_ = 1;
 	int kernel_h_ = 1;
@@ -52,15 +56,30 @@ struct ConvLayerParams {
 	FillerParams<dtype> biases_filler_;
 	std::shared_ptr<Tensor<dtype>> kernels_ = nullptr;
 	std::shared_ptr<Tensor<dtype>> biases_ = nullptr;
+
+	void filler_params() {
+		if (kernels_ == nullptr && 
+			kernels_filler_.type_ != FillerParams<dtype>::FillerType::UNUSED) {
+			CreateFiller<dtype>(kernels_filler_)->Fill(kernels_.get());
+		}
+		if (biases_ == nullptr && 
+			use_biases_ &&
+			kernels_filler_.type_ != FillerParams<dtype>::FillerType::UNUSED) {
+			CreateFiller<dtype>(biases_filler_)->Fill(kernels_.get());
+		}
+	}
 };
 
 template<typename dtype>
 struct InnerProductLayerParams {
 	InnerProductLayerParams() = default;
 	InnerProductLayerParams(const dtype lambda, const dtype alpha, bool use_biases,
-		const FillerParams<dtype>& weights_filler, const FillerParams<dtype>& biases_filler) :
+		const FillerParams<dtype>& weights_filler, const FillerParams<dtype>& biases_filler,
+		const std::shared_ptr<Tensor<dtype>>& weights = nullptr, const std::shared_ptr<Tensor<dtype>>& biases = nullptr) :
 		lambda_(lambda), alpha_(alpha), use_biases_(use_biases), weights_filler_(weights_filler),
-		biases_filler_(biases_filler){}
+		biases_filler_(biases_filler), weights_(weights), biases_(biases){
+		filler_params();
+	}
 	dtype lambda_ = 1.0;
 	dtype alpha_ = 1.0;
 	bool use_biases_ = true;
@@ -68,6 +87,18 @@ struct InnerProductLayerParams {
 	FillerParams<dtype> biases_filler_;
 	std::shared_ptr<Tensor<dtype>> weights_ = nullptr;
 	std::shared_ptr<Tensor<dtype>> biases_ = nullptr;
+
+	void filler_params() {
+		if (weights_ == nullptr 
+			&& weights_filler_.type_ != FillerParams<dtype>::FillerType::UNUSED) {
+			CreateFiller<dtype>(weights_filler_)->Fill(weights_.get());
+		}
+		if (biases_ == nullptr 
+			&& use_biases_
+			&& biases_filler_.type_ != FillerParams<dtype>::FillerType::UNUSED) {
+			CreateFiller<dtype>(biases_filler_)->Fill(biases_.get());
+		}
+	}
 };
 
 template<typename dtype>
@@ -81,14 +112,20 @@ struct CostFuncLayerParams {
 template<typename dtype>
 struct MnistImageLayerParams {
 	MnistImageLayerParams() = default;
-
-	std::string train_data_dir;
-	std::string validation_data_dir;
-	std::string test_data_dir;
-	int train_data_nums;
-	int validation_data_nums;
-	int test_data_nums;
-	int channels;
+	MnistImageLayerParams(std::string train_data_dir, std::string validation_data_dir,
+		std::string test_data_dir, int train_data_nums, int validation_data_nums,
+		int test_data_nums, int channels, int w, int h) :
+		train_data_dir_(train_data_dir), validation_data_dir_(validation_data_dir),
+		test_data_dir_(test_data_dir), train_data_nums_(train_data_nums),
+		validation_data_nums_(validation_data_nums), test_data_nums_(test_data_nums),
+		channels_(channels), w_(w), h_(h) {}
+	std::string train_data_dir_;
+	std::string validation_data_dir_;
+	std::string test_data_dir_;
+	int train_data_nums_;
+	int validation_data_nums_;
+	int test_data_nums_;
+	int channels_;
 	int w_;
 	int h_;
 };
@@ -101,6 +138,7 @@ struct LayerParamsManage {
 	ConvLayerParams<dtype> conv_layer_params_;
 	InnerProductLayerParams<dtype> inner_product_layer_params_;
 	CostFuncLayerParams<dtype> cost_func_layer_params_;
+	MnistImageLayerParams<dtype> mnist_image_layer_params_;
 };
 
 }

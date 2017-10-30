@@ -34,7 +34,7 @@ public:
 
 	static std::shared_ptr<Layer<dtype>> CreateLayer(const LayerParamsManage<dtype>& params) {
 		CreatorRegistry& registry = Registry();
-		std::string type = params.type;
+		std::string type = params.type_;
 		if (registry.count(type)) {
 			return registry[type](params);
 		}

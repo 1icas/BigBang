@@ -17,8 +17,8 @@ public:
 protected:
 	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
-	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override {};
-	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override {};
+	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
+	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 
 private:
 	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);

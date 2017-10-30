@@ -49,10 +49,9 @@ void MSELayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bott
 	const dtype* result_data = correct_result_->cpu_data();
 	dtype* diff_data = bottom->mutable_cpu_diff_data();
 
-	minus(top_data, result_data, correct_result_->size(), static_cast<dtype>(1.0), diff_data);
+	bigbang_cpu_minus(top_data, result_data, correct_result_->size(), static_cast<dtype>(1.0), diff_data);
 }
 
-template class MSELayer<float>;
-template class MSELayer<double>;
+INSTANTIATE_CLASS(MSELayer);
 REGISTRY_LAYER(MSE);
 }

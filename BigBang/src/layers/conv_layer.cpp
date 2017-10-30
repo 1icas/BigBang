@@ -78,7 +78,7 @@ void ConvLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* t
 	for (int i = 0; i < nums_; ++i) {
 		im2col(bottom_data + i * bottom_offset, bottom_channels_, bottom_row_, bottom_column_, kernel_h_, kernel_w_, 
 			padding_h_, padding_w_, stride_h_, stride_w_, dilation_h_, dilation_w_, unroll_bottom_data + i * unroll_bottom_offset);
-		gemm(kernels_data, kernel_groups_, kernel_channels_ * kernel_h_ * kernel_w_, false,
+		bigbang_cpu_gemm(kernels_data, kernel_groups_, kernel_channels_ * kernel_h_ * kernel_w_, false,
 			unroll_bottom_data + i * unroll_bottom_offset, unroll_bottom_row, unroll_bottom_column, false, 1.0,
 			(dtype*)nullptr, 0, 0, false, top_data + i*top_channels_*top_row_*top_column_);
 	}
@@ -127,7 +127,7 @@ void ConvLayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bot
 		const int temp_size = kernel_channels_*kernel_h_*kernel_w_*top_row_*top_column_;
 		dtype* temp = new dtype[temp_size];
 		bigbangmemset(temp, 0, sizeof(dtype) * temp_size);
-		gemm(kernels_->mutable_cpu_data(), kernel_groups_, kernel_channels_*kernel_h_*kernel_w_, true,
+		bigbang_cpu_gemm(kernels_->mutable_cpu_data(), kernel_groups_, kernel_channels_*kernel_h_*kernel_w_, true,
 			top_diff_data + i*top_channels_*top_row_*top_column_, top_channels_, top_row_*top_column_, false, 1.0, 
 			(dtype*)(nullptr), 0, 0, false, temp);
 		col2im(temp, bottom_channels_, bottom_row_, bottom_column_, kernel_h_, kernel_w_, padding_h_, padding_w_,
@@ -161,7 +161,7 @@ void ConvLayer<dtype>::UpdateParams(const dtype* bottom_data, const dtype* delta
 			row_sum_plus(delta + i*top_channels_*top_row_*top_column_, top_channels_, top_row_*top_column_, biases_diff_data);
 		}
 		dtype* biases_mutable_data = biases_->mutable_cpu_data();
-		minus(biases_mutable_data, biases_diff_data, biases_size, alpha_ / nums_, biases_mutable_data);
+		bigbang_cpu_minus(biases_mutable_data, biases_diff_data, biases_size, alpha_ / nums_, biases_mutable_data);
 	}
 
 	//update kernels
@@ -170,12 +170,12 @@ void ConvLayer<dtype>::UpdateParams(const dtype* bottom_data, const dtype* delta
 	bigbangmemset(mutable_kernels_diff_data, 0, sizeof(dtype)*kernel_size);
 	const int unroll_size = bottom_unroll_row*bottom_unroll_column;
 	for (int i = 0; i < nums_; ++i) {
-		gemm(delta + i*top_channels_*top_row_*top_column_, top_channels_, top_row_*top_column_, false, 
+		bigbang_cpu_gemm(delta + i*top_channels_*top_row_*top_column_, top_channels_, top_row_*top_column_, false, 
 			bottom_data + unroll_size*i, bottom_unroll_row, bottom_unroll_column, true, 1.0, (dtype*)(nullptr),
 			0, 0, false, mutable_kernels_diff_data);
 	}
 	dtype* kernel_data = kernels_->mutable_cpu_data();
-	minus(kernel_data, mutable_kernels_diff_data, kernel_size, alpha_ / nums_, kernel_data);
+	bigbang_cpu_minus(kernel_data, mutable_kernels_diff_data, kernel_size, alpha_ / nums_, kernel_data);
 }
 
 INSTANTIATE_CLASS(ConvLayer);

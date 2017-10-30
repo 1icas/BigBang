@@ -23,7 +23,7 @@ void transpose(const dtype* a, const int row, const int column, dtype* b) {
 
 //TODO: should we need to memset the d pointer?
 template <typename dtype>
-void gemm(const dtype* a, const int a_row, const int a_column, bool transpose_a, 
+void bigbang_cpu_gemm(const dtype* a, const int a_row, const int a_column, bool transpose_a, 
 	const dtype* b, const int b_row, const int b_column, bool transpose_b, 
 	double alpha, const dtype* c, const int c_row, const int c_column, bool transpose_c, dtype* d) {
 	dtype* d_out = d;
@@ -70,10 +70,10 @@ void gemm(const dtype* a, const int a_row, const int a_column, bool transpose_a,
 	if (transpose_b) free(_b);
 	if (transpose_c) free(_c);
 }
-template void gemm<float>(const float* a, const int a_row, const int a_column, bool transpose_a, 
+template void bigbang_cpu_gemm<float>(const float* a, const int a_row, const int a_column, bool transpose_a, 
 	const float* b, const int b_row, const int b_column, bool transpose_b, double alpha, 
 	const float* c, const int c_row, const int c_column, bool transpose_c, float* d);
-template void gemm<double>(const double* a, const int a_row, const int a_column, 
+template void bigbang_cpu_gemm<double>(const double* a, const int a_row, const int a_column, 
 	bool transpose_a, const double* b, const int b_row, const int b_column,
 	bool transpose_b, double alpha, const double* c, const int c_row, const int c_column, 
 	bool transpose_c, double* d);
@@ -88,13 +88,13 @@ template void plus<float>(const float* a, const int size, const float m, float* 
 template void plus<double>(const double* a, const int size, const double m, double* b);
 
 template <typename dtype>
-void minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {
+void bigbang_cpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {
 	for (int i = 0; i < size; ++i) {
 		c[i] = a[i] - alpha*b[i];
 	}
 }
-template void minus<float>(const float* a, const float* b, const int size, const float alpha, float* c);
-template void minus<double>(const double* a, const double* b, const int size, const double alpha, double* c);
+template void bigbang_cpu_minus<float>(const float* a, const float* b, const int size, const float alpha, float* c);
+template void bigbang_cpu_minus<double>(const double* a, const double* b, const int size, const double alpha, double* c);
 
 template <typename dtype>
 void column_sum_plus(const dtype* a, const int row, const int column, dtype* b) {

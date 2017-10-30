@@ -14,7 +14,6 @@ public:
 	virtual inline const char* FunctionType() const override {
 		return IMAGE_FUNC_TYPE;
 	}
-
 	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override {};
 
 protected:

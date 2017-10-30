@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "base.h"
+#include "math_function_ptr.h"
 #include "tensor.h"
 
 namespace BigBang {
@@ -12,13 +13,14 @@ namespace BigBang {
 template<typename dtype>
 struct FillerParams {
 	enum FillerType {
+		UNUSED,
 		GAUSSIAN_DISTRIBUTION
 	};
 	FillerParams() = default;
 	FillerParams(const FillerType& type, const dtype mean, const dtype std)
 		:type_(type), mean_(mean), std_(std){}
 
-	FillerType type_ = FillerType::GAUSSIAN_DISTRIBUTION;
+	FillerType type_ = FillerType::UNUSED;
 	dtype mean_ = 0;
 	dtype std_ = 1;
 };
@@ -45,13 +47,16 @@ public:
 		VALIDATE_POINTER(t);
 		const int size = t->size();
 		dtype* data = t->mutable_cpu_data();
-		GaussianDistribution(params_.mean_, params_.std_, size, data);
+		GaussianDistribution<dtype>(params_.mean_, params_.std_, size, data);
 	}
 };
 
 template<typename dtype>
 std::shared_ptr<Filler<dtype>> CreateFiller(const FillerParams<dtype>& params) {
 	switch (params.type_) {
+	case FillerParams<dtype>::FillerType::UNUSED:
+		return nullptr;
+		break;
 	case FillerParams<dtype>::FillerType::GAUSSIAN_DISTRIBUTION:
 		return std::make_shared<GaussianDistributionFiller<dtype>>(params);
 		break;
