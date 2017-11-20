@@ -11,7 +11,7 @@
 #include <device_launch_parameters.h>
 
 #include "../../include/base.h"
-#include "../../include/gpu_config.h"
+//#include "../../include/gpu_config.h"
 #include "../../include/layer.h"
 #include "../../include/log.h"
 #include "../../include/tensor.h"

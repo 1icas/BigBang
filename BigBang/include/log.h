@@ -1,7 +1,7 @@
 #ifndef LOG_H
 #define LOG_H
 
-#include "device_log.h"
+//#include "device_log.h"
 
 
 

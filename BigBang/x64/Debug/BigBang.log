@@ -1,27 +1,56 @@
-﻿  Compiling CUDA source file src\util\math_function_ptr.cu...
-  Compiling CUDA source file src\layers\mse_layer.cu...
+﻿  Compiling CUDA source file src\layers\mse_layer.cu...
+  Compiling CUDA source file src\layers\relu_layer.cu...
   Compiling CUDA source file src\layers\pooling_layer.cu...
   Compiling CUDA source file src\layers\sigmoid_layer.cu...
-  Compiling CUDA source file src\layers\relu_layer.cu...
   Compiling CUDA source file src\test\test_tensor_gpu.cu...
-  
-  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\math_function_ptr.cu.obj "D:\git\BigBang\BigBang\src\util\math_function_ptr.cu" 
-  
-  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\pooling_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\pooling_layer.cu" 
   
   D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\mse_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\mse_layer.cu" 
   
+  
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\relu_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\relu_layer.cu" 
   D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\sigmoid_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\sigmoid_layer.cu" 
   
   D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\test_tensor_gpu.cu.obj "D:\git\BigBang\BigBang\src\test\test_tensor_gpu.cu" 
   
-  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\relu_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\relu_layer.cu" 
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\pooling_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\pooling_layer.cu" 
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -57,15 +86,6 @@ d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -73,46 +93,6 @@ d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: �
 d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\git\bigbang\bigbang\src\util\../../include/config.h(23): warning : extra ";" ignored
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
@@ -120,44 +100,44 @@ d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
@@ -176,12 +156,12 @@ d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该�
 d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -190,39 +170,6 @@ d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\git\bigbang\bigbang\src\util\../../include/config.h(23): warning : extra ";" ignored
 d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -270,136 +217,75 @@ d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
 d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
-d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
-d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
-d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
 d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
 d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
-D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
-D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
-D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
 D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-  math_function_ptr.cu
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -492,41 +378,6 @@ d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -545,6 +396,51 @@ d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C48
 d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -673,8 +569,8 @@ d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
-d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
   mse_layer.cu
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -754,6 +650,614 @@ D:\git\BigBang\BigBang\depend\include\google/protobuf/io/coded_stream.h(869): wa
 D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
 D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
 D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+  load_data.cpp
+  image_common.cpp
+  data_reader.cpp
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\vs2015\vc\include\memory(901): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\util\data_reader.cpp(13): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<dtype>”的引用
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\util\data_reader.cpp(9): note: 编译类 模板 成员函数“void BigBang::DataReader<double>::Read(void)”时
+  d:\git\bigbang\bigbang\src\util\data_reader.cpp(56): note: 参见对正在编译的类 模板 实例化“BigBang::DataReader<double>”的引用
+  synced_memory.cpp
+  正在生成代码...
+  正在编译...
+  test_tensor_cpu.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\test\test_tensor_cpu.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_tensor_cpu.cpp(6): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_tensor_cpu.cpp(6): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<float>”的引用
+  test_pooling_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_pooling_layer.cpp(11): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_pooling_layer.cpp(11): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<float>”的引用
+  test_inner_product.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(9): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(75): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(79): warning C4838: 从“double”转换到“float”需要收缩转换
+d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(79): warning C4305: “初始化”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(4): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_inner_product.cpp(4): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<float>”的引用
+  test_gpu_gemm.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(15): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(7): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_gpu_gemm.cpp(7): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<float>”的引用
+  test_fully_connect_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\test\test_fully_connect_layer.cpp(87): warning C4930: “BigBang::CostFuncLayerParams<dtype> cflp(void)”: 未调用原型函数(是否是有意用变量定义的?)
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\src\test\test_fully_connect_layer.cpp(179): note: 参见对正在编译的函数 模板 实例化“void Test::TestFullyConnectLayer<float>(void)”的引用
+d:\git\bigbang\bigbang\src\test\test_fully_connect_layer.cpp(87): warning C4930: “BigBang::CostFuncLayerParams<dtype> cflp(void)”: 未调用原型函数(是否是有意用变量定义的?)
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\test\test_fully_connect_layer.cpp(180): note: 参见对正在编译的函数 模板 实例化“void Test::TestFullyConnectLayer<double>(void)”的引用
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_fully_connect_layer.cpp(57): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_fully_connect_layer.cpp(57): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<dtype>”的引用
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\test\test_fully_connect_layer.cpp(180): note: 参见对正在编译的函数 模板 实例化“void Test::TestFullyConnectLayer<double>(void)”的引用
+  test_conv_layer_network.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(76): warning C4930: “BigBang::CostFuncLayerParams<dtype> cflp(void)”: 未调用原型函数(是否是有意用变量定义的?)
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\test\test.h(48): note: 参见对正在编译的函数 模板 实例化“void Test::TestConvLayerNetwork<double>(void)”的引用
+d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(13): warning C4305: “初始化”: 从“double”到“float”截断
+  d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(182): note: 参见对正在编译的函数 模板 实例化“void Test::TestConvLayerNetwork<float>(void)”的引用
+d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(76): warning C4930: “BigBang::CostFuncLayerParams<dtype> cflp(void)”: 未调用原型函数(是否是有意用变量定义的?)
+          with
+          [
+              dtype=float
+          ]
+d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(198): warning C4305: “初始化”: 从“double”到“float”截断
+  d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(367): note: 参见对正在编译的函数 模板 实例化“void Test::TestConvLayerNetwork1<float>(void)”的引用
+d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(261): warning C4930: “BigBang::CostFuncLayerParams<dtype> cflp(void)”: 未调用原型函数(是否是有意用变量定义的?)
+          with
+          [
+              dtype=float
+          ]
+d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(261): warning C4930: “BigBang::CostFuncLayerParams<dtype> cflp(void)”: 未调用原型函数(是否是有意用变量定义的?)
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(368): note: 参见对正在编译的函数 模板 实例化“void Test::TestConvLayerNetwork1<double>(void)”的引用
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              dtype=float,
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(27): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              dtype=float,
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(27): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<dtype>”的引用
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\src\test\test_conv_layer_network.cpp(182): note: 参见对正在编译的函数 模板 实例化“void Test::TestConvLayerNetwork<float>(void)”的引用
+  test_conv_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(9): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(12): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(92): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(95): warning C4244: “=”: 从“int”转换到“float”，可能丢失数据
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(266): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(268): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(269): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(270): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(273): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(274): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(384): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(386): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(387): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(388): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(391): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(392): warning C4305: “=”: 从“double”到“float”截断
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(4): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\test\test_conv_layer.cpp(4): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<float>”的引用
+  test.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+  net.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+  sigmoid_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(51): warning C4661: “void BigBang::SigmoidLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(21): note: 参见“BigBang::SigmoidLayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(51): warning C4661: “void BigBang::SigmoidLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(22): note: 参见“BigBang::SigmoidLayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(51): warning C4661: “void BigBang::SigmoidLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(21): note: 参见“BigBang::SigmoidLayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(51): warning C4661: “void BigBang::SigmoidLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(22): note: 参见“BigBang::SigmoidLayer<double>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(47): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+  d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(41): note: 编译类 模板 成员函数“void BigBang::SigmoidLayer<float>::Backward_CPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”时
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(51): note: 参见对正在编译的类 模板 实例化“BigBang::SigmoidLayer<float>”的引用
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(18): warning C4661: “void BigBang::SigmoidLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(21): note: 参见“BigBang::SigmoidLayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(18): warning C4661: “void BigBang::SigmoidLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(22): note: 参见“BigBang::SigmoidLayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(18): warning C4661: “void BigBang::SigmoidLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(21): note: 参见“BigBang::SigmoidLayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(18): warning C4661: “void BigBang::SigmoidLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(22): note: 参见“BigBang::SigmoidLayer<double>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(12): warning C4244: “return”: 从“double”转换到“float”，可能丢失数据
+  d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(36): note: 参见对正在编译的函数 模板 实例化“dtype sigmoid<dtype>(dtype)”的引用
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\src\layers\sigmoid_layer.cpp(31): note: 编译类 模板 成员函数“void BigBang::SigmoidLayer<float>::Forward_CPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”时
+          with
+          [
+              dtype=float
+          ]
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::SigmoidLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(21): note: 参见“BigBang::SigmoidLayer<float>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::SigmoidLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(22): note: 参见“BigBang::SigmoidLayer<float>::Backward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::SigmoidLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(21): note: 参见“BigBang::SigmoidLayer<double>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::SigmoidLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\sigmoid_layer.h(22): note: 参见“BigBang::SigmoidLayer<double>::Backward_GPU”的声明
+  relu_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(44): warning C4661: “void BigBang::ReluLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(21): note: 参见“BigBang::ReluLayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(44): warning C4661: “void BigBang::ReluLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(22): note: 参见“BigBang::ReluLayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(44): warning C4661: “void BigBang::ReluLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(21): note: 参见“BigBang::ReluLayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(44): warning C4661: “void BigBang::ReluLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(22): note: 参见“BigBang::ReluLayer<double>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(11): warning C4661: “void BigBang::ReluLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(21): note: 参见“BigBang::ReluLayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(11): warning C4661: “void BigBang::ReluLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(22): note: 参见“BigBang::ReluLayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(11): warning C4661: “void BigBang::ReluLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(21): note: 参见“BigBang::ReluLayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\relu_layer.cpp(11): warning C4661: “void BigBang::ReluLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(22): note: 参见“BigBang::ReluLayer<double>::Backward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::ReluLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(21): note: 参见“BigBang::ReluLayer<float>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::ReluLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(22): note: 参见“BigBang::ReluLayer<float>::Backward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::ReluLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(21): note: 参见“BigBang::ReluLayer<double>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::ReluLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\relu_layer.h(22): note: 参见“BigBang::ReluLayer<double>::Backward_GPU”的声明
+  pooling_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(158): warning C4661: “void BigBang::PoolingLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(39): note: 参见“BigBang::PoolingLayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(158): warning C4661: “void BigBang::PoolingLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(40): note: 参见“BigBang::PoolingLayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(158): warning C4661: “void BigBang::PoolingLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(39): note: 参见“BigBang::PoolingLayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(158): warning C4661: “void BigBang::PoolingLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(40): note: 参见“BigBang::PoolingLayer<double>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(75): warning C4661: “void BigBang::PoolingLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(39): note: 参见“BigBang::PoolingLayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(75): warning C4661: “void BigBang::PoolingLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(40): note: 参见“BigBang::PoolingLayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(75): warning C4661: “void BigBang::PoolingLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(39): note: 参见“BigBang::PoolingLayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(75): warning C4661: “void BigBang::PoolingLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(40): note: 参见“BigBang::PoolingLayer<double>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<int>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              _Ty=int
+          ]
+  d:\vs2015\vc\include\memory(901): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<int>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(114): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<int>”的引用
+  d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(109): note: 编译类 模板 成员函数“void BigBang::PoolingLayer<float>::Forward_CPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”时
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\src\layers\pooling_layer.cpp(158): note: 参见对正在编译的类 模板 实例化“BigBang::PoolingLayer<float>”的引用
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::PoolingLayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(39): note: 参见“BigBang::PoolingLayer<float>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::PoolingLayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(40): note: 参见“BigBang::PoolingLayer<float>::Backward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::PoolingLayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(39): note: 参见“BigBang::PoolingLayer<double>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::PoolingLayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\pooling_layer.h(40): note: 参见“BigBang::PoolingLayer<double>::Backward_GPU”的声明
+  mse_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(60): warning C4661: “void BigBang::MSELayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(28): note: 参见“BigBang::MSELayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(60): warning C4661: “void BigBang::MSELayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(29): note: 参见“BigBang::MSELayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(60): warning C4661: “void BigBang::MSELayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(28): note: 参见“BigBang::MSELayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(60): warning C4661: “void BigBang::MSELayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(29): note: 参见“BigBang::MSELayer<double>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(13): warning C4661: “void BigBang::MSELayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(28): note: 参见“BigBang::MSELayer<float>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(13): warning C4661: “void BigBang::MSELayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(29): note: 参见“BigBang::MSELayer<float>::Backward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(13): warning C4661: “void BigBang::MSELayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(28): note: 参见“BigBang::MSELayer<double>::Forward_GPU”的声明
+d:\git\bigbang\bigbang\src\layers\mse_layer.cpp(13): warning C4661: “void BigBang::MSELayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(29): note: 参见“BigBang::MSELayer<double>::Backward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::MSELayer<float>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(28): note: 参见“BigBang::MSELayer<float>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::MSELayer<float>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=float
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(29): note: 参见“BigBang::MSELayer<float>::Backward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::MSELayer<double>::Forward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(28): note: 参见“BigBang::MSELayer<double>::Forward_GPU”的声明
+d:\vs2015\vc\include\memory(655): warning C4661: “void BigBang::MSELayer<double>::Backward_GPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”: 没有为显式模板实例化请求提供适当的定义
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\include\layers\mse_layer.h(29): note: 参见“BigBang::MSELayer<double>::Backward_GPU”的声明
+  inner_product_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\vs2015\vc\include\memory(901): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\layers\inner_product_layer.cpp(75): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<dtype>”的引用
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\layers\inner_product_layer.cpp(68): note: 编译类 模板 成员函数“void BigBang::InnerProductLayer<double>::Forward_CPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”时
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\layers\inner_product_layer.cpp(184): note: 参见对正在编译的类 模板 实例化“BigBang::InnerProductLayer<double>”的引用
+  image_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
   conv_layer.cpp
 d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
 d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
@@ -784,22 +1288,6 @@ d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从
           ]
   d:\git\bigbang\bigbang\src\layers\conv_layer.cpp(288): note: 参见对正在编译的类 模板 实例化“BigBang::ConvLayer<double>”的引用
   正在生成代码...
-  正在跳过...(未检测到相关更改)
-  test_tensor_cpu.cpp
-  test_pooling_layer.cpp
-  test_inner_product.cpp
-  test_gpu_gemm.cpp
-  test_fully_connect_layer.cpp
-  test_conv_layer_network.cpp
-  test_conv_layer.cpp
-  test.cpp
-  net.cpp
-  sigmoid_layer.cpp
-  relu_layer.cpp
-  pooling_layer.cpp
-  mse_layer.cpp
-  inner_product_layer.cpp
-  image_layer.cpp
   BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.exe
   BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.pdb (Full PDB)
   copy "D:\CUDAInstalled\Development\bin\cudart*.dll" "D:\git\BigBang\x64\Debug\"

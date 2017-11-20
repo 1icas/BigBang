@@ -6,8 +6,9 @@
 
 #include <cuda_runtime.h>
 
+#include "base.h"
 #include "gtest.h"
-#include "log.h"
+//#include "log.h"
 #include "util/common.h"
 
 namespace BigBang {

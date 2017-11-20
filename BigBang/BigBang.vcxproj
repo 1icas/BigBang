@@ -197,9 +197,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\base.h" />
     <ClInclude Include="include\big_bang.h" />
     <ClInclude Include="include\config.h" />
-    <ClInclude Include="include\device_log.h" />
     <ClInclude Include="include\filler.h" />
-    <ClInclude Include="include\gpu_config.h" />
     <ClInclude Include="include\gtest.h" />
     <ClInclude Include="include\layer.h" />
     <ClInclude Include="include\layers\activation_func_layer.h" />

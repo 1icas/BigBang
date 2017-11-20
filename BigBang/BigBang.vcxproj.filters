@@ -131,9 +131,6 @@
     <ClInclude Include="include\big_bang.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\gpu_config.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="include\solver.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -159,9 +156,6 @@
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="include\log.h">
-      <Filter>include</Filter>
-    </ClInclude>
-    <ClInclude Include="include\device_log.h">
       <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="src\test\test.h">
