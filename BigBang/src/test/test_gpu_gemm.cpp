@@ -17,8 +17,7 @@ void Test::TestGpuGemm() {
 	Tensor<float> c(std::vector<int>{m, n});
 	Tensor<float> d(std::vector<int>{m, n});
 
-	bigbang_cpu_gemm<float>(a.cpu_data(), m, k, false, b.cpu_data(), k, n, false, 1.0, nullptr, 0, 0, false, 
-		c.mutable_cpu_data());
+	bigbang_cpu_gemm<float>(false, false, m, n, k, 1., a.cpu_data(), b.cpu_data(), 0., c.mutable_cpu_data());
 	float alpha = 1.f;
 	float beta = 0.;
 	bigbang_gpu_gemm<float>(false, false, m, n, k, 1., a.gpu_data(), b.gpu_data(), 0., d.mutable_gpu_data());

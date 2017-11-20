@@ -15,7 +15,7 @@ template<typename dtype>
 class ConvLayer : public NeuronFuncLayer<dtype> {
 public:
 	ConvLayer(const LayerParamsManage<dtype>& params) :
-		NeuronFuncLayer(params), unroll_bottom_(nullptr) {
+		NeuronFuncLayer(params), unroll_bottom_(nullptr), relay_space_(nullptr) {
 		conv_params_ = params.conv_layer_params_;
 		kernel_groups_ = conv_params_.kernel_groups_;
 		kernel_channels_ = conv_params_.kernel_channels_;
@@ -31,18 +31,17 @@ public:
 		kernels_ = conv_params_.kernels_;
 		biases_ = conv_params_.biases_;
 	}
-
+	virtual ~ConvLayer() {}
 	virtual inline const char* Type() const override {
 		return CONV_LAYER_TYPE;
 	}
-
 	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 
 protected:
 	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
-	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override {};
-	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override {};
+	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
+	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 
 private:
 
@@ -50,11 +49,17 @@ private:
 	// guarantee all the tensor have the right dimension info
 	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
-	void UpdateParams(const dtype* bottom_data, const dtype* delta);
+	void UpdateParams_CPU(const dtype* bottom_data, const dtype* delta);
+	void UpdateParams_GPU(const dtype* bottom_data, const dtype* delta);
 
 private:
 	ConvLayerParams<dtype> conv_params_;
 	std::shared_ptr<Tensor<dtype>> unroll_bottom_;
+	//TODO:may be we can not use this two variable
+	std::shared_ptr<Tensor<dtype>> relay_space_;
+	std::shared_ptr<Tensor<dtype>> middle_;
+	//std::shared_ptr<Tensor<dtype>> kernel_diff_;
+
 	int kernel_groups_;
 	int kernel_channels_;
 	int kernel_h_;

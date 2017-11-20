@@ -93,11 +93,14 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;WIN64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./depend/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart.lib;cublas.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;cublas.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./depend/lib/protobuf;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
@@ -134,13 +137,16 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;WIN64;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>./depend/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;cublas.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libprotobuf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./depend/lib/protobuf;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command>echo copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"
@@ -154,46 +160,59 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <CudaCompile Include="kernel.cu" />
     <CudaCompile Include="src\layers\conv_layer.cu" />
     <CudaCompile Include="src\layers\mse_layer.cu" />
+    <CudaCompile Include="src\layers\pooling_layer.cu" />
+    <CudaCompile Include="src\layers\relu_layer.cu" />
     <CudaCompile Include="src\layers\sigmoid_layer.cu" />
     <CudaCompile Include="src\test\test_tensor_gpu.cu" />
+    <CudaCompile Include="src\util\im2col.cu" />
     <CudaCompile Include="src\util\math_function_ptr.cu" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="proto\bigbang.pb.cc" />
     <ClCompile Include="src\big_bang.cpp" />
     <ClCompile Include="src\layers\conv_layer.cpp" />
+    <ClCompile Include="src\layers\image_layer.cpp" />
     <ClCompile Include="src\layers\inner_product_layer.cpp" />
     <ClCompile Include="src\layers\mse_layer.cpp" />
     <ClCompile Include="src\layers\pooling_layer.cpp" />
+    <ClCompile Include="src\layers\relu_layer.cpp" />
     <ClCompile Include="src\layers\sigmoid_layer.cpp" />
     <ClCompile Include="src\net.cpp" />
     <ClCompile Include="src\synced_memory.cpp" />
     <ClCompile Include="src\test\test.cpp" />
     <ClCompile Include="src\test\test_conv_layer.cpp" />
+    <ClCompile Include="src\test\test_conv_layer_network.cpp" />
+    <ClCompile Include="src\test\test_fully_connect_layer.cpp" />
     <ClCompile Include="src\test\test_gpu_gemm.cpp" />
     <ClCompile Include="src\test\test_inner_product.cpp" />
     <ClCompile Include="src\test\test_pooling_layer.cpp" />
     <ClCompile Include="src\test\test_tensor_cpu.cpp" />
     <ClCompile Include="src\util\data_reader.cpp" />
     <ClCompile Include="src\util\im2col.cpp" />
+    <ClCompile Include="src\util\image_common.cpp" />
     <ClCompile Include="src\util\load_data.cpp" />
     <ClCompile Include="src\util\math_function_ptr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\base.h" />
     <ClInclude Include="include\big_bang.h" />
+    <ClInclude Include="include\config.h" />
     <ClInclude Include="include\device_log.h" />
     <ClInclude Include="include\filler.h" />
     <ClInclude Include="include\gpu_config.h" />
+    <ClInclude Include="include\gtest.h" />
     <ClInclude Include="include\layer.h" />
     <ClInclude Include="include\layers\activation_func_layer.h" />
     <ClInclude Include="include\layers\conv_layer.h" />
     <ClInclude Include="include\layers\cost_func_layer.h" />
     <ClInclude Include="include\layers\image_func_layer.h" />
+    <ClInclude Include="include\layers\image_layer.h" />
     <ClInclude Include="include\layers\inner_product_layer.h" />
     <ClInclude Include="include\layers\layer_type_macro.h" />
     <ClInclude Include="include\layers\mse_layer.h" />
     <ClInclude Include="include\layers\neuron_func_layer.h" />
     <ClInclude Include="include\layers\pooling_layer.h" />
+    <ClInclude Include="include\layers\relu_layer.h" />
     <ClInclude Include="include\layers\sigmoid_layer.h" />
     <ClInclude Include="include\layer_factory.h" />
     <ClInclude Include="include\layer_params_manage.h" />
@@ -206,9 +225,14 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\util\common.h" />
     <ClInclude Include="include\util\data_reader.h" />
     <ClInclude Include="include\util\im2col.h" />
+    <ClInclude Include="include\util\image_common.h" />
     <ClInclude Include="include\util\load_data.h" />
     <ClInclude Include="include\util\math_function_ptr.h" />
+    <ClInclude Include="proto\bigbang.pb.h" />
     <ClInclude Include="src\test\test.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="proto\bigbang.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

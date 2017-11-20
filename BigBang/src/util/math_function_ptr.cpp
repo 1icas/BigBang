@@ -22,61 +22,132 @@ void transpose(const dtype* a, const int row, const int column, dtype* b) {
 }
 
 //TODO: should we need to memset the d pointer?
-template <typename dtype>
-void bigbang_cpu_gemm(const dtype* a, const int a_row, const int a_column, bool transpose_a, 
-	const dtype* b, const int b_row, const int b_column, bool transpose_b, 
-	double alpha, const dtype* c, const int c_row, const int c_column, bool transpose_c, dtype* d) {
-	dtype* d_out = d;
+//template <typename dtype>
+//void bigbang_cpu_gemm(const dtype* a, const int a_row, const int a_column, bool transpose_a, 
+//	const dtype* b, const int b_row, const int b_column, bool transpose_b, 
+//	double alpha, const dtype* c, const int c_row, const int c_column, bool transpose_c, dtype* d) {
+//	dtype* d_out = d;
+//	dtype* _a = const_cast<dtype*>(a);
+//	dtype* _b = const_cast<dtype*>(b);
+//	dtype* _c = const_cast<dtype*>(c);
+//
+//	int _a_row = a_row;
+//	int _a_column = a_column;
+//	int _b_row = b_row;
+//	int _b_column = b_column;
+//	int _c_row = c_row;
+//	int _c_column = c_column;
+//
+//	int dtype_size = sizeof(dtype);
+//	if (transpose_a) {
+//		_a = static_cast<dtype*>(malloc(dtype_size*a_row*a_column));
+//		transpose(a, a_row, a_column, _a);
+//		std::swap(_a_row, _a_column);
+//	}
+//	if (transpose_b) {
+//		_b = static_cast<dtype*>(malloc(dtype_size*b_row*b_column));
+//		transpose(b, b_row, b_column, _b);
+//		std::swap(_b_row, _b_column);
+//	}
+//	if (transpose_c) {
+//		_c = static_cast<dtype*>(malloc(dtype_size*c_row*c_column));
+//		transpose(c, c_row, c_column, _c);
+//		std::swap(_c_row, _c_column);
+//	}
+//
+//	for (int i = 0; i < _a_row; ++i) {
+//		for (int k = 0; k < _b_column; ++k) {
+//			for (int m = 0; m < _a_column; ++m) {
+//				*d_out += _a[i*_a_column + m] * _b[m*_b_column + k];
+//			}
+//			*d_out *= alpha;
+//			if (_c) *d_out += _c[k];
+//			++d_out;
+//		}
+//	}
+//
+//	if (transpose_a) free(_a);
+//	if (transpose_b) free(_b);
+//	if (transpose_c) free(_c);
+//}
+//
+//template void bigbang_cpu_gemm<float>(const float* a, const int a_row, const int a_column, bool transpose_a, 
+//	const float* b, const int b_row, const int b_column, bool transpose_b, double alpha, 
+//	const float* c, const int c_row, const int c_column, bool transpose_c, float* d);
+//template void bigbang_cpu_gemm<double>(const double* a, const int a_row, const int a_column, 
+//	bool transpose_a, const double* b, const int b_row, const int b_column,
+//	bool transpose_b, double alpha, const double* c, const int c_row, const int c_column, 
+//	bool transpose_c, double* d);
+
+template<typename dtype>
+void bigbang_cpu_gemm(
+	bool trans_a,
+	bool trans_b,
+	int m,
+	int n,
+	int k,
+	const dtype alpha,
+	const dtype* a,
+	const dtype* b,
+	const dtype beta,
+	dtype* c) {
 	dtype* _a = const_cast<dtype*>(a);
 	dtype* _b = const_cast<dtype*>(b);
-	dtype* _c = const_cast<dtype*>(c);
 
-	int _a_row = a_row;
-	int _a_column = a_column;
-	int _b_row = b_row;
-	int _b_column = b_column;
-	int _c_row = c_row;
-	int _c_column = c_column;
+	int _a_row = m;
+	int _a_column = k;
+	int _b_row = k;
+	int _b_column = n;
 
 	int dtype_size = sizeof(dtype);
-	if (transpose_a) {
-		_a = static_cast<dtype*>(malloc(dtype_size*a_row*a_column));
-		transpose(a, a_row, a_column, _a);
-		std::swap(_a_row, _a_column);
+	if (trans_a) {
+		_a = static_cast<dtype*>(malloc(dtype_size*_a_row*_a_column));
+		transpose(a, _a_column, _a_row, _a);
 	}
-	if (transpose_b) {
-		_b = static_cast<dtype*>(malloc(dtype_size*b_row*b_column));
-		transpose(b, b_row, b_column, _b);
-		std::swap(_b_row, _b_column);
-	}
-	if (transpose_c) {
-		_c = static_cast<dtype*>(malloc(dtype_size*c_row*c_column));
-		transpose(c, c_row, c_column, _c);
-		std::swap(_c_row, _c_column);
+	if (trans_b) {
+		_b = static_cast<dtype*>(malloc(dtype_size*_b_row*_b_column));
+		transpose(b, _b_column, _b_row, _b);
 	}
 
 	for (int i = 0; i < _a_row; ++i) {
 		for (int k = 0; k < _b_column; ++k) {
+			int v = 0;
 			for (int m = 0; m < _a_column; ++m) {
-				*d_out += _a[i*_a_column + m] * _b[m*_b_column + k];
+				v += _a[i*_a_column + m] * _b[m*_b_column + k];
 			}
-			*d_out *= alpha;
-			if (_c) *d_out += _c[k];
-			++d_out;
+			v *= alpha;
+			*c = v + beta * (*c);
+			++c;
 		}
 	}
 
-	if (transpose_a) free(_a);
-	if (transpose_b) free(_b);
-	if (transpose_c) free(_c);
+	if (trans_a) free(_a);
+	if (trans_b) free(_b);
 }
-template void bigbang_cpu_gemm<float>(const float* a, const int a_row, const int a_column, bool transpose_a, 
-	const float* b, const int b_row, const int b_column, bool transpose_b, double alpha, 
-	const float* c, const int c_row, const int c_column, bool transpose_c, float* d);
-template void bigbang_cpu_gemm<double>(const double* a, const int a_row, const int a_column, 
-	bool transpose_a, const double* b, const int b_row, const int b_column,
-	bool transpose_b, double alpha, const double* c, const int c_row, const int c_column, 
-	bool transpose_c, double* d);
+
+template void bigbang_cpu_gemm<float>(
+	bool trans_a,
+	bool trans_b,
+	int m,
+	int n,
+	int k,
+	const float alpha,
+	const float* a,
+	const float* b,
+	const float beta,
+	float* c);
+template void bigbang_cpu_gemm<double>(
+	bool trans_a,
+	bool trans_b,
+	int m,
+	int n,
+	int k,
+	const double alpha,
+	const double* a,
+	const double* b,
+	const double beta,
+	double* c);
+
 
 template <typename dtype>
 void plus(const dtype* src, const int size, const dtype v, dtype* dst) {
@@ -97,20 +168,20 @@ template void bigbang_cpu_minus<float>(const float* a, const float* b, const int
 template void bigbang_cpu_minus<double>(const double* a, const double* b, const int size, const double alpha, double* c);
 
 template <typename dtype>
-void column_sum_plus(const dtype* a, const int row, const int column, dtype* b) {
-	bigbangmemset(b, 0, sizeof(dtype)*column);
+void bigbang_cpu_column_sum_plus(const dtype* a, const int row, const int column, dtype* b) {
+	bigbangcpumemset(b, 0, sizeof(dtype)*column);
 	for (int i = 0; i < column; ++i) {
 		for (int k = 0; k < row; ++k) {
 			b[i] += a[k*column + i];
 		}
 	}
 }
-template void column_sum_plus<float>(const float* a, const int row, const int column, float* b);
-template void column_sum_plus<double>(const double* a, const int row, const int column, double* b);
+template void bigbang_cpu_column_sum_plus<float>(const float* a, const int row, const int column, float* b);
+template void bigbang_cpu_column_sum_plus<double>(const double* a, const int row, const int column, double* b);
 
 template <typename dtype>
 void row_sum_plus(const dtype* a, const int row, const int column, dtype* b) {
-	bigbangmemset(b, 0, sizeof(dtype)*row);
+	bigbangcpumemset(b, 0, sizeof(dtype)*row);
 	for (int i = 0; i < row; ++i) {
 		for (int k = 0; k < column; ++k) {
 			b[i] += a[i*column + k];
@@ -122,10 +193,15 @@ template void row_sum_plus<double>(const double* a, const int row, const int col
 
 template<typename dtype>
 void GaussianDistribution(const dtype mean, const dtype std, const int size, dtype* b) {
-	std::default_random_engine e(GenerateSeed());
-	std::uniform_real_distribution<dtype> urd(mean, std);
+	//std::default_random_engine e(GenerateSeed());
+	//std::uniform_real_distribution<dtype> urd(mean, std);
+	//for (int i = 0; i < size; ++i) {
+	//	b[i] = urd(e);
+	//}
+	std::knuth_b kb;
+	std::normal_distribution<dtype> nd;
 	for (int i = 0; i < size; ++i) {
-		b[i] = urd(e);
+		b[i] = nd(kb);
 	}
 }
 template void GaussianDistribution<float>(const float mean, const float std, const int size, float* b);

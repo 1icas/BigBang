@@ -1,0 +1,29 @@
+syntax = "proto3";
+package BigBang;
+
+
+message PoolingLayerParameter {
+	enum PoolingMethod {
+		MAX = 0,
+		AVERAGE = 1
+	}
+
+	optional PoolingMethod pool_ = 1 [default = MAX];
+	optional uint32 kernel_h_ = 2 [default = 1];
+	optional uint32 kernel_w_ = 3 [default = 1];
+	optional uint32 stride_h_ = 4 [default = 1];
+	optional uint32 stride_w_ = 5 [default = 1];
+};
+
+message ConvLayerParameter {
+	optional uint32 kernel_groups_ = 1 [default = 1];
+	optional uint32 kernel_channels_ = 2 [default = 1];
+	optional uint32 kernel_h_ = 3 [default = 1];
+	optional uint32 kernel_w_ = 4 [default = 1];
+	optional uint32 pad_h_ = 5;
+	optional uint32 pad_w_ = 6;
+	optional uint32 stride_h_ = 7 [default = 1];
+	optional uint32 stride_w_ = 8 [default = 1];
+	optional bool use_bias_ = 9;
+
+}

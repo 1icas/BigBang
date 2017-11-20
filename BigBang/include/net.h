@@ -6,13 +6,14 @@
 #include "layer.h"
 #include "layer_params_manage.h"
 #include "tensor.h"
+#include "../proto/bigbang.pb.h"
 
 namespace BigBang {
 template<typename dtype>
 class Net {
 public:
-	explicit Net(const std::vector<LayerParamsManage<dtype>>& manages) :
-		manages_(manages) {
+	explicit Net(const NetParameter& params) :
+		net_params_(params) {
 
 	}
 
@@ -22,9 +23,12 @@ private:
 	void GenerateLayers();
 	void GenerateInput();
 
+	void Initialize();
+
+
 
 private:
-	std::vector<LayerParamsManage<dtype>> manages_;
+	NetParameter net_params_;
 	std::vector<std::shared_ptr<Layer<dtype>>> layers_;
 	std::vector<std::shared_ptr<Tensor<dtype>>> input_;
 

@@ -1,6 +1,21 @@
-﻿  Compiling CUDA source file src\test\test_tensor_gpu.cu...
+﻿  Compiling CUDA source file src\util\math_function_ptr.cu...
+  Compiling CUDA source file src\layers\mse_layer.cu...
+  Compiling CUDA source file src\layers\pooling_layer.cu...
+  Compiling CUDA source file src\layers\sigmoid_layer.cu...
+  Compiling CUDA source file src\layers\relu_layer.cu...
+  Compiling CUDA source file src\test\test_tensor_gpu.cu...
   
-  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MDd " -o x64\Debug\test_tensor_gpu.cu.obj "D:\git\BigBang\BigBang\src\test\test_tensor_gpu.cu" 
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\math_function_ptr.cu.obj "D:\git\BigBang\BigBang\src\util\math_function_ptr.cu" 
+  
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\pooling_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\pooling_layer.cu" 
+  
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\mse_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\mse_layer.cu" 
+  
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\sigmoid_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\sigmoid_layer.cu" 
+  
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\test_tensor_gpu.cu.obj "D:\git\BigBang\BigBang\src\test\test_tensor_gpu.cu" 
+  
+  D:\git\BigBang\BigBang>"D:\CUDAInstalled\Development\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2015 -ccbin "D:\vs2015\VC\bin\x86_amd64"  -I./depend/include -ID:\CUDAInstalled\Development\include -ID:\CUDAInstalled\Development\include  -G   --keep-dir x64\Debug -maxrregcount=0  --machine 64 --compile -cudart static  -g   -DWIN32 -DWIN64 -D_DEBUG -D_CONSOLE -D_MBCS -Xcompiler "/EHsc /W3 /nologo /Od /FS /Zi /RTC1 /MTd " -o x64\Debug\relu_layer.cu.obj "D:\git\BigBang\BigBang\src\layers\relu_layer.cu" 
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -17,7 +32,6 @@ d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: �
 d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\git\bigbang\bigbang\src\test\../../include/gpu_config.h(22): warning : extra ";" ignored
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -34,9 +48,233 @@ d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: �
 d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
-d:\git\bigbang\bigbang\src\test\../../include/gpu_config.h(22): warning : extra ";" ignored
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\git\bigbang\bigbang\src\util\../../include/config.h(23): warning : extra ";" ignored
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\git\bigbang\bigbang\src\util\../../include/config.h(23): warning : extra ";" ignored
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
 d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
 d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -47,6 +285,338 @@ d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+d:\git\bigbang\bigbang\include\filler.h(59): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\filler.h(62): warning : statement is unreachable
+d:\git\bigbang\bigbang\include\config.h(23): warning : extra ";" ignored
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(54): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/arena_impl.h(232): warning : integer conversion resulted in a change of sign
+D:\git\BigBang\BigBang\depend\include\google/protobuf/message_lite.h(114): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map.h(1026): warning : invalid friend declaration
+D:\git\BigBang\BigBang\depend\include\google/protobuf/map_entry_lite.h(150): warning : exception specification for virtual function "google::protobuf::internal::MapEntryImpl<Derived, Base, Key, Value, kKeyFieldType, kValueFieldType, default_enum_value>::~MapEntryImpl [with Derived=T, Base=google::protobuf::MessageLite, Key=Key, Value=Value, kKeyFieldType=kKeyFieldType, kValueFieldType=kValueFieldType, default_enum_value=default_enum_value]" is incompatible with that of overridden function "google::protobuf::MessageLite::~MessageLite"
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(147): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(149): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(151): warning : "constexpr" is ignored here in Microsoft mode
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_table_driven.h(153): warning : "constexpr" is ignored here in Microsoft mode
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  math_function_ptr.cu
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_double_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\sm_20_intrinsics.h(943): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(910): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(1903): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(2843): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(3779): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(4721): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(5723): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(6682): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(7610): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(8543): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(9413): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(10391): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions_decls.h(11435): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(774): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\device_functions.h(1618): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
@@ -103,9 +673,73 @@ d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该�
 d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
 CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+  mse_layer.cu
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  relu_layer.cu
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  sigmoid_layer.cu
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
   test_tensor_gpu.cu
-d:\git\bigbang\bigbang\include\tensor.h(23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  d:\git\bigbang\bigbang\include\tensor.h(22): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+d:\cudainstalled\development\include\math_functions.h : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(849): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(1787): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(2637): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(3492): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(4431): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(5345): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(6252): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7142): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+d:\cudainstalled\development\include\math_functions.h(7956): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+CUDACOMPILE : nvcc warning : The 'compute_20', 'sm_20', and 'sm_21' architectures are deprecated, and may be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+  pooling_layer.cu
+D:\git\BigBang\BigBang\depend\include\google/protobuf/io/coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/io/coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/io/coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/io/coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<float>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
           with
           [
               _Ty=int
@@ -116,14 +750,56 @@ d:\git\bigbang\bigbang\include\tensor.h(23): warning C4267: “初始化”: 从
               _Ty=int
           ]
   D:/git/BigBang/BigBang/src/test/test_tensor_gpu.cu(9): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<float>”的引用
-  test.cpp
+D:\git\BigBang\BigBang\depend\include\google/protobuf/io/coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+D:\git\BigBang\BigBang\depend\include\google/protobuf/generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+  conv_layer.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\include\tensor.h(25): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  d:\git\bigbang\bigbang\include\tensor.h(23): note: 编译类 模板 成员函数“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”时
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\vs2015\vc\include\memory(901): note: 参见对正在编译的函数 模板 实例化“BigBang::Tensor<dtype>::Tensor(const std::vector<int,std::allocator<_Ty>> &)”的引用
+          with
+          [
+              dtype=double,
+              _Ty=int
+          ]
+  d:\git\bigbang\bigbang\src\layers\conv_layer.cpp(80): note: 参见对正在编译的类 模板 实例化“BigBang::Tensor<dtype>”的引用
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\layers\conv_layer.cpp(79): note: 编译类 模板 成员函数“void BigBang::ConvLayer<double>::Forward_CPU(const BigBang::Tensor<dtype> *,BigBang::Tensor<dtype> *)”时
+          with
+          [
+              dtype=double
+          ]
+  d:\git\bigbang\bigbang\src\layers\conv_layer.cpp(288): note: 参见对正在编译的类 模板 实例化“BigBang::ConvLayer<double>”的引用
   正在生成代码...
   正在跳过...(未检测到相关更改)
   test_tensor_cpu.cpp
   test_pooling_layer.cpp
   test_inner_product.cpp
   test_gpu_gemm.cpp
+  test_fully_connect_layer.cpp
+  test_conv_layer_network.cpp
   test_conv_layer.cpp
+  test.cpp
+  net.cpp
+  sigmoid_layer.cpp
+  relu_layer.cpp
+  pooling_layer.cpp
+  mse_layer.cpp
+  inner_product_layer.cpp
+  image_layer.cpp
   BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.exe
   BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.pdb (Full PDB)
   copy "D:\CUDAInstalled\Development\bin\cudart*.dll" "D:\git\BigBang\x64\Debug\"

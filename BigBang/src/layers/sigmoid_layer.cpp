@@ -3,6 +3,7 @@
 #include <cmath>
 
 #include "../../include/base.h"
+#include "../../include/gtest.h"
 #include "../../include/layer_factory.h"
 
 

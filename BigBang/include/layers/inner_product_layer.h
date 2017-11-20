@@ -11,6 +11,8 @@
 #include "../layer_params_manage.h"
 #include "../tensor.h"
 
+#include <iostream>
+
 namespace BigBang {
 
 template<typename dtype>
@@ -24,6 +26,7 @@ public:
 		weights_ = params_.weights_;
 		biases_ = params_.biases_;
 	}
+	virtual ~InnerProductLayer() {}
 
 	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 
@@ -31,7 +34,14 @@ public:
 		return INNER_PRODUCT_LAYER_TYPE;
 	}
 
+
 #ifdef BIGBANG_TEST
+	void printWeights() {
+		for (int i = 0; i < weights_->size(); ++i) {
+			std::cout << weights_->cpu_data()[i] << std::endl;
+		}
+	}
+
 	std::vector<std::shared_ptr<Tensor<dtype>>> GetParams() {
 		std::vector<std::shared_ptr<Tensor<dtype>>> test;
 		test.push_back(weights_);
@@ -43,13 +53,15 @@ public:
 protected:
 	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
-	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override {};
-	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override {};
+	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
+	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 
 private:
 	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
-	void UpdateParams(const dtype* bottom_data, const dtype* delta);
+	void UpdateParams_CPU(const dtype* bottom_data, const dtype* delta);
+	void UpdateParams_GPU(const dtype* bottom_data, const dtype* delta);
+
 
 private:
 	InnerProductLayerParams<dtype> params_;
@@ -58,6 +70,7 @@ private:
 	dtype lambda_;
 	std::shared_ptr<Tensor<dtype>> weights_;
 	std::shared_ptr<Tensor<dtype>> biases_;
+	std::shared_ptr<Tensor<dtype>> middle_;
 	//the data infomation
 	int nums_;
 	int bottom_row_;

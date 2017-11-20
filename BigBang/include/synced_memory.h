@@ -6,6 +6,7 @@
 
 #include <cuda_runtime.h>
 
+#include "gtest.h"
 #include "log.h"
 #include "util/common.h"
 
@@ -16,11 +17,15 @@ public:
 	explicit SyncedMemory(size_t size) :
 		size_(size), cpu_data_(nullptr), 
 		gpu_data_(nullptr), mem_state_(UNINITIALIZED) {
+		CHECK_LT(size, MAX_CAPACITY);
 #ifndef CPU_ONLY
 		CUDA_CHECK(cudaGetDevice(&device_));
 #endif
 	}
-	~SyncedMemory() {}
+	~SyncedMemory() {
+		if (cpu_data_) free(cpu_data_);
+		if (gpu_data_) cudaFree(gpu_data_);
+	}
 
 	enum SyncedState { UNINITIALIZED, AT_GPU, AT_CPU, SYNCED };
 
@@ -31,21 +36,20 @@ public:
 
 private:
 	void Check() {
-		Init();
 		CheckDevice();
 	}
 
-	void Init() {
+	/*void Init() {
 		if (mem_state_ == SyncedState::UNINITIALIZED) {
 			cpu_data_ = malloc(size_);
-			bigbangmemset(cpu_data_, 0, size_);
+			bigbangcpumemset(cpu_data_, 0, size_);
 #ifndef CPU_ONLY
 			cudaMalloc(&gpu_data_, size_);
 			cudaMemset(gpu_data_, 0, size_);
 #endif
 			mem_state_ = SyncedState::SYNCED;
 		}
-	}
+	}*/
 
 	void CheckDevice();
 	void CpuToGpu();

@@ -2,7 +2,7 @@
 #include <cuda_runtime.h>
 #include <device_launch_parameters.h>
 
-#include "../../include/gpu_config.h"
+#include "../../include/util/common.h"
 
 template<typename dtype>
 __global__ void sigmoid(const int size, const dtype* in, dtype* out) {

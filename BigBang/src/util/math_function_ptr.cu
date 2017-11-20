@@ -5,13 +5,34 @@
 //
 //#include "cublas_v2.h"
 
-#include "../../include/gpu_config.h"
+#include "../../include/config.h"
+#include "../../include/util/common.h"
 
 template<typename dtype>
 __global__ void gpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {
 	const int index = blockIdx.x * blockDim.x + threadIdx.x;
 	if (index < size) {
 		c[index] = a[index] - alpha*b[index];
+	}
+}
+
+template<typename dtype>
+__global__ void gpu_column_sum_plus(const dtype* a, const int row, 
+	const int column, dtype* b) {
+	const int index = blockIdx.x * blockDim.x + threadIdx.x;
+	if (index < column) {
+		for (int i = 0; i < row; ++i) {
+			b[index] += a[i*column + index];
+		}
+	}
+}
+
+template<typename dtype>
+__global__ void gpu_mmadd(const dtype* a, const dtype* b,
+	const int size, dtype* result) {
+	const int index = blockIdx.x * blockDim.x + threadIdx.x;
+	if (index < size) {
+		result[index] = a[index] + b[index];
 	}
 }
 
@@ -40,7 +61,7 @@ void bigbang_gpu_gemm<float>(
 	const int ldb = trans_b ? k : n;
 	cublasOperation_t op_a = trans_a ? CUBLAS_OP_T : CUBLAS_OP_N;
 	cublasOperation_t op_b = trans_b ? CUBLAS_OP_T : CUBLAS_OP_N;
-	cublasSgemm(GPUConfig::Get().CublasHandle(), op_b, op_a, n, m, k, &alpha, b, ldb,
+	cublasSgemm(Config::Get().CublasHandle(), op_b, op_a, n, m, k, &alpha, b, ldb,
 		a, lda, &beta, c, n);
 }
 
@@ -56,13 +77,32 @@ void bigbang_gpu_gemm<double>(
 	const double* b,
 	const double beta,
 	double* c) { 
-	const int lda = trans_a ? k : m;
-	const int ldb = trans_b ? n : k;
+	const int lda = trans_a ? m : k;
+	const int ldb = trans_b ? k : n;
 	cublasOperation_t op_a = trans_a ? CUBLAS_OP_T : CUBLAS_OP_N;
 	cublasOperation_t op_b = trans_b ? CUBLAS_OP_T : CUBLAS_OP_N;
-	cublasDgemm(GPUConfig::Get().CublasHandle(), op_a, op_b, n, m, k, &alpha, b, ldb,
+	cublasDgemm(Config::Get().CublasHandle(), op_b, op_a, n, m, k, &alpha, b, ldb,
 		a, lda, &beta, c, n);
 }
+
+template<typename dtype>
+void bigbang_gpu_column_sum_plus(const dtype* a, const int row, const int column, dtype* b) {
+	cudaMemset(b, 0, sizeof(dtype)*column);
+	gpu_column_sum_plus << <BigBangGetBlocks(column), THREAD_MAX_NUMS >> > (a, row, column, b);
+}
+template void bigbang_gpu_column_sum_plus<float>(const float* a, const int row, const int column, float* b);
+template void bigbang_gpu_column_sum_plus<double>(const double* a, const int row, const int column, double* b);
+
+
+template<typename dtype>
+void bigbang_gpu_mmadd(const dtype* a, const dtype* b, 
+	const int size, dtype* result) {
+	gpu_mmadd << <BigBangGetBlocks(size), THREAD_MAX_NUMS >> > (a, b, size, result);
+}
+template void bigbang_gpu_mmadd<float>(const float* a, const float* b,
+	const int size, float* result);
+template void bigbang_gpu_mmadd<double>(const double* a, const double* b,
+	const int size, double* result);
 
 
 }

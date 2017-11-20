@@ -2,6 +2,8 @@
 #define LAYER_H
 
 #include "layer_params_manage.h"
+#include "config.h"
+#include "../proto/bigbang.pb.h"
 
 namespace BigBang {
 
@@ -10,19 +12,16 @@ class Layer {
 public:
 	Layer(const LayerParamsManage<dtype>& params)
 		:params_(params) {
-		use_gpu_ = params.use_gpu_;
-		if (use_gpu_) {
-#ifdef CPU_ONLY
-			NO_GPU;
-#endif
-		}
+
 	}
+	
+	virtual ~Layer(){}
 
 	virtual inline const char* FunctionType() const { return " "; }
 	virtual inline const char* Type() const { return " "; }
 	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) = 0;
 	void Forward(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
-		if (use_gpu_) {
+		if (Config::Get().mode() == Config::ProcessUnit::GPU) {
 			Forward_GPU(bottom, top);
 		}
 		else {
@@ -30,7 +29,7 @@ public:
 		}
 	}
 	void Backward(const Tensor<dtype>* top, Tensor<dtype>* bottom) {
-		if (use_gpu_) {
+		if (Config::Get().mode() == Config::ProcessUnit::GPU) {
 			Backward_GPU(top, bottom);
 		}
 		else {
@@ -46,7 +45,6 @@ protected:
 
 protected:
 	LayerParamsManage<dtype> params_;
-	bool use_gpu_;
 };
 
 }

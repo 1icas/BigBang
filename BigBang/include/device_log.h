@@ -7,10 +7,10 @@
 
 #include "base.h"
 
-#define CUDA_CHECK(state) \
-	CHECK_EQ(state, cudaSuccess)
-
-#define NO_GPU \
-	assert(false);
+//#define CUDA_CHECK(state) \
+//	CHECK_EQ(state, cudaSuccess)
+//
+//#define NO_GPU \
+//	assert(false);
 
 #endif

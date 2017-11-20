@@ -17,7 +17,12 @@
 #include "../../include/tensor.h"
 #include "../../include/layers/conv_layer.h"
 #include "../../include/layers/inner_product_layer.h"
+#include "../../include/layers/mse_layer.h"
 #include "../../include/layers/pooling_layer.h"
+#include "../../include/layers/sigmoid_layer.h"
+#include "../../include/util/data_reader.h"
+#include "../../include/util/common.h"
+#include "../../include/util/image_common.h"
 #include "../../include/util/math_function_ptr.h"
 using namespace BigBang;
 
@@ -28,27 +33,46 @@ public:
 	}
 
 	void TestAll() {
-		TestTensor_CPU();
+		/*TestTensor_CPU();
 		TestTensor_GPU();
-		TestConvLayerFeedForward();
-		TestConvLayerBackward();
+		TestConvLayerFeedForward_CPU();
+		TestConvLayerBackward_CPU();
 		TestInnerProduct();
 		TestInnerProductBackward();
 		TestMaxPoolLayerFeedForward();
 		TestMaxPoolLayerBackward();
-		TestGpuGemm();
+		TestGpuGemm();*/
+		/*TestFullyConnectLayer<double>();*/
+		//TestConvLayerFeedForward_GPU();
+		//TestConvLayerBackward_GPU();
+		TestConvLayerNetwork<double>();
+		//TestConvLayerNetwork1<double>();
 	}
+
 
 private:
 	void TestTensor_CPU();
 	void TestTensor_GPU();
-	void TestConvLayerFeedForward();
-	void TestConvLayerBackward();
+	void TestConvLayerFeedForward_CPU();
+	void TestConvLayerFeedForward_GPU();
+	void TestConvLayerBackward_CPU();
+	void TestConvLayerBackward_GPU();
+
 	void TestInnerProduct();
 	void TestInnerProductBackward();
 	void TestMaxPoolLayerFeedForward();
 	void TestMaxPoolLayerBackward();
 	void TestGpuGemm();
+	template<typename dtype>
+	void TestFullyConnectLayer();
+	template<typename dtype>
+	void TestConvLayerNetwork();
+
+	//sc
+	template<typename dtype>
+	void TestConvLayerNetwork1();
+	//
+
 };
 
 #endif

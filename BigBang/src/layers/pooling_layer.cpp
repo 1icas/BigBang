@@ -4,10 +4,13 @@
 #include <iostream>
 #include <vector>
 
+#include "../../include/base.h"
+#include "../../include/util/common.h"
+#include "../../include/gtest.h"
 #include "../../include/layer_factory.h"
 
 template<typename dtype>
-void MaxPool(const dtype* input, const int channels, const int height, const int width,
+void MaxPool_CPU(const int count, const dtype* input, const int channels, const int height, const int width,
 	const int pool_h, const int pool_w, const int pool_stride_h, const int pool_stride_w, int* pool_pos, dtype* output) {
 	const int output_height = (height - pool_h) / pool_stride_h + 1;
 	const int output_width = (width - pool_w) / pool_stride_w + 1;
@@ -37,13 +40,13 @@ void MaxPool(const dtype* input, const int channels, const int height, const int
 	}
 }
 
-template void MaxPool<float>(const float* input, const int channels, const int height, const int width,
+template void MaxPool_CPU<float>(const int count, const float* input, const int channels, const int height, const int width,
 	const int pool_h, const int pool_w, const int pool_stride_h, const int pool_stride_w, int* pool_pos, float* output);
-template void MaxPool<double>(const double* input, const int channels, const int height, const int width,
+template void MaxPool_CPU<double>(const int count, const double* input, const int channels, const int height, const int width,
 	const int pool_h, const int pool_w, const int pool_stride_h, const int pool_stride_w, int* pool_pos, double* output);
 
 template <typename dtype>
-void MaxPoolBackward(const dtype* input, const int channels, const int h, const int w,
+void MaxPoolBackward_CPU(const int count, const dtype* input, const int channels, const int h, const int w,
 	const int pool_h, const int pool_w, const int pool_stride_h, const int pool_stride_w, const int* pool_pos, 
 	const int output_h, const int output_w, dtype* output) {
 	const int input_size = h*w;
@@ -59,10 +62,10 @@ void MaxPoolBackward(const dtype* input, const int channels, const int h, const 
 	}
 }
 
-template void MaxPoolBackward<float>(const float* input, const int channels, const int h, const int w,
+template void MaxPoolBackward_CPU<float>(const int count, const float* input, const int channels, const int h, const int w,
 	const int pool_h, const int pool_w, const int pool_stride_h, const int pool_stride_w, const int* pool_pos, 
 	const int output_h, const int output_w, float* output);
-template void MaxPoolBackward<double>(const double* input, const int channels, const int h, const int w,
+template void MaxPoolBackward_CPU<double>(const int count, const double* input, const int channels, const int h, const int w,
 	const int pool_h, const int pool_w, const int pool_stride_h, const int pool_stride_w, const int* pool_pos, 
 	const int output_h, const int output_w, double* output);
 
@@ -110,12 +113,12 @@ void PoolingLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>
 	case PoolingLayerParams<dtype>::Pool::MaxPool: {
 		int* pos_data = max_pool_pos_->mutable_cpu_data();
 		for (int i = 0; i < nums_; ++i) {
-			MaxPool(bottom_data + i * bottom_channels_*bottom_row_*bottom_column_, bottom_channels_, bottom_row_,
+			MaxPool_CPU(top->size(), bottom_data + i * bottom_channels_*bottom_row_*bottom_column_, bottom_channels_, bottom_row_,
 				bottom_column_, pool_h_, pool_w_, stride_h_, stride_w_, pos_data + i*bottom_channels_*top_row_*top_column_,
 				top_data + i*bottom_channels_*top_row_*top_column_);
 		}
 	}
-																									break;
+	break;
 
 	default:
 		std::cout << "only support max pool now" << std::endl;
@@ -126,18 +129,22 @@ void PoolingLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>
 
 template<typename dtype>
 void PoolingLayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) {
-	const int top_per_size = top_row_*top_column_;
-	const int bottom_per_size = bottom_row_*bottom_column_;
+	const int top_per_size = top_row_*top_column_*bottom_channels_;
+	const int bottom_per_size = bottom_row_*bottom_column_*bottom_channels_;
 	const dtype* top_data = top->cpu_data();
 	const dtype* top_diff_data = top->cpu_diff_data();
 	dtype* bottom_diff_data = bottom->mutable_cpu_diff_data();
 
+	//TODO:ºÎÊ±memsetºÏÊÊ£¿
+	bigbangcpumemset(bottom_diff_data, 0, sizeof(dtype)*bottom->size());
+
 	switch (pool_) {
 	case PoolingLayerParams<dtype>::Pool::MaxPool: {
+		const int* pos_data = max_pool_pos_->cpu_data();
 		for (int i = 0; i < nums_; ++i) {
-			MaxPoolBackward(top_diff_data + top_per_size*i, top_channels_, top_row_, top_column_, 
-				pool_h_, pool_w_, stride_h_, stride_w_, 
-				max_pool_pos_->cpu_data(), bottom_row_, bottom_column_, bottom_diff_data);
+			MaxPoolBackward_CPU(top->size(), top_diff_data + top_per_size*i, top_channels_, top_row_, top_column_, 
+				pool_h_, pool_w_, stride_h_, stride_w_, pos_data + top_per_size*i, bottom_row_,
+				bottom_column_, bottom_diff_data + bottom_per_size*i);
 		}
 	}
 																									break;
