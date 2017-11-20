@@ -111,7 +111,7 @@ void bigbang_cpu_gemm(
 
 	for (int i = 0; i < _a_row; ++i) {
 		for (int k = 0; k < _b_column; ++k) {
-			int v = 0;
+			dtype v = 0;
 			for (int m = 0; m < _a_column; ++m) {
 				v += _a[i*_a_column + m] * _b[m*_b_column + k];
 			}
