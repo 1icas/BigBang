@@ -5,7 +5,6 @@
 
 #include "layer_type_macro.h"
 #include "neuron_func_layer.h"
-#include "../layer_params_manage.h"
 #include "../../include/tensor.h"
 
 
@@ -14,22 +13,22 @@ namespace BigBang {
 template<typename dtype>
 class ConvLayer : public NeuronFuncLayer<dtype> {
 public:
-	ConvLayer(const LayerParamsManage<dtype>& params) :
+	ConvLayer(const LayerParameter& params) :
 		NeuronFuncLayer(params), unroll_bottom_(nullptr), relay_space_(nullptr) {
-		conv_params_ = params.conv_layer_params_;
-		kernel_groups_ = conv_params_.kernel_groups_;
-		kernel_channels_ = conv_params_.kernel_channels_;
-		kernel_h_ = conv_params_.kernel_h_;
-		kernel_w_ = conv_params_.kernel_w_;
-		stride_h_ = conv_params_.stride_h_;
-		stride_w_ = conv_params_.stride_w_;
-		padding_h_ = conv_params_.padding_h_;
-		padding_w_ = conv_params_.padding_w_;
-		lambda_ = conv_params_.lambda_;
-		alpha_ = conv_params_.alpha_;
-		use_biases_ = conv_params_.use_biases_;
-		kernels_ = conv_params_.kernels_;
-		biases_ = conv_params_.biases_;
+		conv_params_ = params.conv_layer_param();
+		kernel_groups_ = conv_params_.kernel_groups();
+		kernel_channels_ = conv_params_.kernel_channels();
+		kernel_h_ = conv_params_.kernel_h();
+		kernel_w_ = conv_params_.kernel_w();
+		stride_h_ = conv_params_.stride_h();
+		stride_w_ = conv_params_.stride_w();
+		padding_h_ = conv_params_.pad_h();
+		padding_w_ = conv_params_.pad_w();
+	/*	lambda_ = conv_params_.lambda_;
+		alpha_ = conv_params_.alpha_;*/
+		use_bias_ = conv_params_.use_bias();
+		/*kernels_ = conv_params_.kernels_;
+		biases_ = conv_params_.biases_;*/
 	}
 	virtual ~ConvLayer() {}
 	virtual inline const char* Type() const override {
@@ -43,6 +42,10 @@ protected:
 	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 
+protected:
+	std::shared_ptr<Tensor<dtype>> kernels_;
+	std::shared_ptr<Tensor<dtype>> biases_;
+
 private:
 
 	// check the bootom tensor and top tensor format
@@ -53,7 +56,7 @@ private:
 	void UpdateParams_GPU(const dtype* bottom_data, const dtype* delta);
 
 private:
-	ConvLayerParams<dtype> conv_params_;
+	ConvLayerParameter conv_params_;
 	std::shared_ptr<Tensor<dtype>> unroll_bottom_;
 	//TODO:may be we can not use this two variable
 	std::shared_ptr<Tensor<dtype>> relay_space_;
@@ -68,11 +71,10 @@ private:
 	int stride_w_;
 	int padding_h_;
 	int padding_w_;
-	dtype lambda_;
-	dtype alpha_;
-	bool use_biases_;
-	std::shared_ptr<Tensor<dtype>> kernels_;
-	std::shared_ptr<Tensor<dtype>> biases_;
+	/*dtype lambda_;
+	dtype alpha_;*/
+	bool use_bias_;
+
 	//TODO: unuse 
 	int dilation_h_ = 0;
 	int dilation_w_ = 0;
@@ -87,6 +89,9 @@ private:
 	int top_column_;
 	int biases_groups_;
 	int biases_channels_;
+
+	//temp
+	dtype alpha_ = 1.;
 };
 
 }

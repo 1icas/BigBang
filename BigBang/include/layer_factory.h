@@ -8,14 +8,14 @@
 
 #include "base.h"
 #include "layer.h"
-#include "layer_params_manage.h"
+#include "../proto/bigbang.pb.h"
 
 namespace BigBang {
 
 template<typename dtype>
 class LayerRegistry {
 public:
-	typedef std::shared_ptr<Layer<dtype>>(*Creator) (const LayerParamsManage<dtype>& params);
+	typedef std::shared_ptr<Layer<dtype>>(*Creator) (const LayerParameter& params);
 	typedef std::map<std::string, Creator> CreatorRegistry;
 
 	LayerRegistry() = delete;
@@ -32,7 +32,7 @@ public:
 		}
 	}
 
-	static std::shared_ptr<Layer<dtype>> CreateLayer(const LayerParamsManage<dtype>& params) {
+	static std::shared_ptr<Layer<dtype>> CreateLayer(const LayerParameter& params) {
 		CreatorRegistry& registry = Registry();
 		std::string type = params.type_;
 		if (registry.count(type)) {
@@ -47,7 +47,7 @@ public:
 template<typename dtype>
 class LayerRegisterer {
 public:
-	LayerRegisterer(const std::string& type, std::shared_ptr<Layer<dtype>>(*creator) (const LayerParamsManage<dtype>& params)) {
+	LayerRegisterer(const std::string& type, std::shared_ptr<Layer<dtype>>(*creator) (const LayerParameter& params)) {
 		LayerRegistry<dtype>::AddCreator(type, creator);
 	}
 };
@@ -55,7 +55,7 @@ public:
 
 #define REGISTRY_LAYER(type) \
 	template<typename dtype> \
-	std::shared_ptr<Layer<dtype>> Creator##type##Layer(const LayerParamsManage<dtype>& params) { \
+	std::shared_ptr<Layer<dtype>> Creator##type##Layer(const LayerParameter& params) { \
 		return std::shared_ptr<Layer<dtype>>(new type##Layer<dtype>(params)); \
 	} \
 	static LayerRegisterer<float> g_layer_##type##_float_(#type, Creator##type##Layer); \

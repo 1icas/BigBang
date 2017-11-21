@@ -5,14 +5,13 @@
 
 #include "cost_func_layer.h"
 #include "layer_type_macro.h"
-#include "../layer_params_manage.h"
 #include "../tensor.h"
 
 namespace BigBang {
 template<typename dtype>
 class MSELayer : public CostFuncLayer<dtype> {
 public:
-	MSELayer(const LayerParamsManage<dtype>& params)
+	MSELayer(const LayerParameter& params)
 		: CostFuncLayer<dtype>(params) {
 	}
 	virtual ~MSELayer() {}

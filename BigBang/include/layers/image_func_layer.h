@@ -8,7 +8,7 @@ namespace BigBang {
 template<typename dtype>
 class ImageFuncLayer : public Layer<dtype> {
 public:
-	ImageFuncLayer(const LayerParamsManage<dtype>& params) :
+	ImageFuncLayer(const LayerParameter& params) :
 		Layer(params) {}
 	virtual ~ImageFuncLayer(){}
 

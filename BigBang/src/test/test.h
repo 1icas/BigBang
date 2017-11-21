@@ -11,6 +11,7 @@
 #include <device_launch_parameters.h>
 
 #include "../../include/base.h"
+#include "../../include/config.h"
 //#include "../../include/gpu_config.h"
 #include "../../include/layer.h"
 #include "../../include/log.h"
@@ -24,6 +25,7 @@
 #include "../../include/util/common.h"
 #include "../../include/util/image_common.h"
 #include "../../include/util/math_function_ptr.h"
+#include "../../proto/bigbang.pb.h"
 using namespace BigBang;
 
 class Test {
@@ -33,7 +35,7 @@ public:
 	}
 
 	void TestAll() {
-		/*TestTensor_CPU();
+		TestTensor_CPU();
 		TestTensor_GPU();
 		TestConvLayerFeedForward_CPU();
 		TestConvLayerBackward_CPU();
@@ -41,11 +43,11 @@ public:
 		TestInnerProductBackward();
 		TestMaxPoolLayerFeedForward();
 		TestMaxPoolLayerBackward();
-		TestGpuGemm();*/
-		/*TestFullyConnectLayer<double>();*/
+		TestGpuGemm();
+	//	TestFullyConnectLayer<double>();
 		//TestConvLayerFeedForward_GPU();
 		//TestConvLayerBackward_GPU();
-		TestConvLayerNetwork<double>();
+		//TestConvLayerNetwork<double>();
 		//TestConvLayerNetwork1<double>();
 	}
 
@@ -63,10 +65,10 @@ private:
 	void TestMaxPoolLayerFeedForward();
 	void TestMaxPoolLayerBackward();
 	void TestGpuGemm();
-	template<typename dtype>
-	void TestFullyConnectLayer();
-	template<typename dtype>
-	void TestConvLayerNetwork();
+	//template<typename dtype>
+	//void TestFullyConnectLayer();
+	/*template<typename dtype>
+	void TestConvLayerNetwork();*/
 
 	//sc
 	template<typename dtype>

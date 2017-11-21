@@ -5,6 +5,7 @@
 
 #include "base.h"
 #include "tensor.h"
+#include "../proto/bigbang.pb.h"
 #include "util/math_function_ptr.h"
 
 namespace BigBang {
@@ -30,34 +31,32 @@ struct FillerParams {
 template<typename dtype>
 class Filler {
 public:
-	explicit Filler(const FillerParams<dtype>& params)
+	explicit Filler(const FillerParameter& params)
 		:params_(params){}
 	virtual void Fill(Tensor<dtype>* t) = 0;
 
 protected:
-	FillerParams<dtype> params_;
+	FillerParameter params_;
 };
 
 template<typename dtype>
 class GaussianDistributionFiller : public Filler<dtype> {
 public:
-	explicit GaussianDistributionFiller(const FillerParams<dtype>& params)
+	explicit GaussianDistributionFiller(const FillerParameter& params)
 		: Filler(params){}
 	virtual void Fill(Tensor<dtype>* t) override {
 		VALIDATE_POINTER(t);
 		const int size = t->size();
 		dtype* data = t->mutable_cpu_data();
-		GaussianDistribution<dtype>(params_.mean_, params_.std_, size, data);
+		//TODO: the param 1 and 2 are unused now
+		GaussianDistribution<dtype>(0.0, 0.0, size, data);
 	}
 };
 
 template<typename dtype>
-std::shared_ptr<Filler<dtype>> CreateFiller(const FillerParams<dtype>& params) {
-	switch (params.type_) {
-	case FillerParams<dtype>::FillerType::UNUSED:
-		return nullptr;
-		break;
-	case FillerParams<dtype>::FillerType::GAUSSIAN_DISTRIBUTION:
+std::shared_ptr<Filler<dtype>> CreateFiller(const FillerParameter& params) {
+	switch (params.type()) {
+	case FillerParameter::GAUSSIAN_DISTRIBUTION:
 		return std::make_shared<GaussianDistributionFiller<dtype>>(params);
 		break;
 	default:

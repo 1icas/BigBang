@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "layer.h"
-#include "layer_params_manage.h"
 #include "tensor.h"
 #include "../proto/bigbang.pb.h"
 

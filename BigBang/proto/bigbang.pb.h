@@ -37,12 +37,14 @@ namespace protobuf_bigbang_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[6];
+  static const ::google::protobuf::internal::ParseTable schema[7];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
 };
 void AddDescriptors();
+void InitDefaultsFillerParameterImpl();
+void InitDefaultsFillerParameter();
 void InitDefaultsPoolingLayerParameterImpl();
 void InitDefaultsPoolingLayerParameter();
 void InitDefaultsConvLayerParameterImpl();
@@ -56,6 +58,7 @@ void InitDefaultsNetParameter();
 void InitDefaultsSolverParameterImpl();
 void InitDefaultsSolverParameter();
 inline void InitDefaults() {
+  InitDefaultsFillerParameter();
   InitDefaultsPoolingLayerParameter();
   InitDefaultsConvLayerParameter();
   InitDefaultsInnerProductLayerParameter();
@@ -68,6 +71,9 @@ namespace BigBang {
 class ConvLayerParameter;
 class ConvLayerParameterDefaultTypeInternal;
 extern ConvLayerParameterDefaultTypeInternal _ConvLayerParameter_default_instance_;
+class FillerParameter;
+class FillerParameterDefaultTypeInternal;
+extern FillerParameterDefaultTypeInternal _FillerParameter_default_instance_;
 class InnerProductLayerParameter;
 class InnerProductLayerParameterDefaultTypeInternal;
 extern InnerProductLayerParameterDefaultTypeInternal _InnerProductLayerParameter_default_instance_;
@@ -86,6 +92,24 @@ extern SolverParameterDefaultTypeInternal _SolverParameter_default_instance_;
 }  // namespace BigBang
 namespace BigBang {
 
+enum FillerParameter_FillerType {
+  FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION = 0
+};
+bool FillerParameter_FillerType_IsValid(int value);
+const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MIN = FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
+const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MAX = FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
+const int FillerParameter_FillerType_FillerType_ARRAYSIZE = FillerParameter_FillerType_FillerType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* FillerParameter_FillerType_descriptor();
+inline const ::std::string& FillerParameter_FillerType_Name(FillerParameter_FillerType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    FillerParameter_FillerType_descriptor(), value);
+}
+inline bool FillerParameter_FillerType_Parse(
+    const ::std::string& name, FillerParameter_FillerType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<FillerParameter_FillerType>(
+    FillerParameter_FillerType_descriptor(), name, value);
+}
 enum PoolingLayerParameter_PoolingMethod {
   PoolingLayerParameter_PoolingMethod_MAX = 0,
   PoolingLayerParameter_PoolingMethod_AVERAGE = 1
@@ -105,25 +129,141 @@ inline bool PoolingLayerParameter_PoolingMethod_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<PoolingLayerParameter_PoolingMethod>(
     PoolingLayerParameter_PoolingMethod_descriptor(), name, value);
 }
-enum FillerParameter {
-  GAUSSIAN_DISTRIBUTION = 0
-};
-bool FillerParameter_IsValid(int value);
-const FillerParameter FillerParameter_MIN = GAUSSIAN_DISTRIBUTION;
-const FillerParameter FillerParameter_MAX = GAUSSIAN_DISTRIBUTION;
-const int FillerParameter_ARRAYSIZE = FillerParameter_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* FillerParameter_descriptor();
-inline const ::std::string& FillerParameter_Name(FillerParameter value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    FillerParameter_descriptor(), value);
-}
-inline bool FillerParameter_Parse(
-    const ::std::string& name, FillerParameter* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<FillerParameter>(
-    FillerParameter_descriptor(), name, value);
-}
 // ===================================================================
+
+class FillerParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.FillerParameter) */ {
+ public:
+  FillerParameter();
+  virtual ~FillerParameter();
+
+  FillerParameter(const FillerParameter& from);
+
+  inline FillerParameter& operator=(const FillerParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  FillerParameter(FillerParameter&& from) noexcept
+    : FillerParameter() {
+    *this = ::std::move(from);
+  }
+
+  inline FillerParameter& operator=(FillerParameter&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FillerParameter& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const FillerParameter* internal_default_instance() {
+    return reinterpret_cast<const FillerParameter*>(
+               &_FillerParameter_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    0;
+
+  void Swap(FillerParameter* other);
+  friend void swap(FillerParameter& a, FillerParameter& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline FillerParameter* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  FillerParameter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const FillerParameter& from);
+  void MergeFrom(const FillerParameter& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(FillerParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef FillerParameter_FillerType FillerType;
+  static const FillerType GAUSSIAN_DISTRIBUTION =
+    FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
+  static inline bool FillerType_IsValid(int value) {
+    return FillerParameter_FillerType_IsValid(value);
+  }
+  static const FillerType FillerType_MIN =
+    FillerParameter_FillerType_FillerType_MIN;
+  static const FillerType FillerType_MAX =
+    FillerParameter_FillerType_FillerType_MAX;
+  static const int FillerType_ARRAYSIZE =
+    FillerParameter_FillerType_FillerType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  FillerType_descriptor() {
+    return FillerParameter_FillerType_descriptor();
+  }
+  static inline const ::std::string& FillerType_Name(FillerType value) {
+    return FillerParameter_FillerType_Name(value);
+  }
+  static inline bool FillerType_Parse(const ::std::string& name,
+      FillerType* value) {
+    return FillerParameter_FillerType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 1;
+  ::BigBang::FillerParameter_FillerType type() const;
+  void set_type(::BigBang::FillerParameter_FillerType value);
+
+  // @@protoc_insertion_point(class_scope:BigBang.FillerParameter)
+ private:
+  void set_has_type();
+  void clear_has_type();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  int type_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsFillerParameterImpl();
+};
+// -------------------------------------------------------------------
 
 class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.PoolingLayerParameter) */ {
  public:
@@ -167,7 +307,7 @@ class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_ins
                &_PoolingLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    0;
+    1;
 
   void Swap(PoolingLayerParameter* other);
   friend void swap(PoolingLayerParameter& a, PoolingLayerParameter& b) {
@@ -240,62 +380,62 @@ class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_ins
 
   // accessors -------------------------------------------------------
 
-  // optional .BigBang.PoolingLayerParameter.PoolingMethod pool_ = 1 [default = MAX];
-  bool has_pool_() const;
-  void clear_pool_();
+  // optional .BigBang.PoolingLayerParameter.PoolingMethod pool = 1 [default = MAX];
+  bool has_pool() const;
+  void clear_pool();
   static const int kPoolFieldNumber = 1;
-  ::BigBang::PoolingLayerParameter_PoolingMethod pool_() const;
-  void set_pool_(::BigBang::PoolingLayerParameter_PoolingMethod value);
+  ::BigBang::PoolingLayerParameter_PoolingMethod pool() const;
+  void set_pool(::BigBang::PoolingLayerParameter_PoolingMethod value);
 
-  // optional uint32 kernel_h_ = 2 [default = 1];
-  bool has_kernel_h_() const;
-  void clear_kernel_h_();
+  // optional uint32 kernel_h = 2 [default = 1];
+  bool has_kernel_h() const;
+  void clear_kernel_h();
   static const int kKernelHFieldNumber = 2;
-  ::google::protobuf::uint32 kernel_h_() const;
-  void set_kernel_h_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 kernel_h() const;
+  void set_kernel_h(::google::protobuf::uint32 value);
 
-  // optional uint32 kernel_w_ = 3 [default = 1];
-  bool has_kernel_w_() const;
-  void clear_kernel_w_();
+  // optional uint32 kernel_w = 3 [default = 1];
+  bool has_kernel_w() const;
+  void clear_kernel_w();
   static const int kKernelWFieldNumber = 3;
-  ::google::protobuf::uint32 kernel_w_() const;
-  void set_kernel_w_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 kernel_w() const;
+  void set_kernel_w(::google::protobuf::uint32 value);
 
-  // optional uint32 stride_h_ = 4 [default = 1];
-  bool has_stride_h_() const;
-  void clear_stride_h_();
+  // optional uint32 stride_h = 4 [default = 1];
+  bool has_stride_h() const;
+  void clear_stride_h();
   static const int kStrideHFieldNumber = 4;
-  ::google::protobuf::uint32 stride_h_() const;
-  void set_stride_h_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 stride_h() const;
+  void set_stride_h(::google::protobuf::uint32 value);
 
-  // optional uint32 stride_w_ = 5 [default = 1];
-  bool has_stride_w_() const;
-  void clear_stride_w_();
+  // optional uint32 stride_w = 5 [default = 1];
+  bool has_stride_w() const;
+  void clear_stride_w();
   static const int kStrideWFieldNumber = 5;
-  ::google::protobuf::uint32 stride_w_() const;
-  void set_stride_w_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 stride_w() const;
+  void set_stride_w(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:BigBang.PoolingLayerParameter)
  private:
-  void set_has_pool_();
-  void clear_has_pool_();
-  void set_has_kernel_h_();
-  void clear_has_kernel_h_();
-  void set_has_kernel_w_();
-  void clear_has_kernel_w_();
-  void set_has_stride_h_();
-  void clear_has_stride_h_();
-  void set_has_stride_w_();
-  void clear_has_stride_w_();
+  void set_has_pool();
+  void clear_has_pool();
+  void set_has_kernel_h();
+  void clear_has_kernel_h();
+  void set_has_kernel_w();
+  void clear_has_kernel_w();
+  void set_has_stride_h();
+  void clear_has_stride_h();
+  void set_has_stride_w();
+  void clear_has_stride_w();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  int pool__;
-  ::google::protobuf::uint32 kernel_h__;
-  ::google::protobuf::uint32 kernel_w__;
-  ::google::protobuf::uint32 stride_h__;
-  ::google::protobuf::uint32 stride_w__;
+  int pool_;
+  ::google::protobuf::uint32 kernel_h_;
+  ::google::protobuf::uint32 kernel_w_;
+  ::google::protobuf::uint32 stride_h_;
+  ::google::protobuf::uint32 stride_w_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsPoolingLayerParameterImpl();
 };
@@ -343,7 +483,7 @@ class ConvLayerParameter : public ::google::protobuf::Message /* @@protoc_insert
                &_ConvLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(ConvLayerParameter* other);
   friend void swap(ConvLayerParameter& a, ConvLayerParameter& b) {
@@ -390,122 +530,126 @@ class ConvLayerParameter : public ::google::protobuf::Message /* @@protoc_insert
 
   // accessors -------------------------------------------------------
 
-  // optional uint32 pad_h_ = 5;
-  bool has_pad_h_() const;
-  void clear_pad_h_();
-  static const int kPadHFieldNumber = 5;
-  ::google::protobuf::uint32 pad_h_() const;
-  void set_pad_h_(::google::protobuf::uint32 value);
+  // optional .BigBang.FillerParameter kernel_filler = 10;
+  bool has_kernel_filler() const;
+  void clear_kernel_filler();
+  static const int kKernelFillerFieldNumber = 10;
+  const ::BigBang::FillerParameter& kernel_filler() const;
+  ::BigBang::FillerParameter* release_kernel_filler();
+  ::BigBang::FillerParameter* mutable_kernel_filler();
+  void set_allocated_kernel_filler(::BigBang::FillerParameter* kernel_filler);
 
-  // optional uint32 pad_w_ = 6;
-  bool has_pad_w_() const;
-  void clear_pad_w_();
-  static const int kPadWFieldNumber = 6;
-  ::google::protobuf::uint32 pad_w_() const;
-  void set_pad_w_(::google::protobuf::uint32 value);
-
-  // optional bool use_bias_ = 9;
-  bool has_use_bias_() const;
-  void clear_use_bias_();
-  static const int kUseBiasFieldNumber = 9;
-  bool use_bias_() const;
-  void set_use_bias_(bool value);
-
-  // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-  bool has_weight_filler_() const;
-  void clear_weight_filler_();
-  static const int kWeightFillerFieldNumber = 10;
-  ::BigBang::FillerParameter weight_filler_() const;
-  void set_weight_filler_(::BigBang::FillerParameter value);
-
-  // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
-  bool has_bias_filler_() const;
-  void clear_bias_filler_();
+  // optional .BigBang.FillerParameter bias_filler = 11;
+  bool has_bias_filler() const;
+  void clear_bias_filler();
   static const int kBiasFillerFieldNumber = 11;
-  ::BigBang::FillerParameter bias_filler_() const;
-  void set_bias_filler_(::BigBang::FillerParameter value);
+  const ::BigBang::FillerParameter& bias_filler() const;
+  ::BigBang::FillerParameter* release_bias_filler();
+  ::BigBang::FillerParameter* mutable_bias_filler();
+  void set_allocated_bias_filler(::BigBang::FillerParameter* bias_filler);
 
-  // optional uint32 kernel_groups_ = 1 [default = 1];
-  bool has_kernel_groups_() const;
-  void clear_kernel_groups_();
+  // optional uint32 pad_h = 5;
+  bool has_pad_h() const;
+  void clear_pad_h();
+  static const int kPadHFieldNumber = 5;
+  ::google::protobuf::uint32 pad_h() const;
+  void set_pad_h(::google::protobuf::uint32 value);
+
+  // optional uint32 pad_w = 6;
+  bool has_pad_w() const;
+  void clear_pad_w();
+  static const int kPadWFieldNumber = 6;
+  ::google::protobuf::uint32 pad_w() const;
+  void set_pad_w(::google::protobuf::uint32 value);
+
+  // optional bool use_bias = 9;
+  bool has_use_bias() const;
+  void clear_use_bias();
+  static const int kUseBiasFieldNumber = 9;
+  bool use_bias() const;
+  void set_use_bias(bool value);
+
+  // optional uint32 kernel_groups = 1 [default = 1];
+  bool has_kernel_groups() const;
+  void clear_kernel_groups();
   static const int kKernelGroupsFieldNumber = 1;
-  ::google::protobuf::uint32 kernel_groups_() const;
-  void set_kernel_groups_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 kernel_groups() const;
+  void set_kernel_groups(::google::protobuf::uint32 value);
 
-  // optional uint32 kernel_channels_ = 2 [default = 1];
-  bool has_kernel_channels_() const;
-  void clear_kernel_channels_();
+  // optional uint32 kernel_channels = 2 [default = 1];
+  bool has_kernel_channels() const;
+  void clear_kernel_channels();
   static const int kKernelChannelsFieldNumber = 2;
-  ::google::protobuf::uint32 kernel_channels_() const;
-  void set_kernel_channels_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 kernel_channels() const;
+  void set_kernel_channels(::google::protobuf::uint32 value);
 
-  // optional uint32 kernel_h_ = 3 [default = 1];
-  bool has_kernel_h_() const;
-  void clear_kernel_h_();
+  // optional uint32 kernel_h = 3 [default = 1];
+  bool has_kernel_h() const;
+  void clear_kernel_h();
   static const int kKernelHFieldNumber = 3;
-  ::google::protobuf::uint32 kernel_h_() const;
-  void set_kernel_h_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 kernel_h() const;
+  void set_kernel_h(::google::protobuf::uint32 value);
 
-  // optional uint32 kernel_w_ = 4 [default = 1];
-  bool has_kernel_w_() const;
-  void clear_kernel_w_();
+  // optional uint32 kernel_w = 4 [default = 1];
+  bool has_kernel_w() const;
+  void clear_kernel_w();
   static const int kKernelWFieldNumber = 4;
-  ::google::protobuf::uint32 kernel_w_() const;
-  void set_kernel_w_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 kernel_w() const;
+  void set_kernel_w(::google::protobuf::uint32 value);
 
-  // optional uint32 stride_h_ = 7 [default = 1];
-  bool has_stride_h_() const;
-  void clear_stride_h_();
+  // optional uint32 stride_h = 7 [default = 1];
+  bool has_stride_h() const;
+  void clear_stride_h();
   static const int kStrideHFieldNumber = 7;
-  ::google::protobuf::uint32 stride_h_() const;
-  void set_stride_h_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 stride_h() const;
+  void set_stride_h(::google::protobuf::uint32 value);
 
-  // optional uint32 stride_w_ = 8 [default = 1];
-  bool has_stride_w_() const;
-  void clear_stride_w_();
+  // optional uint32 stride_w = 8 [default = 1];
+  bool has_stride_w() const;
+  void clear_stride_w();
   static const int kStrideWFieldNumber = 8;
-  ::google::protobuf::uint32 stride_w_() const;
-  void set_stride_w_(::google::protobuf::uint32 value);
+  ::google::protobuf::uint32 stride_w() const;
+  void set_stride_w(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:BigBang.ConvLayerParameter)
  private:
-  void set_has_kernel_groups_();
-  void clear_has_kernel_groups_();
-  void set_has_kernel_channels_();
-  void clear_has_kernel_channels_();
-  void set_has_kernel_h_();
-  void clear_has_kernel_h_();
-  void set_has_kernel_w_();
-  void clear_has_kernel_w_();
-  void set_has_pad_h_();
-  void clear_has_pad_h_();
-  void set_has_pad_w_();
-  void clear_has_pad_w_();
-  void set_has_stride_h_();
-  void clear_has_stride_h_();
-  void set_has_stride_w_();
-  void clear_has_stride_w_();
-  void set_has_use_bias_();
-  void clear_has_use_bias_();
-  void set_has_weight_filler_();
-  void clear_has_weight_filler_();
-  void set_has_bias_filler_();
-  void clear_has_bias_filler_();
+  void set_has_kernel_groups();
+  void clear_has_kernel_groups();
+  void set_has_kernel_channels();
+  void clear_has_kernel_channels();
+  void set_has_kernel_h();
+  void clear_has_kernel_h();
+  void set_has_kernel_w();
+  void clear_has_kernel_w();
+  void set_has_pad_h();
+  void clear_has_pad_h();
+  void set_has_pad_w();
+  void clear_has_pad_w();
+  void set_has_stride_h();
+  void clear_has_stride_h();
+  void set_has_stride_w();
+  void clear_has_stride_w();
+  void set_has_use_bias();
+  void clear_has_use_bias();
+  void set_has_kernel_filler();
+  void clear_has_kernel_filler();
+  void set_has_bias_filler();
+  void clear_has_bias_filler();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::uint32 pad_h__;
-  ::google::protobuf::uint32 pad_w__;
-  bool use_bias__;
-  int weight_filler__;
-  int bias_filler__;
-  ::google::protobuf::uint32 kernel_groups__;
-  ::google::protobuf::uint32 kernel_channels__;
-  ::google::protobuf::uint32 kernel_h__;
-  ::google::protobuf::uint32 kernel_w__;
-  ::google::protobuf::uint32 stride_h__;
-  ::google::protobuf::uint32 stride_w__;
+  ::BigBang::FillerParameter* kernel_filler_;
+  ::BigBang::FillerParameter* bias_filler_;
+  ::google::protobuf::uint32 pad_h_;
+  ::google::protobuf::uint32 pad_w_;
+  bool use_bias_;
+  ::google::protobuf::uint32 kernel_groups_;
+  ::google::protobuf::uint32 kernel_channels_;
+  ::google::protobuf::uint32 kernel_h_;
+  ::google::protobuf::uint32 kernel_w_;
+  ::google::protobuf::uint32 stride_h_;
+  ::google::protobuf::uint32 stride_w_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsConvLayerParameterImpl();
 };
@@ -553,7 +697,7 @@ class InnerProductLayerParameter : public ::google::protobuf::Message /* @@proto
                &_InnerProductLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(InnerProductLayerParameter* other);
   friend void swap(InnerProductLayerParameter& a, InnerProductLayerParameter& b) {
@@ -600,42 +744,46 @@ class InnerProductLayerParameter : public ::google::protobuf::Message /* @@proto
 
   // accessors -------------------------------------------------------
 
-  // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
-  bool has_bias_filler_() const;
-  void clear_bias_filler_();
-  static const int kBiasFillerFieldNumber = 11;
-  ::BigBang::FillerParameter bias_filler_() const;
-  void set_bias_filler_(::BigBang::FillerParameter value);
-
-  // optional bool use_bias_ = 1;
-  bool has_use_bias_() const;
-  void clear_use_bias_();
-  static const int kUseBiasFieldNumber = 1;
-  bool use_bias_() const;
-  void set_use_bias_(bool value);
-
-  // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-  bool has_weight_filler_() const;
-  void clear_weight_filler_();
+  // optional .BigBang.FillerParameter weight_filler = 10;
+  bool has_weight_filler() const;
+  void clear_weight_filler();
   static const int kWeightFillerFieldNumber = 10;
-  ::BigBang::FillerParameter weight_filler_() const;
-  void set_weight_filler_(::BigBang::FillerParameter value);
+  const ::BigBang::FillerParameter& weight_filler() const;
+  ::BigBang::FillerParameter* release_weight_filler();
+  ::BigBang::FillerParameter* mutable_weight_filler();
+  void set_allocated_weight_filler(::BigBang::FillerParameter* weight_filler);
+
+  // optional .BigBang.FillerParameter bias_filler = 11;
+  bool has_bias_filler() const;
+  void clear_bias_filler();
+  static const int kBiasFillerFieldNumber = 11;
+  const ::BigBang::FillerParameter& bias_filler() const;
+  ::BigBang::FillerParameter* release_bias_filler();
+  ::BigBang::FillerParameter* mutable_bias_filler();
+  void set_allocated_bias_filler(::BigBang::FillerParameter* bias_filler);
+
+  // optional bool use_bias = 1;
+  bool has_use_bias() const;
+  void clear_use_bias();
+  static const int kUseBiasFieldNumber = 1;
+  bool use_bias() const;
+  void set_use_bias(bool value);
 
   // @@protoc_insertion_point(class_scope:BigBang.InnerProductLayerParameter)
  private:
-  void set_has_use_bias_();
-  void clear_has_use_bias_();
-  void set_has_weight_filler_();
-  void clear_has_weight_filler_();
-  void set_has_bias_filler_();
-  void clear_has_bias_filler_();
+  void set_has_use_bias();
+  void clear_has_use_bias();
+  void set_has_weight_filler();
+  void clear_has_weight_filler();
+  void set_has_bias_filler();
+  void clear_has_bias_filler();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  int bias_filler__;
-  bool use_bias__;
-  int weight_filler__;
+  ::BigBang::FillerParameter* weight_filler_;
+  ::BigBang::FillerParameter* bias_filler_;
+  bool use_bias_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsInnerProductLayerParameterImpl();
 };
@@ -683,7 +831,7 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
                &_LayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(LayerParameter* other);
   friend void swap(LayerParameter& a, LayerParameter& b) {
@@ -730,84 +878,84 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // accessors -------------------------------------------------------
 
-  // optional string name_ = 1;
-  bool has_name_() const;
-  void clear_name_();
+  // optional string name = 1;
+  bool has_name() const;
+  void clear_name();
   static const int kNameFieldNumber = 1;
-  const ::std::string& name_() const;
-  void set_name_(const ::std::string& value);
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
   #if LANG_CXX11
-  void set_name_(::std::string&& value);
+  void set_name(::std::string&& value);
   #endif
-  void set_name_(const char* value);
-  void set_name_(const char* value, size_t size);
-  ::std::string* mutable_name_();
-  ::std::string* release_name_();
-  void set_allocated_name_(::std::string* name_);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
 
-  // optional string type_ = 2;
-  bool has_type_() const;
-  void clear_type_();
+  // optional string type = 2;
+  bool has_type() const;
+  void clear_type();
   static const int kTypeFieldNumber = 2;
-  const ::std::string& type_() const;
-  void set_type_(const ::std::string& value);
+  const ::std::string& type() const;
+  void set_type(const ::std::string& value);
   #if LANG_CXX11
-  void set_type_(::std::string&& value);
+  void set_type(::std::string&& value);
   #endif
-  void set_type_(const char* value);
-  void set_type_(const char* value, size_t size);
-  ::std::string* mutable_type_();
-  ::std::string* release_type_();
-  void set_allocated_type_(::std::string* type_);
+  void set_type(const char* value);
+  void set_type(const char* value, size_t size);
+  ::std::string* mutable_type();
+  ::std::string* release_type();
+  void set_allocated_type(::std::string* type);
 
-  // optional .BigBang.ConvLayerParameter conv_layer_param_ = 100;
-  bool has_conv_layer_param_() const;
-  void clear_conv_layer_param_();
+  // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
+  bool has_conv_layer_param() const;
+  void clear_conv_layer_param();
   static const int kConvLayerParamFieldNumber = 100;
-  const ::BigBang::ConvLayerParameter& conv_layer_param_() const;
-  ::BigBang::ConvLayerParameter* release_conv_layer_param_();
-  ::BigBang::ConvLayerParameter* mutable_conv_layer_param_();
-  void set_allocated_conv_layer_param_(::BigBang::ConvLayerParameter* conv_layer_param_);
+  const ::BigBang::ConvLayerParameter& conv_layer_param() const;
+  ::BigBang::ConvLayerParameter* release_conv_layer_param();
+  ::BigBang::ConvLayerParameter* mutable_conv_layer_param();
+  void set_allocated_conv_layer_param(::BigBang::ConvLayerParameter* conv_layer_param);
 
-  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param_ = 101;
-  bool has_inner_product_layer_param_() const;
-  void clear_inner_product_layer_param_();
+  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
+  bool has_inner_product_layer_param() const;
+  void clear_inner_product_layer_param();
   static const int kInnerProductLayerParamFieldNumber = 101;
-  const ::BigBang::InnerProductLayerParameter& inner_product_layer_param_() const;
-  ::BigBang::InnerProductLayerParameter* release_inner_product_layer_param_();
-  ::BigBang::InnerProductLayerParameter* mutable_inner_product_layer_param_();
-  void set_allocated_inner_product_layer_param_(::BigBang::InnerProductLayerParameter* inner_product_layer_param_);
+  const ::BigBang::InnerProductLayerParameter& inner_product_layer_param() const;
+  ::BigBang::InnerProductLayerParameter* release_inner_product_layer_param();
+  ::BigBang::InnerProductLayerParameter* mutable_inner_product_layer_param();
+  void set_allocated_inner_product_layer_param(::BigBang::InnerProductLayerParameter* inner_product_layer_param);
 
-  // optional .BigBang.PoolingLayerParameter pooling_layer_param_ = 102;
-  bool has_pooling_layer_param_() const;
-  void clear_pooling_layer_param_();
+  // optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
+  bool has_pooling_layer_param() const;
+  void clear_pooling_layer_param();
   static const int kPoolingLayerParamFieldNumber = 102;
-  const ::BigBang::PoolingLayerParameter& pooling_layer_param_() const;
-  ::BigBang::PoolingLayerParameter* release_pooling_layer_param_();
-  ::BigBang::PoolingLayerParameter* mutable_pooling_layer_param_();
-  void set_allocated_pooling_layer_param_(::BigBang::PoolingLayerParameter* pooling_layer_param_);
+  const ::BigBang::PoolingLayerParameter& pooling_layer_param() const;
+  ::BigBang::PoolingLayerParameter* release_pooling_layer_param();
+  ::BigBang::PoolingLayerParameter* mutable_pooling_layer_param();
+  void set_allocated_pooling_layer_param(::BigBang::PoolingLayerParameter* pooling_layer_param);
 
   // @@protoc_insertion_point(class_scope:BigBang.LayerParameter)
  private:
-  void set_has_name_();
-  void clear_has_name_();
-  void set_has_type_();
-  void clear_has_type_();
-  void set_has_conv_layer_param_();
-  void clear_has_conv_layer_param_();
-  void set_has_inner_product_layer_param_();
-  void clear_has_inner_product_layer_param_();
-  void set_has_pooling_layer_param_();
-  void clear_has_pooling_layer_param_();
+  void set_has_name();
+  void clear_has_name();
+  void set_has_type();
+  void clear_has_type();
+  void set_has_conv_layer_param();
+  void clear_has_conv_layer_param();
+  void set_has_inner_product_layer_param();
+  void clear_has_inner_product_layer_param();
+  void set_has_pooling_layer_param();
+  void clear_has_pooling_layer_param();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::internal::ArenaStringPtr name__;
-  ::google::protobuf::internal::ArenaStringPtr type__;
-  ::BigBang::ConvLayerParameter* conv_layer_param__;
-  ::BigBang::InnerProductLayerParameter* inner_product_layer_param__;
-  ::BigBang::PoolingLayerParameter* pooling_layer_param__;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr type_;
+  ::BigBang::ConvLayerParameter* conv_layer_param_;
+  ::BigBang::InnerProductLayerParameter* inner_product_layer_param_;
+  ::BigBang::PoolingLayerParameter* pooling_layer_param_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsLayerParameterImpl();
 };
@@ -855,7 +1003,7 @@ class NetParameter : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_NetParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(NetParameter* other);
   friend void swap(NetParameter& a, NetParameter& b) {
@@ -902,43 +1050,43 @@ class NetParameter : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // accessors -------------------------------------------------------
 
-  // repeated .BigBang.LayerParameter layer_param_ = 10;
-  int layer_param__size() const;
-  void clear_layer_param_();
+  // repeated .BigBang.LayerParameter layer_param = 10;
+  int layer_param_size() const;
+  void clear_layer_param();
   static const int kLayerParamFieldNumber = 10;
-  const ::BigBang::LayerParameter& layer_param_(int index) const;
-  ::BigBang::LayerParameter* mutable_layer_param_(int index);
-  ::BigBang::LayerParameter* add_layer_param_();
+  const ::BigBang::LayerParameter& layer_param(int index) const;
+  ::BigBang::LayerParameter* mutable_layer_param(int index);
+  ::BigBang::LayerParameter* add_layer_param();
   ::google::protobuf::RepeatedPtrField< ::BigBang::LayerParameter >*
-      mutable_layer_param_();
+      mutable_layer_param();
   const ::google::protobuf::RepeatedPtrField< ::BigBang::LayerParameter >&
-      layer_param_() const;
+      layer_param() const;
 
-  // optional string name_ = 1;
-  bool has_name_() const;
-  void clear_name_();
+  // optional string name = 1;
+  bool has_name() const;
+  void clear_name();
   static const int kNameFieldNumber = 1;
-  const ::std::string& name_() const;
-  void set_name_(const ::std::string& value);
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
   #if LANG_CXX11
-  void set_name_(::std::string&& value);
+  void set_name(::std::string&& value);
   #endif
-  void set_name_(const char* value);
-  void set_name_(const char* value, size_t size);
-  ::std::string* mutable_name_();
-  ::std::string* release_name_();
-  void set_allocated_name_(::std::string* name_);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
 
   // @@protoc_insertion_point(class_scope:BigBang.NetParameter)
  private:
-  void set_has_name_();
-  void clear_has_name_();
+  void set_has_name();
+  void clear_has_name();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::BigBang::LayerParameter > layer_param__;
-  ::google::protobuf::internal::ArenaStringPtr name__;
+  ::google::protobuf::RepeatedPtrField< ::BigBang::LayerParameter > layer_param_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsNetParameterImpl();
 };
@@ -986,7 +1134,7 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
                &_SolverParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(SolverParameter* other);
   friend void swap(SolverParameter& a, SolverParameter& b) {
@@ -1033,14 +1181,14 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // optional .BigBang.NetParameter net_param_ = 1;
-  bool has_net_param_() const;
-  void clear_net_param_();
+  // optional .BigBang.NetParameter net_param = 1;
+  bool has_net_param() const;
+  void clear_net_param();
   static const int kNetParamFieldNumber = 1;
-  const ::BigBang::NetParameter& net_param_() const;
-  ::BigBang::NetParameter* release_net_param_();
-  ::BigBang::NetParameter* mutable_net_param_();
-  void set_allocated_net_param_(::BigBang::NetParameter* net_param_);
+  const ::BigBang::NetParameter& net_param() const;
+  ::BigBang::NetParameter* release_net_param();
+  ::BigBang::NetParameter* mutable_net_param();
+  void set_allocated_net_param(::BigBang::NetParameter* net_param);
 
   // optional float lr = 2;
   bool has_lr() const;
@@ -1051,15 +1199,15 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
 
   // @@protoc_insertion_point(class_scope:BigBang.SolverParameter)
  private:
-  void set_has_net_param_();
-  void clear_has_net_param_();
+  void set_has_net_param();
+  void clear_has_net_param();
   void set_has_lr();
   void clear_has_lr();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::BigBang::NetParameter* net_param__;
+  ::BigBang::NetParameter* net_param_;
   float lr_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsSolverParameterImpl();
@@ -1073,922 +1221,1067 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
-// PoolingLayerParameter
+// FillerParameter
 
-// optional .BigBang.PoolingLayerParameter.PoolingMethod pool_ = 1 [default = MAX];
-inline bool PoolingLayerParameter::has_pool_() const {
+// optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+inline bool FillerParameter::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void PoolingLayerParameter::set_has_pool_() {
+inline void FillerParameter::set_has_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void PoolingLayerParameter::clear_has_pool_() {
+inline void FillerParameter::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void PoolingLayerParameter::clear_pool_() {
-  pool__ = 0;
-  clear_has_pool_();
+inline void FillerParameter::clear_type() {
+  type_ = 0;
+  clear_has_type();
 }
-inline ::BigBang::PoolingLayerParameter_PoolingMethod PoolingLayerParameter::pool_() const {
-  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.pool_)
-  return static_cast< ::BigBang::PoolingLayerParameter_PoolingMethod >(pool__);
+inline ::BigBang::FillerParameter_FillerType FillerParameter::type() const {
+  // @@protoc_insertion_point(field_get:BigBang.FillerParameter.type)
+  return static_cast< ::BigBang::FillerParameter_FillerType >(type_);
 }
-inline void PoolingLayerParameter::set_pool_(::BigBang::PoolingLayerParameter_PoolingMethod value) {
-  assert(::BigBang::PoolingLayerParameter_PoolingMethod_IsValid(value));
-  set_has_pool_();
-  pool__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.pool_)
+inline void FillerParameter::set_type(::BigBang::FillerParameter_FillerType value) {
+  assert(::BigBang::FillerParameter_FillerType_IsValid(value));
+  set_has_type();
+  type_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.FillerParameter.type)
 }
 
-// optional uint32 kernel_h_ = 2 [default = 1];
-inline bool PoolingLayerParameter::has_kernel_h_() const {
+// -------------------------------------------------------------------
+
+// PoolingLayerParameter
+
+// optional .BigBang.PoolingLayerParameter.PoolingMethod pool = 1 [default = MAX];
+inline bool PoolingLayerParameter::has_pool() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PoolingLayerParameter::set_has_pool() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PoolingLayerParameter::clear_has_pool() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PoolingLayerParameter::clear_pool() {
+  pool_ = 0;
+  clear_has_pool();
+}
+inline ::BigBang::PoolingLayerParameter_PoolingMethod PoolingLayerParameter::pool() const {
+  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.pool)
+  return static_cast< ::BigBang::PoolingLayerParameter_PoolingMethod >(pool_);
+}
+inline void PoolingLayerParameter::set_pool(::BigBang::PoolingLayerParameter_PoolingMethod value) {
+  assert(::BigBang::PoolingLayerParameter_PoolingMethod_IsValid(value));
+  set_has_pool();
+  pool_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.pool)
+}
+
+// optional uint32 kernel_h = 2 [default = 1];
+inline bool PoolingLayerParameter::has_kernel_h() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void PoolingLayerParameter::set_has_kernel_h_() {
+inline void PoolingLayerParameter::set_has_kernel_h() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void PoolingLayerParameter::clear_has_kernel_h_() {
+inline void PoolingLayerParameter::clear_has_kernel_h() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void PoolingLayerParameter::clear_kernel_h_() {
-  kernel_h__ = 1u;
-  clear_has_kernel_h_();
+inline void PoolingLayerParameter::clear_kernel_h() {
+  kernel_h_ = 1u;
+  clear_has_kernel_h();
 }
-inline ::google::protobuf::uint32 PoolingLayerParameter::kernel_h_() const {
-  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.kernel_h_)
-  return kernel_h__;
+inline ::google::protobuf::uint32 PoolingLayerParameter::kernel_h() const {
+  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.kernel_h)
+  return kernel_h_;
 }
-inline void PoolingLayerParameter::set_kernel_h_(::google::protobuf::uint32 value) {
-  set_has_kernel_h_();
-  kernel_h__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.kernel_h_)
+inline void PoolingLayerParameter::set_kernel_h(::google::protobuf::uint32 value) {
+  set_has_kernel_h();
+  kernel_h_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.kernel_h)
 }
 
-// optional uint32 kernel_w_ = 3 [default = 1];
-inline bool PoolingLayerParameter::has_kernel_w_() const {
+// optional uint32 kernel_w = 3 [default = 1];
+inline bool PoolingLayerParameter::has_kernel_w() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void PoolingLayerParameter::set_has_kernel_w_() {
+inline void PoolingLayerParameter::set_has_kernel_w() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void PoolingLayerParameter::clear_has_kernel_w_() {
+inline void PoolingLayerParameter::clear_has_kernel_w() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void PoolingLayerParameter::clear_kernel_w_() {
-  kernel_w__ = 1u;
-  clear_has_kernel_w_();
+inline void PoolingLayerParameter::clear_kernel_w() {
+  kernel_w_ = 1u;
+  clear_has_kernel_w();
 }
-inline ::google::protobuf::uint32 PoolingLayerParameter::kernel_w_() const {
-  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.kernel_w_)
-  return kernel_w__;
+inline ::google::protobuf::uint32 PoolingLayerParameter::kernel_w() const {
+  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.kernel_w)
+  return kernel_w_;
 }
-inline void PoolingLayerParameter::set_kernel_w_(::google::protobuf::uint32 value) {
-  set_has_kernel_w_();
-  kernel_w__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.kernel_w_)
+inline void PoolingLayerParameter::set_kernel_w(::google::protobuf::uint32 value) {
+  set_has_kernel_w();
+  kernel_w_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.kernel_w)
 }
 
-// optional uint32 stride_h_ = 4 [default = 1];
-inline bool PoolingLayerParameter::has_stride_h_() const {
+// optional uint32 stride_h = 4 [default = 1];
+inline bool PoolingLayerParameter::has_stride_h() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void PoolingLayerParameter::set_has_stride_h_() {
+inline void PoolingLayerParameter::set_has_stride_h() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void PoolingLayerParameter::clear_has_stride_h_() {
+inline void PoolingLayerParameter::clear_has_stride_h() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void PoolingLayerParameter::clear_stride_h_() {
-  stride_h__ = 1u;
-  clear_has_stride_h_();
+inline void PoolingLayerParameter::clear_stride_h() {
+  stride_h_ = 1u;
+  clear_has_stride_h();
 }
-inline ::google::protobuf::uint32 PoolingLayerParameter::stride_h_() const {
-  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.stride_h_)
-  return stride_h__;
+inline ::google::protobuf::uint32 PoolingLayerParameter::stride_h() const {
+  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.stride_h)
+  return stride_h_;
 }
-inline void PoolingLayerParameter::set_stride_h_(::google::protobuf::uint32 value) {
-  set_has_stride_h_();
-  stride_h__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.stride_h_)
+inline void PoolingLayerParameter::set_stride_h(::google::protobuf::uint32 value) {
+  set_has_stride_h();
+  stride_h_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.stride_h)
 }
 
-// optional uint32 stride_w_ = 5 [default = 1];
-inline bool PoolingLayerParameter::has_stride_w_() const {
+// optional uint32 stride_w = 5 [default = 1];
+inline bool PoolingLayerParameter::has_stride_w() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void PoolingLayerParameter::set_has_stride_w_() {
+inline void PoolingLayerParameter::set_has_stride_w() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void PoolingLayerParameter::clear_has_stride_w_() {
+inline void PoolingLayerParameter::clear_has_stride_w() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void PoolingLayerParameter::clear_stride_w_() {
-  stride_w__ = 1u;
-  clear_has_stride_w_();
+inline void PoolingLayerParameter::clear_stride_w() {
+  stride_w_ = 1u;
+  clear_has_stride_w();
 }
-inline ::google::protobuf::uint32 PoolingLayerParameter::stride_w_() const {
-  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.stride_w_)
-  return stride_w__;
+inline ::google::protobuf::uint32 PoolingLayerParameter::stride_w() const {
+  // @@protoc_insertion_point(field_get:BigBang.PoolingLayerParameter.stride_w)
+  return stride_w_;
 }
-inline void PoolingLayerParameter::set_stride_w_(::google::protobuf::uint32 value) {
-  set_has_stride_w_();
-  stride_w__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.stride_w_)
+inline void PoolingLayerParameter::set_stride_w(::google::protobuf::uint32 value) {
+  set_has_stride_w();
+  stride_w_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.stride_w)
 }
 
 // -------------------------------------------------------------------
 
 // ConvLayerParameter
 
-// optional uint32 kernel_groups_ = 1 [default = 1];
-inline bool ConvLayerParameter::has_kernel_groups_() const {
+// optional uint32 kernel_groups = 1 [default = 1];
+inline bool ConvLayerParameter::has_kernel_groups() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void ConvLayerParameter::set_has_kernel_groups_() {
+inline void ConvLayerParameter::set_has_kernel_groups() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void ConvLayerParameter::clear_has_kernel_groups_() {
+inline void ConvLayerParameter::clear_has_kernel_groups() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void ConvLayerParameter::clear_kernel_groups_() {
-  kernel_groups__ = 1u;
-  clear_has_kernel_groups_();
+inline void ConvLayerParameter::clear_kernel_groups() {
+  kernel_groups_ = 1u;
+  clear_has_kernel_groups();
 }
-inline ::google::protobuf::uint32 ConvLayerParameter::kernel_groups_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_groups_)
-  return kernel_groups__;
+inline ::google::protobuf::uint32 ConvLayerParameter::kernel_groups() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_groups)
+  return kernel_groups_;
 }
-inline void ConvLayerParameter::set_kernel_groups_(::google::protobuf::uint32 value) {
-  set_has_kernel_groups_();
-  kernel_groups__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_groups_)
+inline void ConvLayerParameter::set_kernel_groups(::google::protobuf::uint32 value) {
+  set_has_kernel_groups();
+  kernel_groups_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_groups)
 }
 
-// optional uint32 kernel_channels_ = 2 [default = 1];
-inline bool ConvLayerParameter::has_kernel_channels_() const {
+// optional uint32 kernel_channels = 2 [default = 1];
+inline bool ConvLayerParameter::has_kernel_channels() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
-inline void ConvLayerParameter::set_has_kernel_channels_() {
+inline void ConvLayerParameter::set_has_kernel_channels() {
   _has_bits_[0] |= 0x00000040u;
 }
-inline void ConvLayerParameter::clear_has_kernel_channels_() {
+inline void ConvLayerParameter::clear_has_kernel_channels() {
   _has_bits_[0] &= ~0x00000040u;
 }
-inline void ConvLayerParameter::clear_kernel_channels_() {
-  kernel_channels__ = 1u;
-  clear_has_kernel_channels_();
+inline void ConvLayerParameter::clear_kernel_channels() {
+  kernel_channels_ = 1u;
+  clear_has_kernel_channels();
 }
-inline ::google::protobuf::uint32 ConvLayerParameter::kernel_channels_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_channels_)
-  return kernel_channels__;
+inline ::google::protobuf::uint32 ConvLayerParameter::kernel_channels() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_channels)
+  return kernel_channels_;
 }
-inline void ConvLayerParameter::set_kernel_channels_(::google::protobuf::uint32 value) {
-  set_has_kernel_channels_();
-  kernel_channels__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_channels_)
+inline void ConvLayerParameter::set_kernel_channels(::google::protobuf::uint32 value) {
+  set_has_kernel_channels();
+  kernel_channels_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_channels)
 }
 
-// optional uint32 kernel_h_ = 3 [default = 1];
-inline bool ConvLayerParameter::has_kernel_h_() const {
+// optional uint32 kernel_h = 3 [default = 1];
+inline bool ConvLayerParameter::has_kernel_h() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void ConvLayerParameter::set_has_kernel_h_() {
+inline void ConvLayerParameter::set_has_kernel_h() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void ConvLayerParameter::clear_has_kernel_h_() {
+inline void ConvLayerParameter::clear_has_kernel_h() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void ConvLayerParameter::clear_kernel_h_() {
-  kernel_h__ = 1u;
-  clear_has_kernel_h_();
+inline void ConvLayerParameter::clear_kernel_h() {
+  kernel_h_ = 1u;
+  clear_has_kernel_h();
 }
-inline ::google::protobuf::uint32 ConvLayerParameter::kernel_h_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_h_)
-  return kernel_h__;
+inline ::google::protobuf::uint32 ConvLayerParameter::kernel_h() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_h)
+  return kernel_h_;
 }
-inline void ConvLayerParameter::set_kernel_h_(::google::protobuf::uint32 value) {
-  set_has_kernel_h_();
-  kernel_h__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_h_)
+inline void ConvLayerParameter::set_kernel_h(::google::protobuf::uint32 value) {
+  set_has_kernel_h();
+  kernel_h_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_h)
 }
 
-// optional uint32 kernel_w_ = 4 [default = 1];
-inline bool ConvLayerParameter::has_kernel_w_() const {
+// optional uint32 kernel_w = 4 [default = 1];
+inline bool ConvLayerParameter::has_kernel_w() const {
   return (_has_bits_[0] & 0x00000100u) != 0;
 }
-inline void ConvLayerParameter::set_has_kernel_w_() {
+inline void ConvLayerParameter::set_has_kernel_w() {
   _has_bits_[0] |= 0x00000100u;
 }
-inline void ConvLayerParameter::clear_has_kernel_w_() {
+inline void ConvLayerParameter::clear_has_kernel_w() {
   _has_bits_[0] &= ~0x00000100u;
 }
-inline void ConvLayerParameter::clear_kernel_w_() {
-  kernel_w__ = 1u;
-  clear_has_kernel_w_();
+inline void ConvLayerParameter::clear_kernel_w() {
+  kernel_w_ = 1u;
+  clear_has_kernel_w();
 }
-inline ::google::protobuf::uint32 ConvLayerParameter::kernel_w_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_w_)
-  return kernel_w__;
+inline ::google::protobuf::uint32 ConvLayerParameter::kernel_w() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_w)
+  return kernel_w_;
 }
-inline void ConvLayerParameter::set_kernel_w_(::google::protobuf::uint32 value) {
-  set_has_kernel_w_();
-  kernel_w__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_w_)
-}
-
-// optional uint32 pad_h_ = 5;
-inline bool ConvLayerParameter::has_pad_h_() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ConvLayerParameter::set_has_pad_h_() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ConvLayerParameter::clear_has_pad_h_() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void ConvLayerParameter::clear_pad_h_() {
-  pad_h__ = 0u;
-  clear_has_pad_h_();
-}
-inline ::google::protobuf::uint32 ConvLayerParameter::pad_h_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.pad_h_)
-  return pad_h__;
-}
-inline void ConvLayerParameter::set_pad_h_(::google::protobuf::uint32 value) {
-  set_has_pad_h_();
-  pad_h__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.pad_h_)
+inline void ConvLayerParameter::set_kernel_w(::google::protobuf::uint32 value) {
+  set_has_kernel_w();
+  kernel_w_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.kernel_w)
 }
 
-// optional uint32 pad_w_ = 6;
-inline bool ConvLayerParameter::has_pad_w_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void ConvLayerParameter::set_has_pad_w_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void ConvLayerParameter::clear_has_pad_w_() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void ConvLayerParameter::clear_pad_w_() {
-  pad_w__ = 0u;
-  clear_has_pad_w_();
-}
-inline ::google::protobuf::uint32 ConvLayerParameter::pad_w_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.pad_w_)
-  return pad_w__;
-}
-inline void ConvLayerParameter::set_pad_w_(::google::protobuf::uint32 value) {
-  set_has_pad_w_();
-  pad_w__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.pad_w_)
-}
-
-// optional uint32 stride_h_ = 7 [default = 1];
-inline bool ConvLayerParameter::has_stride_h_() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void ConvLayerParameter::set_has_stride_h_() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void ConvLayerParameter::clear_has_stride_h_() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void ConvLayerParameter::clear_stride_h_() {
-  stride_h__ = 1u;
-  clear_has_stride_h_();
-}
-inline ::google::protobuf::uint32 ConvLayerParameter::stride_h_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.stride_h_)
-  return stride_h__;
-}
-inline void ConvLayerParameter::set_stride_h_(::google::protobuf::uint32 value) {
-  set_has_stride_h_();
-  stride_h__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.stride_h_)
-}
-
-// optional uint32 stride_w_ = 8 [default = 1];
-inline bool ConvLayerParameter::has_stride_w_() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void ConvLayerParameter::set_has_stride_w_() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void ConvLayerParameter::clear_has_stride_w_() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void ConvLayerParameter::clear_stride_w_() {
-  stride_w__ = 1u;
-  clear_has_stride_w_();
-}
-inline ::google::protobuf::uint32 ConvLayerParameter::stride_w_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.stride_w_)
-  return stride_w__;
-}
-inline void ConvLayerParameter::set_stride_w_(::google::protobuf::uint32 value) {
-  set_has_stride_w_();
-  stride_w__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.stride_w_)
-}
-
-// optional bool use_bias_ = 9;
-inline bool ConvLayerParameter::has_use_bias_() const {
+// optional uint32 pad_h = 5;
+inline bool ConvLayerParameter::has_pad_h() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void ConvLayerParameter::set_has_use_bias_() {
+inline void ConvLayerParameter::set_has_pad_h() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void ConvLayerParameter::clear_has_use_bias_() {
+inline void ConvLayerParameter::clear_has_pad_h() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void ConvLayerParameter::clear_use_bias_() {
-  use_bias__ = false;
-  clear_has_use_bias_();
+inline void ConvLayerParameter::clear_pad_h() {
+  pad_h_ = 0u;
+  clear_has_pad_h();
 }
-inline bool ConvLayerParameter::use_bias_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.use_bias_)
-  return use_bias__;
+inline ::google::protobuf::uint32 ConvLayerParameter::pad_h() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.pad_h)
+  return pad_h_;
 }
-inline void ConvLayerParameter::set_use_bias_(bool value) {
-  set_has_use_bias_();
-  use_bias__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.use_bias_)
+inline void ConvLayerParameter::set_pad_h(::google::protobuf::uint32 value) {
+  set_has_pad_h();
+  pad_h_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.pad_h)
 }
 
-// optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-inline bool ConvLayerParameter::has_weight_filler_() const {
+// optional uint32 pad_w = 6;
+inline bool ConvLayerParameter::has_pad_w() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void ConvLayerParameter::set_has_weight_filler_() {
+inline void ConvLayerParameter::set_has_pad_w() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void ConvLayerParameter::clear_has_weight_filler_() {
+inline void ConvLayerParameter::clear_has_pad_w() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void ConvLayerParameter::clear_weight_filler_() {
-  weight_filler__ = 0;
-  clear_has_weight_filler_();
+inline void ConvLayerParameter::clear_pad_w() {
+  pad_w_ = 0u;
+  clear_has_pad_w();
 }
-inline ::BigBang::FillerParameter ConvLayerParameter::weight_filler_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.weight_filler_)
-  return static_cast< ::BigBang::FillerParameter >(weight_filler__);
+inline ::google::protobuf::uint32 ConvLayerParameter::pad_w() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.pad_w)
+  return pad_w_;
 }
-inline void ConvLayerParameter::set_weight_filler_(::BigBang::FillerParameter value) {
-  assert(::BigBang::FillerParameter_IsValid(value));
-  set_has_weight_filler_();
-  weight_filler__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.weight_filler_)
+inline void ConvLayerParameter::set_pad_w(::google::protobuf::uint32 value) {
+  set_has_pad_w();
+  pad_w_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.pad_w)
 }
 
-// optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
-inline bool ConvLayerParameter::has_bias_filler_() const {
+// optional uint32 stride_h = 7 [default = 1];
+inline bool ConvLayerParameter::has_stride_h() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void ConvLayerParameter::set_has_stride_h() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void ConvLayerParameter::clear_has_stride_h() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void ConvLayerParameter::clear_stride_h() {
+  stride_h_ = 1u;
+  clear_has_stride_h();
+}
+inline ::google::protobuf::uint32 ConvLayerParameter::stride_h() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.stride_h)
+  return stride_h_;
+}
+inline void ConvLayerParameter::set_stride_h(::google::protobuf::uint32 value) {
+  set_has_stride_h();
+  stride_h_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.stride_h)
+}
+
+// optional uint32 stride_w = 8 [default = 1];
+inline bool ConvLayerParameter::has_stride_w() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void ConvLayerParameter::set_has_stride_w() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void ConvLayerParameter::clear_has_stride_w() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void ConvLayerParameter::clear_stride_w() {
+  stride_w_ = 1u;
+  clear_has_stride_w();
+}
+inline ::google::protobuf::uint32 ConvLayerParameter::stride_w() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.stride_w)
+  return stride_w_;
+}
+inline void ConvLayerParameter::set_stride_w(::google::protobuf::uint32 value) {
+  set_has_stride_w();
+  stride_w_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.stride_w)
+}
+
+// optional bool use_bias = 9;
+inline bool ConvLayerParameter::has_use_bias() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void ConvLayerParameter::set_has_bias_filler_() {
+inline void ConvLayerParameter::set_has_use_bias() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void ConvLayerParameter::clear_has_bias_filler_() {
+inline void ConvLayerParameter::clear_has_use_bias() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void ConvLayerParameter::clear_bias_filler_() {
-  bias_filler__ = 0;
-  clear_has_bias_filler_();
+inline void ConvLayerParameter::clear_use_bias() {
+  use_bias_ = false;
+  clear_has_use_bias();
 }
-inline ::BigBang::FillerParameter ConvLayerParameter::bias_filler_() const {
-  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.bias_filler_)
-  return static_cast< ::BigBang::FillerParameter >(bias_filler__);
+inline bool ConvLayerParameter::use_bias() const {
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.use_bias)
+  return use_bias_;
 }
-inline void ConvLayerParameter::set_bias_filler_(::BigBang::FillerParameter value) {
-  assert(::BigBang::FillerParameter_IsValid(value));
-  set_has_bias_filler_();
-  bias_filler__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.bias_filler_)
+inline void ConvLayerParameter::set_use_bias(bool value) {
+  set_has_use_bias();
+  use_bias_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.ConvLayerParameter.use_bias)
+}
+
+// optional .BigBang.FillerParameter kernel_filler = 10;
+inline bool ConvLayerParameter::has_kernel_filler() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ConvLayerParameter::set_has_kernel_filler() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ConvLayerParameter::clear_has_kernel_filler() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ConvLayerParameter::clear_kernel_filler() {
+  if (kernel_filler_ != NULL) kernel_filler_->Clear();
+  clear_has_kernel_filler();
+}
+inline const ::BigBang::FillerParameter& ConvLayerParameter::kernel_filler() const {
+  const ::BigBang::FillerParameter* p = kernel_filler_;
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.kernel_filler)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::FillerParameter*>(
+      &::BigBang::_FillerParameter_default_instance_);
+}
+inline ::BigBang::FillerParameter* ConvLayerParameter::release_kernel_filler() {
+  // @@protoc_insertion_point(field_release:BigBang.ConvLayerParameter.kernel_filler)
+  clear_has_kernel_filler();
+  ::BigBang::FillerParameter* temp = kernel_filler_;
+  kernel_filler_ = NULL;
+  return temp;
+}
+inline ::BigBang::FillerParameter* ConvLayerParameter::mutable_kernel_filler() {
+  set_has_kernel_filler();
+  if (kernel_filler_ == NULL) {
+    kernel_filler_ = new ::BigBang::FillerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.ConvLayerParameter.kernel_filler)
+  return kernel_filler_;
+}
+inline void ConvLayerParameter::set_allocated_kernel_filler(::BigBang::FillerParameter* kernel_filler) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete kernel_filler_;
+  }
+  if (kernel_filler) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      kernel_filler = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, kernel_filler, submessage_arena);
+    }
+    set_has_kernel_filler();
+  } else {
+    clear_has_kernel_filler();
+  }
+  kernel_filler_ = kernel_filler;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.ConvLayerParameter.kernel_filler)
+}
+
+// optional .BigBang.FillerParameter bias_filler = 11;
+inline bool ConvLayerParameter::has_bias_filler() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ConvLayerParameter::set_has_bias_filler() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ConvLayerParameter::clear_has_bias_filler() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ConvLayerParameter::clear_bias_filler() {
+  if (bias_filler_ != NULL) bias_filler_->Clear();
+  clear_has_bias_filler();
+}
+inline const ::BigBang::FillerParameter& ConvLayerParameter::bias_filler() const {
+  const ::BigBang::FillerParameter* p = bias_filler_;
+  // @@protoc_insertion_point(field_get:BigBang.ConvLayerParameter.bias_filler)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::FillerParameter*>(
+      &::BigBang::_FillerParameter_default_instance_);
+}
+inline ::BigBang::FillerParameter* ConvLayerParameter::release_bias_filler() {
+  // @@protoc_insertion_point(field_release:BigBang.ConvLayerParameter.bias_filler)
+  clear_has_bias_filler();
+  ::BigBang::FillerParameter* temp = bias_filler_;
+  bias_filler_ = NULL;
+  return temp;
+}
+inline ::BigBang::FillerParameter* ConvLayerParameter::mutable_bias_filler() {
+  set_has_bias_filler();
+  if (bias_filler_ == NULL) {
+    bias_filler_ = new ::BigBang::FillerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.ConvLayerParameter.bias_filler)
+  return bias_filler_;
+}
+inline void ConvLayerParameter::set_allocated_bias_filler(::BigBang::FillerParameter* bias_filler) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete bias_filler_;
+  }
+  if (bias_filler) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      bias_filler = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, bias_filler, submessage_arena);
+    }
+    set_has_bias_filler();
+  } else {
+    clear_has_bias_filler();
+  }
+  bias_filler_ = bias_filler;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.ConvLayerParameter.bias_filler)
 }
 
 // -------------------------------------------------------------------
 
 // InnerProductLayerParameter
 
-// optional bool use_bias_ = 1;
-inline bool InnerProductLayerParameter::has_use_bias_() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void InnerProductLayerParameter::set_has_use_bias_() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void InnerProductLayerParameter::clear_has_use_bias_() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void InnerProductLayerParameter::clear_use_bias_() {
-  use_bias__ = false;
-  clear_has_use_bias_();
-}
-inline bool InnerProductLayerParameter::use_bias_() const {
-  // @@protoc_insertion_point(field_get:BigBang.InnerProductLayerParameter.use_bias_)
-  return use_bias__;
-}
-inline void InnerProductLayerParameter::set_use_bias_(bool value) {
-  set_has_use_bias_();
-  use_bias__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.InnerProductLayerParameter.use_bias_)
-}
-
-// optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-inline bool InnerProductLayerParameter::has_weight_filler_() const {
+// optional bool use_bias = 1;
+inline bool InnerProductLayerParameter::has_use_bias() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void InnerProductLayerParameter::set_has_weight_filler_() {
+inline void InnerProductLayerParameter::set_has_use_bias() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void InnerProductLayerParameter::clear_has_weight_filler_() {
+inline void InnerProductLayerParameter::clear_has_use_bias() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void InnerProductLayerParameter::clear_weight_filler_() {
-  weight_filler__ = 0;
-  clear_has_weight_filler_();
+inline void InnerProductLayerParameter::clear_use_bias() {
+  use_bias_ = false;
+  clear_has_use_bias();
 }
-inline ::BigBang::FillerParameter InnerProductLayerParameter::weight_filler_() const {
-  // @@protoc_insertion_point(field_get:BigBang.InnerProductLayerParameter.weight_filler_)
-  return static_cast< ::BigBang::FillerParameter >(weight_filler__);
+inline bool InnerProductLayerParameter::use_bias() const {
+  // @@protoc_insertion_point(field_get:BigBang.InnerProductLayerParameter.use_bias)
+  return use_bias_;
 }
-inline void InnerProductLayerParameter::set_weight_filler_(::BigBang::FillerParameter value) {
-  assert(::BigBang::FillerParameter_IsValid(value));
-  set_has_weight_filler_();
-  weight_filler__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.InnerProductLayerParameter.weight_filler_)
+inline void InnerProductLayerParameter::set_use_bias(bool value) {
+  set_has_use_bias();
+  use_bias_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.InnerProductLayerParameter.use_bias)
 }
 
-// optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
-inline bool InnerProductLayerParameter::has_bias_filler_() const {
+// optional .BigBang.FillerParameter weight_filler = 10;
+inline bool InnerProductLayerParameter::has_weight_filler() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void InnerProductLayerParameter::set_has_bias_filler_() {
+inline void InnerProductLayerParameter::set_has_weight_filler() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void InnerProductLayerParameter::clear_has_bias_filler_() {
+inline void InnerProductLayerParameter::clear_has_weight_filler() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void InnerProductLayerParameter::clear_bias_filler_() {
-  bias_filler__ = 0;
-  clear_has_bias_filler_();
+inline void InnerProductLayerParameter::clear_weight_filler() {
+  if (weight_filler_ != NULL) weight_filler_->Clear();
+  clear_has_weight_filler();
 }
-inline ::BigBang::FillerParameter InnerProductLayerParameter::bias_filler_() const {
-  // @@protoc_insertion_point(field_get:BigBang.InnerProductLayerParameter.bias_filler_)
-  return static_cast< ::BigBang::FillerParameter >(bias_filler__);
+inline const ::BigBang::FillerParameter& InnerProductLayerParameter::weight_filler() const {
+  const ::BigBang::FillerParameter* p = weight_filler_;
+  // @@protoc_insertion_point(field_get:BigBang.InnerProductLayerParameter.weight_filler)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::FillerParameter*>(
+      &::BigBang::_FillerParameter_default_instance_);
 }
-inline void InnerProductLayerParameter::set_bias_filler_(::BigBang::FillerParameter value) {
-  assert(::BigBang::FillerParameter_IsValid(value));
-  set_has_bias_filler_();
-  bias_filler__ = value;
-  // @@protoc_insertion_point(field_set:BigBang.InnerProductLayerParameter.bias_filler_)
+inline ::BigBang::FillerParameter* InnerProductLayerParameter::release_weight_filler() {
+  // @@protoc_insertion_point(field_release:BigBang.InnerProductLayerParameter.weight_filler)
+  clear_has_weight_filler();
+  ::BigBang::FillerParameter* temp = weight_filler_;
+  weight_filler_ = NULL;
+  return temp;
+}
+inline ::BigBang::FillerParameter* InnerProductLayerParameter::mutable_weight_filler() {
+  set_has_weight_filler();
+  if (weight_filler_ == NULL) {
+    weight_filler_ = new ::BigBang::FillerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.InnerProductLayerParameter.weight_filler)
+  return weight_filler_;
+}
+inline void InnerProductLayerParameter::set_allocated_weight_filler(::BigBang::FillerParameter* weight_filler) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete weight_filler_;
+  }
+  if (weight_filler) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      weight_filler = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, weight_filler, submessage_arena);
+    }
+    set_has_weight_filler();
+  } else {
+    clear_has_weight_filler();
+  }
+  weight_filler_ = weight_filler;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.InnerProductLayerParameter.weight_filler)
+}
+
+// optional .BigBang.FillerParameter bias_filler = 11;
+inline bool InnerProductLayerParameter::has_bias_filler() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void InnerProductLayerParameter::set_has_bias_filler() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void InnerProductLayerParameter::clear_has_bias_filler() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void InnerProductLayerParameter::clear_bias_filler() {
+  if (bias_filler_ != NULL) bias_filler_->Clear();
+  clear_has_bias_filler();
+}
+inline const ::BigBang::FillerParameter& InnerProductLayerParameter::bias_filler() const {
+  const ::BigBang::FillerParameter* p = bias_filler_;
+  // @@protoc_insertion_point(field_get:BigBang.InnerProductLayerParameter.bias_filler)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::FillerParameter*>(
+      &::BigBang::_FillerParameter_default_instance_);
+}
+inline ::BigBang::FillerParameter* InnerProductLayerParameter::release_bias_filler() {
+  // @@protoc_insertion_point(field_release:BigBang.InnerProductLayerParameter.bias_filler)
+  clear_has_bias_filler();
+  ::BigBang::FillerParameter* temp = bias_filler_;
+  bias_filler_ = NULL;
+  return temp;
+}
+inline ::BigBang::FillerParameter* InnerProductLayerParameter::mutable_bias_filler() {
+  set_has_bias_filler();
+  if (bias_filler_ == NULL) {
+    bias_filler_ = new ::BigBang::FillerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.InnerProductLayerParameter.bias_filler)
+  return bias_filler_;
+}
+inline void InnerProductLayerParameter::set_allocated_bias_filler(::BigBang::FillerParameter* bias_filler) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete bias_filler_;
+  }
+  if (bias_filler) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      bias_filler = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, bias_filler, submessage_arena);
+    }
+    set_has_bias_filler();
+  } else {
+    clear_has_bias_filler();
+  }
+  bias_filler_ = bias_filler;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.InnerProductLayerParameter.bias_filler)
 }
 
 // -------------------------------------------------------------------
 
 // LayerParameter
 
-// optional string name_ = 1;
-inline bool LayerParameter::has_name_() const {
+// optional string name = 1;
+inline bool LayerParameter::has_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LayerParameter::set_has_name_() {
+inline void LayerParameter::set_has_name() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LayerParameter::clear_has_name_() {
+inline void LayerParameter::clear_has_name() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LayerParameter::clear_name_() {
-  name__.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name_();
+inline void LayerParameter::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
 }
-inline const ::std::string& LayerParameter::name_() const {
-  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.name_)
-  return name__.GetNoArena();
+inline const ::std::string& LayerParameter::name() const {
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.name)
+  return name_.GetNoArena();
 }
-inline void LayerParameter::set_name_(const ::std::string& value) {
-  set_has_name_();
-  name__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:BigBang.LayerParameter.name_)
+inline void LayerParameter::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.LayerParameter.name)
 }
 #if LANG_CXX11
-inline void LayerParameter::set_name_(::std::string&& value) {
-  set_has_name_();
-  name__.SetNoArena(
+inline void LayerParameter::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:BigBang.LayerParameter.name_)
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.LayerParameter.name)
 }
 #endif
-inline void LayerParameter::set_name_(const char* value) {
+inline void LayerParameter::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_name_();
-  name__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:BigBang.LayerParameter.name_)
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.LayerParameter.name)
 }
-inline void LayerParameter::set_name_(const char* value, size_t size) {
-  set_has_name_();
-  name__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void LayerParameter::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:BigBang.LayerParameter.name_)
+  // @@protoc_insertion_point(field_set_pointer:BigBang.LayerParameter.name)
 }
-inline ::std::string* LayerParameter::mutable_name_() {
-  set_has_name_();
-  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.name_)
-  return name__.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* LayerParameter::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* LayerParameter::release_name_() {
-  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.name_)
-  clear_has_name_();
-  return name__.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* LayerParameter::release_name() {
+  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void LayerParameter::set_allocated_name_(::std::string* name_) {
-  if (name_ != NULL) {
-    set_has_name_();
+inline void LayerParameter::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
   } else {
-    clear_has_name_();
+    clear_has_name();
   }
-  name__.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name_);
-  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.name_)
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.name)
 }
 
-// optional string type_ = 2;
-inline bool LayerParameter::has_type_() const {
+// optional string type = 2;
+inline bool LayerParameter::has_type() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LayerParameter::set_has_type_() {
+inline void LayerParameter::set_has_type() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LayerParameter::clear_has_type_() {
+inline void LayerParameter::clear_has_type() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LayerParameter::clear_type_() {
-  type__.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_type_();
+inline void LayerParameter::clear_type() {
+  type_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_type();
 }
-inline const ::std::string& LayerParameter::type_() const {
-  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.type_)
-  return type__.GetNoArena();
+inline const ::std::string& LayerParameter::type() const {
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.type)
+  return type_.GetNoArena();
 }
-inline void LayerParameter::set_type_(const ::std::string& value) {
-  set_has_type_();
-  type__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:BigBang.LayerParameter.type_)
+inline void LayerParameter::set_type(const ::std::string& value) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.LayerParameter.type)
 }
 #if LANG_CXX11
-inline void LayerParameter::set_type_(::std::string&& value) {
-  set_has_type_();
-  type__.SetNoArena(
+inline void LayerParameter::set_type(::std::string&& value) {
+  set_has_type();
+  type_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:BigBang.LayerParameter.type_)
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.LayerParameter.type)
 }
 #endif
-inline void LayerParameter::set_type_(const char* value) {
+inline void LayerParameter::set_type(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_type_();
-  type__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:BigBang.LayerParameter.type_)
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.LayerParameter.type)
 }
-inline void LayerParameter::set_type_(const char* value, size_t size) {
-  set_has_type_();
-  type__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void LayerParameter::set_type(const char* value, size_t size) {
+  set_has_type();
+  type_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:BigBang.LayerParameter.type_)
+  // @@protoc_insertion_point(field_set_pointer:BigBang.LayerParameter.type)
 }
-inline ::std::string* LayerParameter::mutable_type_() {
-  set_has_type_();
-  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.type_)
-  return type__.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* LayerParameter::mutable_type() {
+  set_has_type();
+  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.type)
+  return type_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* LayerParameter::release_type_() {
-  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.type_)
-  clear_has_type_();
-  return type__.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* LayerParameter::release_type() {
+  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.type)
+  clear_has_type();
+  return type_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void LayerParameter::set_allocated_type_(::std::string* type_) {
-  if (type_ != NULL) {
-    set_has_type_();
+inline void LayerParameter::set_allocated_type(::std::string* type) {
+  if (type != NULL) {
+    set_has_type();
   } else {
-    clear_has_type_();
+    clear_has_type();
   }
-  type__.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type_);
-  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.type_)
+  type_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), type);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.type)
 }
 
-// optional .BigBang.ConvLayerParameter conv_layer_param_ = 100;
-inline bool LayerParameter::has_conv_layer_param_() const {
+// optional .BigBang.ConvLayerParameter conv_layer_param = 100;
+inline bool LayerParameter::has_conv_layer_param() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void LayerParameter::set_has_conv_layer_param_() {
+inline void LayerParameter::set_has_conv_layer_param() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void LayerParameter::clear_has_conv_layer_param_() {
+inline void LayerParameter::clear_has_conv_layer_param() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void LayerParameter::clear_conv_layer_param_() {
-  if (conv_layer_param__ != NULL) conv_layer_param__->Clear();
-  clear_has_conv_layer_param_();
+inline void LayerParameter::clear_conv_layer_param() {
+  if (conv_layer_param_ != NULL) conv_layer_param_->Clear();
+  clear_has_conv_layer_param();
 }
-inline const ::BigBang::ConvLayerParameter& LayerParameter::conv_layer_param_() const {
-  const ::BigBang::ConvLayerParameter* p = conv_layer_param__;
-  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.conv_layer_param_)
+inline const ::BigBang::ConvLayerParameter& LayerParameter::conv_layer_param() const {
+  const ::BigBang::ConvLayerParameter* p = conv_layer_param_;
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.conv_layer_param)
   return p != NULL ? *p : *reinterpret_cast<const ::BigBang::ConvLayerParameter*>(
       &::BigBang::_ConvLayerParameter_default_instance_);
 }
-inline ::BigBang::ConvLayerParameter* LayerParameter::release_conv_layer_param_() {
-  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.conv_layer_param_)
-  clear_has_conv_layer_param_();
-  ::BigBang::ConvLayerParameter* temp = conv_layer_param__;
-  conv_layer_param__ = NULL;
+inline ::BigBang::ConvLayerParameter* LayerParameter::release_conv_layer_param() {
+  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.conv_layer_param)
+  clear_has_conv_layer_param();
+  ::BigBang::ConvLayerParameter* temp = conv_layer_param_;
+  conv_layer_param_ = NULL;
   return temp;
 }
-inline ::BigBang::ConvLayerParameter* LayerParameter::mutable_conv_layer_param_() {
-  set_has_conv_layer_param_();
-  if (conv_layer_param__ == NULL) {
-    conv_layer_param__ = new ::BigBang::ConvLayerParameter;
+inline ::BigBang::ConvLayerParameter* LayerParameter::mutable_conv_layer_param() {
+  set_has_conv_layer_param();
+  if (conv_layer_param_ == NULL) {
+    conv_layer_param_ = new ::BigBang::ConvLayerParameter;
   }
-  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.conv_layer_param_)
-  return conv_layer_param__;
+  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.conv_layer_param)
+  return conv_layer_param_;
 }
-inline void LayerParameter::set_allocated_conv_layer_param_(::BigBang::ConvLayerParameter* conv_layer_param_) {
+inline void LayerParameter::set_allocated_conv_layer_param(::BigBang::ConvLayerParameter* conv_layer_param) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete conv_layer_param__;
+    delete conv_layer_param_;
   }
-  if (conv_layer_param_) {
+  if (conv_layer_param) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      conv_layer_param_ = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, conv_layer_param_, submessage_arena);
+      conv_layer_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, conv_layer_param, submessage_arena);
     }
-    set_has_conv_layer_param_();
+    set_has_conv_layer_param();
   } else {
-    clear_has_conv_layer_param_();
+    clear_has_conv_layer_param();
   }
-  conv_layer_param__ = conv_layer_param_;
-  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.conv_layer_param_)
+  conv_layer_param_ = conv_layer_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.conv_layer_param)
 }
 
-// optional .BigBang.InnerProductLayerParameter inner_product_layer_param_ = 101;
-inline bool LayerParameter::has_inner_product_layer_param_() const {
+// optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
+inline bool LayerParameter::has_inner_product_layer_param() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void LayerParameter::set_has_inner_product_layer_param_() {
+inline void LayerParameter::set_has_inner_product_layer_param() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void LayerParameter::clear_has_inner_product_layer_param_() {
+inline void LayerParameter::clear_has_inner_product_layer_param() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void LayerParameter::clear_inner_product_layer_param_() {
-  if (inner_product_layer_param__ != NULL) inner_product_layer_param__->Clear();
-  clear_has_inner_product_layer_param_();
+inline void LayerParameter::clear_inner_product_layer_param() {
+  if (inner_product_layer_param_ != NULL) inner_product_layer_param_->Clear();
+  clear_has_inner_product_layer_param();
 }
-inline const ::BigBang::InnerProductLayerParameter& LayerParameter::inner_product_layer_param_() const {
-  const ::BigBang::InnerProductLayerParameter* p = inner_product_layer_param__;
-  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.inner_product_layer_param_)
+inline const ::BigBang::InnerProductLayerParameter& LayerParameter::inner_product_layer_param() const {
+  const ::BigBang::InnerProductLayerParameter* p = inner_product_layer_param_;
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.inner_product_layer_param)
   return p != NULL ? *p : *reinterpret_cast<const ::BigBang::InnerProductLayerParameter*>(
       &::BigBang::_InnerProductLayerParameter_default_instance_);
 }
-inline ::BigBang::InnerProductLayerParameter* LayerParameter::release_inner_product_layer_param_() {
-  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.inner_product_layer_param_)
-  clear_has_inner_product_layer_param_();
-  ::BigBang::InnerProductLayerParameter* temp = inner_product_layer_param__;
-  inner_product_layer_param__ = NULL;
+inline ::BigBang::InnerProductLayerParameter* LayerParameter::release_inner_product_layer_param() {
+  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.inner_product_layer_param)
+  clear_has_inner_product_layer_param();
+  ::BigBang::InnerProductLayerParameter* temp = inner_product_layer_param_;
+  inner_product_layer_param_ = NULL;
   return temp;
 }
-inline ::BigBang::InnerProductLayerParameter* LayerParameter::mutable_inner_product_layer_param_() {
-  set_has_inner_product_layer_param_();
-  if (inner_product_layer_param__ == NULL) {
-    inner_product_layer_param__ = new ::BigBang::InnerProductLayerParameter;
+inline ::BigBang::InnerProductLayerParameter* LayerParameter::mutable_inner_product_layer_param() {
+  set_has_inner_product_layer_param();
+  if (inner_product_layer_param_ == NULL) {
+    inner_product_layer_param_ = new ::BigBang::InnerProductLayerParameter;
   }
-  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.inner_product_layer_param_)
-  return inner_product_layer_param__;
+  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.inner_product_layer_param)
+  return inner_product_layer_param_;
 }
-inline void LayerParameter::set_allocated_inner_product_layer_param_(::BigBang::InnerProductLayerParameter* inner_product_layer_param_) {
+inline void LayerParameter::set_allocated_inner_product_layer_param(::BigBang::InnerProductLayerParameter* inner_product_layer_param) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete inner_product_layer_param__;
+    delete inner_product_layer_param_;
   }
-  if (inner_product_layer_param_) {
+  if (inner_product_layer_param) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      inner_product_layer_param_ = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, inner_product_layer_param_, submessage_arena);
+      inner_product_layer_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, inner_product_layer_param, submessage_arena);
     }
-    set_has_inner_product_layer_param_();
+    set_has_inner_product_layer_param();
   } else {
-    clear_has_inner_product_layer_param_();
+    clear_has_inner_product_layer_param();
   }
-  inner_product_layer_param__ = inner_product_layer_param_;
-  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.inner_product_layer_param_)
+  inner_product_layer_param_ = inner_product_layer_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.inner_product_layer_param)
 }
 
-// optional .BigBang.PoolingLayerParameter pooling_layer_param_ = 102;
-inline bool LayerParameter::has_pooling_layer_param_() const {
+// optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
+inline bool LayerParameter::has_pooling_layer_param() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void LayerParameter::set_has_pooling_layer_param_() {
+inline void LayerParameter::set_has_pooling_layer_param() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void LayerParameter::clear_has_pooling_layer_param_() {
+inline void LayerParameter::clear_has_pooling_layer_param() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void LayerParameter::clear_pooling_layer_param_() {
-  if (pooling_layer_param__ != NULL) pooling_layer_param__->Clear();
-  clear_has_pooling_layer_param_();
+inline void LayerParameter::clear_pooling_layer_param() {
+  if (pooling_layer_param_ != NULL) pooling_layer_param_->Clear();
+  clear_has_pooling_layer_param();
 }
-inline const ::BigBang::PoolingLayerParameter& LayerParameter::pooling_layer_param_() const {
-  const ::BigBang::PoolingLayerParameter* p = pooling_layer_param__;
-  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.pooling_layer_param_)
+inline const ::BigBang::PoolingLayerParameter& LayerParameter::pooling_layer_param() const {
+  const ::BigBang::PoolingLayerParameter* p = pooling_layer_param_;
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.pooling_layer_param)
   return p != NULL ? *p : *reinterpret_cast<const ::BigBang::PoolingLayerParameter*>(
       &::BigBang::_PoolingLayerParameter_default_instance_);
 }
-inline ::BigBang::PoolingLayerParameter* LayerParameter::release_pooling_layer_param_() {
-  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.pooling_layer_param_)
-  clear_has_pooling_layer_param_();
-  ::BigBang::PoolingLayerParameter* temp = pooling_layer_param__;
-  pooling_layer_param__ = NULL;
+inline ::BigBang::PoolingLayerParameter* LayerParameter::release_pooling_layer_param() {
+  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.pooling_layer_param)
+  clear_has_pooling_layer_param();
+  ::BigBang::PoolingLayerParameter* temp = pooling_layer_param_;
+  pooling_layer_param_ = NULL;
   return temp;
 }
-inline ::BigBang::PoolingLayerParameter* LayerParameter::mutable_pooling_layer_param_() {
-  set_has_pooling_layer_param_();
-  if (pooling_layer_param__ == NULL) {
-    pooling_layer_param__ = new ::BigBang::PoolingLayerParameter;
+inline ::BigBang::PoolingLayerParameter* LayerParameter::mutable_pooling_layer_param() {
+  set_has_pooling_layer_param();
+  if (pooling_layer_param_ == NULL) {
+    pooling_layer_param_ = new ::BigBang::PoolingLayerParameter;
   }
-  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.pooling_layer_param_)
-  return pooling_layer_param__;
+  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.pooling_layer_param)
+  return pooling_layer_param_;
 }
-inline void LayerParameter::set_allocated_pooling_layer_param_(::BigBang::PoolingLayerParameter* pooling_layer_param_) {
+inline void LayerParameter::set_allocated_pooling_layer_param(::BigBang::PoolingLayerParameter* pooling_layer_param) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete pooling_layer_param__;
+    delete pooling_layer_param_;
   }
-  if (pooling_layer_param_) {
+  if (pooling_layer_param) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      pooling_layer_param_ = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, pooling_layer_param_, submessage_arena);
+      pooling_layer_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, pooling_layer_param, submessage_arena);
     }
-    set_has_pooling_layer_param_();
+    set_has_pooling_layer_param();
   } else {
-    clear_has_pooling_layer_param_();
+    clear_has_pooling_layer_param();
   }
-  pooling_layer_param__ = pooling_layer_param_;
-  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.pooling_layer_param_)
+  pooling_layer_param_ = pooling_layer_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.pooling_layer_param)
 }
 
 // -------------------------------------------------------------------
 
 // NetParameter
 
-// optional string name_ = 1;
-inline bool NetParameter::has_name_() const {
+// optional string name = 1;
+inline bool NetParameter::has_name() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NetParameter::set_has_name_() {
+inline void NetParameter::set_has_name() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NetParameter::clear_has_name_() {
+inline void NetParameter::clear_has_name() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NetParameter::clear_name_() {
-  name__.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  clear_has_name_();
+inline void NetParameter::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_name();
 }
-inline const ::std::string& NetParameter::name_() const {
-  // @@protoc_insertion_point(field_get:BigBang.NetParameter.name_)
-  return name__.GetNoArena();
+inline const ::std::string& NetParameter::name() const {
+  // @@protoc_insertion_point(field_get:BigBang.NetParameter.name)
+  return name_.GetNoArena();
 }
-inline void NetParameter::set_name_(const ::std::string& value) {
-  set_has_name_();
-  name__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:BigBang.NetParameter.name_)
+inline void NetParameter::set_name(const ::std::string& value) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.NetParameter.name)
 }
 #if LANG_CXX11
-inline void NetParameter::set_name_(::std::string&& value) {
-  set_has_name_();
-  name__.SetNoArena(
+inline void NetParameter::set_name(::std::string&& value) {
+  set_has_name();
+  name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:BigBang.NetParameter.name_)
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.NetParameter.name)
 }
 #endif
-inline void NetParameter::set_name_(const char* value) {
+inline void NetParameter::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
-  set_has_name_();
-  name__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:BigBang.NetParameter.name_)
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.NetParameter.name)
 }
-inline void NetParameter::set_name_(const char* value, size_t size) {
-  set_has_name_();
-  name__.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+inline void NetParameter::set_name(const char* value, size_t size) {
+  set_has_name();
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:BigBang.NetParameter.name_)
+  // @@protoc_insertion_point(field_set_pointer:BigBang.NetParameter.name)
 }
-inline ::std::string* NetParameter::mutable_name_() {
-  set_has_name_();
-  // @@protoc_insertion_point(field_mutable:BigBang.NetParameter.name_)
-  return name__.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* NetParameter::mutable_name() {
+  set_has_name();
+  // @@protoc_insertion_point(field_mutable:BigBang.NetParameter.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* NetParameter::release_name_() {
-  // @@protoc_insertion_point(field_release:BigBang.NetParameter.name_)
-  clear_has_name_();
-  return name__.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline ::std::string* NetParameter::release_name() {
+  // @@protoc_insertion_point(field_release:BigBang.NetParameter.name)
+  clear_has_name();
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void NetParameter::set_allocated_name_(::std::string* name_) {
-  if (name_ != NULL) {
-    set_has_name_();
+inline void NetParameter::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    set_has_name();
   } else {
-    clear_has_name_();
+    clear_has_name();
   }
-  name__.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name_);
-  // @@protoc_insertion_point(field_set_allocated:BigBang.NetParameter.name_)
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.NetParameter.name)
 }
 
-// repeated .BigBang.LayerParameter layer_param_ = 10;
-inline int NetParameter::layer_param__size() const {
-  return layer_param__.size();
+// repeated .BigBang.LayerParameter layer_param = 10;
+inline int NetParameter::layer_param_size() const {
+  return layer_param_.size();
 }
-inline void NetParameter::clear_layer_param_() {
-  layer_param__.Clear();
+inline void NetParameter::clear_layer_param() {
+  layer_param_.Clear();
 }
-inline const ::BigBang::LayerParameter& NetParameter::layer_param_(int index) const {
-  // @@protoc_insertion_point(field_get:BigBang.NetParameter.layer_param_)
-  return layer_param__.Get(index);
+inline const ::BigBang::LayerParameter& NetParameter::layer_param(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.NetParameter.layer_param)
+  return layer_param_.Get(index);
 }
-inline ::BigBang::LayerParameter* NetParameter::mutable_layer_param_(int index) {
-  // @@protoc_insertion_point(field_mutable:BigBang.NetParameter.layer_param_)
-  return layer_param__.Mutable(index);
+inline ::BigBang::LayerParameter* NetParameter::mutable_layer_param(int index) {
+  // @@protoc_insertion_point(field_mutable:BigBang.NetParameter.layer_param)
+  return layer_param_.Mutable(index);
 }
-inline ::BigBang::LayerParameter* NetParameter::add_layer_param_() {
-  // @@protoc_insertion_point(field_add:BigBang.NetParameter.layer_param_)
-  return layer_param__.Add();
+inline ::BigBang::LayerParameter* NetParameter::add_layer_param() {
+  // @@protoc_insertion_point(field_add:BigBang.NetParameter.layer_param)
+  return layer_param_.Add();
 }
 inline ::google::protobuf::RepeatedPtrField< ::BigBang::LayerParameter >*
-NetParameter::mutable_layer_param_() {
-  // @@protoc_insertion_point(field_mutable_list:BigBang.NetParameter.layer_param_)
-  return &layer_param__;
+NetParameter::mutable_layer_param() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.NetParameter.layer_param)
+  return &layer_param_;
 }
 inline const ::google::protobuf::RepeatedPtrField< ::BigBang::LayerParameter >&
-NetParameter::layer_param_() const {
-  // @@protoc_insertion_point(field_list:BigBang.NetParameter.layer_param_)
-  return layer_param__;
+NetParameter::layer_param() const {
+  // @@protoc_insertion_point(field_list:BigBang.NetParameter.layer_param)
+  return layer_param_;
 }
 
 // -------------------------------------------------------------------
 
 // SolverParameter
 
-// optional .BigBang.NetParameter net_param_ = 1;
-inline bool SolverParameter::has_net_param_() const {
+// optional .BigBang.NetParameter net_param = 1;
+inline bool SolverParameter::has_net_param() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void SolverParameter::set_has_net_param_() {
+inline void SolverParameter::set_has_net_param() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void SolverParameter::clear_has_net_param_() {
+inline void SolverParameter::clear_has_net_param() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void SolverParameter::clear_net_param_() {
-  if (net_param__ != NULL) net_param__->Clear();
-  clear_has_net_param_();
+inline void SolverParameter::clear_net_param() {
+  if (net_param_ != NULL) net_param_->Clear();
+  clear_has_net_param();
 }
-inline const ::BigBang::NetParameter& SolverParameter::net_param_() const {
-  const ::BigBang::NetParameter* p = net_param__;
-  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.net_param_)
+inline const ::BigBang::NetParameter& SolverParameter::net_param() const {
+  const ::BigBang::NetParameter* p = net_param_;
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.net_param)
   return p != NULL ? *p : *reinterpret_cast<const ::BigBang::NetParameter*>(
       &::BigBang::_NetParameter_default_instance_);
 }
-inline ::BigBang::NetParameter* SolverParameter::release_net_param_() {
-  // @@protoc_insertion_point(field_release:BigBang.SolverParameter.net_param_)
-  clear_has_net_param_();
-  ::BigBang::NetParameter* temp = net_param__;
-  net_param__ = NULL;
+inline ::BigBang::NetParameter* SolverParameter::release_net_param() {
+  // @@protoc_insertion_point(field_release:BigBang.SolverParameter.net_param)
+  clear_has_net_param();
+  ::BigBang::NetParameter* temp = net_param_;
+  net_param_ = NULL;
   return temp;
 }
-inline ::BigBang::NetParameter* SolverParameter::mutable_net_param_() {
-  set_has_net_param_();
-  if (net_param__ == NULL) {
-    net_param__ = new ::BigBang::NetParameter;
+inline ::BigBang::NetParameter* SolverParameter::mutable_net_param() {
+  set_has_net_param();
+  if (net_param_ == NULL) {
+    net_param_ = new ::BigBang::NetParameter;
   }
-  // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.net_param_)
-  return net_param__;
+  // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.net_param)
+  return net_param_;
 }
-inline void SolverParameter::set_allocated_net_param_(::BigBang::NetParameter* net_param_) {
+inline void SolverParameter::set_allocated_net_param(::BigBang::NetParameter* net_param) {
   ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == NULL) {
-    delete net_param__;
+    delete net_param_;
   }
-  if (net_param_) {
+  if (net_param) {
     ::google::protobuf::Arena* submessage_arena = NULL;
     if (message_arena != submessage_arena) {
-      net_param_ = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, net_param_, submessage_arena);
+      net_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, net_param, submessage_arena);
     }
-    set_has_net_param_();
+    set_has_net_param();
   } else {
-    clear_has_net_param_();
+    clear_has_net_param();
   }
-  net_param__ = net_param_;
-  // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.net_param_)
+  net_param_ = net_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.net_param)
 }
 
 // optional float lr = 2;
@@ -2028,6 +2321,8 @@ inline void SolverParameter::set_lr(float value) {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -2036,15 +2331,15 @@ inline void SolverParameter::set_lr(float value) {
 namespace google {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::BigBang::FillerParameter_FillerType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::FillerParameter_FillerType>() {
+  return ::BigBang::FillerParameter_FillerType_descriptor();
+}
 template <> struct is_proto_enum< ::BigBang::PoolingLayerParameter_PoolingMethod> : ::google::protobuf::internal::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::PoolingLayerParameter_PoolingMethod>() {
   return ::BigBang::PoolingLayerParameter_PoolingMethod_descriptor();
-}
-template <> struct is_proto_enum< ::BigBang::FillerParameter> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::FillerParameter>() {
-  return ::BigBang::FillerParameter_descriptor();
 }
 
 }  // namespace protobuf

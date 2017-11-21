@@ -389,23 +389,7 @@ D:\CUDAInstalled\Development\include\device_launch_parameters.h
 d:\git\bigbang\bigbang\src\test\../../include/base.h
 D:\vs2015\VC\include\cassert
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
-d:\git\bigbang\bigbang\src\test\../../include/layer.h
-d:\git\bigbang\bigbang\include\layer_params_manage.h
-D:\vs2015\VC\include\string
-d:\git\bigbang\bigbang\include\filler.h
-d:\git\bigbang\bigbang\include\tensor.h
-d:\git\bigbang\bigbang\include\gtest.h
-d:\git\bigbang\bigbang\include\log.h
-d:\git\bigbang\bigbang\include\synced_memory.h
-D:\CUDAInstalled\Development\include\cuda_runtime.h
-d:\git\bigbang\bigbang\include\util/common.h
-D:\vs2015\VC\include\cassert
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
-D:\CUDAInstalled\Development\include\cuda_runtime.h
-d:\git\bigbang\bigbang\include\util/math_function_ptr.h
-D:\vs2015\VC\include\random
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\sys/timeb.h
-d:\git\bigbang\bigbang\include\config.h
+d:\git\bigbang\bigbang\src\test\../../include/config.h
 D:\CUDAInstalled\Development\include\cuda_runtime.h
 D:\CUDAInstalled\Development\include\cublas_v2.h
 d:\cudainstalled\development\include\cublas_api.h
@@ -415,7 +399,18 @@ C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h
 d:\cudainstalled\development\include\vector_types.h
 d:\cudainstalled\development\include\cuda_fp16.h
 d:\cudainstalled\development\include\library_types.h
+d:\git\bigbang\bigbang\include\gtest.h
+d:\git\bigbang\bigbang\src\test\../../include/layer.h
+d:\git\bigbang\bigbang\include\tensor.h
+d:\git\bigbang\bigbang\include\log.h
+d:\git\bigbang\bigbang\include\synced_memory.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
+d:\git\bigbang\bigbang\include\util/common.h
+D:\vs2015\VC\include\cassert
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
 d:\git\bigbang\bigbang\include\../proto/bigbang.pb.h
+D:\vs2015\VC\include\string
 D:\vs2015\VC\include\algorithm
 D:\vs2015\VC\include\map
 D:\vs2015\VC\include\tuple
@@ -442,3 +437,6 @@ d:\git\bigbang\bigbang\src\test\../../include/layers/sigmoid_layer.h
 d:\git\bigbang\bigbang\include\layers\activation_func_layer.h
 d:\git\bigbang\bigbang\src\test\../../include/util/data_reader.h
 d:\git\bigbang\bigbang\src\test\../../include/util/image_common.h
+d:\git\bigbang\bigbang\src\test\../../include/util/math_function_ptr.h
+D:\vs2015\VC\include\random
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\sys/timeb.h

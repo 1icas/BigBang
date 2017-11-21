@@ -9,7 +9,7 @@ namespace BigBang {
 template<typename dtype>
 class CostFuncLayer : public Layer<dtype> {
 public:
-	CostFuncLayer(const LayerParamsManage<dtype>& params) :
+	CostFuncLayer(const LayerParameter& params) :
 		Layer(params) {}
 	virtual ~CostFuncLayer() {}
 

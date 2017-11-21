@@ -307,7 +307,21 @@ d:\git\bigbang\bigbang\src\layers\../../include/layers/relu_layer.h
 d:\git\bigbang\bigbang\include\layers\activation_func_layer.h
 d:\git\bigbang\bigbang\include\layers\layer_type_macro.h
 d:\git\bigbang\bigbang\include\layers\../layer.h
-d:\git\bigbang\bigbang\include\layer_params_manage.h
+d:\git\bigbang\bigbang\include\config.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
+D:\CUDAInstalled\Development\include\cublas_v2.h
+d:\cudainstalled\development\include\cublas_api.h
+d:\cudainstalled\development\include\driver_types.h
+d:\cudainstalled\development\include\cuComplex.h
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h
+d:\cudainstalled\development\include\vector_types.h
+d:\cudainstalled\development\include\cuda_fp16.h
+d:\cudainstalled\development\include\library_types.h
+d:\git\bigbang\bigbang\include\base.h
+D:\vs2015\VC\include\cassert
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
+d:\git\bigbang\bigbang\include\gtest.h
+d:\git\bigbang\bigbang\include\tensor.h
 D:\vs2015\VC\include\memory
 D:\vs2015\VC\include\xmemory
 D:\vs2015\VC\include\xmemory0
@@ -369,6 +383,17 @@ D:\vs2015\VC\include\ammintrin.h
 D:\vs2015\VC\include\typeinfo
 D:\vs2015\VC\include\vcruntime_typeinfo.h
 D:\vs2015\VC\include\vcruntime.h
+D:\vs2015\VC\include\vector
+D:\vs2015\VC\include\stdexcept
+D:\vs2015\VC\include\xstring
+d:\git\bigbang\bigbang\include\log.h
+d:\git\bigbang\bigbang\include\synced_memory.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
+d:\git\bigbang\bigbang\include\util/common.h
+D:\vs2015\VC\include\cassert
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
+d:\git\bigbang\bigbang\include\../proto/bigbang.pb.h
 D:\vs2015\VC\include\string
 D:\vs2015\VC\include\istream
 D:\vs2015\VC\include\ostream
@@ -377,8 +402,6 @@ D:\vs2015\VC\include\xlocnum
 D:\vs2015\VC\include\streambuf
 D:\vs2015\VC\include\xiosbase
 D:\vs2015\VC\include\xlocale
-D:\vs2015\VC\include\stdexcept
-D:\vs2015\VC\include\xstring
 D:\vs2015\VC\include\xlocinfo
 D:\vs2015\VC\include\xlocinfo.h
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\ctype.h
@@ -387,34 +410,6 @@ D:\vs2015\VC\include\xfacet
 D:\vs2015\VC\include\system_error
 D:\vs2015\VC\include\cerrno
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\share.h
-d:\git\bigbang\bigbang\include\filler.h
-D:\vs2015\VC\include\vector
-d:\git\bigbang\bigbang\include\base.h
-D:\vs2015\VC\include\cassert
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
-d:\git\bigbang\bigbang\include\tensor.h
-d:\git\bigbang\bigbang\include\gtest.h
-d:\git\bigbang\bigbang\include\log.h
-d:\git\bigbang\bigbang\include\synced_memory.h
-D:\CUDAInstalled\Development\include\cuda_runtime.h
-d:\git\bigbang\bigbang\include\util/common.h
-D:\vs2015\VC\include\cassert
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
-D:\CUDAInstalled\Development\include\cuda_runtime.h
-d:\git\bigbang\bigbang\include\util/math_function_ptr.h
-D:\vs2015\VC\include\random
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\sys/timeb.h
-d:\git\bigbang\bigbang\include\config.h
-D:\CUDAInstalled\Development\include\cuda_runtime.h
-D:\CUDAInstalled\Development\include\cublas_v2.h
-d:\cudainstalled\development\include\cublas_api.h
-d:\cudainstalled\development\include\driver_types.h
-d:\cudainstalled\development\include\cuComplex.h
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h
-d:\cudainstalled\development\include\vector_types.h
-d:\cudainstalled\development\include\cuda_fp16.h
-d:\cudainstalled\development\include\library_types.h
-d:\git\bigbang\bigbang\include\../proto/bigbang.pb.h
 D:\vs2015\VC\include\algorithm
 D:\vs2015\VC\include\iostream
 D:\vs2015\VC\include\map

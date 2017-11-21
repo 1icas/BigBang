@@ -7,7 +7,7 @@
 #include "layer_type_macro.h"
 #include "neuron_func_layer.h"
 #include "../layer.h"
-#include "../layer_params_manage.h"
+#include "../../proto/bigbang.pb.h"
 
 
 namespace BigBang {
@@ -16,14 +16,15 @@ namespace BigBang {
 template<typename dtype>
 class PoolingLayer : public NeuronFuncLayer<dtype> {
 public:
-	PoolingLayer(const LayerParamsManage<dtype>& params) :
+	PoolingLayer(const LayerParameter& params) :
 		NeuronFuncLayer(params), max_pool_pos_() {
-		pooling_layer_params_ = params.pooling_layer_params_;
-		pool_ = pooling_layer_params_.pool_;
-		pool_h_ = pooling_layer_params_.pool_h_;
-		pool_w_ = pooling_layer_params_.pool_w_;
-		stride_h_ = pooling_layer_params_.stride_h_;
-		stride_w_ = pooling_layer_params_.stride_w_;
+		pooling_layer_params_ = params.pooling_layer_param();
+		pooling_method_ = pooling_layer_params_.pool();
+		//pool_ = pooling_layer_params_.pool_;
+		pool_h_ = pooling_layer_params_.kernel_h();
+		pool_w_ = pooling_layer_params_.kernel_w();
+		stride_h_ = pooling_layer_params_.stride_h();
+		stride_w_ = pooling_layer_params_.stride_w();
 	}
 	virtual ~PoolingLayer() {}
 
@@ -44,9 +45,10 @@ private:
 	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 
 private:
-	PoolingLayerParams<dtype> pooling_layer_params_;
+	PoolingLayerParameter_PoolingMethod pooling_method_;
+	PoolingLayerParameter pooling_layer_params_;
 	std::shared_ptr<Tensor<int>> max_pool_pos_;
-	typename PoolingLayerParams<dtype>::Pool pool_;
+	//typename PoolingLayerParams<dtype>::Pool pool_;
 	int pool_h_;
 	int pool_w_;
 	int stride_h_;

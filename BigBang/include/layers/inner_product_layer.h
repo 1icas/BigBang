@@ -8,8 +8,8 @@
 
 #include "neuron_func_layer.h"
 #include "../layer.h"
-#include "../layer_params_manage.h"
 #include "../tensor.h"
+#include "../../proto/bigbang.pb.h"
 
 #include <iostream>
 
@@ -18,13 +18,10 @@ namespace BigBang {
 template<typename dtype>
 class InnerProductLayer :public NeuronFuncLayer<dtype> {
 public:
-	InnerProductLayer(const LayerParamsManage<dtype>& params)
+	InnerProductLayer(const LayerParameter& params)
 		:NeuronFuncLayer(params) {
-		params_ = params.inner_product_layer_params_;
-		alpha_ = params_.alpha_;
-		lambda_ = params_.lambda_;
-		weights_ = params_.weights_;
-		biases_ = params_.biases_;
+		inner_params_ = params.inner_product_layer_param();
+		use_bias_ = inner_params_.use_bias();
 	}
 	virtual ~InnerProductLayer() {}
 
@@ -56,20 +53,21 @@ protected:
 	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 
+protected:
+	std::shared_ptr<Tensor<dtype>> weights_;
+	std::shared_ptr<Tensor<dtype>> biases_;
+
 private:
 	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void UpdateParams_CPU(const dtype* bottom_data, const dtype* delta);
 	void UpdateParams_GPU(const dtype* bottom_data, const dtype* delta);
 
-
 private:
-	InnerProductLayerParams<dtype> params_;
-	bool use_biases_;
-	dtype alpha_;
-	dtype lambda_;
-	std::shared_ptr<Tensor<dtype>> weights_;
-	std::shared_ptr<Tensor<dtype>> biases_;
+	InnerProductLayerParameter inner_params_;
+	bool use_bias_;
+	/*FillerParameter weight_filler_;
+	FillerParameter bias_filler_;*/
 	std::shared_ptr<Tensor<dtype>> middle_;
 	//the data infomation
 	int nums_;
@@ -81,6 +79,10 @@ private:
 	int weights_column_;
 	int biases_row_;
 	int biases_column_;
+
+	//temp
+	dtype alpha_ = 1.;
+
 };
 
 }

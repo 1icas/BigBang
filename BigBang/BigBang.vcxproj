@@ -213,7 +213,6 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\layers\relu_layer.h" />
     <ClInclude Include="include\layers\sigmoid_layer.h" />
     <ClInclude Include="include\layer_factory.h" />
-    <ClInclude Include="include\layer_params_manage.h" />
     <ClInclude Include="include\log.h" />
     <ClInclude Include="include\net.h" />
     <ClInclude Include="include\solver.h" />

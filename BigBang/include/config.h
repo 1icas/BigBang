@@ -66,7 +66,7 @@ namespace BigBang {
 	private:
 		bool init = false;
 		cublasHandle_t cublas_handle_;
-		ProcessUnit mode_ = ProcessUnit::GPU;
+		ProcessUnit mode_ = ProcessUnit::CPU;
 	};
 }
 

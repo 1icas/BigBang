@@ -4,13 +4,12 @@
 #include "activation_func_layer.h"
 #include "layer_type_macro.h"
 #include "../tensor.h"
-#include "../layer_params_manage.h"
 
 namespace BigBang {
 	template<typename dtype>
 	class ReluLayer : public ActivationFuncLayer<dtype> {
 	public:
-		ReluLayer(const LayerParamsManage<dtype>& params) :ActivationFuncLayer(params) {}
+		ReluLayer(const LayerParameter& params) :ActivationFuncLayer(params) {}
 		virtual ~ReluLayer() {}
 		virtual inline const char* Type() const override { return RELU_LAYER_TYPE; }
 		virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;

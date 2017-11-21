@@ -8,7 +8,7 @@ namespace BigBang {
 template<typename dtype>
 class ActivationFuncLayer : public Layer<dtype>{
 public:
-	ActivationFuncLayer(const LayerParamsManage<dtype>& params) :
+	ActivationFuncLayer(const LayerParameter& params) :
 		Layer(params) {}
 	virtual ~ActivationFuncLayer() {}
 

@@ -149,9 +149,6 @@
     <ClInclude Include="include\layer_factory.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="include\layer_params_manage.h">
-      <Filter>include</Filter>
-    </ClInclude>
     <ClInclude Include="include\synced_memory.h">
       <Filter>include</Filter>
     </ClInclude>

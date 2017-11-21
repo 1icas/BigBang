@@ -4,13 +4,12 @@
 #include "activation_func_layer.h"
 #include "layer_type_macro.h"
 #include "../tensor.h"
-#include "../layer_params_manage.h"
 
 namespace BigBang {
 template<typename dtype>
 class SigmoidLayer : public ActivationFuncLayer<dtype> {
 public:
-	SigmoidLayer(const LayerParamsManage<dtype>& params):ActivationFuncLayer(params){}
+	SigmoidLayer(const LayerParameter& params):ActivationFuncLayer(params){}
 	virtual ~SigmoidLayer() {}
 	virtual inline const char* Type() const override { return SIGMOID_LAYER_TYPE; }
 	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;

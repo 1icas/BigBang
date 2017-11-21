@@ -64,8 +64,8 @@ namespace BigBang {
 		const dtype* bottom_data = bottom->gpu_data();
 		dtype* top_data = top->mutable_gpu_data();
 
-		switch (pool_) {
-		case PoolingLayerParams<dtype>::Pool::MaxPool: {
+		switch (pooling_method_) {
+		case PoolingLayerParameter::MAX: {
 			int* pos_data = max_pool_pos_->mutable_gpu_data();
 			const int size = top->size();
 			MaxPool<<<BigBangGetBlocks(size),THREAD_MAX_NUMS >>>(size, bottom_data, bottom_channels_, 
@@ -95,8 +95,8 @@ namespace BigBang {
 		const dtype* top_diff_data = top->gpu_diff_data();
 		dtype* bottom_diff_data = bottom->mutable_gpu_diff_data();
 		bigbanggpumemset(bottom_diff_data, 0, sizeof(dtype)*bottom->size());
-		switch (pool_) {
-		case PoolingLayerParams<dtype>::Pool::MaxPool: {
+		switch (pooling_method_) {
+		case PoolingLayerParameter::MAX: {
 			const int size = top->size();
 			MaxPoolBackward<<<BigBangGetBlocks(size), THREAD_MAX_NUMS >>>(size, top_diff_data, top_channels_, top_row_, top_column_,
 				pool_h_, pool_w_, stride_h_, stride_w_, max_pool_pos_->gpu_data(), bottom_row_,

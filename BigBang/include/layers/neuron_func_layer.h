@@ -9,7 +9,7 @@ namespace BigBang {
 template<typename dtype>
 class NeuronFuncLayer : public Layer<dtype> {
 public:
-	NeuronFuncLayer(const LayerParamsManage<dtype>& params) :
+	NeuronFuncLayer(const LayerParameter& params) :
 		Layer(params) {}
 
 	virtual ~NeuronFuncLayer() {}

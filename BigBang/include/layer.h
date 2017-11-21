@@ -1,8 +1,8 @@
 #ifndef LAYER_H
 #define LAYER_H
 
-#include "layer_params_manage.h"
 #include "config.h"
+#include "tensor.h"
 #include "../proto/bigbang.pb.h"
 
 namespace BigBang {
@@ -10,7 +10,7 @@ namespace BigBang {
 template<typename dtype>
 class Layer {
 public:
-	Layer(const LayerParamsManage<dtype>& params)
+	Layer(const LayerParameter& params)
 		:params_(params) {
 
 	}
@@ -44,7 +44,7 @@ protected:
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) = 0;
 
 protected:
-	LayerParamsManage<dtype> params_;
+	LayerParameter params_;
 };
 
 }

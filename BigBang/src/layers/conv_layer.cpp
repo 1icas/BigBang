@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "../../include/base.h"
+#include "../../include/filler.h"
 #include "../../include/gtest.h"
 #include "../../include/layer_factory.h"
 #include "../../include/util/common.h"
@@ -38,7 +39,7 @@ void ConvLayer<dtype>::Check(const Tensor<dtype>* bottom, const Tensor<dtype>* t
 	CHECK_EQ(top_row_, output_h);
 	CHECK_EQ(top_column_, output_w);
 
-	if (use_biases_) {
+	if (use_bias_) {
 		CHECK_EQ(biases_groups_, kernel_groups_);
 		CHECK_EQ(biases_channels_, kernel_channels_);
 		CHECK_EQ(biases_->shape(2), 1);
@@ -57,8 +58,12 @@ void ConvLayer<dtype>::Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>*
 	top_channels_ = top->shape(1);
 	top_row_ = top->shape(2);
 	top_column_ = top->shape(3);
-	if (use_biases_) {
-		CHECK_EQ(biases_->dimension(), PARAMS_DIMENSION);
+	kernels_ = std::make_shared<Tensor<dtype>>(std::vector<int>{kernel_groups_, kernel_channels_,
+		kernel_h_, kernel_w_});
+	CreateFiller<dtype>(conv_params_.kernel_filler())->Fill(kernels_.get());
+	if (use_bias_) {
+		biases_ = std::make_shared<Tensor<dtype>>(std::vector<int>{kernel_groups_, kernel_channels_, 1, 1});
+		CreateFiller<dtype>(conv_params_.bias_filler())->Fill(biases_.get());
 		biases_groups_ = biases_->shape(0);
 		biases_channels_ = biases_->shape(1);
 		middle_ = std::make_shared<Tensor<dtype>>(std::vector<int>{1, 1, biases_channels_, top_row_ * top_column_});
@@ -93,7 +98,7 @@ void ConvLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* t
 			unroll_bottom_data + i * unroll_bottom_offset, static_cast<dtype>(0), top_data + i*top_channels_*top_row_*top_column_);
 	}
 
-	if (use_biases_) {
+	if (use_bias_) {
 		/*dtype* biases_data = biases_->mutable_cpu_data();
 		for (int i = 0; i < nums_; ++i) {
 			for (int k = 0; k < biases_groups_; ++k) {
@@ -140,7 +145,7 @@ void ConvLayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bot
 
 	for (int i = 0; i < nums_; ++i) {
 		dtype* temp = relay_space_->mutable_cpu_data();
-		bigbang_gpu_gemm(true, false, kernel_channels_*kernel_h_*kernel_w_, top_row_*top_column_, kernel_groups_,
+		bigbang_cpu_gemm(true, false, kernel_channels_*kernel_h_*kernel_w_, top_row_*top_column_, kernel_groups_,
 			static_cast<dtype>(1.0), kernels_->mutable_cpu_data(), top_diff_data + i*top_channels_*top_row_*top_column_,
 			static_cast<dtype>(1.0), temp);
 		bigbang_cpu_col2im(temp, bottom_channels_, bottom_row_, bottom_column_, kernel_h_, kernel_w_, padding_h_, padding_w_,
@@ -166,7 +171,7 @@ void ConvLayer<dtype>::UpdateParams_CPU(const dtype* bottom_data, const dtype* d
 	const int bottom_unroll_row = unroll_bottom_->shape(2);
 	const int bottom_unroll_column = unroll_bottom_->shape(3);
 	//update biases_
-	if (use_biases_) {
+	if (use_bias_) {
 		const int biases_size = biases_->size();
 		dtype* biases_diff_data = biases_->mutable_cpu_diff_data();
 		for (int i = 0; i < nums_; ++i) {
@@ -215,7 +220,7 @@ void ConvLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* t
 		std::cout << top_data_cpu[i] << std::endl;
 	}*/
 	//
-	if (use_biases_) {
+	if (use_bias_) {
 		for (int i = 0; i < nums_; ++i) {
 			bigbang_cpu_gemm(false, false, biases_groups_, top_row_*top_column_, biases_channels_, static_cast<dtype>(1.0),
 				biases_->gpu_data(), middle_->gpu_data(), static_cast<dtype>(1), top_data + i*top_channels_*top_row_*top_column_);
@@ -248,7 +253,7 @@ void ConvLayer<dtype>::UpdateParams_GPU(const dtype* bottom_data, const dtype* d
 	const int bottom_unroll_row = unroll_bottom_->shape(2);
 	const int bottom_unroll_column = unroll_bottom_->shape(3);
 	//update biases_
-	/*if (use_biases_) {
+	/*if (use_bias_) {
 		const int biases_size = biases_->size();
 		dtype* biases_diff_data = biases_->mutable_cpu_diff_data();
 		for (int i = 0; i < nums_; ++i) {

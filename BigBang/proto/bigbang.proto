@@ -1,9 +1,13 @@
 syntax = "proto2";
 package BigBang;
 
-enum FillerParameter {
-	GAUSSIAN_DISTRIBUTION = 0;
-}
+message FillerParameter {
+	enum FillerType {
+		GAUSSIAN_DISTRIBUTION = 0;	
+	};
+	optional FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+};
+
 
 message PoolingLayerParameter {
 	enum PoolingMethod {
@@ -11,51 +15,51 @@ message PoolingLayerParameter {
 		AVERAGE = 1;
 	};
 
-	optional PoolingMethod pool_ = 1 [default = MAX];
-	optional uint32 kernel_h_ = 2 [default = 1];
-	optional uint32 kernel_w_ = 3 [default = 1];
-	optional uint32 stride_h_ = 4 [default = 1];
-	optional uint32 stride_w_ = 5 [default = 1];
+	optional PoolingMethod pool = 1 [default = MAX];
+	optional uint32 kernel_h = 2 [default = 1];
+	optional uint32 kernel_w = 3 [default = 1];
+	optional uint32 stride_h = 4 [default = 1];
+	optional uint32 stride_w = 5 [default = 1];
 };
 
 message ConvLayerParameter {
-	optional uint32 kernel_groups_ = 1 [default = 1];
-	optional uint32 kernel_channels_ = 2 [default = 1];
-	optional uint32 kernel_h_ = 3 [default = 1];
-	optional uint32 kernel_w_ = 4 [default = 1];
-	optional uint32 pad_h_ = 5;
-	optional uint32 pad_w_ = 6;
-	optional uint32 stride_h_ = 7 [default = 1];
-	optional uint32 stride_w_ = 8 [default = 1];
-	optional bool use_bias_ = 9;
-	optional FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-	optional FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+	optional uint32 kernel_groups = 1 [default = 1];
+	optional uint32 kernel_channels = 2 [default = 1];
+	optional uint32 kernel_h = 3 [default = 1];
+	optional uint32 kernel_w = 4 [default = 1];
+	optional uint32 pad_h = 5;
+	optional uint32 pad_w = 6;
+	optional uint32 stride_h = 7 [default = 1];
+	optional uint32 stride_w = 8 [default = 1];
+	optional bool use_bias = 9;
+	optional FillerParameter kernel_filler = 10;
+	optional FillerParameter bias_filler = 11;
 }
 
 message InnerProductLayerParameter {
-	optional bool use_bias_ = 1;
-	optional FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-	optional FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+	optional bool use_bias = 1;
+	optional FillerParameter weight_filler = 10;
+	optional FillerParameter bias_filler = 11;
 }
 
 message LayerParameter {
-	optional string name_ = 1;
-	optional string type_ = 2;
+	optional string name = 1;
+	optional string type = 2;
 
-	optional ConvLayerParameter conv_layer_param_ = 100;
-	optional InnerProductLayerParameter inner_product_layer_param_ = 101;
-	optional PoolingLayerParameter pooling_layer_param_ = 102;
+	optional ConvLayerParameter conv_layer_param = 100;
+	optional InnerProductLayerParameter inner_product_layer_param = 101;
+	optional PoolingLayerParameter pooling_layer_param = 102;
 }
 
 message NetParameter {
-	optional string name_ = 1;
+	optional string name = 1;
 
-	repeated LayerParameter layer_param_ = 10;
+	repeated LayerParameter layer_param = 10;
 }
 
 message SolverParameter {
 	
-	optional NetParameter net_param_ = 1;
+	optional NetParameter net_param = 1;
 	optional float lr = 2;
 
 

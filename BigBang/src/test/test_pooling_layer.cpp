@@ -1,12 +1,13 @@
 #include "test.h"
 
 void Output(Tensor<float>& output, bool use_gpu) {
-	PoolingLayerParams<float> plp(PoolingLayerParams<float>::Pool::MaxPool, 2, 2, 2, 2);
-	LayerParamsManage<float> manage;
-	manage.type_ = "Pooling";
-	manage.use_gpu_ = use_gpu;
-	manage.pooling_layer_params_ = plp;
-	PoolingLayer<float> pooling_layer(manage);
+	LayerParameter l_p;
+	auto pool_param = l_p.mutable_pooling_layer_param();
+	pool_param->set_kernel_h(2);
+	pool_param->set_kernel_w(2);
+	pool_param->set_stride_h(2);
+	pool_param->set_stride_w(2);
+	PoolingLayer<float> pooling_layer(l_p);
 
 	Tensor<float> input(std::vector<int>{1, 1, 4, 4});
 	//Tensor<float> output(std::vector<int>{1, 1, 2, 2});
@@ -53,12 +54,13 @@ void Test::TestMaxPoolLayerFeedForward() {
 }
 
 void Test::TestMaxPoolLayerBackward() {
-	PoolingLayerParams<float> plp(PoolingLayerParams<float>::Pool::MaxPool, 2, 2, 2, 2);
-	LayerParamsManage<float> manage;
-	manage.type_ = "Pooling";
-	manage.use_gpu_ = false;
-	manage.pooling_layer_params_ = plp;
-	PoolingLayer<float> pooling_layer(manage);
+	LayerParameter l_p;
+	auto pool_param = l_p.mutable_pooling_layer_param();
+	pool_param->set_kernel_h(2);
+	pool_param->set_kernel_w(2);
+	pool_param->set_stride_h(2);
+	pool_param->set_stride_w(2);
+	PoolingLayer<float> pooling_layer(l_p);
 	Tensor<float> input(std::vector<int>{1, 1, 4, 4});
 	Tensor<float> output(std::vector<int>{1, 1, 2, 2});
 	float* input_data = input.mutable_cpu_data();
@@ -90,12 +92,13 @@ void Test::TestMaxPoolLayerBackward() {
 		std::cout << diff_data[i] << std::endl;
 	}
 
-	PoolingLayerParams<float> plp1(PoolingLayerParams<float>::Pool::MaxPool, 2, 2, 2, 2);
-	LayerParamsManage<float> manage1;
-	manage1.type_ = "Pooling";
-	manage1.use_gpu_ = true;
-	manage1.pooling_layer_params_ = plp1;
-	PoolingLayer<float> pooling_layer1(manage1);
+	LayerParameter l_p1;
+	auto pool_param1 = l_p1.mutable_pooling_layer_param();
+	pool_param1->set_kernel_h(2);
+	pool_param1->set_kernel_w(2);
+	pool_param1->set_stride_h(2);
+	pool_param1->set_stride_w(2);
+	PoolingLayer<float> pooling_layer1(l_p1);
 	Tensor<float> input1(std::vector<int>{1, 1, 4, 4});
 	Tensor<float> output1(std::vector<int>{1, 1, 2, 2});
 	float* input_data1 = input1.mutable_cpu_data();

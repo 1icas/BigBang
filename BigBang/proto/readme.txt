@@ -1,0 +1,1 @@
+protoc ./bigbang.proto --cpp_out=.

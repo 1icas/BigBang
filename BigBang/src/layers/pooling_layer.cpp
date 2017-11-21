@@ -109,8 +109,8 @@ template<typename dtype>
 void PoolingLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	const dtype* bottom_data = bottom->cpu_data();
 	dtype* top_data = top->mutable_cpu_data();
-	switch (pool_) {
-	case PoolingLayerParams<dtype>::Pool::MaxPool: {
+	switch (pooling_method_) {
+	case PoolingLayerParameter::MAX: {
 		int* pos_data = max_pool_pos_->mutable_cpu_data();
 		for (int i = 0; i < nums_; ++i) {
 			MaxPool_CPU(top->size(), bottom_data + i * bottom_channels_*bottom_row_*bottom_column_, bottom_channels_, bottom_row_,
@@ -138,8 +138,8 @@ void PoolingLayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* 
 	//TODO:ºÎÊ±memsetºÏÊÊ£¿
 	bigbangcpumemset(bottom_diff_data, 0, sizeof(dtype)*bottom->size());
 
-	switch (pool_) {
-	case PoolingLayerParams<dtype>::Pool::MaxPool: {
+	switch (pooling_method_) {
+	case PoolingLayerParameter::MAX : {
 		const int* pos_data = max_pool_pos_->cpu_data();
 		for (int i = 0; i < nums_; ++i) {
 			MaxPoolBackward_CPU(top->size(), top_diff_data + top_per_size*i, top_channels_, top_row_, top_column_, 

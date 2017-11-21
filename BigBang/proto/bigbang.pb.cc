@@ -20,6 +20,11 @@
 #endif
 // @@protoc_insertion_point(includes)
 namespace BigBang {
+class FillerParameterDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<FillerParameter>
+      _instance;
+} _FillerParameter_default_instance_;
 class PoolingLayerParameterDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<PoolingLayerParameter>
@@ -52,6 +57,27 @@ class SolverParameterDefaultTypeInternal {
 } _SolverParameter_default_instance_;
 }  // namespace BigBang
 namespace protobuf_bigbang_2eproto {
+void InitDefaultsFillerParameterImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::BigBang::_FillerParameter_default_instance_;
+    new (ptr) ::BigBang::FillerParameter();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::BigBang::FillerParameter::InitAsDefaultInstance();
+}
+
+void InitDefaultsFillerParameter() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsFillerParameterImpl);
+}
+
 void InitDefaultsPoolingLayerParameterImpl() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -81,6 +107,7 @@ void InitDefaultsConvLayerParameterImpl() {
 #else
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_bigbang_2eproto::InitDefaultsFillerParameter();
   {
     void* ptr = &::BigBang::_ConvLayerParameter_default_instance_;
     new (ptr) ::BigBang::ConvLayerParameter();
@@ -102,6 +129,7 @@ void InitDefaultsInnerProductLayerParameterImpl() {
 #else
   ::google::protobuf::internal::InitProtobufDefaults();
 #endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  protobuf_bigbang_2eproto::InitDefaultsFillerParameter();
   {
     void* ptr = &::BigBang::_InnerProductLayerParameter_default_instance_;
     new (ptr) ::BigBang::InnerProductLayerParameter();
@@ -183,20 +211,27 @@ void InitDefaultsSolverParameter() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSolverParameterImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[6];
+::google::protobuf::Metadata file_level_metadata[7];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, type_),
+  0,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, pool__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, kernel_h__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, kernel_w__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, stride_h__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, stride_w__),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, pool_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, kernel_h_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, kernel_w_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, stride_h_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, stride_w_),
   0,
   1,
   2,
@@ -207,49 +242,49 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_groups__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_channels__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_h__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_w__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, pad_h__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, pad_w__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, stride_h__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, stride_w__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, use_bias__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, weight_filler__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, bias_filler__),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_groups_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_channels_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_h_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_w_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, pad_h_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, pad_w_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, stride_h_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, stride_w_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, use_bias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, kernel_filler_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::ConvLayerParameter, bias_filler_),
   5,
   6,
   7,
   8,
-  0,
-  1,
-  9,
-  10,
   2,
   3,
+  9,
+  10,
   4,
+  0,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, use_bias__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, weight_filler__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, bias_filler__),
-  1,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, use_bias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, weight_filler_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::InnerProductLayerParameter, bias_filler_),
   2,
   0,
+  1,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, name__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, type__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, conv_layer_param__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, inner_product_layer_param__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, pooling_layer_param__),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, conv_layer_param_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, inner_product_layer_param_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, pooling_layer_param_),
   0,
   1,
   2,
@@ -260,8 +295,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::NetParameter, name__),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::NetParameter, layer_param__),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::NetParameter, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::NetParameter, layer_param_),
   0,
   ~0u,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, _has_bits_),
@@ -269,21 +304,23 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, net_param__),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, net_param_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, lr_),
   0,
   1,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 10, sizeof(::BigBang::PoolingLayerParameter)},
-  { 15, 31, sizeof(::BigBang::ConvLayerParameter)},
-  { 42, 50, sizeof(::BigBang::InnerProductLayerParameter)},
-  { 53, 63, sizeof(::BigBang::LayerParameter)},
-  { 68, 75, sizeof(::BigBang::NetParameter)},
-  { 77, 84, sizeof(::BigBang::SolverParameter)},
+  { 0, 6, sizeof(::BigBang::FillerParameter)},
+  { 7, 17, sizeof(::BigBang::PoolingLayerParameter)},
+  { 22, 38, sizeof(::BigBang::ConvLayerParameter)},
+  { 49, 57, sizeof(::BigBang::InnerProductLayerParameter)},
+  { 60, 70, sizeof(::BigBang::LayerParameter)},
+  { 75, 82, sizeof(::BigBang::NetParameter)},
+  { 84, 91, sizeof(::BigBang::SolverParameter)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
+  reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_FillerParameter_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_PoolingLayerParameter_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_ConvLayerParameter_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_InnerProductLayerParameter_default_instance_),
@@ -308,46 +345,46 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 6);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 7);
 }
 
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rbigbang.proto\022\007BigBang\"\330\001\n\025PoolingLaye"
-      "rParameter\022@\n\005pool_\030\001 \001(\0162,.BigBang.Pool"
-      "ingLayerParameter.PoolingMethod:\003MAX\022\024\n\t"
-      "kernel_h_\030\002 \001(\r:\0011\022\024\n\tkernel_w_\030\003 \001(\r:\0011"
-      "\022\024\n\tstride_h_\030\004 \001(\r:\0011\022\024\n\tstride_w_\030\005 \001("
-      "\r:\0011\"%\n\rPoolingMethod\022\007\n\003MAX\020\000\022\013\n\007AVERAG"
-      "E\020\001\"\347\002\n\022ConvLayerParameter\022\031\n\016kernel_gro"
-      "ups_\030\001 \001(\r:\0011\022\033\n\020kernel_channels_\030\002 \001(\r:"
-      "\0011\022\024\n\tkernel_h_\030\003 \001(\r:\0011\022\024\n\tkernel_w_\030\004 "
-      "\001(\r:\0011\022\016\n\006pad_h_\030\005 \001(\r\022\016\n\006pad_w_\030\006 \001(\r\022\024"
-      "\n\tstride_h_\030\007 \001(\r:\0011\022\024\n\tstride_w_\030\010 \001(\r:"
-      "\0011\022\021\n\tuse_bias_\030\t \001(\010\022G\n\016weight_filler_\030"
-      "\n \001(\0162\030.BigBang.FillerParameter:\025GAUSSIA"
-      "N_DISTRIBUTION\022E\n\014bias_filler_\030\013 \001(\0162\030.B"
-      "igBang.FillerParameter:\025GAUSSIAN_DISTRIB"
-      "UTION\"\277\001\n\032InnerProductLayerParameter\022\021\n\t"
-      "use_bias_\030\001 \001(\010\022G\n\016weight_filler_\030\n \001(\0162"
-      "\030.BigBang.FillerParameter:\025GAUSSIAN_DIST"
-      "RIBUTION\022E\n\014bias_filler_\030\013 \001(\0162\030.BigBang"
-      ".FillerParameter:\025GAUSSIAN_DISTRIBUTION\""
-      "\355\001\n\016LayerParameter\022\r\n\005name_\030\001 \001(\t\022\r\n\005typ"
-      "e_\030\002 \001(\t\0226\n\021conv_layer_param_\030d \001(\0132\033.Bi"
-      "gBang.ConvLayerParameter\022G\n\032inner_produc"
-      "t_layer_param_\030e \001(\0132#.BigBang.InnerProd"
-      "uctLayerParameter\022<\n\024pooling_layer_param"
-      "_\030f \001(\0132\036.BigBang.PoolingLayerParameter\""
-      "L\n\014NetParameter\022\r\n\005name_\030\001 \001(\t\022-\n\014layer_"
-      "param_\030\n \003(\0132\027.BigBang.LayerParameter\"H\n"
-      "\017SolverParameter\022)\n\nnet_param_\030\001 \001(\0132\025.B"
-      "igBang.NetParameter\022\n\n\002lr\030\002 \001(\002*,\n\017Fille"
-      "rParameter\022\031\n\025GAUSSIAN_DISTRIBUTION\020\000"
+      "\n\rbigbang.proto\022\007BigBang\"\204\001\n\017FillerParam"
+      "eter\022H\n\004type\030\001 \001(\0162#.BigBang.FillerParam"
+      "eter.FillerType:\025GAUSSIAN_DISTRIBUTION\"\'"
+      "\n\nFillerType\022\031\n\025GAUSSIAN_DISTRIBUTION\020\000\""
+      "\323\001\n\025PoolingLayerParameter\022\?\n\004pool\030\001 \001(\0162"
+      ",.BigBang.PoolingLayerParameter.PoolingM"
+      "ethod:\003MAX\022\023\n\010kernel_h\030\002 \001(\r:\0011\022\023\n\010kerne"
+      "l_w\030\003 \001(\r:\0011\022\023\n\010stride_h\030\004 \001(\r:\0011\022\023\n\010str"
+      "ide_w\030\005 \001(\r:\0011\"%\n\rPoolingMethod\022\007\n\003MAX\020\000"
+      "\022\013\n\007AVERAGE\020\001\"\256\002\n\022ConvLayerParameter\022\030\n\r"
+      "kernel_groups\030\001 \001(\r:\0011\022\032\n\017kernel_channel"
+      "s\030\002 \001(\r:\0011\022\023\n\010kernel_h\030\003 \001(\r:\0011\022\023\n\010kerne"
+      "l_w\030\004 \001(\r:\0011\022\r\n\005pad_h\030\005 \001(\r\022\r\n\005pad_w\030\006 \001"
+      "(\r\022\023\n\010stride_h\030\007 \001(\r:\0011\022\023\n\010stride_w\030\010 \001("
+      "\r:\0011\022\020\n\010use_bias\030\t \001(\010\022/\n\rkernel_filler\030"
+      "\n \001(\0132\030.BigBang.FillerParameter\022-\n\013bias_"
+      "filler\030\013 \001(\0132\030.BigBang.FillerParameter\"\216"
+      "\001\n\032InnerProductLayerParameter\022\020\n\010use_bia"
+      "s\030\001 \001(\010\022/\n\rweight_filler\030\n \001(\0132\030.BigBang"
+      ".FillerParameter\022-\n\013bias_filler\030\013 \001(\0132\030."
+      "BigBang.FillerParameter\"\350\001\n\016LayerParamet"
+      "er\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\0225\n\020conv_l"
+      "ayer_param\030d \001(\0132\033.BigBang.ConvLayerPara"
+      "meter\022F\n\031inner_product_layer_param\030e \001(\013"
+      "2#.BigBang.InnerProductLayerParameter\022;\n"
+      "\023pooling_layer_param\030f \001(\0132\036.BigBang.Poo"
+      "lingLayerParameter\"J\n\014NetParameter\022\014\n\004na"
+      "me\030\001 \001(\t\022,\n\013layer_param\030\n \003(\0132\027.BigBang."
+      "LayerParameter\"G\n\017SolverParameter\022(\n\tnet"
+      "_param\030\001 \001(\0132\025.BigBang.NetParameter\022\n\n\002l"
+      "r\030\002 \001(\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1237);
+      descriptor, 1207);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "bigbang.proto", &protobuf_RegisterTypes);
 }
@@ -364,9 +401,28 @@ struct StaticDescriptorInitializer {
 } static_descriptor_initializer;
 }  // namespace protobuf_bigbang_2eproto
 namespace BigBang {
-const ::google::protobuf::EnumDescriptor* PoolingLayerParameter_PoolingMethod_descriptor() {
+const ::google::protobuf::EnumDescriptor* FillerParameter_FillerType_descriptor() {
   protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_bigbang_2eproto::file_level_enum_descriptors[0];
+}
+bool FillerParameter_FillerType_IsValid(int value) {
+  switch (value) {
+    case 0:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const FillerParameter_FillerType FillerParameter::GAUSSIAN_DISTRIBUTION;
+const FillerParameter_FillerType FillerParameter::FillerType_MIN;
+const FillerParameter_FillerType FillerParameter::FillerType_MAX;
+const int FillerParameter::FillerType_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* PoolingLayerParameter_PoolingMethod_descriptor() {
+  protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_bigbang_2eproto::file_level_enum_descriptors[1];
 }
 bool PoolingLayerParameter_PoolingMethod_IsValid(int value) {
   switch (value) {
@@ -385,17 +441,254 @@ const PoolingLayerParameter_PoolingMethod PoolingLayerParameter::PoolingMethod_M
 const PoolingLayerParameter_PoolingMethod PoolingLayerParameter::PoolingMethod_MAX;
 const int PoolingLayerParameter::PoolingMethod_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* FillerParameter_descriptor() {
-  protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_bigbang_2eproto::file_level_enum_descriptors[1];
+
+// ===================================================================
+
+void FillerParameter::InitAsDefaultInstance() {
 }
-bool FillerParameter_IsValid(int value) {
-  switch (value) {
-    case 0:
-      return true;
-    default:
-      return false;
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int FillerParameter::kTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+FillerParameter::FillerParameter()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_bigbang_2eproto::InitDefaultsFillerParameter();
   }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:BigBang.FillerParameter)
+}
+FillerParameter::FillerParameter(const FillerParameter& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  type_ = from.type_;
+  // @@protoc_insertion_point(copy_constructor:BigBang.FillerParameter)
+}
+
+void FillerParameter::SharedCtor() {
+  _cached_size_ = 0;
+  type_ = 0;
+}
+
+FillerParameter::~FillerParameter() {
+  // @@protoc_insertion_point(destructor:BigBang.FillerParameter)
+  SharedDtor();
+}
+
+void FillerParameter::SharedDtor() {
+}
+
+void FillerParameter::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FillerParameter::descriptor() {
+  ::protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_bigbang_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const FillerParameter& FillerParameter::default_instance() {
+  ::protobuf_bigbang_2eproto::InitDefaultsFillerParameter();
+  return *internal_default_instance();
+}
+
+FillerParameter* FillerParameter::New(::google::protobuf::Arena* arena) const {
+  FillerParameter* n = new FillerParameter;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void FillerParameter::Clear() {
+// @@protoc_insertion_point(message_clear_start:BigBang.FillerParameter)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  type_ = 0;
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool FillerParameter::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:BigBang.FillerParameter)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::BigBang::FillerParameter_FillerType_IsValid(value)) {
+            set_type(static_cast< ::BigBang::FillerParameter_FillerType >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                1, static_cast< ::google::protobuf::uint64>(value));
+          }
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:BigBang.FillerParameter)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:BigBang.FillerParameter)
+  return false;
+#undef DO_
+}
+
+void FillerParameter::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:BigBang.FillerParameter)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->type(), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:BigBang.FillerParameter)
+}
+
+::google::protobuf::uint8* FillerParameter::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:BigBang.FillerParameter)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->type(), target);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:BigBang.FillerParameter)
+  return target;
+}
+
+size_t FillerParameter::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:BigBang.FillerParameter)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+  if (has_type()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FillerParameter::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:BigBang.FillerParameter)
+  GOOGLE_DCHECK_NE(&from, this);
+  const FillerParameter* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const FillerParameter>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:BigBang.FillerParameter)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:BigBang.FillerParameter)
+    MergeFrom(*source);
+  }
+}
+
+void FillerParameter::MergeFrom(const FillerParameter& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:BigBang.FillerParameter)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.has_type()) {
+    set_type(from.type());
+  }
+}
+
+void FillerParameter::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:BigBang.FillerParameter)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FillerParameter::CopyFrom(const FillerParameter& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:BigBang.FillerParameter)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FillerParameter::IsInitialized() const {
+  return true;
+}
+
+void FillerParameter::Swap(FillerParameter* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void FillerParameter::InternalSwap(FillerParameter* other) {
+  using std::swap;
+  swap(type_, other->type_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata FillerParameter::GetMetadata() const {
+  protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_bigbang_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 
@@ -425,19 +718,19 @@ PoolingLayerParameter::PoolingLayerParameter(const PoolingLayerParameter& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&pool__, &from.pool__,
-    static_cast<size_t>(reinterpret_cast<char*>(&stride_w__) -
-    reinterpret_cast<char*>(&pool__)) + sizeof(stride_w__));
+  ::memcpy(&pool_, &from.pool_,
+    static_cast<size_t>(reinterpret_cast<char*>(&stride_w_) -
+    reinterpret_cast<char*>(&pool_)) + sizeof(stride_w_));
   // @@protoc_insertion_point(copy_constructor:BigBang.PoolingLayerParameter)
 }
 
 void PoolingLayerParameter::SharedCtor() {
   _cached_size_ = 0;
-  pool__ = 0;
-  kernel_h__ = 1u;
-  kernel_w__ = 1u;
-  stride_h__ = 1u;
-  stride_w__ = 1u;
+  pool_ = 0;
+  kernel_h_ = 1u;
+  kernel_w_ = 1u;
+  stride_h_ = 1u;
+  stride_w_ = 1u;
 }
 
 PoolingLayerParameter::~PoolingLayerParameter() {
@@ -479,11 +772,11 @@ void PoolingLayerParameter::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 31u) {
-    pool__ = 0;
-    kernel_h__ = 1u;
-    kernel_w__ = 1u;
-    stride_h__ = 1u;
-    stride_w__ = 1u;
+    pool_ = 0;
+    kernel_h_ = 1u;
+    kernel_w_ = 1u;
+    stride_h_ = 1u;
+    stride_w_ = 1u;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -499,7 +792,7 @@ bool PoolingLayerParameter::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .BigBang.PoolingLayerParameter.PoolingMethod pool_ = 1 [default = MAX];
+      // optional .BigBang.PoolingLayerParameter.PoolingMethod pool = 1 [default = MAX];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
@@ -508,7 +801,7 @@ bool PoolingLayerParameter::MergePartialFromCodedStream(
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
           if (::BigBang::PoolingLayerParameter_PoolingMethod_IsValid(value)) {
-            set_pool_(static_cast< ::BigBang::PoolingLayerParameter_PoolingMethod >(value));
+            set_pool(static_cast< ::BigBang::PoolingLayerParameter_PoolingMethod >(value));
           } else {
             mutable_unknown_fields()->AddVarint(
                 1, static_cast< ::google::protobuf::uint64>(value));
@@ -519,56 +812,56 @@ bool PoolingLayerParameter::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 kernel_h_ = 2 [default = 1];
+      // optional uint32 kernel_h = 2 [default = 1];
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-          set_has_kernel_h_();
+          set_has_kernel_h();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &kernel_h__)));
+                 input, &kernel_h_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 kernel_w_ = 3 [default = 1];
+      // optional uint32 kernel_w = 3 [default = 1];
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_kernel_w_();
+          set_has_kernel_w();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &kernel_w__)));
+                 input, &kernel_w_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 stride_h_ = 4 [default = 1];
+      // optional uint32 stride_h = 4 [default = 1];
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          set_has_stride_h_();
+          set_has_stride_h();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &stride_h__)));
+                 input, &stride_h_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 stride_w_ = 5 [default = 1];
+      // optional uint32 stride_w = 5 [default = 1];
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-          set_has_stride_w_();
+          set_has_stride_w();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &stride_w__)));
+                 input, &stride_w_)));
         } else {
           goto handle_unusual;
         }
@@ -602,30 +895,30 @@ void PoolingLayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .BigBang.PoolingLayerParameter.PoolingMethod pool_ = 1 [default = MAX];
+  // optional .BigBang.PoolingLayerParameter.PoolingMethod pool = 1 [default = MAX];
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      1, this->pool_(), output);
+      1, this->pool(), output);
   }
 
-  // optional uint32 kernel_h_ = 2 [default = 1];
+  // optional uint32 kernel_h = 2 [default = 1];
   if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->kernel_h_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->kernel_h(), output);
   }
 
-  // optional uint32 kernel_w_ = 3 [default = 1];
+  // optional uint32 kernel_w = 3 [default = 1];
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->kernel_w_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->kernel_w(), output);
   }
 
-  // optional uint32 stride_h_ = 4 [default = 1];
+  // optional uint32 stride_h = 4 [default = 1];
   if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->stride_h_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->stride_h(), output);
   }
 
-  // optional uint32 stride_w_ = 5 [default = 1];
+  // optional uint32 stride_w = 5 [default = 1];
   if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->stride_w_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->stride_w(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -643,30 +936,30 @@ void PoolingLayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .BigBang.PoolingLayerParameter.PoolingMethod pool_ = 1 [default = MAX];
+  // optional .BigBang.PoolingLayerParameter.PoolingMethod pool = 1 [default = MAX];
   if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      1, this->pool_(), target);
+      1, this->pool(), target);
   }
 
-  // optional uint32 kernel_h_ = 2 [default = 1];
+  // optional uint32 kernel_h = 2 [default = 1];
   if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->kernel_h_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->kernel_h(), target);
   }
 
-  // optional uint32 kernel_w_ = 3 [default = 1];
+  // optional uint32 kernel_w = 3 [default = 1];
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->kernel_w_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->kernel_w(), target);
   }
 
-  // optional uint32 stride_h_ = 4 [default = 1];
+  // optional uint32 stride_h = 4 [default = 1];
   if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->stride_h_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->stride_h(), target);
   }
 
-  // optional uint32 stride_w_ = 5 [default = 1];
+  // optional uint32 stride_w = 5 [default = 1];
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->stride_w_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->stride_w(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -687,38 +980,38 @@ size_t PoolingLayerParameter::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (_has_bits_[0 / 32] & 31u) {
-    // optional .BigBang.PoolingLayerParameter.PoolingMethod pool_ = 1 [default = MAX];
-    if (has_pool_()) {
+    // optional .BigBang.PoolingLayerParameter.PoolingMethod pool = 1 [default = MAX];
+    if (has_pool()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->pool_());
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->pool());
     }
 
-    // optional uint32 kernel_h_ = 2 [default = 1];
-    if (has_kernel_h_()) {
+    // optional uint32 kernel_h = 2 [default = 1];
+    if (has_kernel_h()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->kernel_h_());
+          this->kernel_h());
     }
 
-    // optional uint32 kernel_w_ = 3 [default = 1];
-    if (has_kernel_w_()) {
+    // optional uint32 kernel_w = 3 [default = 1];
+    if (has_kernel_w()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->kernel_w_());
+          this->kernel_w());
     }
 
-    // optional uint32 stride_h_ = 4 [default = 1];
-    if (has_stride_h_()) {
+    // optional uint32 stride_h = 4 [default = 1];
+    if (has_stride_h()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->stride_h_());
+          this->stride_h());
     }
 
-    // optional uint32 stride_w_ = 5 [default = 1];
-    if (has_stride_w_()) {
+    // optional uint32 stride_w = 5 [default = 1];
+    if (has_stride_w()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->stride_w_());
+          this->stride_w());
     }
 
   }
@@ -754,19 +1047,19 @@ void PoolingLayerParameter::MergeFrom(const PoolingLayerParameter& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      pool__ = from.pool__;
+      pool_ = from.pool_;
     }
     if (cached_has_bits & 0x00000002u) {
-      kernel_h__ = from.kernel_h__;
+      kernel_h_ = from.kernel_h_;
     }
     if (cached_has_bits & 0x00000004u) {
-      kernel_w__ = from.kernel_w__;
+      kernel_w_ = from.kernel_w_;
     }
     if (cached_has_bits & 0x00000008u) {
-      stride_h__ = from.stride_h__;
+      stride_h_ = from.stride_h_;
     }
     if (cached_has_bits & 0x00000010u) {
-      stride_w__ = from.stride_w__;
+      stride_w_ = from.stride_w_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -796,11 +1089,11 @@ void PoolingLayerParameter::Swap(PoolingLayerParameter* other) {
 }
 void PoolingLayerParameter::InternalSwap(PoolingLayerParameter* other) {
   using std::swap;
-  swap(pool__, other->pool__);
-  swap(kernel_h__, other->kernel_h__);
-  swap(kernel_w__, other->kernel_w__);
-  swap(stride_h__, other->stride_h__);
-  swap(stride_w__, other->stride_w__);
+  swap(pool_, other->pool_);
+  swap(kernel_h_, other->kernel_h_);
+  swap(kernel_w_, other->kernel_w_);
+  swap(stride_h_, other->stride_h_);
+  swap(stride_w_, other->stride_w_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -815,6 +1108,10 @@ void PoolingLayerParameter::InternalSwap(PoolingLayerParameter* other) {
 // ===================================================================
 
 void ConvLayerParameter::InitAsDefaultInstance() {
+  ::BigBang::_ConvLayerParameter_default_instance_._instance.get_mutable()->kernel_filler_ = const_cast< ::BigBang::FillerParameter*>(
+      ::BigBang::FillerParameter::internal_default_instance());
+  ::BigBang::_ConvLayerParameter_default_instance_._instance.get_mutable()->bias_filler_ = const_cast< ::BigBang::FillerParameter*>(
+      ::BigBang::FillerParameter::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int ConvLayerParameter::kKernelGroupsFieldNumber;
@@ -826,7 +1123,7 @@ const int ConvLayerParameter::kPadWFieldNumber;
 const int ConvLayerParameter::kStrideHFieldNumber;
 const int ConvLayerParameter::kStrideWFieldNumber;
 const int ConvLayerParameter::kUseBiasFieldNumber;
-const int ConvLayerParameter::kWeightFillerFieldNumber;
+const int ConvLayerParameter::kKernelFillerFieldNumber;
 const int ConvLayerParameter::kBiasFillerFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -844,23 +1141,33 @@ ConvLayerParameter::ConvLayerParameter(const ConvLayerParameter& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&pad_h__, &from.pad_h__,
-    static_cast<size_t>(reinterpret_cast<char*>(&stride_w__) -
-    reinterpret_cast<char*>(&pad_h__)) + sizeof(stride_w__));
+  if (from.has_kernel_filler()) {
+    kernel_filler_ = new ::BigBang::FillerParameter(*from.kernel_filler_);
+  } else {
+    kernel_filler_ = NULL;
+  }
+  if (from.has_bias_filler()) {
+    bias_filler_ = new ::BigBang::FillerParameter(*from.bias_filler_);
+  } else {
+    bias_filler_ = NULL;
+  }
+  ::memcpy(&pad_h_, &from.pad_h_,
+    static_cast<size_t>(reinterpret_cast<char*>(&stride_w_) -
+    reinterpret_cast<char*>(&pad_h_)) + sizeof(stride_w_));
   // @@protoc_insertion_point(copy_constructor:BigBang.ConvLayerParameter)
 }
 
 void ConvLayerParameter::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&pad_h__, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&bias_filler__) -
-      reinterpret_cast<char*>(&pad_h__)) + sizeof(bias_filler__));
-  kernel_groups__ = 1u;
-  kernel_channels__ = 1u;
-  kernel_h__ = 1u;
-  kernel_w__ = 1u;
-  stride_h__ = 1u;
-  stride_w__ = 1u;
+  ::memset(&kernel_filler_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&use_bias_) -
+      reinterpret_cast<char*>(&kernel_filler_)) + sizeof(use_bias_));
+  kernel_groups_ = 1u;
+  kernel_channels_ = 1u;
+  kernel_h_ = 1u;
+  kernel_w_ = 1u;
+  stride_h_ = 1u;
+  stride_w_ = 1u;
 }
 
 ConvLayerParameter::~ConvLayerParameter() {
@@ -869,6 +1176,8 @@ ConvLayerParameter::~ConvLayerParameter() {
 }
 
 void ConvLayerParameter::SharedDtor() {
+  if (this != internal_default_instance()) delete kernel_filler_;
+  if (this != internal_default_instance()) delete bias_filler_;
 }
 
 void ConvLayerParameter::SetCachedSize(int size) const {
@@ -901,18 +1210,28 @@ void ConvLayerParameter::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 255u) {
-    ::memset(&pad_h__, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&bias_filler__) -
-        reinterpret_cast<char*>(&pad_h__)) + sizeof(bias_filler__));
-    kernel_groups__ = 1u;
-    kernel_channels__ = 1u;
-    kernel_h__ = 1u;
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(kernel_filler_ != NULL);
+      kernel_filler_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(bias_filler_ != NULL);
+      bias_filler_->Clear();
+    }
+  }
+  if (cached_has_bits & 252u) {
+    ::memset(&pad_h_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&use_bias_) -
+        reinterpret_cast<char*>(&pad_h_)) + sizeof(use_bias_));
+    kernel_groups_ = 1u;
+    kernel_channels_ = 1u;
+    kernel_h_ = 1u;
   }
   if (cached_has_bits & 1792u) {
-    kernel_w__ = 1u;
-    stride_h__ = 1u;
-    stride_w__ = 1u;
+    kernel_w_ = 1u;
+    stride_h_ = 1u;
+    stride_w_ = 1u;
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -928,166 +1247,150 @@ bool ConvLayerParameter::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 kernel_groups_ = 1 [default = 1];
+      // optional uint32 kernel_groups = 1 [default = 1];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_kernel_groups_();
+          set_has_kernel_groups();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &kernel_groups__)));
+                 input, &kernel_groups_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 kernel_channels_ = 2 [default = 1];
+      // optional uint32 kernel_channels = 2 [default = 1];
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
-          set_has_kernel_channels_();
+          set_has_kernel_channels();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &kernel_channels__)));
+                 input, &kernel_channels_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 kernel_h_ = 3 [default = 1];
+      // optional uint32 kernel_h = 3 [default = 1];
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_kernel_h_();
+          set_has_kernel_h();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &kernel_h__)));
+                 input, &kernel_h_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 kernel_w_ = 4 [default = 1];
+      // optional uint32 kernel_w = 4 [default = 1];
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
-          set_has_kernel_w_();
+          set_has_kernel_w();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &kernel_w__)));
+                 input, &kernel_w_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 pad_h_ = 5;
+      // optional uint32 pad_h = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-          set_has_pad_h_();
+          set_has_pad_h();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &pad_h__)));
+                 input, &pad_h_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 pad_w_ = 6;
+      // optional uint32 pad_w = 6;
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          set_has_pad_w_();
+          set_has_pad_w();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &pad_w__)));
+                 input, &pad_w_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 stride_h_ = 7 [default = 1];
+      // optional uint32 stride_h = 7 [default = 1];
       case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(56u /* 56 & 0xFF */)) {
-          set_has_stride_h_();
+          set_has_stride_h();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &stride_h__)));
+                 input, &stride_h_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional uint32 stride_w_ = 8 [default = 1];
+      // optional uint32 stride_w = 8 [default = 1];
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-          set_has_stride_w_();
+          set_has_stride_w();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &stride_w__)));
+                 input, &stride_w_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional bool use_bias_ = 9;
+      // optional bool use_bias = 9;
       case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(72u /* 72 & 0xFF */)) {
-          set_has_use_bias_();
+          set_has_use_bias();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &use_bias__)));
+                 input, &use_bias_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
+      // optional .BigBang.FillerParameter kernel_filler = 10;
       case 10: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::BigBang::FillerParameter_IsValid(value)) {
-            set_weight_filler_(static_cast< ::BigBang::FillerParameter >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(
-                10, static_cast< ::google::protobuf::uint64>(value));
-          }
+            static_cast< ::google::protobuf::uint8>(82u /* 82 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_kernel_filler()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+      // optional .BigBang.FillerParameter bias_filler = 11;
       case 11: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::BigBang::FillerParameter_IsValid(value)) {
-            set_bias_filler_(static_cast< ::BigBang::FillerParameter >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(
-                11, static_cast< ::google::protobuf::uint64>(value));
-          }
+            static_cast< ::google::protobuf::uint8>(90u /* 90 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_bias_filler()));
         } else {
           goto handle_unusual;
         }
@@ -1121,61 +1424,61 @@ void ConvLayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 kernel_groups_ = 1 [default = 1];
+  // optional uint32 kernel_groups = 1 [default = 1];
   if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->kernel_groups_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->kernel_groups(), output);
   }
 
-  // optional uint32 kernel_channels_ = 2 [default = 1];
+  // optional uint32 kernel_channels = 2 [default = 1];
   if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->kernel_channels_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->kernel_channels(), output);
   }
 
-  // optional uint32 kernel_h_ = 3 [default = 1];
+  // optional uint32 kernel_h = 3 [default = 1];
   if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->kernel_h_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->kernel_h(), output);
   }
 
-  // optional uint32 kernel_w_ = 4 [default = 1];
+  // optional uint32 kernel_w = 4 [default = 1];
   if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->kernel_w_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->kernel_w(), output);
   }
 
-  // optional uint32 pad_h_ = 5;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->pad_h_(), output);
-  }
-
-  // optional uint32 pad_w_ = 6;
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->pad_w_(), output);
-  }
-
-  // optional uint32 stride_h_ = 7 [default = 1];
-  if (cached_has_bits & 0x00000200u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->stride_h_(), output);
-  }
-
-  // optional uint32 stride_w_ = 8 [default = 1];
-  if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->stride_w_(), output);
-  }
-
-  // optional bool use_bias_ = 9;
+  // optional uint32 pad_h = 5;
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->use_bias_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->pad_h(), output);
   }
 
-  // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
+  // optional uint32 pad_w = 6;
   if (cached_has_bits & 0x00000008u) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      10, this->weight_filler_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->pad_w(), output);
   }
 
-  // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+  // optional uint32 stride_h = 7 [default = 1];
+  if (cached_has_bits & 0x00000200u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->stride_h(), output);
+  }
+
+  // optional uint32 stride_w = 8 [default = 1];
+  if (cached_has_bits & 0x00000400u) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->stride_w(), output);
+  }
+
+  // optional bool use_bias = 9;
   if (cached_has_bits & 0x00000010u) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      11, this->bias_filler_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->use_bias(), output);
+  }
+
+  // optional .BigBang.FillerParameter kernel_filler = 10;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, *this->kernel_filler_, output);
+  }
+
+  // optional .BigBang.FillerParameter bias_filler = 11;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, *this->bias_filler_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1193,61 +1496,63 @@ void ConvLayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional uint32 kernel_groups_ = 1 [default = 1];
+  // optional uint32 kernel_groups = 1 [default = 1];
   if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->kernel_groups_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->kernel_groups(), target);
   }
 
-  // optional uint32 kernel_channels_ = 2 [default = 1];
+  // optional uint32 kernel_channels = 2 [default = 1];
   if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->kernel_channels_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->kernel_channels(), target);
   }
 
-  // optional uint32 kernel_h_ = 3 [default = 1];
+  // optional uint32 kernel_h = 3 [default = 1];
   if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->kernel_h_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->kernel_h(), target);
   }
 
-  // optional uint32 kernel_w_ = 4 [default = 1];
+  // optional uint32 kernel_w = 4 [default = 1];
   if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->kernel_w_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->kernel_w(), target);
   }
 
-  // optional uint32 pad_h_ = 5;
-  if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->pad_h_(), target);
-  }
-
-  // optional uint32 pad_w_ = 6;
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->pad_w_(), target);
-  }
-
-  // optional uint32 stride_h_ = 7 [default = 1];
-  if (cached_has_bits & 0x00000200u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->stride_h_(), target);
-  }
-
-  // optional uint32 stride_w_ = 8 [default = 1];
-  if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->stride_w_(), target);
-  }
-
-  // optional bool use_bias_ = 9;
+  // optional uint32 pad_h = 5;
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->use_bias_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->pad_h(), target);
   }
 
-  // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
+  // optional uint32 pad_w = 6;
   if (cached_has_bits & 0x00000008u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      10, this->weight_filler_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->pad_w(), target);
   }
 
-  // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+  // optional uint32 stride_h = 7 [default = 1];
+  if (cached_has_bits & 0x00000200u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->stride_h(), target);
+  }
+
+  // optional uint32 stride_w = 8 [default = 1];
+  if (cached_has_bits & 0x00000400u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->stride_w(), target);
+  }
+
+  // optional bool use_bias = 9;
   if (cached_has_bits & 0x00000010u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      11, this->bias_filler_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->use_bias(), target);
+  }
+
+  // optional .BigBang.FillerParameter kernel_filler = 10;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        10, *this->kernel_filler_, deterministic, target);
+  }
+
+  // optional .BigBang.FillerParameter bias_filler = 11;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        11, *this->bias_filler_, deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1268,79 +1573,81 @@ size_t ConvLayerParameter::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (_has_bits_[0 / 32] & 255u) {
-    // optional uint32 pad_h_ = 5;
-    if (has_pad_h_()) {
+    // optional .BigBang.FillerParameter kernel_filler = 10;
+    if (has_kernel_filler()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->pad_h_());
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *this->kernel_filler_);
     }
 
-    // optional uint32 pad_w_ = 6;
-    if (has_pad_w_()) {
+    // optional .BigBang.FillerParameter bias_filler = 11;
+    if (has_bias_filler()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->pad_w_());
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *this->bias_filler_);
     }
 
-    // optional bool use_bias_ = 9;
-    if (has_use_bias_()) {
+    // optional uint32 pad_h = 5;
+    if (has_pad_h()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->pad_h());
+    }
+
+    // optional uint32 pad_w = 6;
+    if (has_pad_w()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->pad_w());
+    }
+
+    // optional bool use_bias = 9;
+    if (has_use_bias()) {
       total_size += 1 + 1;
     }
 
-    // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-    if (has_weight_filler_()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->weight_filler_());
-    }
-
-    // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
-    if (has_bias_filler_()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->bias_filler_());
-    }
-
-    // optional uint32 kernel_groups_ = 1 [default = 1];
-    if (has_kernel_groups_()) {
+    // optional uint32 kernel_groups = 1 [default = 1];
+    if (has_kernel_groups()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->kernel_groups_());
+          this->kernel_groups());
     }
 
-    // optional uint32 kernel_channels_ = 2 [default = 1];
-    if (has_kernel_channels_()) {
+    // optional uint32 kernel_channels = 2 [default = 1];
+    if (has_kernel_channels()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->kernel_channels_());
+          this->kernel_channels());
     }
 
-    // optional uint32 kernel_h_ = 3 [default = 1];
-    if (has_kernel_h_()) {
+    // optional uint32 kernel_h = 3 [default = 1];
+    if (has_kernel_h()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->kernel_h_());
+          this->kernel_h());
     }
 
   }
   if (_has_bits_[8 / 32] & 1792u) {
-    // optional uint32 kernel_w_ = 4 [default = 1];
-    if (has_kernel_w_()) {
+    // optional uint32 kernel_w = 4 [default = 1];
+    if (has_kernel_w()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->kernel_w_());
+          this->kernel_w());
     }
 
-    // optional uint32 stride_h_ = 7 [default = 1];
-    if (has_stride_h_()) {
+    // optional uint32 stride_h = 7 [default = 1];
+    if (has_stride_h()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->stride_h_());
+          this->stride_h());
     }
 
-    // optional uint32 stride_w_ = 8 [default = 1];
-    if (has_stride_w_()) {
+    // optional uint32 stride_w = 8 [default = 1];
+    if (has_stride_w()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->stride_w_());
+          this->stride_w());
     }
 
   }
@@ -1376,40 +1683,40 @@ void ConvLayerParameter::MergeFrom(const ConvLayerParameter& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
-      pad_h__ = from.pad_h__;
+      mutable_kernel_filler()->::BigBang::FillerParameter::MergeFrom(from.kernel_filler());
     }
     if (cached_has_bits & 0x00000002u) {
-      pad_w__ = from.pad_w__;
+      mutable_bias_filler()->::BigBang::FillerParameter::MergeFrom(from.bias_filler());
     }
     if (cached_has_bits & 0x00000004u) {
-      use_bias__ = from.use_bias__;
+      pad_h_ = from.pad_h_;
     }
     if (cached_has_bits & 0x00000008u) {
-      weight_filler__ = from.weight_filler__;
+      pad_w_ = from.pad_w_;
     }
     if (cached_has_bits & 0x00000010u) {
-      bias_filler__ = from.bias_filler__;
+      use_bias_ = from.use_bias_;
     }
     if (cached_has_bits & 0x00000020u) {
-      kernel_groups__ = from.kernel_groups__;
+      kernel_groups_ = from.kernel_groups_;
     }
     if (cached_has_bits & 0x00000040u) {
-      kernel_channels__ = from.kernel_channels__;
+      kernel_channels_ = from.kernel_channels_;
     }
     if (cached_has_bits & 0x00000080u) {
-      kernel_h__ = from.kernel_h__;
+      kernel_h_ = from.kernel_h_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
   if (cached_has_bits & 1792u) {
     if (cached_has_bits & 0x00000100u) {
-      kernel_w__ = from.kernel_w__;
+      kernel_w_ = from.kernel_w_;
     }
     if (cached_has_bits & 0x00000200u) {
-      stride_h__ = from.stride_h__;
+      stride_h_ = from.stride_h_;
     }
     if (cached_has_bits & 0x00000400u) {
-      stride_w__ = from.stride_w__;
+      stride_w_ = from.stride_w_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1439,17 +1746,17 @@ void ConvLayerParameter::Swap(ConvLayerParameter* other) {
 }
 void ConvLayerParameter::InternalSwap(ConvLayerParameter* other) {
   using std::swap;
-  swap(pad_h__, other->pad_h__);
-  swap(pad_w__, other->pad_w__);
-  swap(use_bias__, other->use_bias__);
-  swap(weight_filler__, other->weight_filler__);
-  swap(bias_filler__, other->bias_filler__);
-  swap(kernel_groups__, other->kernel_groups__);
-  swap(kernel_channels__, other->kernel_channels__);
-  swap(kernel_h__, other->kernel_h__);
-  swap(kernel_w__, other->kernel_w__);
-  swap(stride_h__, other->stride_h__);
-  swap(stride_w__, other->stride_w__);
+  swap(kernel_filler_, other->kernel_filler_);
+  swap(bias_filler_, other->bias_filler_);
+  swap(pad_h_, other->pad_h_);
+  swap(pad_w_, other->pad_w_);
+  swap(use_bias_, other->use_bias_);
+  swap(kernel_groups_, other->kernel_groups_);
+  swap(kernel_channels_, other->kernel_channels_);
+  swap(kernel_h_, other->kernel_h_);
+  swap(kernel_w_, other->kernel_w_);
+  swap(stride_h_, other->stride_h_);
+  swap(stride_w_, other->stride_w_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -1464,6 +1771,10 @@ void ConvLayerParameter::InternalSwap(ConvLayerParameter* other) {
 // ===================================================================
 
 void InnerProductLayerParameter::InitAsDefaultInstance() {
+  ::BigBang::_InnerProductLayerParameter_default_instance_._instance.get_mutable()->weight_filler_ = const_cast< ::BigBang::FillerParameter*>(
+      ::BigBang::FillerParameter::internal_default_instance());
+  ::BigBang::_InnerProductLayerParameter_default_instance_._instance.get_mutable()->bias_filler_ = const_cast< ::BigBang::FillerParameter*>(
+      ::BigBang::FillerParameter::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int InnerProductLayerParameter::kUseBiasFieldNumber;
@@ -1485,17 +1796,25 @@ InnerProductLayerParameter::InnerProductLayerParameter(const InnerProductLayerPa
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&bias_filler__, &from.bias_filler__,
-    static_cast<size_t>(reinterpret_cast<char*>(&weight_filler__) -
-    reinterpret_cast<char*>(&bias_filler__)) + sizeof(weight_filler__));
+  if (from.has_weight_filler()) {
+    weight_filler_ = new ::BigBang::FillerParameter(*from.weight_filler_);
+  } else {
+    weight_filler_ = NULL;
+  }
+  if (from.has_bias_filler()) {
+    bias_filler_ = new ::BigBang::FillerParameter(*from.bias_filler_);
+  } else {
+    bias_filler_ = NULL;
+  }
+  use_bias_ = from.use_bias_;
   // @@protoc_insertion_point(copy_constructor:BigBang.InnerProductLayerParameter)
 }
 
 void InnerProductLayerParameter::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&bias_filler__, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&weight_filler__) -
-      reinterpret_cast<char*>(&bias_filler__)) + sizeof(weight_filler__));
+  ::memset(&weight_filler_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&use_bias_) -
+      reinterpret_cast<char*>(&weight_filler_)) + sizeof(use_bias_));
 }
 
 InnerProductLayerParameter::~InnerProductLayerParameter() {
@@ -1504,6 +1823,8 @@ InnerProductLayerParameter::~InnerProductLayerParameter() {
 }
 
 void InnerProductLayerParameter::SharedDtor() {
+  if (this != internal_default_instance()) delete weight_filler_;
+  if (this != internal_default_instance()) delete bias_filler_;
 }
 
 void InnerProductLayerParameter::SetCachedSize(int size) const {
@@ -1536,11 +1857,17 @@ void InnerProductLayerParameter::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 7u) {
-    ::memset(&bias_filler__, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&weight_filler__) -
-        reinterpret_cast<char*>(&bias_filler__)) + sizeof(weight_filler__));
+  if (cached_has_bits & 3u) {
+    if (cached_has_bits & 0x00000001u) {
+      GOOGLE_DCHECK(weight_filler_ != NULL);
+      weight_filler_->Clear();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      GOOGLE_DCHECK(bias_filler_ != NULL);
+      bias_filler_->Clear();
+    }
   }
+  use_bias_ = false;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -1555,54 +1882,38 @@ bool InnerProductLayerParameter::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional bool use_bias_ = 1;
+      // optional bool use_bias = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_use_bias_();
+          set_has_use_bias();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &use_bias__)));
+                 input, &use_bias_)));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
+      // optional .BigBang.FillerParameter weight_filler = 10;
       case 10: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(80u /* 80 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::BigBang::FillerParameter_IsValid(value)) {
-            set_weight_filler_(static_cast< ::BigBang::FillerParameter >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(
-                10, static_cast< ::google::protobuf::uint64>(value));
-          }
+            static_cast< ::google::protobuf::uint8>(82u /* 82 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_weight_filler()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+      // optional .BigBang.FillerParameter bias_filler = 11;
       case 11: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(88u /* 88 & 0xFF */)) {
-          int value;
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
-                 input, &value)));
-          if (::BigBang::FillerParameter_IsValid(value)) {
-            set_bias_filler_(static_cast< ::BigBang::FillerParameter >(value));
-          } else {
-            mutable_unknown_fields()->AddVarint(
-                11, static_cast< ::google::protobuf::uint64>(value));
-          }
+            static_cast< ::google::protobuf::uint8>(90u /* 90 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_bias_filler()));
         } else {
           goto handle_unusual;
         }
@@ -1636,21 +1947,21 @@ void InnerProductLayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool use_bias_ = 1;
-  if (cached_has_bits & 0x00000002u) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->use_bias_(), output);
-  }
-
-  // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
+  // optional bool use_bias = 1;
   if (cached_has_bits & 0x00000004u) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      10, this->weight_filler_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->use_bias(), output);
   }
 
-  // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+  // optional .BigBang.FillerParameter weight_filler = 10;
   if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      11, this->bias_filler_(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      10, *this->weight_filler_, output);
+  }
+
+  // optional .BigBang.FillerParameter bias_filler = 11;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, *this->bias_filler_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1668,21 +1979,23 @@ void InnerProductLayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional bool use_bias_ = 1;
-  if (cached_has_bits & 0x00000002u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->use_bias_(), target);
-  }
-
-  // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
+  // optional bool use_bias = 1;
   if (cached_has_bits & 0x00000004u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      10, this->weight_filler_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->use_bias(), target);
   }
 
-  // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
+  // optional .BigBang.FillerParameter weight_filler = 10;
   if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      11, this->bias_filler_(), target);
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        10, *this->weight_filler_, deterministic, target);
+  }
+
+  // optional .BigBang.FillerParameter bias_filler = 11;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageToArray(
+        11, *this->bias_filler_, deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -1703,21 +2016,23 @@ size_t InnerProductLayerParameter::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (_has_bits_[0 / 32] & 7u) {
-    // optional .BigBang.FillerParameter bias_filler_ = 11 [default = GAUSSIAN_DISTRIBUTION];
-    if (has_bias_filler_()) {
+    // optional .BigBang.FillerParameter weight_filler = 10;
+    if (has_weight_filler()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->bias_filler_());
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *this->weight_filler_);
     }
 
-    // optional bool use_bias_ = 1;
-    if (has_use_bias_()) {
+    // optional .BigBang.FillerParameter bias_filler = 11;
+    if (has_bias_filler()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *this->bias_filler_);
+    }
+
+    // optional bool use_bias = 1;
+    if (has_use_bias()) {
       total_size += 1 + 1;
-    }
-
-    // optional .BigBang.FillerParameter weight_filler_ = 10 [default = GAUSSIAN_DISTRIBUTION];
-    if (has_weight_filler_()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->weight_filler_());
     }
 
   }
@@ -1753,13 +2068,13 @@ void InnerProductLayerParameter::MergeFrom(const InnerProductLayerParameter& fro
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 7u) {
     if (cached_has_bits & 0x00000001u) {
-      bias_filler__ = from.bias_filler__;
+      mutable_weight_filler()->::BigBang::FillerParameter::MergeFrom(from.weight_filler());
     }
     if (cached_has_bits & 0x00000002u) {
-      use_bias__ = from.use_bias__;
+      mutable_bias_filler()->::BigBang::FillerParameter::MergeFrom(from.bias_filler());
     }
     if (cached_has_bits & 0x00000004u) {
-      weight_filler__ = from.weight_filler__;
+      use_bias_ = from.use_bias_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
@@ -1789,9 +2104,9 @@ void InnerProductLayerParameter::Swap(InnerProductLayerParameter* other) {
 }
 void InnerProductLayerParameter::InternalSwap(InnerProductLayerParameter* other) {
   using std::swap;
-  swap(bias_filler__, other->bias_filler__);
-  swap(use_bias__, other->use_bias__);
-  swap(weight_filler__, other->weight_filler__);
+  swap(weight_filler_, other->weight_filler_);
+  swap(bias_filler_, other->bias_filler_);
+  swap(use_bias_, other->use_bias_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -1806,11 +2121,11 @@ void InnerProductLayerParameter::InternalSwap(InnerProductLayerParameter* other)
 // ===================================================================
 
 void LayerParameter::InitAsDefaultInstance() {
-  ::BigBang::_LayerParameter_default_instance_._instance.get_mutable()->conv_layer_param__ = const_cast< ::BigBang::ConvLayerParameter*>(
+  ::BigBang::_LayerParameter_default_instance_._instance.get_mutable()->conv_layer_param_ = const_cast< ::BigBang::ConvLayerParameter*>(
       ::BigBang::ConvLayerParameter::internal_default_instance());
-  ::BigBang::_LayerParameter_default_instance_._instance.get_mutable()->inner_product_layer_param__ = const_cast< ::BigBang::InnerProductLayerParameter*>(
+  ::BigBang::_LayerParameter_default_instance_._instance.get_mutable()->inner_product_layer_param_ = const_cast< ::BigBang::InnerProductLayerParameter*>(
       ::BigBang::InnerProductLayerParameter::internal_default_instance());
-  ::BigBang::_LayerParameter_default_instance_._instance.get_mutable()->pooling_layer_param__ = const_cast< ::BigBang::PoolingLayerParameter*>(
+  ::BigBang::_LayerParameter_default_instance_._instance.get_mutable()->pooling_layer_param_ = const_cast< ::BigBang::PoolingLayerParameter*>(
       ::BigBang::PoolingLayerParameter::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -1835,39 +2150,39 @@ LayerParameter::LayerParameter(const LayerParameter& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  name__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_name_()) {
-    name__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name__);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
-  type__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_type_()) {
-    type__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type__);
+  type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_type()) {
+    type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type_);
   }
-  if (from.has_conv_layer_param_()) {
-    conv_layer_param__ = new ::BigBang::ConvLayerParameter(*from.conv_layer_param__);
+  if (from.has_conv_layer_param()) {
+    conv_layer_param_ = new ::BigBang::ConvLayerParameter(*from.conv_layer_param_);
   } else {
-    conv_layer_param__ = NULL;
+    conv_layer_param_ = NULL;
   }
-  if (from.has_inner_product_layer_param_()) {
-    inner_product_layer_param__ = new ::BigBang::InnerProductLayerParameter(*from.inner_product_layer_param__);
+  if (from.has_inner_product_layer_param()) {
+    inner_product_layer_param_ = new ::BigBang::InnerProductLayerParameter(*from.inner_product_layer_param_);
   } else {
-    inner_product_layer_param__ = NULL;
+    inner_product_layer_param_ = NULL;
   }
-  if (from.has_pooling_layer_param_()) {
-    pooling_layer_param__ = new ::BigBang::PoolingLayerParameter(*from.pooling_layer_param__);
+  if (from.has_pooling_layer_param()) {
+    pooling_layer_param_ = new ::BigBang::PoolingLayerParameter(*from.pooling_layer_param_);
   } else {
-    pooling_layer_param__ = NULL;
+    pooling_layer_param_ = NULL;
   }
   // @@protoc_insertion_point(copy_constructor:BigBang.LayerParameter)
 }
 
 void LayerParameter::SharedCtor() {
   _cached_size_ = 0;
-  name__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  type__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&conv_layer_param__, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&pooling_layer_param__) -
-      reinterpret_cast<char*>(&conv_layer_param__)) + sizeof(pooling_layer_param__));
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&conv_layer_param_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&pooling_layer_param_) -
+      reinterpret_cast<char*>(&conv_layer_param_)) + sizeof(pooling_layer_param_));
 }
 
 LayerParameter::~LayerParameter() {
@@ -1876,11 +2191,11 @@ LayerParameter::~LayerParameter() {
 }
 
 void LayerParameter::SharedDtor() {
-  name__.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  type__.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (this != internal_default_instance()) delete conv_layer_param__;
-  if (this != internal_default_instance()) delete inner_product_layer_param__;
-  if (this != internal_default_instance()) delete pooling_layer_param__;
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete conv_layer_param_;
+  if (this != internal_default_instance()) delete inner_product_layer_param_;
+  if (this != internal_default_instance()) delete pooling_layer_param_;
 }
 
 void LayerParameter::SetCachedSize(int size) const {
@@ -1915,24 +2230,24 @@ void LayerParameter::Clear() {
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      GOOGLE_DCHECK(!name__.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*name__.UnsafeRawStringPointer())->clear();
+      GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*name_.UnsafeRawStringPointer())->clear();
     }
     if (cached_has_bits & 0x00000002u) {
-      GOOGLE_DCHECK(!type__.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-      (*type__.UnsafeRawStringPointer())->clear();
+      GOOGLE_DCHECK(!type_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+      (*type_.UnsafeRawStringPointer())->clear();
     }
     if (cached_has_bits & 0x00000004u) {
-      GOOGLE_DCHECK(conv_layer_param__ != NULL);
-      conv_layer_param__->Clear();
+      GOOGLE_DCHECK(conv_layer_param_ != NULL);
+      conv_layer_param_->Clear();
     }
     if (cached_has_bits & 0x00000008u) {
-      GOOGLE_DCHECK(inner_product_layer_param__ != NULL);
-      inner_product_layer_param__->Clear();
+      GOOGLE_DCHECK(inner_product_layer_param_ != NULL);
+      inner_product_layer_param_->Clear();
     }
     if (cached_has_bits & 0x00000010u) {
-      GOOGLE_DCHECK(pooling_layer_param__ != NULL);
-      pooling_layer_param__->Clear();
+      GOOGLE_DCHECK(pooling_layer_param_ != NULL);
+      pooling_layer_param_->Clear();
     }
   }
   _has_bits_.Clear();
@@ -1949,68 +2264,68 @@ bool LayerParameter::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string name_ = 1;
+      // optional string name = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name_()));
+                input, this->mutable_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->name_().data(), static_cast<int>(this->name_().length()),
+            this->name().data(), static_cast<int>(this->name().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "BigBang.LayerParameter.name_");
+            "BigBang.LayerParameter.name");
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional string type_ = 2;
+      // optional string type = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u /* 18 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_type_()));
+                input, this->mutable_type()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->type_().data(), static_cast<int>(this->type_().length()),
+            this->type().data(), static_cast<int>(this->type().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "BigBang.LayerParameter.type_");
+            "BigBang.LayerParameter.type");
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .BigBang.ConvLayerParameter conv_layer_param_ = 100;
+      // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
       case 100: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u /* 802 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_conv_layer_param_()));
+               input, mutable_conv_layer_param()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .BigBang.InnerProductLayerParameter inner_product_layer_param_ = 101;
+      // optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
       case 101: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(42u /* 810 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_inner_product_layer_param_()));
+               input, mutable_inner_product_layer_param()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // optional .BigBang.PoolingLayerParameter pooling_layer_param_ = 102;
+      // optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
       case 102: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(50u /* 818 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_pooling_layer_param_()));
+               input, mutable_pooling_layer_param()));
         } else {
           goto handle_unusual;
         }
@@ -2044,42 +2359,42 @@ void LayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name_ = 1;
+  // optional string name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->name_().data(), static_cast<int>(this->name_().length()),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "BigBang.LayerParameter.name_");
+      "BigBang.LayerParameter.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->name_(), output);
+      1, this->name(), output);
   }
 
-  // optional string type_ = 2;
+  // optional string type = 2;
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->type_().data(), static_cast<int>(this->type_().length()),
+      this->type().data(), static_cast<int>(this->type().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "BigBang.LayerParameter.type_");
+      "BigBang.LayerParameter.type");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->type_(), output);
+      2, this->type(), output);
   }
 
-  // optional .BigBang.ConvLayerParameter conv_layer_param_ = 100;
+  // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
   if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      100, *this->conv_layer_param__, output);
+      100, *this->conv_layer_param_, output);
   }
 
-  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param_ = 101;
+  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
   if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      101, *this->inner_product_layer_param__, output);
+      101, *this->inner_product_layer_param_, output);
   }
 
-  // optional .BigBang.PoolingLayerParameter pooling_layer_param_ = 102;
+  // optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
   if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      102, *this->pooling_layer_param__, output);
+      102, *this->pooling_layer_param_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2097,47 +2412,47 @@ void LayerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name_ = 1;
+  // optional string name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->name_().data(), static_cast<int>(this->name_().length()),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "BigBang.LayerParameter.name_");
+      "BigBang.LayerParameter.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->name_(), target);
+        1, this->name(), target);
   }
 
-  // optional string type_ = 2;
+  // optional string type = 2;
   if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->type_().data(), static_cast<int>(this->type_().length()),
+      this->type().data(), static_cast<int>(this->type().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "BigBang.LayerParameter.type_");
+      "BigBang.LayerParameter.type");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->type_(), target);
+        2, this->type(), target);
   }
 
-  // optional .BigBang.ConvLayerParameter conv_layer_param_ = 100;
+  // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
   if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        100, *this->conv_layer_param__, deterministic, target);
+        100, *this->conv_layer_param_, deterministic, target);
   }
 
-  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param_ = 101;
+  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
   if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        101, *this->inner_product_layer_param__, deterministic, target);
+        101, *this->inner_product_layer_param_, deterministic, target);
   }
 
-  // optional .BigBang.PoolingLayerParameter pooling_layer_param_ = 102;
+  // optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
   if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        102, *this->pooling_layer_param__, deterministic, target);
+        102, *this->pooling_layer_param_, deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2158,39 +2473,39 @@ size_t LayerParameter::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (_has_bits_[0 / 32] & 31u) {
-    // optional string name_ = 1;
-    if (has_name_()) {
+    // optional string name = 1;
+    if (has_name()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->name_());
+          this->name());
     }
 
-    // optional string type_ = 2;
-    if (has_type_()) {
+    // optional string type = 2;
+    if (has_type()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->type_());
+          this->type());
     }
 
-    // optional .BigBang.ConvLayerParameter conv_layer_param_ = 100;
-    if (has_conv_layer_param_()) {
+    // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
+    if (has_conv_layer_param()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *this->conv_layer_param__);
+          *this->conv_layer_param_);
     }
 
-    // optional .BigBang.InnerProductLayerParameter inner_product_layer_param_ = 101;
-    if (has_inner_product_layer_param_()) {
+    // optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
+    if (has_inner_product_layer_param()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *this->inner_product_layer_param__);
+          *this->inner_product_layer_param_);
     }
 
-    // optional .BigBang.PoolingLayerParameter pooling_layer_param_ = 102;
-    if (has_pooling_layer_param_()) {
+    // optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
+    if (has_pooling_layer_param()) {
       total_size += 2 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *this->pooling_layer_param__);
+          *this->pooling_layer_param_);
     }
 
   }
@@ -2226,21 +2541,21 @@ void LayerParameter::MergeFrom(const LayerParameter& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 31u) {
     if (cached_has_bits & 0x00000001u) {
-      set_has_name_();
-      name__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name__);
+      set_has_name();
+      name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
     }
     if (cached_has_bits & 0x00000002u) {
-      set_has_type_();
-      type__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type__);
+      set_has_type();
+      type_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.type_);
     }
     if (cached_has_bits & 0x00000004u) {
-      mutable_conv_layer_param_()->::BigBang::ConvLayerParameter::MergeFrom(from.conv_layer_param_());
+      mutable_conv_layer_param()->::BigBang::ConvLayerParameter::MergeFrom(from.conv_layer_param());
     }
     if (cached_has_bits & 0x00000008u) {
-      mutable_inner_product_layer_param_()->::BigBang::InnerProductLayerParameter::MergeFrom(from.inner_product_layer_param_());
+      mutable_inner_product_layer_param()->::BigBang::InnerProductLayerParameter::MergeFrom(from.inner_product_layer_param());
     }
     if (cached_has_bits & 0x00000010u) {
-      mutable_pooling_layer_param_()->::BigBang::PoolingLayerParameter::MergeFrom(from.pooling_layer_param_());
+      mutable_pooling_layer_param()->::BigBang::PoolingLayerParameter::MergeFrom(from.pooling_layer_param());
     }
   }
 }
@@ -2269,11 +2584,11 @@ void LayerParameter::Swap(LayerParameter* other) {
 }
 void LayerParameter::InternalSwap(LayerParameter* other) {
   using std::swap;
-  name__.Swap(&other->name__);
-  type__.Swap(&other->type__);
-  swap(conv_layer_param__, other->conv_layer_param__);
-  swap(inner_product_layer_param__, other->inner_product_layer_param__);
-  swap(pooling_layer_param__, other->pooling_layer_param__);
+  name_.Swap(&other->name_);
+  type_.Swap(&other->type_);
+  swap(conv_layer_param_, other->conv_layer_param_);
+  swap(inner_product_layer_param_, other->inner_product_layer_param_);
+  swap(pooling_layer_param_, other->pooling_layer_param_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -2307,18 +2622,18 @@ NetParameter::NetParameter(const NetParameter& from)
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
       _cached_size_(0),
-      layer_param__(from.layer_param__) {
+      layer_param_(from.layer_param_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  name__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.has_name_()) {
-    name__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name__);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_name()) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   // @@protoc_insertion_point(copy_constructor:BigBang.NetParameter)
 }
 
 void NetParameter::SharedCtor() {
   _cached_size_ = 0;
-  name__.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 NetParameter::~NetParameter() {
@@ -2327,7 +2642,7 @@ NetParameter::~NetParameter() {
 }
 
 void NetParameter::SharedDtor() {
-  name__.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void NetParameter::SetCachedSize(int size) const {
@@ -2359,11 +2674,11 @@ void NetParameter::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  layer_param__.Clear();
+  layer_param_.Clear();
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(!name__.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
-    (*name__.UnsafeRawStringPointer())->clear();
+    GOOGLE_DCHECK(!name_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*name_.UnsafeRawStringPointer())->clear();
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -2379,27 +2694,27 @@ bool NetParameter::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string name_ = 1;
+      // optional string name = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_name_()));
+                input, this->mutable_name()));
           ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->name_().data(), static_cast<int>(this->name_().length()),
+            this->name().data(), static_cast<int>(this->name().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
-            "BigBang.NetParameter.name_");
+            "BigBang.NetParameter.name");
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated .BigBang.LayerParameter layer_param_ = 10;
+      // repeated .BigBang.LayerParameter layer_param = 10;
       case 10: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(82u /* 82 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_layer_param_()));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_layer_param()));
         } else {
           goto handle_unusual;
         }
@@ -2433,21 +2748,21 @@ void NetParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name_ = 1;
+  // optional string name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->name_().data(), static_cast<int>(this->name_().length()),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "BigBang.NetParameter.name_");
+      "BigBang.NetParameter.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->name_(), output);
+      1, this->name(), output);
   }
 
-  // repeated .BigBang.LayerParameter layer_param_ = 10;
+  // repeated .BigBang.LayerParameter layer_param = 10;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->layer_param__size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->layer_param_size()); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      10, this->layer_param_(static_cast<int>(i)), output);
+      10, this->layer_param(static_cast<int>(i)), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2465,23 +2780,23 @@ void NetParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional string name_ = 1;
+  // optional string name = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->name_().data(), static_cast<int>(this->name_().length()),
+      this->name().data(), static_cast<int>(this->name().length()),
       ::google::protobuf::internal::WireFormat::SERIALIZE,
-      "BigBang.NetParameter.name_");
+      "BigBang.NetParameter.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->name_(), target);
+        1, this->name(), target);
   }
 
-  // repeated .BigBang.LayerParameter layer_param_ = 10;
+  // repeated .BigBang.LayerParameter layer_param = 10;
   for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->layer_param__size()); i < n; i++) {
+      n = static_cast<unsigned int>(this->layer_param_size()); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        10, this->layer_param_(static_cast<int>(i)), deterministic, target);
+        10, this->layer_param(static_cast<int>(i)), deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -2501,22 +2816,22 @@ size_t NetParameter::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  // repeated .BigBang.LayerParameter layer_param_ = 10;
+  // repeated .BigBang.LayerParameter layer_param = 10;
   {
-    unsigned int count = static_cast<unsigned int>(this->layer_param__size());
+    unsigned int count = static_cast<unsigned int>(this->layer_param_size());
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->layer_param_(static_cast<int>(i)));
+          this->layer_param(static_cast<int>(i)));
     }
   }
 
-  // optional string name_ = 1;
-  if (has_name_()) {
+  // optional string name = 1;
+  if (has_name()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->name_());
+        this->name());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -2548,10 +2863,10 @@ void NetParameter::MergeFrom(const NetParameter& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  layer_param__.MergeFrom(from.layer_param__);
-  if (from.has_name_()) {
-    set_has_name_();
-    name__.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name__);
+  layer_param_.MergeFrom(from.layer_param_);
+  if (from.has_name()) {
+    set_has_name();
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
 }
 
@@ -2579,8 +2894,8 @@ void NetParameter::Swap(NetParameter* other) {
 }
 void NetParameter::InternalSwap(NetParameter* other) {
   using std::swap;
-  layer_param__.InternalSwap(&other->layer_param__);
-  name__.Swap(&other->name__);
+  layer_param_.InternalSwap(&other->layer_param_);
+  name_.Swap(&other->name_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -2595,7 +2910,7 @@ void NetParameter::InternalSwap(NetParameter* other) {
 // ===================================================================
 
 void SolverParameter::InitAsDefaultInstance() {
-  ::BigBang::_SolverParameter_default_instance_._instance.get_mutable()->net_param__ = const_cast< ::BigBang::NetParameter*>(
+  ::BigBang::_SolverParameter_default_instance_._instance.get_mutable()->net_param_ = const_cast< ::BigBang::NetParameter*>(
       ::BigBang::NetParameter::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -2617,10 +2932,10 @@ SolverParameter::SolverParameter(const SolverParameter& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  if (from.has_net_param_()) {
-    net_param__ = new ::BigBang::NetParameter(*from.net_param__);
+  if (from.has_net_param()) {
+    net_param_ = new ::BigBang::NetParameter(*from.net_param_);
   } else {
-    net_param__ = NULL;
+    net_param_ = NULL;
   }
   lr_ = from.lr_;
   // @@protoc_insertion_point(copy_constructor:BigBang.SolverParameter)
@@ -2628,9 +2943,9 @@ SolverParameter::SolverParameter(const SolverParameter& from)
 
 void SolverParameter::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&net_param__, 0, static_cast<size_t>(
+  ::memset(&net_param_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&lr_) -
-      reinterpret_cast<char*>(&net_param__)) + sizeof(lr_));
+      reinterpret_cast<char*>(&net_param_)) + sizeof(lr_));
 }
 
 SolverParameter::~SolverParameter() {
@@ -2639,7 +2954,7 @@ SolverParameter::~SolverParameter() {
 }
 
 void SolverParameter::SharedDtor() {
-  if (this != internal_default_instance()) delete net_param__;
+  if (this != internal_default_instance()) delete net_param_;
 }
 
 void SolverParameter::SetCachedSize(int size) const {
@@ -2673,8 +2988,8 @@ void SolverParameter::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
-    GOOGLE_DCHECK(net_param__ != NULL);
-    net_param__->Clear();
+    GOOGLE_DCHECK(net_param_ != NULL);
+    net_param_->Clear();
   }
   lr_ = 0;
   _has_bits_.Clear();
@@ -2691,12 +3006,12 @@ bool SolverParameter::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .BigBang.NetParameter net_param_ = 1;
+      // optional .BigBang.NetParameter net_param = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u /* 10 & 0xFF */)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
-               input, mutable_net_param_()));
+               input, mutable_net_param()));
         } else {
           goto handle_unusual;
         }
@@ -2744,10 +3059,10 @@ void SolverParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .BigBang.NetParameter net_param_ = 1;
+  // optional .BigBang.NetParameter net_param = 1;
   if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      1, *this->net_param__, output);
+      1, *this->net_param_, output);
   }
 
   // optional float lr = 2;
@@ -2770,11 +3085,11 @@ void SolverParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .BigBang.NetParameter net_param_ = 1;
+  // optional .BigBang.NetParameter net_param = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        1, *this->net_param__, deterministic, target);
+        1, *this->net_param_, deterministic, target);
   }
 
   // optional float lr = 2;
@@ -2800,11 +3115,11 @@ size_t SolverParameter::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (_has_bits_[0 / 32] & 3u) {
-    // optional .BigBang.NetParameter net_param_ = 1;
-    if (has_net_param_()) {
+    // optional .BigBang.NetParameter net_param = 1;
+    if (has_net_param()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSize(
-          *this->net_param__);
+          *this->net_param_);
     }
 
     // optional float lr = 2;
@@ -2845,7 +3160,7 @@ void SolverParameter::MergeFrom(const SolverParameter& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 3u) {
     if (cached_has_bits & 0x00000001u) {
-      mutable_net_param_()->::BigBang::NetParameter::MergeFrom(from.net_param_());
+      mutable_net_param()->::BigBang::NetParameter::MergeFrom(from.net_param());
     }
     if (cached_has_bits & 0x00000002u) {
       lr_ = from.lr_;
@@ -2878,7 +3193,7 @@ void SolverParameter::Swap(SolverParameter* other) {
 }
 void SolverParameter::InternalSwap(SolverParameter* other) {
   using std::swap;
-  swap(net_param__, other->net_param__);
+  swap(net_param_, other->net_param_);
   swap(lr_, other->lr_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);

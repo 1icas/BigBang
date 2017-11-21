@@ -5,7 +5,7 @@ namespace BigBang {
 
 template<typename dtype>
 void ImageLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
-	const int offset 
+	//const int offset 
 }
 
 template<typename dtype>

@@ -1,5 +1,19 @@
 #include "test.h"
 
+template<typename dtype>
+class Test_Inner : public InnerProductLayer<dtype> {
+public:
+	Test_Inner(const LayerParameter& params)
+		: InnerProductLayer(params){}
+
+	void set_weight(const std::shared_ptr<Tensor<dtype>>& weight) {
+		weights_ = weight;
+	}
+	void set_bias(const std::shared_ptr<Tensor<dtype>>& bias) {
+		biases_ = bias;
+	}
+};
+
 void Test::TestInnerProduct() {
 	std::shared_ptr<Tensor<float>> weights(new Tensor<float>(std::vector<int>{1, 1, 3, 2}));
 	std::shared_ptr<Tensor<float>> biases(new Tensor<float>(std::vector<int>{1, 1, 2, 1}));
@@ -19,15 +33,19 @@ void Test::TestInnerProduct() {
 	biases_data[0] = 1;
 	biases_data[1] = 2;
 
-	InnerProductLayerParams<float> params(1.0, 1.0, true, FillerParams<float>(),
-		FillerParams<float>(), weights, biases);
-	LayerParamsManage<float> manage;
-	manage.use_gpu_ = false;
-	manage.type_ = "InnerProduct";
-	manage.inner_product_layer_params_ = params;
-	InnerProductLayer<float> layer(manage);
+	LayerParameter l_p;
+	auto inner_params = l_p.mutable_inner_product_layer_param();
+	inner_params->set_use_bias(true);
+	auto k_f = inner_params->mutable_weight_filler();
+	k_f->set_type(FillerParameter::GAUSSIAN_DISTRIBUTION);
+	auto b_f = inner_params->mutable_bias_filler();
+	b_f->set_type(FillerParameter::GAUSSIAN_DISTRIBUTION);
+
+	Test_Inner<float> layer(l_p);
 	Tensor<float> output(std::vector<int>{4, 1, 1, 2});
 	layer.SetUp(&input, &output);
+	layer.set_weight(weights);
+	layer.set_bias(biases);
 	layer.Forward(&input, &output);
 	const float* output_data = output.cpu_data();
 	const float true_result[] = { 12, 12, 27, 27, 42, 42, 57, 57 };
@@ -38,7 +56,6 @@ void Test::TestInnerProduct() {
 void Test::TestInnerProductBackward() {
 	std::shared_ptr<Tensor<float>> weights(new Tensor<float>(std::vector<int>{1, 1, 2, 3}));
 	std::shared_ptr<Tensor<float>> biases(new Tensor<float>(std::vector<int>{1, 1, 3, 1}));
-
 	float* weights_data = weights->mutable_cpu_data();
 	float* biases_data = biases->mutable_cpu_data();
 	Tensor<float> input(std::vector<int>{1, 1, 1, 2});
@@ -55,15 +72,18 @@ void Test::TestInnerProductBackward() {
 	biases_data[1] = 2;
 	biases_data[2] = 3;
 
-	InnerProductLayerParams<float> params(1.0, 1.0, true, FillerParams<float>(),
-		FillerParams<float>(), weights, biases);
-	LayerParamsManage<float> manage;
-	manage.use_gpu_ = false;
-	manage.type_ = "InnerProduct";
-	manage.inner_product_layer_params_ = params;
-	InnerProductLayer<float> layer(manage);
+	LayerParameter l_p;
+	auto inner_params = l_p.mutable_inner_product_layer_param();
+	inner_params->set_use_bias(true);
+	auto k_f = inner_params->mutable_weight_filler();
+	k_f->set_type(FillerParameter::GAUSSIAN_DISTRIBUTION);
+	auto b_f = inner_params->mutable_bias_filler();
+	b_f->set_type(FillerParameter::GAUSSIAN_DISTRIBUTION);
+	Test_Inner<float> layer(l_p);
 	Tensor<float> output(std::vector<int>{1, 1, 1, 3});
 	layer.SetUp(&input, &output);
+	layer.set_weight(weights);
+	layer.set_bias(biases);
 	layer.Forward(&input, &output);
 	float* output_data = output.mutable_cpu_data();
 	float true_result[] = { 5, 9, 15 };
