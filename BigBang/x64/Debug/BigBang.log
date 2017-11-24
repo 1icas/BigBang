@@ -1,4 +1,15 @@
-﻿  BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.exe
+﻿  test.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+  convert_cifar10_lmdb.cpp
+d:\git\bigbang\bigbang\depend\include\google\protobuf\io\coded_stream.h(869): warning C4800: “google::protobuf::internal::Atomic64”: 将值强制为布尔值“true”或“false”(性能警告)
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(863): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\wire_format_lite.h(874): warning C4146: 一元负运算符应用于无符号类型，结果仍为无符号类型
+d:\git\bigbang\bigbang\depend\include\google\protobuf\generated_message_util.h(160): warning C4800: “google::protobuf::uint32”: 将值强制为布尔值“true”或“false”(性能警告)
+  正在生成代码...
+  BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.exe
   BigBang.vcxproj -> D:\git\BigBang\x64\Debug\BigBang.pdb (Full PDB)
   copy "D:\CUDAInstalled\Development\bin\cudart*.dll" "D:\git\BigBang\x64\Debug\"
   D:\CUDAInstalled\Development\bin\cudart32_80.dll

@@ -25,6 +25,11 @@ class FillerParameterDefaultTypeInternal {
   ::google::protobuf::internal::ExplicitlyConstructed<FillerParameter>
       _instance;
 } _FillerParameter_default_instance_;
+class DatumDefaultTypeInternal {
+ public:
+  ::google::protobuf::internal::ExplicitlyConstructed<Datum>
+      _instance;
+} _Datum_default_instance_;
 class PoolingLayerParameterDefaultTypeInternal {
  public:
   ::google::protobuf::internal::ExplicitlyConstructed<PoolingLayerParameter>
@@ -76,6 +81,27 @@ void InitDefaultsFillerParameterImpl() {
 void InitDefaultsFillerParameter() {
   static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsFillerParameterImpl);
+}
+
+void InitDefaultsDatumImpl() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+#ifdef GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  ::google::protobuf::internal::InitProtobufDefaultsForceUnique();
+#else
+  ::google::protobuf::internal::InitProtobufDefaults();
+#endif  // GOOGLE_PROTOBUF_ENFORCE_UNIQUENESS
+  {
+    void* ptr = &::BigBang::_Datum_default_instance_;
+    new (ptr) ::BigBang::Datum();
+    ::google::protobuf::internal::OnShutdownDestroyMessage(ptr);
+  }
+  ::BigBang::Datum::InitAsDefaultInstance();
+}
+
+void InitDefaultsDatum() {
+  static GOOGLE_PROTOBUF_DECLARE_ONCE(once);
+  ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsDatumImpl);
 }
 
 void InitDefaultsPoolingLayerParameterImpl() {
@@ -211,7 +237,7 @@ void InitDefaultsSolverParameter() {
   ::google::protobuf::GoogleOnceInit(&once, &InitDefaultsSolverParameterImpl);
 }
 
-::google::protobuf::Metadata file_level_metadata[7];
+::google::protobuf::Metadata file_level_metadata[8];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[2];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
@@ -222,6 +248,23 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, type_),
   0,
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, _has_bits_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, channels_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, height_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, width_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, data_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, label_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, f_data_),
+  1,
+  2,
+  3,
+  0,
+  4,
+  ~0u,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::PoolingLayerParameter, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -311,16 +354,18 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 6, sizeof(::BigBang::FillerParameter)},
-  { 7, 17, sizeof(::BigBang::PoolingLayerParameter)},
-  { 22, 38, sizeof(::BigBang::ConvLayerParameter)},
-  { 49, 57, sizeof(::BigBang::InnerProductLayerParameter)},
-  { 60, 70, sizeof(::BigBang::LayerParameter)},
-  { 75, 82, sizeof(::BigBang::NetParameter)},
-  { 84, 91, sizeof(::BigBang::SolverParameter)},
+  { 7, 18, sizeof(::BigBang::Datum)},
+  { 24, 34, sizeof(::BigBang::PoolingLayerParameter)},
+  { 39, 55, sizeof(::BigBang::ConvLayerParameter)},
+  { 66, 74, sizeof(::BigBang::InnerProductLayerParameter)},
+  { 77, 87, sizeof(::BigBang::LayerParameter)},
+  { 92, 99, sizeof(::BigBang::NetParameter)},
+  { 101, 108, sizeof(::BigBang::SolverParameter)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_FillerParameter_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_Datum_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_PoolingLayerParameter_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_ConvLayerParameter_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&::BigBang::_InnerProductLayerParameter_default_instance_),
@@ -345,7 +390,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_PROTOBUF_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 7);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 8);
 }
 
 void AddDescriptorsImpl() {
@@ -355,36 +400,38 @@ void AddDescriptorsImpl() {
       "eter\022H\n\004type\030\001 \001(\0162#.BigBang.FillerParam"
       "eter.FillerType:\025GAUSSIAN_DISTRIBUTION\"\'"
       "\n\nFillerType\022\031\n\025GAUSSIAN_DISTRIBUTION\020\000\""
-      "\323\001\n\025PoolingLayerParameter\022\?\n\004pool\030\001 \001(\0162"
-      ",.BigBang.PoolingLayerParameter.PoolingM"
-      "ethod:\003MAX\022\023\n\010kernel_h\030\002 \001(\r:\0011\022\023\n\010kerne"
-      "l_w\030\003 \001(\r:\0011\022\023\n\010stride_h\030\004 \001(\r:\0011\022\023\n\010str"
-      "ide_w\030\005 \001(\r:\0011\"%\n\rPoolingMethod\022\007\n\003MAX\020\000"
-      "\022\013\n\007AVERAGE\020\001\"\256\002\n\022ConvLayerParameter\022\030\n\r"
-      "kernel_groups\030\001 \001(\r:\0011\022\032\n\017kernel_channel"
-      "s\030\002 \001(\r:\0011\022\023\n\010kernel_h\030\003 \001(\r:\0011\022\023\n\010kerne"
-      "l_w\030\004 \001(\r:\0011\022\r\n\005pad_h\030\005 \001(\r\022\r\n\005pad_w\030\006 \001"
-      "(\r\022\023\n\010stride_h\030\007 \001(\r:\0011\022\023\n\010stride_w\030\010 \001("
-      "\r:\0011\022\020\n\010use_bias\030\t \001(\010\022/\n\rkernel_filler\030"
-      "\n \001(\0132\030.BigBang.FillerParameter\022-\n\013bias_"
-      "filler\030\013 \001(\0132\030.BigBang.FillerParameter\"\216"
-      "\001\n\032InnerProductLayerParameter\022\020\n\010use_bia"
-      "s\030\001 \001(\010\022/\n\rweight_filler\030\n \001(\0132\030.BigBang"
-      ".FillerParameter\022-\n\013bias_filler\030\013 \001(\0132\030."
-      "BigBang.FillerParameter\"\350\001\n\016LayerParamet"
-      "er\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\0225\n\020conv_l"
-      "ayer_param\030d \001(\0132\033.BigBang.ConvLayerPara"
-      "meter\022F\n\031inner_product_layer_param\030e \001(\013"
-      "2#.BigBang.InnerProductLayerParameter\022;\n"
-      "\023pooling_layer_param\030f \001(\0132\036.BigBang.Poo"
-      "lingLayerParameter\"J\n\014NetParameter\022\014\n\004na"
-      "me\030\001 \001(\t\022,\n\013layer_param\030\n \003(\0132\027.BigBang."
-      "LayerParameter\"G\n\017SolverParameter\022(\n\tnet"
-      "_param\030\001 \001(\0132\025.BigBang.NetParameter\022\n\n\002l"
-      "r\030\002 \001(\002"
+      "e\n\005Datum\022\020\n\010channels\030\001 \001(\005\022\016\n\006height\030\002 \001"
+      "(\005\022\r\n\005width\030\003 \001(\005\022\014\n\004data\030\004 \001(\014\022\r\n\005label"
+      "\030\005 \001(\005\022\016\n\006f_data\030\006 \003(\002\"\323\001\n\025PoolingLayerP"
+      "arameter\022\?\n\004pool\030\001 \001(\0162,.BigBang.Pooling"
+      "LayerParameter.PoolingMethod:\003MAX\022\023\n\010ker"
+      "nel_h\030\002 \001(\r:\0011\022\023\n\010kernel_w\030\003 \001(\r:\0011\022\023\n\010s"
+      "tride_h\030\004 \001(\r:\0011\022\023\n\010stride_w\030\005 \001(\r:\0011\"%\n"
+      "\rPoolingMethod\022\007\n\003MAX\020\000\022\013\n\007AVERAGE\020\001\"\256\002\n"
+      "\022ConvLayerParameter\022\030\n\rkernel_groups\030\001 \001"
+      "(\r:\0011\022\032\n\017kernel_channels\030\002 \001(\r:\0011\022\023\n\010ker"
+      "nel_h\030\003 \001(\r:\0011\022\023\n\010kernel_w\030\004 \001(\r:\0011\022\r\n\005p"
+      "ad_h\030\005 \001(\r\022\r\n\005pad_w\030\006 \001(\r\022\023\n\010stride_h\030\007 "
+      "\001(\r:\0011\022\023\n\010stride_w\030\010 \001(\r:\0011\022\020\n\010use_bias\030"
+      "\t \001(\010\022/\n\rkernel_filler\030\n \001(\0132\030.BigBang.F"
+      "illerParameter\022-\n\013bias_filler\030\013 \001(\0132\030.Bi"
+      "gBang.FillerParameter\"\216\001\n\032InnerProductLa"
+      "yerParameter\022\020\n\010use_bias\030\001 \001(\010\022/\n\rweight"
+      "_filler\030\n \001(\0132\030.BigBang.FillerParameter\022"
+      "-\n\013bias_filler\030\013 \001(\0132\030.BigBang.FillerPar"
+      "ameter\"\350\001\n\016LayerParameter\022\014\n\004name\030\001 \001(\t\022"
+      "\014\n\004type\030\002 \001(\t\0225\n\020conv_layer_param\030d \001(\0132"
+      "\033.BigBang.ConvLayerParameter\022F\n\031inner_pr"
+      "oduct_layer_param\030e \001(\0132#.BigBang.InnerP"
+      "roductLayerParameter\022;\n\023pooling_layer_pa"
+      "ram\030f \001(\0132\036.BigBang.PoolingLayerParamete"
+      "r\"J\n\014NetParameter\022\014\n\004name\030\001 \001(\t\022,\n\013layer"
+      "_param\030\n \003(\0132\027.BigBang.LayerParameter\"G\n"
+      "\017SolverParameter\022(\n\tnet_param\030\001 \001(\0132\025.Bi"
+      "gBang.NetParameter\022\n\n\002lr\030\002 \001(\002"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 1207);
+      descriptor, 1310);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "bigbang.proto", &protobuf_RegisterTypes);
 }
@@ -687,6 +734,463 @@ void FillerParameter::InternalSwap(FillerParameter* other) {
 }
 
 ::google::protobuf::Metadata FillerParameter::GetMetadata() const {
+  protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_bigbang_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+
+// ===================================================================
+
+void Datum::InitAsDefaultInstance() {
+}
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Datum::kChannelsFieldNumber;
+const int Datum::kHeightFieldNumber;
+const int Datum::kWidthFieldNumber;
+const int Datum::kDataFieldNumber;
+const int Datum::kLabelFieldNumber;
+const int Datum::kFDataFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Datum::Datum()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    ::protobuf_bigbang_2eproto::InitDefaultsDatum();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:BigBang.Datum)
+}
+Datum::Datum(const Datum& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _has_bits_(from._has_bits_),
+      _cached_size_(0),
+      f_data_(from.f_data_) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.has_data()) {
+    data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+  }
+  ::memcpy(&channels_, &from.channels_,
+    static_cast<size_t>(reinterpret_cast<char*>(&label_) -
+    reinterpret_cast<char*>(&channels_)) + sizeof(label_));
+  // @@protoc_insertion_point(copy_constructor:BigBang.Datum)
+}
+
+void Datum::SharedCtor() {
+  _cached_size_ = 0;
+  data_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&channels_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&label_) -
+      reinterpret_cast<char*>(&channels_)) + sizeof(label_));
+}
+
+Datum::~Datum() {
+  // @@protoc_insertion_point(destructor:BigBang.Datum)
+  SharedDtor();
+}
+
+void Datum::SharedDtor() {
+  data_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void Datum::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Datum::descriptor() {
+  ::protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
+  return ::protobuf_bigbang_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Datum& Datum::default_instance() {
+  ::protobuf_bigbang_2eproto::InitDefaultsDatum();
+  return *internal_default_instance();
+}
+
+Datum* Datum::New(::google::protobuf::Arena* arena) const {
+  Datum* n = new Datum;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Datum::Clear() {
+// @@protoc_insertion_point(message_clear_start:BigBang.Datum)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  f_data_.Clear();
+  cached_has_bits = _has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(!data_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
+    (*data_.UnsafeRawStringPointer())->clear();
+  }
+  if (cached_has_bits & 30u) {
+    ::memset(&channels_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&label_) -
+        reinterpret_cast<char*>(&channels_)) + sizeof(label_));
+  }
+  _has_bits_.Clear();
+  _internal_metadata_.Clear();
+}
+
+bool Datum::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:BigBang.Datum)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 channels = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
+          set_has_channels();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &channels_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 height = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u /* 16 & 0xFF */)) {
+          set_has_height();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &height_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 width = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          set_has_width();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &width_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional bytes data = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u /* 34 & 0xFF */)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_data()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional int32 label = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
+          set_has_label();
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &label_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated float f_data = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(53u /* 53 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 1, 53u, input, this->mutable_f_data())));
+        } else if (
+            static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u /* 50 & 0xFF */)) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   float, ::google::protobuf::internal::WireFormatLite::TYPE_FLOAT>(
+                 input, this->mutable_f_data())));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, _internal_metadata_.mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:BigBang.Datum)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:BigBang.Datum)
+  return false;
+#undef DO_
+}
+
+void Datum::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:BigBang.Datum)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional int32 channels = 1;
+  if (cached_has_bits & 0x00000002u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->channels(), output);
+  }
+
+  // optional int32 height = 2;
+  if (cached_has_bits & 0x00000004u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->height(), output);
+  }
+
+  // optional int32 width = 3;
+  if (cached_has_bits & 0x00000008u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->width(), output);
+  }
+
+  // optional bytes data = 4;
+  if (cached_has_bits & 0x00000001u) {
+    ::google::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      4, this->data(), output);
+  }
+
+  // optional int32 label = 5;
+  if (cached_has_bits & 0x00000010u) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->label(), output);
+  }
+
+  // repeated float f_data = 6;
+  for (int i = 0, n = this->f_data_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteFloat(
+      6, this->f_data(i), output);
+  }
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        _internal_metadata_.unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:BigBang.Datum)
+}
+
+::google::protobuf::uint8* Datum::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:BigBang.Datum)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _has_bits_[0];
+  // optional int32 channels = 1;
+  if (cached_has_bits & 0x00000002u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->channels(), target);
+  }
+
+  // optional int32 height = 2;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->height(), target);
+  }
+
+  // optional int32 width = 3;
+  if (cached_has_bits & 0x00000008u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->width(), target);
+  }
+
+  // optional bytes data = 4;
+  if (cached_has_bits & 0x00000001u) {
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        4, this->data(), target);
+  }
+
+  // optional int32 label = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->label(), target);
+  }
+
+  // repeated float f_data = 6;
+  target = ::google::protobuf::internal::WireFormatLite::
+    WriteFloatToArray(6, this->f_data_, target);
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:BigBang.Datum)
+  return target;
+}
+
+size_t Datum::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:BigBang.Datum)
+  size_t total_size = 0;
+
+  if (_internal_metadata_.have_unknown_fields()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        _internal_metadata_.unknown_fields());
+  }
+  // repeated float f_data = 6;
+  {
+    unsigned int count = static_cast<unsigned int>(this->f_data_size());
+    size_t data_size = 4UL * count;
+    total_size += 1 *
+                  ::google::protobuf::internal::FromIntSize(this->f_data_size());
+    total_size += data_size;
+  }
+
+  if (_has_bits_[0 / 32] & 31u) {
+    // optional bytes data = 4;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::BytesSize(
+          this->data());
+    }
+
+    // optional int32 channels = 1;
+    if (has_channels()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->channels());
+    }
+
+    // optional int32 height = 2;
+    if (has_height()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->height());
+    }
+
+    // optional int32 width = 3;
+    if (has_width()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->width());
+    }
+
+    // optional int32 label = 5;
+    if (has_label()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->label());
+    }
+
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Datum::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:BigBang.Datum)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Datum* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Datum>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:BigBang.Datum)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:BigBang.Datum)
+    MergeFrom(*source);
+  }
+}
+
+void Datum::MergeFrom(const Datum& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:BigBang.Datum)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  f_data_.MergeFrom(from.f_data_);
+  cached_has_bits = from._has_bits_[0];
+  if (cached_has_bits & 31u) {
+    if (cached_has_bits & 0x00000001u) {
+      set_has_data();
+      data_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.data_);
+    }
+    if (cached_has_bits & 0x00000002u) {
+      channels_ = from.channels_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      height_ = from.height_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      width_ = from.width_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      label_ = from.label_;
+    }
+    _has_bits_[0] |= cached_has_bits;
+  }
+}
+
+void Datum::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:BigBang.Datum)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Datum::CopyFrom(const Datum& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:BigBang.Datum)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Datum::IsInitialized() const {
+  return true;
+}
+
+void Datum::Swap(Datum* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Datum::InternalSwap(Datum* other) {
+  using std::swap;
+  f_data_.InternalSwap(&other->f_data_);
+  data_.Swap(&other->data_);
+  swap(channels_, other->channels_);
+  swap(height_, other->height_);
+  swap(width_, other->width_);
+  swap(label_, other->label_);
+  swap(_has_bits_[0], other->_has_bits_[0]);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Datum::GetMetadata() const {
   protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
   return ::protobuf_bigbang_2eproto::file_level_metadata[kIndexInFileMessages];
 }

@@ -21,6 +21,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6D67AB71-E316-4636-AE08-98C92C836D7D}</ProjectGuid>
     <RootNamespace>BigBang</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -32,7 +33,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -179,6 +180,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\layers\sigmoid_layer.cpp" />
     <ClCompile Include="src\net.cpp" />
     <ClCompile Include="src\synced_memory.cpp" />
+    <ClCompile Include="src\test\convert_cifar10_lmdb.cpp" />
     <ClCompile Include="src\test\test.cpp" />
     <ClCompile Include="src\test\test_conv_layer.cpp" />
     <ClCompile Include="src\test\test_conv_layer_network.cpp" />
@@ -188,10 +190,14 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\test\test_pooling_layer.cpp" />
     <ClCompile Include="src\test\test_tensor_cpu.cpp" />
     <ClCompile Include="src\util\data_reader.cpp" />
+    <ClCompile Include="src\util\db_lmdb.cpp" />
+    <ClCompile Include="src\util\getopt.c" />
     <ClCompile Include="src\util\im2col.cpp" />
     <ClCompile Include="src\util\image_common.cpp" />
     <ClCompile Include="src\util\load_data.cpp" />
     <ClCompile Include="src\util\math_function_ptr.cpp" />
+    <ClCompile Include="src\util\mdb.c" />
+    <ClCompile Include="src\util\midl.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\base.h" />
@@ -221,10 +227,17 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\util.h" />
     <ClInclude Include="include\util\common.h" />
     <ClInclude Include="include\util\data_reader.h" />
+    <ClInclude Include="include\util\db.h" />
+    <ClInclude Include="include\util\db_lmdb.h" />
+    <ClInclude Include="include\util\getopt.h" />
     <ClInclude Include="include\util\im2col.h" />
     <ClInclude Include="include\util\image_common.h" />
+    <ClInclude Include="include\util\lmdb++.h" />
+    <ClInclude Include="include\util\lmdb.h" />
     <ClInclude Include="include\util\load_data.h" />
     <ClInclude Include="include\util\math_function_ptr.h" />
+    <ClInclude Include="include\util\midl.h" />
+    <ClInclude Include="include\util\unistd.h" />
     <ClInclude Include="proto\bigbang.pb.h" />
     <ClInclude Include="src\test\test.h" />
   </ItemGroup>

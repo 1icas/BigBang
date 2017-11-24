@@ -37,7 +37,7 @@ namespace protobuf_bigbang_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[7];
+  static const ::google::protobuf::internal::ParseTable schema[8];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -45,6 +45,8 @@ struct TableStruct {
 void AddDescriptors();
 void InitDefaultsFillerParameterImpl();
 void InitDefaultsFillerParameter();
+void InitDefaultsDatumImpl();
+void InitDefaultsDatum();
 void InitDefaultsPoolingLayerParameterImpl();
 void InitDefaultsPoolingLayerParameter();
 void InitDefaultsConvLayerParameterImpl();
@@ -59,6 +61,7 @@ void InitDefaultsSolverParameterImpl();
 void InitDefaultsSolverParameter();
 inline void InitDefaults() {
   InitDefaultsFillerParameter();
+  InitDefaultsDatum();
   InitDefaultsPoolingLayerParameter();
   InitDefaultsConvLayerParameter();
   InitDefaultsInnerProductLayerParameter();
@@ -71,6 +74,9 @@ namespace BigBang {
 class ConvLayerParameter;
 class ConvLayerParameterDefaultTypeInternal;
 extern ConvLayerParameterDefaultTypeInternal _ConvLayerParameter_default_instance_;
+class Datum;
+class DatumDefaultTypeInternal;
+extern DatumDefaultTypeInternal _Datum_default_instance_;
 class FillerParameter;
 class FillerParameterDefaultTypeInternal;
 extern FillerParameterDefaultTypeInternal _FillerParameter_default_instance_;
@@ -265,6 +271,177 @@ class FillerParameter : public ::google::protobuf::Message /* @@protoc_insertion
 };
 // -------------------------------------------------------------------
 
+class Datum : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.Datum) */ {
+ public:
+  Datum();
+  virtual ~Datum();
+
+  Datum(const Datum& from);
+
+  inline Datum& operator=(const Datum& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Datum(Datum&& from) noexcept
+    : Datum() {
+    *this = ::std::move(from);
+  }
+
+  inline Datum& operator=(Datum&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Datum& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Datum* internal_default_instance() {
+    return reinterpret_cast<const Datum*>(
+               &_Datum_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    1;
+
+  void Swap(Datum* other);
+  friend void swap(Datum& a, Datum& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Datum* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Datum* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Datum& from);
+  void MergeFrom(const Datum& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Datum* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated float f_data = 6;
+  int f_data_size() const;
+  void clear_f_data();
+  static const int kFDataFieldNumber = 6;
+  float f_data(int index) const;
+  void set_f_data(int index, float value);
+  void add_f_data(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      f_data() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_f_data();
+
+  // optional bytes data = 4;
+  bool has_data() const;
+  void clear_data();
+  static const int kDataFieldNumber = 4;
+  const ::std::string& data() const;
+  void set_data(const ::std::string& value);
+  #if LANG_CXX11
+  void set_data(::std::string&& value);
+  #endif
+  void set_data(const char* value);
+  void set_data(const void* value, size_t size);
+  ::std::string* mutable_data();
+  ::std::string* release_data();
+  void set_allocated_data(::std::string* data);
+
+  // optional int32 channels = 1;
+  bool has_channels() const;
+  void clear_channels();
+  static const int kChannelsFieldNumber = 1;
+  ::google::protobuf::int32 channels() const;
+  void set_channels(::google::protobuf::int32 value);
+
+  // optional int32 height = 2;
+  bool has_height() const;
+  void clear_height();
+  static const int kHeightFieldNumber = 2;
+  ::google::protobuf::int32 height() const;
+  void set_height(::google::protobuf::int32 value);
+
+  // optional int32 width = 3;
+  bool has_width() const;
+  void clear_width();
+  static const int kWidthFieldNumber = 3;
+  ::google::protobuf::int32 width() const;
+  void set_width(::google::protobuf::int32 value);
+
+  // optional int32 label = 5;
+  bool has_label() const;
+  void clear_label();
+  static const int kLabelFieldNumber = 5;
+  ::google::protobuf::int32 label() const;
+  void set_label(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:BigBang.Datum)
+ private:
+  void set_has_channels();
+  void clear_has_channels();
+  void set_has_height();
+  void clear_has_height();
+  void set_has_width();
+  void clear_has_width();
+  void set_has_data();
+  void clear_has_data();
+  void set_has_label();
+  void clear_has_label();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedField< float > f_data_;
+  ::google::protobuf::internal::ArenaStringPtr data_;
+  ::google::protobuf::int32 channels_;
+  ::google::protobuf::int32 height_;
+  ::google::protobuf::int32 width_;
+  ::google::protobuf::int32 label_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsDatumImpl();
+};
+// -------------------------------------------------------------------
+
 class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.PoolingLayerParameter) */ {
  public:
   PoolingLayerParameter();
@@ -307,7 +484,7 @@ class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_ins
                &_PoolingLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    1;
+    2;
 
   void Swap(PoolingLayerParameter* other);
   friend void swap(PoolingLayerParameter& a, PoolingLayerParameter& b) {
@@ -483,7 +660,7 @@ class ConvLayerParameter : public ::google::protobuf::Message /* @@protoc_insert
                &_ConvLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
+    3;
 
   void Swap(ConvLayerParameter* other);
   friend void swap(ConvLayerParameter& a, ConvLayerParameter& b) {
@@ -697,7 +874,7 @@ class InnerProductLayerParameter : public ::google::protobuf::Message /* @@proto
                &_InnerProductLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    4;
 
   void Swap(InnerProductLayerParameter* other);
   friend void swap(InnerProductLayerParameter& a, InnerProductLayerParameter& b) {
@@ -831,7 +1008,7 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
                &_LayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(LayerParameter* other);
   friend void swap(LayerParameter& a, LayerParameter& b) {
@@ -1003,7 +1180,7 @@ class NetParameter : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_NetParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(NetParameter* other);
   friend void swap(NetParameter& a, NetParameter& b) {
@@ -1134,7 +1311,7 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
                &_SolverParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(SolverParameter* other);
   friend void swap(SolverParameter& a, SolverParameter& b) {
@@ -1246,6 +1423,199 @@ inline void FillerParameter::set_type(::BigBang::FillerParameter_FillerType valu
   set_has_type();
   type_ = value;
   // @@protoc_insertion_point(field_set:BigBang.FillerParameter.type)
+}
+
+// -------------------------------------------------------------------
+
+// Datum
+
+// optional int32 channels = 1;
+inline bool Datum::has_channels() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Datum::set_has_channels() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Datum::clear_has_channels() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Datum::clear_channels() {
+  channels_ = 0;
+  clear_has_channels();
+}
+inline ::google::protobuf::int32 Datum::channels() const {
+  // @@protoc_insertion_point(field_get:BigBang.Datum.channels)
+  return channels_;
+}
+inline void Datum::set_channels(::google::protobuf::int32 value) {
+  set_has_channels();
+  channels_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.Datum.channels)
+}
+
+// optional int32 height = 2;
+inline bool Datum::has_height() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Datum::set_has_height() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Datum::clear_has_height() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Datum::clear_height() {
+  height_ = 0;
+  clear_has_height();
+}
+inline ::google::protobuf::int32 Datum::height() const {
+  // @@protoc_insertion_point(field_get:BigBang.Datum.height)
+  return height_;
+}
+inline void Datum::set_height(::google::protobuf::int32 value) {
+  set_has_height();
+  height_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.Datum.height)
+}
+
+// optional int32 width = 3;
+inline bool Datum::has_width() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Datum::set_has_width() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Datum::clear_has_width() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Datum::clear_width() {
+  width_ = 0;
+  clear_has_width();
+}
+inline ::google::protobuf::int32 Datum::width() const {
+  // @@protoc_insertion_point(field_get:BigBang.Datum.width)
+  return width_;
+}
+inline void Datum::set_width(::google::protobuf::int32 value) {
+  set_has_width();
+  width_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.Datum.width)
+}
+
+// optional bytes data = 4;
+inline bool Datum::has_data() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Datum::set_has_data() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Datum::clear_has_data() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Datum::clear_data() {
+  data_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_data();
+}
+inline const ::std::string& Datum::data() const {
+  // @@protoc_insertion_point(field_get:BigBang.Datum.data)
+  return data_.GetNoArena();
+}
+inline void Datum::set_data(const ::std::string& value) {
+  set_has_data();
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.Datum.data)
+}
+#if LANG_CXX11
+inline void Datum::set_data(::std::string&& value) {
+  set_has_data();
+  data_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.Datum.data)
+}
+#endif
+inline void Datum::set_data(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_data();
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.Datum.data)
+}
+inline void Datum::set_data(const void* value, size_t size) {
+  set_has_data();
+  data_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:BigBang.Datum.data)
+}
+inline ::std::string* Datum::mutable_data() {
+  set_has_data();
+  // @@protoc_insertion_point(field_mutable:BigBang.Datum.data)
+  return data_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Datum::release_data() {
+  // @@protoc_insertion_point(field_release:BigBang.Datum.data)
+  clear_has_data();
+  return data_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Datum::set_allocated_data(::std::string* data) {
+  if (data != NULL) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+  data_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), data);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.Datum.data)
+}
+
+// optional int32 label = 5;
+inline bool Datum::has_label() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Datum::set_has_label() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Datum::clear_has_label() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Datum::clear_label() {
+  label_ = 0;
+  clear_has_label();
+}
+inline ::google::protobuf::int32 Datum::label() const {
+  // @@protoc_insertion_point(field_get:BigBang.Datum.label)
+  return label_;
+}
+inline void Datum::set_label(::google::protobuf::int32 value) {
+  set_has_label();
+  label_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.Datum.label)
+}
+
+// repeated float f_data = 6;
+inline int Datum::f_data_size() const {
+  return f_data_.size();
+}
+inline void Datum::clear_f_data() {
+  f_data_.Clear();
+}
+inline float Datum::f_data(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.Datum.f_data)
+  return f_data_.Get(index);
+}
+inline void Datum::set_f_data(int index, float value) {
+  f_data_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BigBang.Datum.f_data)
+}
+inline void Datum::add_f_data(float value) {
+  f_data_.Add(value);
+  // @@protoc_insertion_point(field_add:BigBang.Datum.f_data)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+Datum::f_data() const {
+  // @@protoc_insertion_point(field_list:BigBang.Datum.f_data)
+  return f_data_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+Datum::mutable_f_data() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.Datum.f_data)
+  return &f_data_;
 }
 
 // -------------------------------------------------------------------
@@ -2311,6 +2681,8 @@ inline void SolverParameter::set_lr(float value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -1,6 +1,8 @@
 #ifndef GTEST_H
 #define GTEST_H
 
+#include <cassert>
+
 #define CHECK_OP(op, val1, val2) \
 	if(!(val1 op val2)) assert(false);
 
