@@ -36,6 +36,7 @@ BigBang.VC.db
 BigBang/vc140.pdb
 
 # folders
+.vs/
 Debug/
 x64/
 BigBang/Debug/
