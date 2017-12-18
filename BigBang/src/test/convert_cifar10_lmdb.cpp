@@ -62,6 +62,38 @@ void test_read() {
 	std::string value = cursor->value();
 }
 
+void convert_cifar_compute_mean(const std::string& input_folder, const std::string& output_folder) {
+	std::shared_ptr<DB> lmdb(new LMDB());
+	lmdb->Open(output_folder + "cifar10.mdb",
+		DBMode::CREATE);
+	std::shared_ptr<Transaction> transaction(lmdb->CreateTransaction());
+
+	char data[kPixels];
+	Datum datum;
+	datum.set_channels(3);
+	datum.set_height(height);
+	datum.set_width(width);
+	const int t = kBatchNums + 1;
+	for (int i = 0; i < t; ++i) {
+		std::string file_name = input_folder + (i < kBatchNums ? ("/data_batch_" + convert_int_string(i + 1)) : "/test_batch")
+			+ ".bin";
+		std::ifstream fstream(file_name.c_str(), std::ios::in | std::ios::binary);
+		if (!fstream) assert(false);
+		char label = 0;
+		for (int k = 0; k < kBatchSize; ++k) {
+			fstream.read(&label, 1);
+			fstream.read(data, kPixels);
+			datum.set_label(label);
+			datum.set_data(data, kPixels);
+			std::string out;
+			datum.SerializeToString(&out);
+			transaction->Put(convert_int_string(i * kBatchNums + k, 5), out);
+		}
+	}
+	transaction->Commit();
+	lmdb->Close();
+}
+
 void compute_cifar_mean(const std::string& file, const std::string& output) {
 	std::shared_ptr<DB> lmdb(new LMDB());
 	lmdb->Open(file, DBMode::READ);
@@ -110,7 +142,8 @@ void compute_cifar_mean(const std::string& file, const std::string& output) {
 
 
 //int main() {
+	//convert_cifar_compute_mean("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb/");
 	//convert("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb");
 	//test_read();
-//	compute_cifar_mean("D:/deeplearning/cifar_lmdb/cifar10_train.mdb", "D:/deeplearning/cifar_lmdb/cifar10_meam.t");
+	//compute_cifar_mean("D:/deeplearning/cifar_lmdb/cifar10.mdb", "D:/deeplearning/cifar_lmdb/cifar10.mean");
 //}

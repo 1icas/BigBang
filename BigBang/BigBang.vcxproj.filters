@@ -192,6 +192,9 @@
     <ClCompile Include="src\util\data_preprocess.cpp">
       <Filter>src\layers</Filter>
     </ClCompile>
+    <ClCompile Include="src\test\train_cifar10.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\big_bang.h">

@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# files
+/BigBang.VC.db
+/BigBang/vc140.pdb
+
+# folders
+/Debug/
+/x64/
+/BigBang/Debug
+/BigBang/x64

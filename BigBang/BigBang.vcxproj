@@ -202,6 +202,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\test\test_pooling_layer.cpp" />
     <ClCompile Include="src\test\test_softmax_cost.cpp" />
     <ClCompile Include="src\test\test_tensor_cpu.cpp" />
+    <ClCompile Include="src\test\train_cifar10.cpp" />
     <ClCompile Include="src\thread.cpp" />
     <ClCompile Include="src\util.cpp" />
     <ClCompile Include="src\util\data_preprocess.cpp" />

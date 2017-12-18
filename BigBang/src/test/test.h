@@ -56,13 +56,14 @@ public:
 		TestSoftmaxCostLayerBackward_GPU();*/
 		//TestDropoutLayerForward_Backward_CPU();
 		//TestDropoutLayerForward_Backward_GPU();
-		TestFullyConnectLayer<double>();
+		//TestFullyConnectLayer<double>();
 		//TestConvLayerFeedForward_GPU();
 		//TestConvLayerBackward_GPU();
 		//TestConvLayerNetwork<double>();
 		//TestConvLayerNetwork1<double>();
 		//TestLoadDataAsync();
 		//TestParseTextFileToProtobuf();
+		TestCifar10Model<double>();
 	}
 
 
@@ -90,12 +91,9 @@ private:
 	void TestFullyConnectLayer();
 	template<typename dtype>
 	void TestConvLayerNetwork();
-
-	//sc
 	template<typename dtype>
-	void TestConvLayerNetwork1();
-	//
-
+	void TestCifar10Model();
+	
 };
 
 #endif
