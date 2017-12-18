@@ -32,11 +32,11 @@
 *.app
 
 # files
-/BigBang.VC.db
-/BigBang/vc140.pdb
+BigBang.VC.db
+BigBang/vc140.pdb
 
 # folders
-/Debug/
-/x64/
-/BigBang/Debug/
-/BigBang/x64/
+Debug/
+x64/
+BigBang/Debug/
+BigBang/x64/
