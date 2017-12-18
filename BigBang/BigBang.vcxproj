@@ -100,7 +100,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>cudart.lib;cublas.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>cudart.lib;cublas.lib;curand.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;libprotobufd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>./depend/lib/protobuf;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
@@ -160,10 +160,13 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <CudaCompile Include="kernel.cu" />
     <CudaCompile Include="src\layers\conv_layer.cu" />
+    <CudaCompile Include="src\layers\dropout_layer.cu" />
     <CudaCompile Include="src\layers\mse_layer.cu" />
     <CudaCompile Include="src\layers\pooling_layer.cu" />
     <CudaCompile Include="src\layers\relu_layer.cu" />
     <CudaCompile Include="src\layers\sigmoid_layer.cu" />
+    <CudaCompile Include="src\layers\softmax_cost_layer.cu" />
+    <CudaCompile Include="src\layers\softmax_layer.cu" />
     <CudaCompile Include="src\test\test_tensor_gpu.cu" />
     <CudaCompile Include="src\util\im2col.cu" />
     <CudaCompile Include="src\util\math_function_ptr.cu" />
@@ -172,23 +175,36 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="proto\bigbang.pb.cc" />
     <ClCompile Include="src\big_bang.cpp" />
     <ClCompile Include="src\layers\conv_layer.cpp" />
+    <ClCompile Include="src\layers\data_layer.cpp" />
+    <ClCompile Include="src\layers\dropout_layer.cpp" />
     <ClCompile Include="src\layers\image_layer.cpp" />
     <ClCompile Include="src\layers\inner_product_layer.cpp" />
     <ClCompile Include="src\layers\mse_layer.cpp" />
     <ClCompile Include="src\layers\pooling_layer.cpp" />
     <ClCompile Include="src\layers\relu_layer.cpp" />
     <ClCompile Include="src\layers\sigmoid_layer.cpp" />
+    <ClCompile Include="src\layers\softmax_cost_layer.cpp" />
+    <ClCompile Include="src\layers\softmax_layer.cpp" />
     <ClCompile Include="src\net.cpp" />
+    <ClCompile Include="src\solver.cpp" />
     <ClCompile Include="src\synced_memory.cpp" />
     <ClCompile Include="src\test\convert_cifar10_lmdb.cpp" />
+    <ClCompile Include="src\test\convert_mnist_lmdb.cpp" />
     <ClCompile Include="src\test\test.cpp" />
     <ClCompile Include="src\test\test_conv_layer.cpp" />
     <ClCompile Include="src\test\test_conv_layer_network.cpp" />
+    <ClCompile Include="src\test\test_dropout.cpp" />
     <ClCompile Include="src\test\test_fully_connect_layer.cpp" />
     <ClCompile Include="src\test\test_gpu_gemm.cpp" />
     <ClCompile Include="src\test\test_inner_product.cpp" />
+    <ClCompile Include="src\test\test_load_data_async.cpp" />
+    <ClCompile Include="src\test\test_parse_text_proto.cpp" />
     <ClCompile Include="src\test\test_pooling_layer.cpp" />
+    <ClCompile Include="src\test\test_softmax_cost.cpp" />
     <ClCompile Include="src\test\test_tensor_cpu.cpp" />
+    <ClCompile Include="src\thread.cpp" />
+    <ClCompile Include="src\util.cpp" />
+    <ClCompile Include="src\util\data_preprocess.cpp" />
     <ClCompile Include="src\util\data_reader.cpp" />
     <ClCompile Include="src\util\db_lmdb.cpp" />
     <ClCompile Include="src\util\getopt.c" />
@@ -198,6 +214,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\util\math_function_ptr.cpp" />
     <ClCompile Include="src\util\mdb.c" />
     <ClCompile Include="src\util\midl.c" />
+    <ClCompile Include="src\util\parse.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\base.h" />
@@ -209,6 +226,8 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\layers\activation_func_layer.h" />
     <ClInclude Include="include\layers\conv_layer.h" />
     <ClInclude Include="include\layers\cost_func_layer.h" />
+    <ClInclude Include="include\layers\data_layer.h" />
+    <ClInclude Include="include\layers\dropout_layer.h" />
     <ClInclude Include="include\layers\image_func_layer.h" />
     <ClInclude Include="include\layers\image_layer.h" />
     <ClInclude Include="include\layers\inner_product_layer.h" />
@@ -218,14 +237,19 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\layers\pooling_layer.h" />
     <ClInclude Include="include\layers\relu_layer.h" />
     <ClInclude Include="include\layers\sigmoid_layer.h" />
+    <ClInclude Include="include\layers\softmax_cost_layer.h" />
+    <ClInclude Include="include\layers\softmax_layer.h" />
     <ClInclude Include="include\layer_factory.h" />
     <ClInclude Include="include\log.h" />
     <ClInclude Include="include\net.h" />
     <ClInclude Include="include\solver.h" />
     <ClInclude Include="include\synced_memory.h" />
     <ClInclude Include="include\tensor.h" />
+    <ClInclude Include="include\thread.h" />
+    <ClInclude Include="include\thread_safe_queue.h" />
     <ClInclude Include="include\util.h" />
     <ClInclude Include="include\util\common.h" />
+    <ClInclude Include="include\util\data_preprocess.h" />
     <ClInclude Include="include\util\data_reader.h" />
     <ClInclude Include="include\util\db.h" />
     <ClInclude Include="include\util\db_lmdb.h" />
@@ -237,6 +261,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\util\load_data.h" />
     <ClInclude Include="include\util\math_function_ptr.h" />
     <ClInclude Include="include\util\midl.h" />
+    <ClInclude Include="include\util\parse.h" />
     <ClInclude Include="include\util\unistd.h" />
     <ClInclude Include="proto\bigbang.pb.h" />
     <ClInclude Include="src\test\test.h" />

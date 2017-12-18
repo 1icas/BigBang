@@ -17,15 +17,23 @@
 #include "../../include/log.h"
 #include "../../include/tensor.h"
 #include "../../include/layers/conv_layer.h"
+#include "../../include/layers/data_layer.h"
+#include "../../include/layers/dropout_layer.h"
 #include "../../include/layers/inner_product_layer.h"
 #include "../../include/layers/mse_layer.h"
 #include "../../include/layers/pooling_layer.h"
 #include "../../include/layers/sigmoid_layer.h"
+#include "../../include/layers/softmax_cost_layer.h"
 #include "../../include/util/data_reader.h"
 #include "../../include/util/common.h"
 #include "../../include/util/image_common.h"
 #include "../../include/util/math_function_ptr.h"
+#include "../../include/util/parse.h"
+#include "../../include/solver.h"
+
 #include "../../proto/bigbang.pb.h"
+
+
 using namespace BigBang;
 
 class Test {
@@ -35,7 +43,7 @@ public:
 	}
 
 	void TestAll() {
-		TestTensor_CPU();
+	/*	TestTensor_CPU();
 		TestTensor_GPU();
 		TestConvLayerFeedForward_CPU();
 		TestConvLayerBackward_CPU();
@@ -44,11 +52,17 @@ public:
 		TestMaxPoolLayerFeedForward();
 		TestMaxPoolLayerBackward();
 		TestGpuGemm();
-	//	TestFullyConnectLayer<double>();
+		TestSoftmaxCostLayerBackward_CPU();
+		TestSoftmaxCostLayerBackward_GPU();*/
+		//TestDropoutLayerForward_Backward_CPU();
+		//TestDropoutLayerForward_Backward_GPU();
+		TestFullyConnectLayer<double>();
 		//TestConvLayerFeedForward_GPU();
 		//TestConvLayerBackward_GPU();
 		//TestConvLayerNetwork<double>();
 		//TestConvLayerNetwork1<double>();
+		//TestLoadDataAsync();
+		//TestParseTextFileToProtobuf();
 	}
 
 
@@ -59,16 +73,23 @@ private:
 	void TestConvLayerFeedForward_GPU();
 	void TestConvLayerBackward_CPU();
 	void TestConvLayerBackward_GPU();
+	void TestSoftmaxCostLayerBackward_CPU();
+	void TestSoftmaxCostLayerBackward_GPU();
+	void TestDropoutLayerForward_Backward_CPU();
+	void TestDropoutLayerForward_Backward_GPU();
+
 
 	void TestInnerProduct();
 	void TestInnerProductBackward();
 	void TestMaxPoolLayerFeedForward();
 	void TestMaxPoolLayerBackward();
 	void TestGpuGemm();
-	//template<typename dtype>
-	//void TestFullyConnectLayer();
-	/*template<typename dtype>
-	void TestConvLayerNetwork();*/
+	void TestLoadDataAsync();
+	void TestParseTextFileToProtobuf();
+	template<typename dtype>
+	void TestFullyConnectLayer();
+	template<typename dtype>
+	void TestConvLayerNetwork();
 
 	//sc
 	template<typename dtype>

@@ -4,6 +4,8 @@
 #include <cassert>
 
 #define MAX_CAPACITY 2147483648
+#define DATA_DIMENSION 4
+#define PARAMS_DIMENSION 4
 
 #define DISABLE_COPY_AND_ASSIGNMENT(classname) \
 	classname(const classname& c) = delete; \

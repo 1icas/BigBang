@@ -28,8 +28,6 @@ public:
 	}
 	virtual ~PoolingLayer() {}
 
-
-	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 	virtual inline const char* Type() const override {
 		return POOLING_LAYER_TYPE;
 	}
@@ -39,10 +37,7 @@ protected:
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
-
-private:
-	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
-	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
+	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 
 private:
 	PoolingLayerParameter_PoolingMethod pooling_method_;

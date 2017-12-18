@@ -34,6 +34,11 @@ public:
 	const void* gpu_data();
 	void* mutable_cpu_data();
 	void* mutable_gpu_data();
+	void Reset();
+
+#ifndef CPU_ONLY
+	void async_gpu_data_push(const cudaStream_t& stream);
+#endif
 
 private:
 	void Check() {

@@ -1,0 +1,115 @@
+mode: GPU
+train_iterations: 150000
+validate_iterations: 2
+test_validatedata_accuracy_per_train_iterations: 5000
+train_batch_size: 10
+validate_batch_size: 5000
+lr: 1
+net_param {
+	name: "test_minst"
+  state: TRAIN
+  layer_param {
+    name: "data"
+    type: "Data"
+    data_layer_param {
+      batch_size: 10
+      cache_batch_count: 10
+      source: "D:/deeplearning/mnist_lmdb/mnist_train.mdb"
+			preprocess_params: {
+				scale: 0.00392156
+			}
+    }
+  }
+  layer_param {
+    name: "inner"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 30
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "neuron"
+    type: "Sigmoid"
+  }
+  layer_param {
+    name: "inner1"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 10
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "neuron1"
+    type: "Sigmoid"
+  }
+  layer_param {
+    name: "end"
+    type: "MSE"
+  }
+}
+net_param {
+	name: "test_minst"
+  state: VALIDATE
+  layer_param {
+    name: "data"
+    type: "Data"
+    data_layer_param {
+      batch_size: 5000
+      cache_batch_count: 1
+      source: "D:/deeplearning/mnist_lmdb/mnist_test.mdb"
+			preprocess_params: {
+				scale: 0.00392156
+			}
+    }
+  }
+  layer_param {
+    name: "inner"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 30
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "neuron"
+    type: "Sigmoid"
+  }
+  layer_param {
+    name: "inner1"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 10
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "neuron1"
+    type: "Sigmoid"
+  }
+}

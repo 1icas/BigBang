@@ -71,6 +71,26 @@ namespace BigBang {
 #endif
 	}
 
+#ifndef CPU_ONLY
+	void SyncedMemory::async_gpu_data_push(const cudaStream_t& stream) {
+		CHECK_EQ(mem_state_, SyncedState::AT_CPU);
+		if (gpu_data_ == nullptr) {
+			cudaMalloc(&gpu_data_, size_);
+		}
+		cudaMemcpyAsync(gpu_data_, cpu_data_, size_, cudaMemcpyHostToDevice, stream);
+		mem_state_ = SyncedState::SYNCED;
+	}
+
+#endif
+
+	void SyncedMemory::Reset() {
+		if (cpu_data_) {
+			memset(cpu_data_, 0, size_);
+		}
+		if (gpu_data_) {
+			cudaMemset(gpu_data_, 0, size_);
+		}
+	}
 
 
 

@@ -37,7 +37,7 @@ namespace protobuf_bigbang_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[8];
+  static const ::google::protobuf::internal::ParseTable schema[14];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -45,14 +45,26 @@ struct TableStruct {
 void AddDescriptors();
 void InitDefaultsFillerParameterImpl();
 void InitDefaultsFillerParameter();
+void InitDefaultsDataPreprocessParameterImpl();
+void InitDefaultsDataPreprocessParameter();
+void InitDefaultsShapeImpl();
+void InitDefaultsShape();
+void InitDefaultsTensorProtoImpl();
+void InitDefaultsTensorProto();
 void InitDefaultsDatumImpl();
 void InitDefaultsDatum();
+void InitDefaultsWeightDecayParameterImpl();
+void InitDefaultsWeightDecayParameter();
 void InitDefaultsPoolingLayerParameterImpl();
 void InitDefaultsPoolingLayerParameter();
+void InitDefaultsDropoutLayerParameterImpl();
+void InitDefaultsDropoutLayerParameter();
 void InitDefaultsConvLayerParameterImpl();
 void InitDefaultsConvLayerParameter();
 void InitDefaultsInnerProductLayerParameterImpl();
 void InitDefaultsInnerProductLayerParameter();
+void InitDefaultsDataLayerParameterImpl();
+void InitDefaultsDataLayerParameter();
 void InitDefaultsLayerParameterImpl();
 void InitDefaultsLayerParameter();
 void InitDefaultsNetParameterImpl();
@@ -61,10 +73,16 @@ void InitDefaultsSolverParameterImpl();
 void InitDefaultsSolverParameter();
 inline void InitDefaults() {
   InitDefaultsFillerParameter();
+  InitDefaultsDataPreprocessParameter();
+  InitDefaultsShape();
+  InitDefaultsTensorProto();
   InitDefaultsDatum();
+  InitDefaultsWeightDecayParameter();
   InitDefaultsPoolingLayerParameter();
+  InitDefaultsDropoutLayerParameter();
   InitDefaultsConvLayerParameter();
   InitDefaultsInnerProductLayerParameter();
+  InitDefaultsDataLayerParameter();
   InitDefaultsLayerParameter();
   InitDefaultsNetParameter();
   InitDefaultsSolverParameter();
@@ -74,9 +92,18 @@ namespace BigBang {
 class ConvLayerParameter;
 class ConvLayerParameterDefaultTypeInternal;
 extern ConvLayerParameterDefaultTypeInternal _ConvLayerParameter_default_instance_;
+class DataLayerParameter;
+class DataLayerParameterDefaultTypeInternal;
+extern DataLayerParameterDefaultTypeInternal _DataLayerParameter_default_instance_;
+class DataPreprocessParameter;
+class DataPreprocessParameterDefaultTypeInternal;
+extern DataPreprocessParameterDefaultTypeInternal _DataPreprocessParameter_default_instance_;
 class Datum;
 class DatumDefaultTypeInternal;
 extern DatumDefaultTypeInternal _Datum_default_instance_;
+class DropoutLayerParameter;
+class DropoutLayerParameterDefaultTypeInternal;
+extern DropoutLayerParameterDefaultTypeInternal _DropoutLayerParameter_default_instance_;
 class FillerParameter;
 class FillerParameterDefaultTypeInternal;
 extern FillerParameterDefaultTypeInternal _FillerParameter_default_instance_;
@@ -92,18 +119,28 @@ extern NetParameterDefaultTypeInternal _NetParameter_default_instance_;
 class PoolingLayerParameter;
 class PoolingLayerParameterDefaultTypeInternal;
 extern PoolingLayerParameterDefaultTypeInternal _PoolingLayerParameter_default_instance_;
+class Shape;
+class ShapeDefaultTypeInternal;
+extern ShapeDefaultTypeInternal _Shape_default_instance_;
 class SolverParameter;
 class SolverParameterDefaultTypeInternal;
 extern SolverParameterDefaultTypeInternal _SolverParameter_default_instance_;
+class TensorProto;
+class TensorProtoDefaultTypeInternal;
+extern TensorProtoDefaultTypeInternal _TensorProto_default_instance_;
+class WeightDecayParameter;
+class WeightDecayParameterDefaultTypeInternal;
+extern WeightDecayParameterDefaultTypeInternal _WeightDecayParameter_default_instance_;
 }  // namespace BigBang
 namespace BigBang {
 
 enum FillerParameter_FillerType {
-  FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION = 0
+  FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION = 0,
+  FillerParameter_FillerType_XAVIER = 1
 };
 bool FillerParameter_FillerType_IsValid(int value);
 const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MIN = FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
-const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MAX = FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
+const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MAX = FillerParameter_FillerType_XAVIER;
 const int FillerParameter_FillerType_FillerType_ARRAYSIZE = FillerParameter_FillerType_FillerType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* FillerParameter_FillerType_descriptor();
@@ -115,6 +152,25 @@ inline bool FillerParameter_FillerType_Parse(
     const ::std::string& name, FillerParameter_FillerType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<FillerParameter_FillerType>(
     FillerParameter_FillerType_descriptor(), name, value);
+}
+enum WeightDecayParameter_DecayMethod {
+  WeightDecayParameter_DecayMethod_NONE = 0,
+  WeightDecayParameter_DecayMethod_L2REGULARIZATION = 1
+};
+bool WeightDecayParameter_DecayMethod_IsValid(int value);
+const WeightDecayParameter_DecayMethod WeightDecayParameter_DecayMethod_DecayMethod_MIN = WeightDecayParameter_DecayMethod_NONE;
+const WeightDecayParameter_DecayMethod WeightDecayParameter_DecayMethod_DecayMethod_MAX = WeightDecayParameter_DecayMethod_L2REGULARIZATION;
+const int WeightDecayParameter_DecayMethod_DecayMethod_ARRAYSIZE = WeightDecayParameter_DecayMethod_DecayMethod_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* WeightDecayParameter_DecayMethod_descriptor();
+inline const ::std::string& WeightDecayParameter_DecayMethod_Name(WeightDecayParameter_DecayMethod value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    WeightDecayParameter_DecayMethod_descriptor(), value);
+}
+inline bool WeightDecayParameter_DecayMethod_Parse(
+    const ::std::string& name, WeightDecayParameter_DecayMethod* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<WeightDecayParameter_DecayMethod>(
+    WeightDecayParameter_DecayMethod_descriptor(), name, value);
 }
 enum PoolingLayerParameter_PoolingMethod {
   PoolingLayerParameter_PoolingMethod_MAX = 0,
@@ -134,6 +190,45 @@ inline bool PoolingLayerParameter_PoolingMethod_Parse(
     const ::std::string& name, PoolingLayerParameter_PoolingMethod* value) {
   return ::google::protobuf::internal::ParseNamedEnum<PoolingLayerParameter_PoolingMethod>(
     PoolingLayerParameter_PoolingMethod_descriptor(), name, value);
+}
+enum NetParameter_State {
+  NetParameter_State_TRAIN = 0,
+  NetParameter_State_VALIDATE = 1,
+  NetParameter_State_TEST = 2
+};
+bool NetParameter_State_IsValid(int value);
+const NetParameter_State NetParameter_State_State_MIN = NetParameter_State_TRAIN;
+const NetParameter_State NetParameter_State_State_MAX = NetParameter_State_TEST;
+const int NetParameter_State_State_ARRAYSIZE = NetParameter_State_State_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* NetParameter_State_descriptor();
+inline const ::std::string& NetParameter_State_Name(NetParameter_State value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    NetParameter_State_descriptor(), value);
+}
+inline bool NetParameter_State_Parse(
+    const ::std::string& name, NetParameter_State* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<NetParameter_State>(
+    NetParameter_State_descriptor(), name, value);
+}
+enum SolverParameter_Mode {
+  SolverParameter_Mode_CPU = 0,
+  SolverParameter_Mode_GPU = 1
+};
+bool SolverParameter_Mode_IsValid(int value);
+const SolverParameter_Mode SolverParameter_Mode_Mode_MIN = SolverParameter_Mode_CPU;
+const SolverParameter_Mode SolverParameter_Mode_Mode_MAX = SolverParameter_Mode_GPU;
+const int SolverParameter_Mode_Mode_ARRAYSIZE = SolverParameter_Mode_Mode_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* SolverParameter_Mode_descriptor();
+inline const ::std::string& SolverParameter_Mode_Name(SolverParameter_Mode value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    SolverParameter_Mode_descriptor(), value);
+}
+inline bool SolverParameter_Mode_Parse(
+    const ::std::string& name, SolverParameter_Mode* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SolverParameter_Mode>(
+    SolverParameter_Mode_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -227,6 +322,8 @@ class FillerParameter : public ::google::protobuf::Message /* @@protoc_insertion
   typedef FillerParameter_FillerType FillerType;
   static const FillerType GAUSSIAN_DISTRIBUTION =
     FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
+  static const FillerType XAVIER =
+    FillerParameter_FillerType_XAVIER;
   static inline bool FillerType_IsValid(int value) {
     return FillerParameter_FillerType_IsValid(value);
   }
@@ -257,17 +354,442 @@ class FillerParameter : public ::google::protobuf::Message /* @@protoc_insertion
   ::BigBang::FillerParameter_FillerType type() const;
   void set_type(::BigBang::FillerParameter_FillerType value);
 
+  // optional float mean = 2 [default = 0];
+  bool has_mean() const;
+  void clear_mean();
+  static const int kMeanFieldNumber = 2;
+  float mean() const;
+  void set_mean(float value);
+
+  // optional float std = 3 [default = 1];
+  bool has_std() const;
+  void clear_std();
+  static const int kStdFieldNumber = 3;
+  float std() const;
+  void set_std(float value);
+
   // @@protoc_insertion_point(class_scope:BigBang.FillerParameter)
  private:
   void set_has_type();
   void clear_has_type();
+  void set_has_mean();
+  void clear_has_mean();
+  void set_has_std();
+  void clear_has_std();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   int type_;
+  float mean_;
+  float std_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsFillerParameterImpl();
+};
+// -------------------------------------------------------------------
+
+class DataPreprocessParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.DataPreprocessParameter) */ {
+ public:
+  DataPreprocessParameter();
+  virtual ~DataPreprocessParameter();
+
+  DataPreprocessParameter(const DataPreprocessParameter& from);
+
+  inline DataPreprocessParameter& operator=(const DataPreprocessParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DataPreprocessParameter(DataPreprocessParameter&& from) noexcept
+    : DataPreprocessParameter() {
+    *this = ::std::move(from);
+  }
+
+  inline DataPreprocessParameter& operator=(DataPreprocessParameter&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DataPreprocessParameter& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DataPreprocessParameter* internal_default_instance() {
+    return reinterpret_cast<const DataPreprocessParameter*>(
+               &_DataPreprocessParameter_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    1;
+
+  void Swap(DataPreprocessParameter* other);
+  friend void swap(DataPreprocessParameter& a, DataPreprocessParameter& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DataPreprocessParameter* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  DataPreprocessParameter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const DataPreprocessParameter& from);
+  void MergeFrom(const DataPreprocessParameter& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(DataPreprocessParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bytes mean_file = 2;
+  bool has_mean_file() const;
+  void clear_mean_file();
+  static const int kMeanFileFieldNumber = 2;
+  const ::std::string& mean_file() const;
+  void set_mean_file(const ::std::string& value);
+  #if LANG_CXX11
+  void set_mean_file(::std::string&& value);
+  #endif
+  void set_mean_file(const char* value);
+  void set_mean_file(const void* value, size_t size);
+  ::std::string* mutable_mean_file();
+  ::std::string* release_mean_file();
+  void set_allocated_mean_file(::std::string* mean_file);
+
+  // optional float scale = 1 [default = 1];
+  bool has_scale() const;
+  void clear_scale();
+  static const int kScaleFieldNumber = 1;
+  float scale() const;
+  void set_scale(float value);
+
+  // @@protoc_insertion_point(class_scope:BigBang.DataPreprocessParameter)
+ private:
+  void set_has_scale();
+  void clear_has_scale();
+  void set_has_mean_file();
+  void clear_has_mean_file();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr mean_file_;
+  float scale_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsDataPreprocessParameterImpl();
+};
+// -------------------------------------------------------------------
+
+class Shape : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.Shape) */ {
+ public:
+  Shape();
+  virtual ~Shape();
+
+  Shape(const Shape& from);
+
+  inline Shape& operator=(const Shape& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  Shape(Shape&& from) noexcept
+    : Shape() {
+    *this = ::std::move(from);
+  }
+
+  inline Shape& operator=(Shape&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Shape& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const Shape* internal_default_instance() {
+    return reinterpret_cast<const Shape*>(
+               &_Shape_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    2;
+
+  void Swap(Shape* other);
+  friend void swap(Shape& a, Shape& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline Shape* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Shape* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Shape& from);
+  void MergeFrom(const Shape& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Shape* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated int32 dim = 1;
+  int dim_size() const;
+  void clear_dim();
+  static const int kDimFieldNumber = 1;
+  ::google::protobuf::int32 dim(int index) const;
+  void set_dim(int index, ::google::protobuf::int32 value);
+  void add_dim(::google::protobuf::int32 value);
+  const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      dim() const;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_dim();
+
+  // @@protoc_insertion_point(class_scope:BigBang.Shape)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > dim_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsShapeImpl();
+};
+// -------------------------------------------------------------------
+
+class TensorProto : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.TensorProto) */ {
+ public:
+  TensorProto();
+  virtual ~TensorProto();
+
+  TensorProto(const TensorProto& from);
+
+  inline TensorProto& operator=(const TensorProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  TensorProto(TensorProto&& from) noexcept
+    : TensorProto() {
+    *this = ::std::move(from);
+  }
+
+  inline TensorProto& operator=(TensorProto&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TensorProto& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const TensorProto* internal_default_instance() {
+    return reinterpret_cast<const TensorProto*>(
+               &_TensorProto_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(TensorProto* other);
+  friend void swap(TensorProto& a, TensorProto& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TensorProto* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  TensorProto* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const TensorProto& from);
+  void MergeFrom(const TensorProto& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(TensorProto* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated float f_data = 2;
+  int f_data_size() const;
+  void clear_f_data();
+  static const int kFDataFieldNumber = 2;
+  float f_data(int index) const;
+  void set_f_data(int index, float value);
+  void add_f_data(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      f_data() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_f_data();
+
+  // repeated double d_data = 3;
+  int d_data_size() const;
+  void clear_d_data();
+  static const int kDDataFieldNumber = 3;
+  double d_data(int index) const;
+  void set_d_data(int index, double value);
+  void add_d_data(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      d_data() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_d_data();
+
+  // repeated float f_diff = 4;
+  int f_diff_size() const;
+  void clear_f_diff();
+  static const int kFDiffFieldNumber = 4;
+  float f_diff(int index) const;
+  void set_f_diff(int index, float value);
+  void add_f_diff(float value);
+  const ::google::protobuf::RepeatedField< float >&
+      f_diff() const;
+  ::google::protobuf::RepeatedField< float >*
+      mutable_f_diff();
+
+  // repeated double d_diff = 5;
+  int d_diff_size() const;
+  void clear_d_diff();
+  static const int kDDiffFieldNumber = 5;
+  double d_diff(int index) const;
+  void set_d_diff(int index, double value);
+  void add_d_diff(double value);
+  const ::google::protobuf::RepeatedField< double >&
+      d_diff() const;
+  ::google::protobuf::RepeatedField< double >*
+      mutable_d_diff();
+
+  // optional .BigBang.Shape shape = 1;
+  bool has_shape() const;
+  void clear_shape();
+  static const int kShapeFieldNumber = 1;
+  const ::BigBang::Shape& shape() const;
+  ::BigBang::Shape* release_shape();
+  ::BigBang::Shape* mutable_shape();
+  void set_allocated_shape(::BigBang::Shape* shape);
+
+  // @@protoc_insertion_point(class_scope:BigBang.TensorProto)
+ private:
+  void set_has_shape();
+  void clear_has_shape();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedField< float > f_data_;
+  ::google::protobuf::RepeatedField< double > d_data_;
+  ::google::protobuf::RepeatedField< float > f_diff_;
+  ::google::protobuf::RepeatedField< double > d_diff_;
+  ::BigBang::Shape* shape_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsTensorProtoImpl();
 };
 // -------------------------------------------------------------------
 
@@ -313,7 +835,7 @@ class Datum : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
                &_Datum_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    1;
+    4;
 
   void Swap(Datum* other);
   friend void swap(Datum& a, Datum& b) {
@@ -442,6 +964,152 @@ class Datum : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
 };
 // -------------------------------------------------------------------
 
+class WeightDecayParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.WeightDecayParameter) */ {
+ public:
+  WeightDecayParameter();
+  virtual ~WeightDecayParameter();
+
+  WeightDecayParameter(const WeightDecayParameter& from);
+
+  inline WeightDecayParameter& operator=(const WeightDecayParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  WeightDecayParameter(WeightDecayParameter&& from) noexcept
+    : WeightDecayParameter() {
+    *this = ::std::move(from);
+  }
+
+  inline WeightDecayParameter& operator=(WeightDecayParameter&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WeightDecayParameter& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const WeightDecayParameter* internal_default_instance() {
+    return reinterpret_cast<const WeightDecayParameter*>(
+               &_WeightDecayParameter_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
+
+  void Swap(WeightDecayParameter* other);
+  friend void swap(WeightDecayParameter& a, WeightDecayParameter& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline WeightDecayParameter* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  WeightDecayParameter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const WeightDecayParameter& from);
+  void MergeFrom(const WeightDecayParameter& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(WeightDecayParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef WeightDecayParameter_DecayMethod DecayMethod;
+  static const DecayMethod NONE =
+    WeightDecayParameter_DecayMethod_NONE;
+  static const DecayMethod L2REGULARIZATION =
+    WeightDecayParameter_DecayMethod_L2REGULARIZATION;
+  static inline bool DecayMethod_IsValid(int value) {
+    return WeightDecayParameter_DecayMethod_IsValid(value);
+  }
+  static const DecayMethod DecayMethod_MIN =
+    WeightDecayParameter_DecayMethod_DecayMethod_MIN;
+  static const DecayMethod DecayMethod_MAX =
+    WeightDecayParameter_DecayMethod_DecayMethod_MAX;
+  static const int DecayMethod_ARRAYSIZE =
+    WeightDecayParameter_DecayMethod_DecayMethod_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  DecayMethod_descriptor() {
+    return WeightDecayParameter_DecayMethod_descriptor();
+  }
+  static inline const ::std::string& DecayMethod_Name(DecayMethod value) {
+    return WeightDecayParameter_DecayMethod_Name(value);
+  }
+  static inline bool DecayMethod_Parse(const ::std::string& name,
+      DecayMethod* value) {
+    return WeightDecayParameter_DecayMethod_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // optional .BigBang.WeightDecayParameter.DecayMethod method = 1 [default = NONE];
+  bool has_method() const;
+  void clear_method();
+  static const int kMethodFieldNumber = 1;
+  ::BigBang::WeightDecayParameter_DecayMethod method() const;
+  void set_method(::BigBang::WeightDecayParameter_DecayMethod value);
+
+  // optional float alpha = 2;
+  bool has_alpha() const;
+  void clear_alpha();
+  static const int kAlphaFieldNumber = 2;
+  float alpha() const;
+  void set_alpha(float value);
+
+  // @@protoc_insertion_point(class_scope:BigBang.WeightDecayParameter)
+ private:
+  void set_has_method();
+  void clear_has_method();
+  void set_has_alpha();
+  void clear_has_alpha();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  int method_;
+  float alpha_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsWeightDecayParameterImpl();
+};
+// -------------------------------------------------------------------
+
 class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.PoolingLayerParameter) */ {
  public:
   PoolingLayerParameter();
@@ -484,7 +1152,7 @@ class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_ins
                &_PoolingLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    2;
+    6;
 
   void Swap(PoolingLayerParameter* other);
   friend void swap(PoolingLayerParameter& a, PoolingLayerParameter& b) {
@@ -618,6 +1286,116 @@ class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_ins
 };
 // -------------------------------------------------------------------
 
+class DropoutLayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.DropoutLayerParameter) */ {
+ public:
+  DropoutLayerParameter();
+  virtual ~DropoutLayerParameter();
+
+  DropoutLayerParameter(const DropoutLayerParameter& from);
+
+  inline DropoutLayerParameter& operator=(const DropoutLayerParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DropoutLayerParameter(DropoutLayerParameter&& from) noexcept
+    : DropoutLayerParameter() {
+    *this = ::std::move(from);
+  }
+
+  inline DropoutLayerParameter& operator=(DropoutLayerParameter&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DropoutLayerParameter& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DropoutLayerParameter* internal_default_instance() {
+    return reinterpret_cast<const DropoutLayerParameter*>(
+               &_DropoutLayerParameter_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    7;
+
+  void Swap(DropoutLayerParameter* other);
+  friend void swap(DropoutLayerParameter& a, DropoutLayerParameter& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DropoutLayerParameter* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  DropoutLayerParameter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const DropoutLayerParameter& from);
+  void MergeFrom(const DropoutLayerParameter& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(DropoutLayerParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional float dropout_ratio = 1 [default = 0.5];
+  bool has_dropout_ratio() const;
+  void clear_dropout_ratio();
+  static const int kDropoutRatioFieldNumber = 1;
+  float dropout_ratio() const;
+  void set_dropout_ratio(float value);
+
+  // @@protoc_insertion_point(class_scope:BigBang.DropoutLayerParameter)
+ private:
+  void set_has_dropout_ratio();
+  void clear_has_dropout_ratio();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  float dropout_ratio_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsDropoutLayerParameterImpl();
+};
+// -------------------------------------------------------------------
+
 class ConvLayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.ConvLayerParameter) */ {
  public:
   ConvLayerParameter();
@@ -660,7 +1438,7 @@ class ConvLayerParameter : public ::google::protobuf::Message /* @@protoc_insert
                &_ConvLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    3;
+    8;
 
   void Swap(ConvLayerParameter* other);
   friend void swap(ConvLayerParameter& a, ConvLayerParameter& b) {
@@ -874,7 +1652,7 @@ class InnerProductLayerParameter : public ::google::protobuf::Message /* @@proto
                &_InnerProductLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    9;
 
   void Swap(InnerProductLayerParameter* other);
   friend void swap(InnerProductLayerParameter& a, InnerProductLayerParameter& b) {
@@ -939,15 +1717,24 @@ class InnerProductLayerParameter : public ::google::protobuf::Message /* @@proto
   ::BigBang::FillerParameter* mutable_bias_filler();
   void set_allocated_bias_filler(::BigBang::FillerParameter* bias_filler);
 
-  // optional bool use_bias = 1;
+  // optional uint32 output_nums = 1;
+  bool has_output_nums() const;
+  void clear_output_nums();
+  static const int kOutputNumsFieldNumber = 1;
+  ::google::protobuf::uint32 output_nums() const;
+  void set_output_nums(::google::protobuf::uint32 value);
+
+  // optional bool use_bias = 2;
   bool has_use_bias() const;
   void clear_use_bias();
-  static const int kUseBiasFieldNumber = 1;
+  static const int kUseBiasFieldNumber = 2;
   bool use_bias() const;
   void set_use_bias(bool value);
 
   // @@protoc_insertion_point(class_scope:BigBang.InnerProductLayerParameter)
  private:
+  void set_has_output_nums();
+  void clear_has_output_nums();
   void set_has_use_bias();
   void clear_has_use_bias();
   void set_has_weight_filler();
@@ -960,9 +1747,160 @@ class InnerProductLayerParameter : public ::google::protobuf::Message /* @@proto
   mutable int _cached_size_;
   ::BigBang::FillerParameter* weight_filler_;
   ::BigBang::FillerParameter* bias_filler_;
+  ::google::protobuf::uint32 output_nums_;
   bool use_bias_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsInnerProductLayerParameterImpl();
+};
+// -------------------------------------------------------------------
+
+class DataLayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.DataLayerParameter) */ {
+ public:
+  DataLayerParameter();
+  virtual ~DataLayerParameter();
+
+  DataLayerParameter(const DataLayerParameter& from);
+
+  inline DataLayerParameter& operator=(const DataLayerParameter& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  DataLayerParameter(DataLayerParameter&& from) noexcept
+    : DataLayerParameter() {
+    *this = ::std::move(from);
+  }
+
+  inline DataLayerParameter& operator=(DataLayerParameter&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const DataLayerParameter& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const DataLayerParameter* internal_default_instance() {
+    return reinterpret_cast<const DataLayerParameter*>(
+               &_DataLayerParameter_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    10;
+
+  void Swap(DataLayerParameter* other);
+  friend void swap(DataLayerParameter& a, DataLayerParameter& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline DataLayerParameter* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  DataLayerParameter* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const DataLayerParameter& from);
+  void MergeFrom(const DataLayerParameter& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(DataLayerParameter* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string source = 3;
+  bool has_source() const;
+  void clear_source();
+  static const int kSourceFieldNumber = 3;
+  const ::std::string& source() const;
+  void set_source(const ::std::string& value);
+  #if LANG_CXX11
+  void set_source(::std::string&& value);
+  #endif
+  void set_source(const char* value);
+  void set_source(const char* value, size_t size);
+  ::std::string* mutable_source();
+  ::std::string* release_source();
+  void set_allocated_source(::std::string* source);
+
+  // optional .BigBang.DataPreprocessParameter preprocess_params = 4;
+  bool has_preprocess_params() const;
+  void clear_preprocess_params();
+  static const int kPreprocessParamsFieldNumber = 4;
+  const ::BigBang::DataPreprocessParameter& preprocess_params() const;
+  ::BigBang::DataPreprocessParameter* release_preprocess_params();
+  ::BigBang::DataPreprocessParameter* mutable_preprocess_params();
+  void set_allocated_preprocess_params(::BigBang::DataPreprocessParameter* preprocess_params);
+
+  // optional uint32 batch_size = 1;
+  bool has_batch_size() const;
+  void clear_batch_size();
+  static const int kBatchSizeFieldNumber = 1;
+  ::google::protobuf::uint32 batch_size() const;
+  void set_batch_size(::google::protobuf::uint32 value);
+
+  // optional uint32 cache_batch_count = 2;
+  bool has_cache_batch_count() const;
+  void clear_cache_batch_count();
+  static const int kCacheBatchCountFieldNumber = 2;
+  ::google::protobuf::uint32 cache_batch_count() const;
+  void set_cache_batch_count(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:BigBang.DataLayerParameter)
+ private:
+  void set_has_batch_size();
+  void clear_has_batch_size();
+  void set_has_cache_batch_count();
+  void clear_has_cache_batch_count();
+  void set_has_source();
+  void clear_has_source();
+  void set_has_preprocess_params();
+  void clear_has_preprocess_params();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::internal::ArenaStringPtr source_;
+  ::BigBang::DataPreprocessParameter* preprocess_params_;
+  ::google::protobuf::uint32 batch_size_;
+  ::google::protobuf::uint32 cache_batch_count_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsDataLayerParameterImpl();
 };
 // -------------------------------------------------------------------
 
@@ -1008,7 +1946,7 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
                &_LayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    11;
 
   void Swap(LayerParameter* other);
   friend void swap(LayerParameter& a, LayerParameter& b) {
@@ -1094,19 +2032,37 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   ::BigBang::ConvLayerParameter* mutable_conv_layer_param();
   void set_allocated_conv_layer_param(::BigBang::ConvLayerParameter* conv_layer_param);
 
-  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
+  // optional .BigBang.DataLayerParameter data_layer_param = 101;
+  bool has_data_layer_param() const;
+  void clear_data_layer_param();
+  static const int kDataLayerParamFieldNumber = 101;
+  const ::BigBang::DataLayerParameter& data_layer_param() const;
+  ::BigBang::DataLayerParameter* release_data_layer_param();
+  ::BigBang::DataLayerParameter* mutable_data_layer_param();
+  void set_allocated_data_layer_param(::BigBang::DataLayerParameter* data_layer_param);
+
+  // optional .BigBang.DropoutLayerParameter dropout_layer_param = 102;
+  bool has_dropout_layer_param() const;
+  void clear_dropout_layer_param();
+  static const int kDropoutLayerParamFieldNumber = 102;
+  const ::BigBang::DropoutLayerParameter& dropout_layer_param() const;
+  ::BigBang::DropoutLayerParameter* release_dropout_layer_param();
+  ::BigBang::DropoutLayerParameter* mutable_dropout_layer_param();
+  void set_allocated_dropout_layer_param(::BigBang::DropoutLayerParameter* dropout_layer_param);
+
+  // optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 103;
   bool has_inner_product_layer_param() const;
   void clear_inner_product_layer_param();
-  static const int kInnerProductLayerParamFieldNumber = 101;
+  static const int kInnerProductLayerParamFieldNumber = 103;
   const ::BigBang::InnerProductLayerParameter& inner_product_layer_param() const;
   ::BigBang::InnerProductLayerParameter* release_inner_product_layer_param();
   ::BigBang::InnerProductLayerParameter* mutable_inner_product_layer_param();
   void set_allocated_inner_product_layer_param(::BigBang::InnerProductLayerParameter* inner_product_layer_param);
 
-  // optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
+  // optional .BigBang.PoolingLayerParameter pooling_layer_param = 104;
   bool has_pooling_layer_param() const;
   void clear_pooling_layer_param();
-  static const int kPoolingLayerParamFieldNumber = 102;
+  static const int kPoolingLayerParamFieldNumber = 104;
   const ::BigBang::PoolingLayerParameter& pooling_layer_param() const;
   ::BigBang::PoolingLayerParameter* release_pooling_layer_param();
   ::BigBang::PoolingLayerParameter* mutable_pooling_layer_param();
@@ -1120,6 +2076,10 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   void clear_has_type();
   void set_has_conv_layer_param();
   void clear_has_conv_layer_param();
+  void set_has_data_layer_param();
+  void clear_has_data_layer_param();
+  void set_has_dropout_layer_param();
+  void clear_has_dropout_layer_param();
   void set_has_inner_product_layer_param();
   void clear_has_inner_product_layer_param();
   void set_has_pooling_layer_param();
@@ -1131,6 +2091,8 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   ::google::protobuf::internal::ArenaStringPtr name_;
   ::google::protobuf::internal::ArenaStringPtr type_;
   ::BigBang::ConvLayerParameter* conv_layer_param_;
+  ::BigBang::DataLayerParameter* data_layer_param_;
+  ::BigBang::DropoutLayerParameter* dropout_layer_param_;
   ::BigBang::InnerProductLayerParameter* inner_product_layer_param_;
   ::BigBang::PoolingLayerParameter* pooling_layer_param_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
@@ -1180,7 +2142,7 @@ class NetParameter : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_NetParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    12;
 
   void Swap(NetParameter* other);
   friend void swap(NetParameter& a, NetParameter& b) {
@@ -1225,6 +2187,34 @@ class NetParameter : public ::google::protobuf::Message /* @@protoc_insertion_po
 
   // nested types ----------------------------------------------------
 
+  typedef NetParameter_State State;
+  static const State TRAIN =
+    NetParameter_State_TRAIN;
+  static const State VALIDATE =
+    NetParameter_State_VALIDATE;
+  static const State TEST =
+    NetParameter_State_TEST;
+  static inline bool State_IsValid(int value) {
+    return NetParameter_State_IsValid(value);
+  }
+  static const State State_MIN =
+    NetParameter_State_State_MIN;
+  static const State State_MAX =
+    NetParameter_State_State_MAX;
+  static const int State_ARRAYSIZE =
+    NetParameter_State_State_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  State_descriptor() {
+    return NetParameter_State_descriptor();
+  }
+  static inline const ::std::string& State_Name(State value) {
+    return NetParameter_State_Name(value);
+  }
+  static inline bool State_Parse(const ::std::string& name,
+      State* value) {
+    return NetParameter_State_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   // repeated .BigBang.LayerParameter layer_param = 10;
@@ -1254,16 +2244,26 @@ class NetParameter : public ::google::protobuf::Message /* @@protoc_insertion_po
   ::std::string* release_name();
   void set_allocated_name(::std::string* name);
 
+  // optional .BigBang.NetParameter.State state = 2;
+  bool has_state() const;
+  void clear_state();
+  static const int kStateFieldNumber = 2;
+  ::BigBang::NetParameter_State state() const;
+  void set_state(::BigBang::NetParameter_State value);
+
   // @@protoc_insertion_point(class_scope:BigBang.NetParameter)
  private:
   void set_has_name();
   void clear_has_name();
+  void set_has_state();
+  void clear_has_state();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::BigBang::LayerParameter > layer_param_;
   ::google::protobuf::internal::ArenaStringPtr name_;
+  int state_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsNetParameterImpl();
 };
@@ -1311,7 +2311,7 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
                &_SolverParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    13;
 
   void Swap(SolverParameter* other);
   friend void swap(SolverParameter& a, SolverParameter& b) {
@@ -1356,35 +2356,164 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
 
   // nested types ----------------------------------------------------
 
+  typedef SolverParameter_Mode Mode;
+  static const Mode CPU =
+    SolverParameter_Mode_CPU;
+  static const Mode GPU =
+    SolverParameter_Mode_GPU;
+  static inline bool Mode_IsValid(int value) {
+    return SolverParameter_Mode_IsValid(value);
+  }
+  static const Mode Mode_MIN =
+    SolverParameter_Mode_Mode_MIN;
+  static const Mode Mode_MAX =
+    SolverParameter_Mode_Mode_MAX;
+  static const int Mode_ARRAYSIZE =
+    SolverParameter_Mode_Mode_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Mode_descriptor() {
+    return SolverParameter_Mode_descriptor();
+  }
+  static inline const ::std::string& Mode_Name(Mode value) {
+    return SolverParameter_Mode_Name(value);
+  }
+  static inline bool Mode_Parse(const ::std::string& name,
+      Mode* value) {
+    return SolverParameter_Mode_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
-  // optional .BigBang.NetParameter net_param = 1;
-  bool has_net_param() const;
+  // repeated .BigBang.NetParameter net_param = 30;
+  int net_param_size() const;
   void clear_net_param();
-  static const int kNetParamFieldNumber = 1;
-  const ::BigBang::NetParameter& net_param() const;
-  ::BigBang::NetParameter* release_net_param();
-  ::BigBang::NetParameter* mutable_net_param();
-  void set_allocated_net_param(::BigBang::NetParameter* net_param);
+  static const int kNetParamFieldNumber = 30;
+  const ::BigBang::NetParameter& net_param(int index) const;
+  ::BigBang::NetParameter* mutable_net_param(int index);
+  ::BigBang::NetParameter* add_net_param();
+  ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >*
+      mutable_net_param();
+  const ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >&
+      net_param() const;
 
-  // optional float lr = 2;
+  // optional .BigBang.WeightDecayParameter weight_decay_param = 20;
+  bool has_weight_decay_param() const;
+  void clear_weight_decay_param();
+  static const int kWeightDecayParamFieldNumber = 20;
+  const ::BigBang::WeightDecayParameter& weight_decay_param() const;
+  ::BigBang::WeightDecayParameter* release_weight_decay_param();
+  ::BigBang::WeightDecayParameter* mutable_weight_decay_param();
+  void set_allocated_weight_decay_param(::BigBang::WeightDecayParameter* weight_decay_param);
+
+  // optional .BigBang.SolverParameter.Mode mode = 1;
+  bool has_mode() const;
+  void clear_mode();
+  static const int kModeFieldNumber = 1;
+  ::BigBang::SolverParameter_Mode mode() const;
+  void set_mode(::BigBang::SolverParameter_Mode value);
+
+  // optional uint32 train_iterations = 2;
+  bool has_train_iterations() const;
+  void clear_train_iterations();
+  static const int kTrainIterationsFieldNumber = 2;
+  ::google::protobuf::uint32 train_iterations() const;
+  void set_train_iterations(::google::protobuf::uint32 value);
+
+  // optional uint32 validate_iterations = 3;
+  bool has_validate_iterations() const;
+  void clear_validate_iterations();
+  static const int kValidateIterationsFieldNumber = 3;
+  ::google::protobuf::uint32 validate_iterations() const;
+  void set_validate_iterations(::google::protobuf::uint32 value);
+
+  // optional uint32 test_iterations = 4;
+  bool has_test_iterations() const;
+  void clear_test_iterations();
+  static const int kTestIterationsFieldNumber = 4;
+  ::google::protobuf::uint32 test_iterations() const;
+  void set_test_iterations(::google::protobuf::uint32 value);
+
+  // optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
+  bool has_test_validatedata_accuracy_per_train_iterations() const;
+  void clear_test_validatedata_accuracy_per_train_iterations();
+  static const int kTestValidatedataAccuracyPerTrainIterationsFieldNumber = 5;
+  ::google::protobuf::uint32 test_validatedata_accuracy_per_train_iterations() const;
+  void set_test_validatedata_accuracy_per_train_iterations(::google::protobuf::uint32 value);
+
+  // optional uint32 test_testdata_accuracy_per_train_iterations = 6;
+  bool has_test_testdata_accuracy_per_train_iterations() const;
+  void clear_test_testdata_accuracy_per_train_iterations();
+  static const int kTestTestdataAccuracyPerTrainIterationsFieldNumber = 6;
+  ::google::protobuf::uint32 test_testdata_accuracy_per_train_iterations() const;
+  void set_test_testdata_accuracy_per_train_iterations(::google::protobuf::uint32 value);
+
+  // optional uint32 train_batch_size = 7;
+  bool has_train_batch_size() const;
+  void clear_train_batch_size();
+  static const int kTrainBatchSizeFieldNumber = 7;
+  ::google::protobuf::uint32 train_batch_size() const;
+  void set_train_batch_size(::google::protobuf::uint32 value);
+
+  // optional uint32 validate_batch_size = 8;
+  bool has_validate_batch_size() const;
+  void clear_validate_batch_size();
+  static const int kValidateBatchSizeFieldNumber = 8;
+  ::google::protobuf::uint32 validate_batch_size() const;
+  void set_validate_batch_size(::google::protobuf::uint32 value);
+
+  // optional uint32 test_batch_size = 9;
+  bool has_test_batch_size() const;
+  void clear_test_batch_size();
+  static const int kTestBatchSizeFieldNumber = 9;
+  ::google::protobuf::uint32 test_batch_size() const;
+  void set_test_batch_size(::google::protobuf::uint32 value);
+
+  // optional float lr = 10;
   bool has_lr() const;
   void clear_lr();
-  static const int kLrFieldNumber = 2;
+  static const int kLrFieldNumber = 10;
   float lr() const;
   void set_lr(float value);
 
   // @@protoc_insertion_point(class_scope:BigBang.SolverParameter)
  private:
-  void set_has_net_param();
-  void clear_has_net_param();
+  void set_has_mode();
+  void clear_has_mode();
+  void set_has_train_iterations();
+  void clear_has_train_iterations();
+  void set_has_validate_iterations();
+  void clear_has_validate_iterations();
+  void set_has_test_iterations();
+  void clear_has_test_iterations();
+  void set_has_test_validatedata_accuracy_per_train_iterations();
+  void clear_has_test_validatedata_accuracy_per_train_iterations();
+  void set_has_test_testdata_accuracy_per_train_iterations();
+  void clear_has_test_testdata_accuracy_per_train_iterations();
+  void set_has_train_batch_size();
+  void clear_has_train_batch_size();
+  void set_has_validate_batch_size();
+  void clear_has_validate_batch_size();
+  void set_has_test_batch_size();
+  void clear_has_test_batch_size();
   void set_has_lr();
   void clear_has_lr();
+  void set_has_weight_decay_param();
+  void clear_has_weight_decay_param();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::BigBang::NetParameter* net_param_;
+  ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter > net_param_;
+  ::BigBang::WeightDecayParameter* weight_decay_param_;
+  int mode_;
+  ::google::protobuf::uint32 train_iterations_;
+  ::google::protobuf::uint32 validate_iterations_;
+  ::google::protobuf::uint32 test_iterations_;
+  ::google::protobuf::uint32 test_validatedata_accuracy_per_train_iterations_;
+  ::google::protobuf::uint32 test_testdata_accuracy_per_train_iterations_;
+  ::google::protobuf::uint32 train_batch_size_;
+  ::google::protobuf::uint32 validate_batch_size_;
+  ::google::protobuf::uint32 test_batch_size_;
   float lr_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsSolverParameterImpl();
@@ -1423,6 +2552,357 @@ inline void FillerParameter::set_type(::BigBang::FillerParameter_FillerType valu
   set_has_type();
   type_ = value;
   // @@protoc_insertion_point(field_set:BigBang.FillerParameter.type)
+}
+
+// optional float mean = 2 [default = 0];
+inline bool FillerParameter::has_mean() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FillerParameter::set_has_mean() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FillerParameter::clear_has_mean() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FillerParameter::clear_mean() {
+  mean_ = 0;
+  clear_has_mean();
+}
+inline float FillerParameter::mean() const {
+  // @@protoc_insertion_point(field_get:BigBang.FillerParameter.mean)
+  return mean_;
+}
+inline void FillerParameter::set_mean(float value) {
+  set_has_mean();
+  mean_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.FillerParameter.mean)
+}
+
+// optional float std = 3 [default = 1];
+inline bool FillerParameter::has_std() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FillerParameter::set_has_std() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FillerParameter::clear_has_std() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FillerParameter::clear_std() {
+  std_ = 1;
+  clear_has_std();
+}
+inline float FillerParameter::std() const {
+  // @@protoc_insertion_point(field_get:BigBang.FillerParameter.std)
+  return std_;
+}
+inline void FillerParameter::set_std(float value) {
+  set_has_std();
+  std_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.FillerParameter.std)
+}
+
+// -------------------------------------------------------------------
+
+// DataPreprocessParameter
+
+// optional float scale = 1 [default = 1];
+inline bool DataPreprocessParameter::has_scale() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DataPreprocessParameter::set_has_scale() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DataPreprocessParameter::clear_has_scale() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DataPreprocessParameter::clear_scale() {
+  scale_ = 1;
+  clear_has_scale();
+}
+inline float DataPreprocessParameter::scale() const {
+  // @@protoc_insertion_point(field_get:BigBang.DataPreprocessParameter.scale)
+  return scale_;
+}
+inline void DataPreprocessParameter::set_scale(float value) {
+  set_has_scale();
+  scale_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.DataPreprocessParameter.scale)
+}
+
+// optional bytes mean_file = 2;
+inline bool DataPreprocessParameter::has_mean_file() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DataPreprocessParameter::set_has_mean_file() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DataPreprocessParameter::clear_has_mean_file() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DataPreprocessParameter::clear_mean_file() {
+  mean_file_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_mean_file();
+}
+inline const ::std::string& DataPreprocessParameter::mean_file() const {
+  // @@protoc_insertion_point(field_get:BigBang.DataPreprocessParameter.mean_file)
+  return mean_file_.GetNoArena();
+}
+inline void DataPreprocessParameter::set_mean_file(const ::std::string& value) {
+  set_has_mean_file();
+  mean_file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.DataPreprocessParameter.mean_file)
+}
+#if LANG_CXX11
+inline void DataPreprocessParameter::set_mean_file(::std::string&& value) {
+  set_has_mean_file();
+  mean_file_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.DataPreprocessParameter.mean_file)
+}
+#endif
+inline void DataPreprocessParameter::set_mean_file(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_mean_file();
+  mean_file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.DataPreprocessParameter.mean_file)
+}
+inline void DataPreprocessParameter::set_mean_file(const void* value, size_t size) {
+  set_has_mean_file();
+  mean_file_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:BigBang.DataPreprocessParameter.mean_file)
+}
+inline ::std::string* DataPreprocessParameter::mutable_mean_file() {
+  set_has_mean_file();
+  // @@protoc_insertion_point(field_mutable:BigBang.DataPreprocessParameter.mean_file)
+  return mean_file_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DataPreprocessParameter::release_mean_file() {
+  // @@protoc_insertion_point(field_release:BigBang.DataPreprocessParameter.mean_file)
+  clear_has_mean_file();
+  return mean_file_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DataPreprocessParameter::set_allocated_mean_file(::std::string* mean_file) {
+  if (mean_file != NULL) {
+    set_has_mean_file();
+  } else {
+    clear_has_mean_file();
+  }
+  mean_file_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mean_file);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.DataPreprocessParameter.mean_file)
+}
+
+// -------------------------------------------------------------------
+
+// Shape
+
+// repeated int32 dim = 1;
+inline int Shape::dim_size() const {
+  return dim_.size();
+}
+inline void Shape::clear_dim() {
+  dim_.Clear();
+}
+inline ::google::protobuf::int32 Shape::dim(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.Shape.dim)
+  return dim_.Get(index);
+}
+inline void Shape::set_dim(int index, ::google::protobuf::int32 value) {
+  dim_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BigBang.Shape.dim)
+}
+inline void Shape::add_dim(::google::protobuf::int32 value) {
+  dim_.Add(value);
+  // @@protoc_insertion_point(field_add:BigBang.Shape.dim)
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+Shape::dim() const {
+  // @@protoc_insertion_point(field_list:BigBang.Shape.dim)
+  return dim_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+Shape::mutable_dim() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.Shape.dim)
+  return &dim_;
+}
+
+// -------------------------------------------------------------------
+
+// TensorProto
+
+// optional .BigBang.Shape shape = 1;
+inline bool TensorProto::has_shape() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TensorProto::set_has_shape() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TensorProto::clear_has_shape() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TensorProto::clear_shape() {
+  if (shape_ != NULL) shape_->Clear();
+  clear_has_shape();
+}
+inline const ::BigBang::Shape& TensorProto::shape() const {
+  const ::BigBang::Shape* p = shape_;
+  // @@protoc_insertion_point(field_get:BigBang.TensorProto.shape)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::Shape*>(
+      &::BigBang::_Shape_default_instance_);
+}
+inline ::BigBang::Shape* TensorProto::release_shape() {
+  // @@protoc_insertion_point(field_release:BigBang.TensorProto.shape)
+  clear_has_shape();
+  ::BigBang::Shape* temp = shape_;
+  shape_ = NULL;
+  return temp;
+}
+inline ::BigBang::Shape* TensorProto::mutable_shape() {
+  set_has_shape();
+  if (shape_ == NULL) {
+    shape_ = new ::BigBang::Shape;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.TensorProto.shape)
+  return shape_;
+}
+inline void TensorProto::set_allocated_shape(::BigBang::Shape* shape) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete shape_;
+  }
+  if (shape) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      shape = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, shape, submessage_arena);
+    }
+    set_has_shape();
+  } else {
+    clear_has_shape();
+  }
+  shape_ = shape;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.TensorProto.shape)
+}
+
+// repeated float f_data = 2;
+inline int TensorProto::f_data_size() const {
+  return f_data_.size();
+}
+inline void TensorProto::clear_f_data() {
+  f_data_.Clear();
+}
+inline float TensorProto::f_data(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.TensorProto.f_data)
+  return f_data_.Get(index);
+}
+inline void TensorProto::set_f_data(int index, float value) {
+  f_data_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BigBang.TensorProto.f_data)
+}
+inline void TensorProto::add_f_data(float value) {
+  f_data_.Add(value);
+  // @@protoc_insertion_point(field_add:BigBang.TensorProto.f_data)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+TensorProto::f_data() const {
+  // @@protoc_insertion_point(field_list:BigBang.TensorProto.f_data)
+  return f_data_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+TensorProto::mutable_f_data() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.TensorProto.f_data)
+  return &f_data_;
+}
+
+// repeated double d_data = 3;
+inline int TensorProto::d_data_size() const {
+  return d_data_.size();
+}
+inline void TensorProto::clear_d_data() {
+  d_data_.Clear();
+}
+inline double TensorProto::d_data(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.TensorProto.d_data)
+  return d_data_.Get(index);
+}
+inline void TensorProto::set_d_data(int index, double value) {
+  d_data_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BigBang.TensorProto.d_data)
+}
+inline void TensorProto::add_d_data(double value) {
+  d_data_.Add(value);
+  // @@protoc_insertion_point(field_add:BigBang.TensorProto.d_data)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+TensorProto::d_data() const {
+  // @@protoc_insertion_point(field_list:BigBang.TensorProto.d_data)
+  return d_data_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+TensorProto::mutable_d_data() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.TensorProto.d_data)
+  return &d_data_;
+}
+
+// repeated float f_diff = 4;
+inline int TensorProto::f_diff_size() const {
+  return f_diff_.size();
+}
+inline void TensorProto::clear_f_diff() {
+  f_diff_.Clear();
+}
+inline float TensorProto::f_diff(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.TensorProto.f_diff)
+  return f_diff_.Get(index);
+}
+inline void TensorProto::set_f_diff(int index, float value) {
+  f_diff_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BigBang.TensorProto.f_diff)
+}
+inline void TensorProto::add_f_diff(float value) {
+  f_diff_.Add(value);
+  // @@protoc_insertion_point(field_add:BigBang.TensorProto.f_diff)
+}
+inline const ::google::protobuf::RepeatedField< float >&
+TensorProto::f_diff() const {
+  // @@protoc_insertion_point(field_list:BigBang.TensorProto.f_diff)
+  return f_diff_;
+}
+inline ::google::protobuf::RepeatedField< float >*
+TensorProto::mutable_f_diff() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.TensorProto.f_diff)
+  return &f_diff_;
+}
+
+// repeated double d_diff = 5;
+inline int TensorProto::d_diff_size() const {
+  return d_diff_.size();
+}
+inline void TensorProto::clear_d_diff() {
+  d_diff_.Clear();
+}
+inline double TensorProto::d_diff(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.TensorProto.d_diff)
+  return d_diff_.Get(index);
+}
+inline void TensorProto::set_d_diff(int index, double value) {
+  d_diff_.Set(index, value);
+  // @@protoc_insertion_point(field_set:BigBang.TensorProto.d_diff)
+}
+inline void TensorProto::add_d_diff(double value) {
+  d_diff_.Add(value);
+  // @@protoc_insertion_point(field_add:BigBang.TensorProto.d_diff)
+}
+inline const ::google::protobuf::RepeatedField< double >&
+TensorProto::d_diff() const {
+  // @@protoc_insertion_point(field_list:BigBang.TensorProto.d_diff)
+  return d_diff_;
+}
+inline ::google::protobuf::RepeatedField< double >*
+TensorProto::mutable_d_diff() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.TensorProto.d_diff)
+  return &d_diff_;
 }
 
 // -------------------------------------------------------------------
@@ -1620,6 +3100,59 @@ Datum::mutable_f_data() {
 
 // -------------------------------------------------------------------
 
+// WeightDecayParameter
+
+// optional .BigBang.WeightDecayParameter.DecayMethod method = 1 [default = NONE];
+inline bool WeightDecayParameter::has_method() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WeightDecayParameter::set_has_method() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WeightDecayParameter::clear_has_method() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WeightDecayParameter::clear_method() {
+  method_ = 0;
+  clear_has_method();
+}
+inline ::BigBang::WeightDecayParameter_DecayMethod WeightDecayParameter::method() const {
+  // @@protoc_insertion_point(field_get:BigBang.WeightDecayParameter.method)
+  return static_cast< ::BigBang::WeightDecayParameter_DecayMethod >(method_);
+}
+inline void WeightDecayParameter::set_method(::BigBang::WeightDecayParameter_DecayMethod value) {
+  assert(::BigBang::WeightDecayParameter_DecayMethod_IsValid(value));
+  set_has_method();
+  method_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.WeightDecayParameter.method)
+}
+
+// optional float alpha = 2;
+inline bool WeightDecayParameter::has_alpha() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WeightDecayParameter::set_has_alpha() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WeightDecayParameter::clear_has_alpha() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WeightDecayParameter::clear_alpha() {
+  alpha_ = 0;
+  clear_has_alpha();
+}
+inline float WeightDecayParameter::alpha() const {
+  // @@protoc_insertion_point(field_get:BigBang.WeightDecayParameter.alpha)
+  return alpha_;
+}
+inline void WeightDecayParameter::set_alpha(float value) {
+  set_has_alpha();
+  alpha_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.WeightDecayParameter.alpha)
+}
+
+// -------------------------------------------------------------------
+
 // PoolingLayerParameter
 
 // optional .BigBang.PoolingLayerParameter.PoolingMethod pool = 1 [default = MAX];
@@ -1741,6 +3274,34 @@ inline void PoolingLayerParameter::set_stride_w(::google::protobuf::uint32 value
   set_has_stride_w();
   stride_w_ = value;
   // @@protoc_insertion_point(field_set:BigBang.PoolingLayerParameter.stride_w)
+}
+
+// -------------------------------------------------------------------
+
+// DropoutLayerParameter
+
+// optional float dropout_ratio = 1 [default = 0.5];
+inline bool DropoutLayerParameter::has_dropout_ratio() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DropoutLayerParameter::set_has_dropout_ratio() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DropoutLayerParameter::clear_has_dropout_ratio() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DropoutLayerParameter::clear_dropout_ratio() {
+  dropout_ratio_ = 0.5f;
+  clear_has_dropout_ratio();
+}
+inline float DropoutLayerParameter::dropout_ratio() const {
+  // @@protoc_insertion_point(field_get:BigBang.DropoutLayerParameter.dropout_ratio)
+  return dropout_ratio_;
+}
+inline void DropoutLayerParameter::set_dropout_ratio(float value) {
+  set_has_dropout_ratio();
+  dropout_ratio_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.DropoutLayerParameter.dropout_ratio)
 }
 
 // -------------------------------------------------------------------
@@ -2075,15 +3636,39 @@ inline void ConvLayerParameter::set_allocated_bias_filler(::BigBang::FillerParam
 
 // InnerProductLayerParameter
 
-// optional bool use_bias = 1;
-inline bool InnerProductLayerParameter::has_use_bias() const {
+// optional uint32 output_nums = 1;
+inline bool InnerProductLayerParameter::has_output_nums() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void InnerProductLayerParameter::set_has_use_bias() {
+inline void InnerProductLayerParameter::set_has_output_nums() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void InnerProductLayerParameter::clear_has_use_bias() {
+inline void InnerProductLayerParameter::clear_has_output_nums() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void InnerProductLayerParameter::clear_output_nums() {
+  output_nums_ = 0u;
+  clear_has_output_nums();
+}
+inline ::google::protobuf::uint32 InnerProductLayerParameter::output_nums() const {
+  // @@protoc_insertion_point(field_get:BigBang.InnerProductLayerParameter.output_nums)
+  return output_nums_;
+}
+inline void InnerProductLayerParameter::set_output_nums(::google::protobuf::uint32 value) {
+  set_has_output_nums();
+  output_nums_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.InnerProductLayerParameter.output_nums)
+}
+
+// optional bool use_bias = 2;
+inline bool InnerProductLayerParameter::has_use_bias() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void InnerProductLayerParameter::set_has_use_bias() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void InnerProductLayerParameter::clear_has_use_bias() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void InnerProductLayerParameter::clear_use_bias() {
   use_bias_ = false;
@@ -2205,6 +3790,175 @@ inline void InnerProductLayerParameter::set_allocated_bias_filler(::BigBang::Fil
   }
   bias_filler_ = bias_filler;
   // @@protoc_insertion_point(field_set_allocated:BigBang.InnerProductLayerParameter.bias_filler)
+}
+
+// -------------------------------------------------------------------
+
+// DataLayerParameter
+
+// optional uint32 batch_size = 1;
+inline bool DataLayerParameter::has_batch_size() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void DataLayerParameter::set_has_batch_size() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void DataLayerParameter::clear_has_batch_size() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void DataLayerParameter::clear_batch_size() {
+  batch_size_ = 0u;
+  clear_has_batch_size();
+}
+inline ::google::protobuf::uint32 DataLayerParameter::batch_size() const {
+  // @@protoc_insertion_point(field_get:BigBang.DataLayerParameter.batch_size)
+  return batch_size_;
+}
+inline void DataLayerParameter::set_batch_size(::google::protobuf::uint32 value) {
+  set_has_batch_size();
+  batch_size_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.DataLayerParameter.batch_size)
+}
+
+// optional uint32 cache_batch_count = 2;
+inline bool DataLayerParameter::has_cache_batch_count() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void DataLayerParameter::set_has_cache_batch_count() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void DataLayerParameter::clear_has_cache_batch_count() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void DataLayerParameter::clear_cache_batch_count() {
+  cache_batch_count_ = 0u;
+  clear_has_cache_batch_count();
+}
+inline ::google::protobuf::uint32 DataLayerParameter::cache_batch_count() const {
+  // @@protoc_insertion_point(field_get:BigBang.DataLayerParameter.cache_batch_count)
+  return cache_batch_count_;
+}
+inline void DataLayerParameter::set_cache_batch_count(::google::protobuf::uint32 value) {
+  set_has_cache_batch_count();
+  cache_batch_count_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.DataLayerParameter.cache_batch_count)
+}
+
+// optional string source = 3;
+inline bool DataLayerParameter::has_source() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void DataLayerParameter::set_has_source() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void DataLayerParameter::clear_has_source() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void DataLayerParameter::clear_source() {
+  source_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_source();
+}
+inline const ::std::string& DataLayerParameter::source() const {
+  // @@protoc_insertion_point(field_get:BigBang.DataLayerParameter.source)
+  return source_.GetNoArena();
+}
+inline void DataLayerParameter::set_source(const ::std::string& value) {
+  set_has_source();
+  source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.DataLayerParameter.source)
+}
+#if LANG_CXX11
+inline void DataLayerParameter::set_source(::std::string&& value) {
+  set_has_source();
+  source_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.DataLayerParameter.source)
+}
+#endif
+inline void DataLayerParameter::set_source(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_source();
+  source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.DataLayerParameter.source)
+}
+inline void DataLayerParameter::set_source(const char* value, size_t size) {
+  set_has_source();
+  source_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:BigBang.DataLayerParameter.source)
+}
+inline ::std::string* DataLayerParameter::mutable_source() {
+  set_has_source();
+  // @@protoc_insertion_point(field_mutable:BigBang.DataLayerParameter.source)
+  return source_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* DataLayerParameter::release_source() {
+  // @@protoc_insertion_point(field_release:BigBang.DataLayerParameter.source)
+  clear_has_source();
+  return source_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void DataLayerParameter::set_allocated_source(::std::string* source) {
+  if (source != NULL) {
+    set_has_source();
+  } else {
+    clear_has_source();
+  }
+  source_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), source);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.DataLayerParameter.source)
+}
+
+// optional .BigBang.DataPreprocessParameter preprocess_params = 4;
+inline bool DataLayerParameter::has_preprocess_params() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void DataLayerParameter::set_has_preprocess_params() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void DataLayerParameter::clear_has_preprocess_params() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void DataLayerParameter::clear_preprocess_params() {
+  if (preprocess_params_ != NULL) preprocess_params_->Clear();
+  clear_has_preprocess_params();
+}
+inline const ::BigBang::DataPreprocessParameter& DataLayerParameter::preprocess_params() const {
+  const ::BigBang::DataPreprocessParameter* p = preprocess_params_;
+  // @@protoc_insertion_point(field_get:BigBang.DataLayerParameter.preprocess_params)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::DataPreprocessParameter*>(
+      &::BigBang::_DataPreprocessParameter_default_instance_);
+}
+inline ::BigBang::DataPreprocessParameter* DataLayerParameter::release_preprocess_params() {
+  // @@protoc_insertion_point(field_release:BigBang.DataLayerParameter.preprocess_params)
+  clear_has_preprocess_params();
+  ::BigBang::DataPreprocessParameter* temp = preprocess_params_;
+  preprocess_params_ = NULL;
+  return temp;
+}
+inline ::BigBang::DataPreprocessParameter* DataLayerParameter::mutable_preprocess_params() {
+  set_has_preprocess_params();
+  if (preprocess_params_ == NULL) {
+    preprocess_params_ = new ::BigBang::DataPreprocessParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.DataLayerParameter.preprocess_params)
+  return preprocess_params_;
+}
+inline void DataLayerParameter::set_allocated_preprocess_params(::BigBang::DataPreprocessParameter* preprocess_params) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete preprocess_params_;
+  }
+  if (preprocess_params) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      preprocess_params = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, preprocess_params, submessage_arena);
+    }
+    set_has_preprocess_params();
+  } else {
+    clear_has_preprocess_params();
+  }
+  preprocess_params_ = preprocess_params;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.DataLayerParameter.preprocess_params)
 }
 
 // -------------------------------------------------------------------
@@ -2391,15 +4145,123 @@ inline void LayerParameter::set_allocated_conv_layer_param(::BigBang::ConvLayerP
   // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.conv_layer_param)
 }
 
-// optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 101;
-inline bool LayerParameter::has_inner_product_layer_param() const {
+// optional .BigBang.DataLayerParameter data_layer_param = 101;
+inline bool LayerParameter::has_data_layer_param() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void LayerParameter::set_has_inner_product_layer_param() {
+inline void LayerParameter::set_has_data_layer_param() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void LayerParameter::clear_has_inner_product_layer_param() {
+inline void LayerParameter::clear_has_data_layer_param() {
   _has_bits_[0] &= ~0x00000008u;
+}
+inline void LayerParameter::clear_data_layer_param() {
+  if (data_layer_param_ != NULL) data_layer_param_->Clear();
+  clear_has_data_layer_param();
+}
+inline const ::BigBang::DataLayerParameter& LayerParameter::data_layer_param() const {
+  const ::BigBang::DataLayerParameter* p = data_layer_param_;
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.data_layer_param)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::DataLayerParameter*>(
+      &::BigBang::_DataLayerParameter_default_instance_);
+}
+inline ::BigBang::DataLayerParameter* LayerParameter::release_data_layer_param() {
+  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.data_layer_param)
+  clear_has_data_layer_param();
+  ::BigBang::DataLayerParameter* temp = data_layer_param_;
+  data_layer_param_ = NULL;
+  return temp;
+}
+inline ::BigBang::DataLayerParameter* LayerParameter::mutable_data_layer_param() {
+  set_has_data_layer_param();
+  if (data_layer_param_ == NULL) {
+    data_layer_param_ = new ::BigBang::DataLayerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.data_layer_param)
+  return data_layer_param_;
+}
+inline void LayerParameter::set_allocated_data_layer_param(::BigBang::DataLayerParameter* data_layer_param) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete data_layer_param_;
+  }
+  if (data_layer_param) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      data_layer_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, data_layer_param, submessage_arena);
+    }
+    set_has_data_layer_param();
+  } else {
+    clear_has_data_layer_param();
+  }
+  data_layer_param_ = data_layer_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.data_layer_param)
+}
+
+// optional .BigBang.DropoutLayerParameter dropout_layer_param = 102;
+inline bool LayerParameter::has_dropout_layer_param() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LayerParameter::set_has_dropout_layer_param() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LayerParameter::clear_has_dropout_layer_param() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void LayerParameter::clear_dropout_layer_param() {
+  if (dropout_layer_param_ != NULL) dropout_layer_param_->Clear();
+  clear_has_dropout_layer_param();
+}
+inline const ::BigBang::DropoutLayerParameter& LayerParameter::dropout_layer_param() const {
+  const ::BigBang::DropoutLayerParameter* p = dropout_layer_param_;
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.dropout_layer_param)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::DropoutLayerParameter*>(
+      &::BigBang::_DropoutLayerParameter_default_instance_);
+}
+inline ::BigBang::DropoutLayerParameter* LayerParameter::release_dropout_layer_param() {
+  // @@protoc_insertion_point(field_release:BigBang.LayerParameter.dropout_layer_param)
+  clear_has_dropout_layer_param();
+  ::BigBang::DropoutLayerParameter* temp = dropout_layer_param_;
+  dropout_layer_param_ = NULL;
+  return temp;
+}
+inline ::BigBang::DropoutLayerParameter* LayerParameter::mutable_dropout_layer_param() {
+  set_has_dropout_layer_param();
+  if (dropout_layer_param_ == NULL) {
+    dropout_layer_param_ = new ::BigBang::DropoutLayerParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.LayerParameter.dropout_layer_param)
+  return dropout_layer_param_;
+}
+inline void LayerParameter::set_allocated_dropout_layer_param(::BigBang::DropoutLayerParameter* dropout_layer_param) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete dropout_layer_param_;
+  }
+  if (dropout_layer_param) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      dropout_layer_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, dropout_layer_param, submessage_arena);
+    }
+    set_has_dropout_layer_param();
+  } else {
+    clear_has_dropout_layer_param();
+  }
+  dropout_layer_param_ = dropout_layer_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.dropout_layer_param)
+}
+
+// optional .BigBang.InnerProductLayerParameter inner_product_layer_param = 103;
+inline bool LayerParameter::has_inner_product_layer_param() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void LayerParameter::set_has_inner_product_layer_param() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void LayerParameter::clear_has_inner_product_layer_param() {
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void LayerParameter::clear_inner_product_layer_param() {
   if (inner_product_layer_param_ != NULL) inner_product_layer_param_->Clear();
@@ -2445,15 +4307,15 @@ inline void LayerParameter::set_allocated_inner_product_layer_param(::BigBang::I
   // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.inner_product_layer_param)
 }
 
-// optional .BigBang.PoolingLayerParameter pooling_layer_param = 102;
+// optional .BigBang.PoolingLayerParameter pooling_layer_param = 104;
 inline bool LayerParameter::has_pooling_layer_param() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void LayerParameter::set_has_pooling_layer_param() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void LayerParameter::clear_has_pooling_layer_param() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void LayerParameter::clear_pooling_layer_param() {
   if (pooling_layer_param_ != NULL) pooling_layer_param_->Clear();
@@ -2566,6 +4428,31 @@ inline void NetParameter::set_allocated_name(::std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:BigBang.NetParameter.name)
 }
 
+// optional .BigBang.NetParameter.State state = 2;
+inline bool NetParameter::has_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NetParameter::set_has_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NetParameter::clear_has_state() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NetParameter::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::BigBang::NetParameter_State NetParameter::state() const {
+  // @@protoc_insertion_point(field_get:BigBang.NetParameter.state)
+  return static_cast< ::BigBang::NetParameter_State >(state_);
+}
+inline void NetParameter::set_state(::BigBang::NetParameter_State value) {
+  assert(::BigBang::NetParameter_State_IsValid(value));
+  set_has_state();
+  state_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.NetParameter.state)
+}
+
 // repeated .BigBang.LayerParameter layer_param = 10;
 inline int NetParameter::layer_param_size() const {
   return layer_param_.size();
@@ -2600,69 +4487,232 @@ NetParameter::layer_param() const {
 
 // SolverParameter
 
-// optional .BigBang.NetParameter net_param = 1;
-inline bool SolverParameter::has_net_param() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void SolverParameter::set_has_net_param() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void SolverParameter::clear_has_net_param() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void SolverParameter::clear_net_param() {
-  if (net_param_ != NULL) net_param_->Clear();
-  clear_has_net_param();
-}
-inline const ::BigBang::NetParameter& SolverParameter::net_param() const {
-  const ::BigBang::NetParameter* p = net_param_;
-  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.net_param)
-  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::NetParameter*>(
-      &::BigBang::_NetParameter_default_instance_);
-}
-inline ::BigBang::NetParameter* SolverParameter::release_net_param() {
-  // @@protoc_insertion_point(field_release:BigBang.SolverParameter.net_param)
-  clear_has_net_param();
-  ::BigBang::NetParameter* temp = net_param_;
-  net_param_ = NULL;
-  return temp;
-}
-inline ::BigBang::NetParameter* SolverParameter::mutable_net_param() {
-  set_has_net_param();
-  if (net_param_ == NULL) {
-    net_param_ = new ::BigBang::NetParameter;
-  }
-  // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.net_param)
-  return net_param_;
-}
-inline void SolverParameter::set_allocated_net_param(::BigBang::NetParameter* net_param) {
-  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
-  if (message_arena == NULL) {
-    delete net_param_;
-  }
-  if (net_param) {
-    ::google::protobuf::Arena* submessage_arena = NULL;
-    if (message_arena != submessage_arena) {
-      net_param = ::google::protobuf::internal::GetOwnedMessage(
-          message_arena, net_param, submessage_arena);
-    }
-    set_has_net_param();
-  } else {
-    clear_has_net_param();
-  }
-  net_param_ = net_param;
-  // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.net_param)
-}
-
-// optional float lr = 2;
-inline bool SolverParameter::has_lr() const {
+// optional .BigBang.SolverParameter.Mode mode = 1;
+inline bool SolverParameter::has_mode() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void SolverParameter::set_has_lr() {
+inline void SolverParameter::set_has_mode() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void SolverParameter::clear_has_lr() {
+inline void SolverParameter::clear_has_mode() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void SolverParameter::clear_mode() {
+  mode_ = 0;
+  clear_has_mode();
+}
+inline ::BigBang::SolverParameter_Mode SolverParameter::mode() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.mode)
+  return static_cast< ::BigBang::SolverParameter_Mode >(mode_);
+}
+inline void SolverParameter::set_mode(::BigBang::SolverParameter_Mode value) {
+  assert(::BigBang::SolverParameter_Mode_IsValid(value));
+  set_has_mode();
+  mode_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.mode)
+}
+
+// optional uint32 train_iterations = 2;
+inline bool SolverParameter::has_train_iterations() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SolverParameter::set_has_train_iterations() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SolverParameter::clear_has_train_iterations() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void SolverParameter::clear_train_iterations() {
+  train_iterations_ = 0u;
+  clear_has_train_iterations();
+}
+inline ::google::protobuf::uint32 SolverParameter::train_iterations() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.train_iterations)
+  return train_iterations_;
+}
+inline void SolverParameter::set_train_iterations(::google::protobuf::uint32 value) {
+  set_has_train_iterations();
+  train_iterations_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.train_iterations)
+}
+
+// optional uint32 validate_iterations = 3;
+inline bool SolverParameter::has_validate_iterations() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SolverParameter::set_has_validate_iterations() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SolverParameter::clear_has_validate_iterations() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void SolverParameter::clear_validate_iterations() {
+  validate_iterations_ = 0u;
+  clear_has_validate_iterations();
+}
+inline ::google::protobuf::uint32 SolverParameter::validate_iterations() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.validate_iterations)
+  return validate_iterations_;
+}
+inline void SolverParameter::set_validate_iterations(::google::protobuf::uint32 value) {
+  set_has_validate_iterations();
+  validate_iterations_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.validate_iterations)
+}
+
+// optional uint32 test_iterations = 4;
+inline bool SolverParameter::has_test_iterations() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void SolverParameter::set_has_test_iterations() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void SolverParameter::clear_has_test_iterations() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void SolverParameter::clear_test_iterations() {
+  test_iterations_ = 0u;
+  clear_has_test_iterations();
+}
+inline ::google::protobuf::uint32 SolverParameter::test_iterations() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.test_iterations)
+  return test_iterations_;
+}
+inline void SolverParameter::set_test_iterations(::google::protobuf::uint32 value) {
+  set_has_test_iterations();
+  test_iterations_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.test_iterations)
+}
+
+// optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
+inline bool SolverParameter::has_test_validatedata_accuracy_per_train_iterations() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void SolverParameter::set_has_test_validatedata_accuracy_per_train_iterations() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void SolverParameter::clear_has_test_validatedata_accuracy_per_train_iterations() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void SolverParameter::clear_test_validatedata_accuracy_per_train_iterations() {
+  test_validatedata_accuracy_per_train_iterations_ = 0u;
+  clear_has_test_validatedata_accuracy_per_train_iterations();
+}
+inline ::google::protobuf::uint32 SolverParameter::test_validatedata_accuracy_per_train_iterations() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.test_validatedata_accuracy_per_train_iterations)
+  return test_validatedata_accuracy_per_train_iterations_;
+}
+inline void SolverParameter::set_test_validatedata_accuracy_per_train_iterations(::google::protobuf::uint32 value) {
+  set_has_test_validatedata_accuracy_per_train_iterations();
+  test_validatedata_accuracy_per_train_iterations_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.test_validatedata_accuracy_per_train_iterations)
+}
+
+// optional uint32 test_testdata_accuracy_per_train_iterations = 6;
+inline bool SolverParameter::has_test_testdata_accuracy_per_train_iterations() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void SolverParameter::set_has_test_testdata_accuracy_per_train_iterations() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void SolverParameter::clear_has_test_testdata_accuracy_per_train_iterations() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void SolverParameter::clear_test_testdata_accuracy_per_train_iterations() {
+  test_testdata_accuracy_per_train_iterations_ = 0u;
+  clear_has_test_testdata_accuracy_per_train_iterations();
+}
+inline ::google::protobuf::uint32 SolverParameter::test_testdata_accuracy_per_train_iterations() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.test_testdata_accuracy_per_train_iterations)
+  return test_testdata_accuracy_per_train_iterations_;
+}
+inline void SolverParameter::set_test_testdata_accuracy_per_train_iterations(::google::protobuf::uint32 value) {
+  set_has_test_testdata_accuracy_per_train_iterations();
+  test_testdata_accuracy_per_train_iterations_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.test_testdata_accuracy_per_train_iterations)
+}
+
+// optional uint32 train_batch_size = 7;
+inline bool SolverParameter::has_train_batch_size() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void SolverParameter::set_has_train_batch_size() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void SolverParameter::clear_has_train_batch_size() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void SolverParameter::clear_train_batch_size() {
+  train_batch_size_ = 0u;
+  clear_has_train_batch_size();
+}
+inline ::google::protobuf::uint32 SolverParameter::train_batch_size() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.train_batch_size)
+  return train_batch_size_;
+}
+inline void SolverParameter::set_train_batch_size(::google::protobuf::uint32 value) {
+  set_has_train_batch_size();
+  train_batch_size_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.train_batch_size)
+}
+
+// optional uint32 validate_batch_size = 8;
+inline bool SolverParameter::has_validate_batch_size() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void SolverParameter::set_has_validate_batch_size() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void SolverParameter::clear_has_validate_batch_size() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void SolverParameter::clear_validate_batch_size() {
+  validate_batch_size_ = 0u;
+  clear_has_validate_batch_size();
+}
+inline ::google::protobuf::uint32 SolverParameter::validate_batch_size() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.validate_batch_size)
+  return validate_batch_size_;
+}
+inline void SolverParameter::set_validate_batch_size(::google::protobuf::uint32 value) {
+  set_has_validate_batch_size();
+  validate_batch_size_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.validate_batch_size)
+}
+
+// optional uint32 test_batch_size = 9;
+inline bool SolverParameter::has_test_batch_size() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void SolverParameter::set_has_test_batch_size() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void SolverParameter::clear_has_test_batch_size() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void SolverParameter::clear_test_batch_size() {
+  test_batch_size_ = 0u;
+  clear_has_test_batch_size();
+}
+inline ::google::protobuf::uint32 SolverParameter::test_batch_size() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.test_batch_size)
+  return test_batch_size_;
+}
+inline void SolverParameter::set_test_batch_size(::google::protobuf::uint32 value) {
+  set_has_test_batch_size();
+  test_batch_size_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.test_batch_size)
+}
+
+// optional float lr = 10;
+inline bool SolverParameter::has_lr() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void SolverParameter::set_has_lr() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void SolverParameter::clear_has_lr() {
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void SolverParameter::clear_lr() {
   lr_ = 0;
@@ -2678,9 +4728,105 @@ inline void SolverParameter::set_lr(float value) {
   // @@protoc_insertion_point(field_set:BigBang.SolverParameter.lr)
 }
 
+// optional .BigBang.WeightDecayParameter weight_decay_param = 20;
+inline bool SolverParameter::has_weight_decay_param() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void SolverParameter::set_has_weight_decay_param() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void SolverParameter::clear_has_weight_decay_param() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void SolverParameter::clear_weight_decay_param() {
+  if (weight_decay_param_ != NULL) weight_decay_param_->Clear();
+  clear_has_weight_decay_param();
+}
+inline const ::BigBang::WeightDecayParameter& SolverParameter::weight_decay_param() const {
+  const ::BigBang::WeightDecayParameter* p = weight_decay_param_;
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.weight_decay_param)
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::WeightDecayParameter*>(
+      &::BigBang::_WeightDecayParameter_default_instance_);
+}
+inline ::BigBang::WeightDecayParameter* SolverParameter::release_weight_decay_param() {
+  // @@protoc_insertion_point(field_release:BigBang.SolverParameter.weight_decay_param)
+  clear_has_weight_decay_param();
+  ::BigBang::WeightDecayParameter* temp = weight_decay_param_;
+  weight_decay_param_ = NULL;
+  return temp;
+}
+inline ::BigBang::WeightDecayParameter* SolverParameter::mutable_weight_decay_param() {
+  set_has_weight_decay_param();
+  if (weight_decay_param_ == NULL) {
+    weight_decay_param_ = new ::BigBang::WeightDecayParameter;
+  }
+  // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.weight_decay_param)
+  return weight_decay_param_;
+}
+inline void SolverParameter::set_allocated_weight_decay_param(::BigBang::WeightDecayParameter* weight_decay_param) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete weight_decay_param_;
+  }
+  if (weight_decay_param) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      weight_decay_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, weight_decay_param, submessage_arena);
+    }
+    set_has_weight_decay_param();
+  } else {
+    clear_has_weight_decay_param();
+  }
+  weight_decay_param_ = weight_decay_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.weight_decay_param)
+}
+
+// repeated .BigBang.NetParameter net_param = 30;
+inline int SolverParameter::net_param_size() const {
+  return net_param_.size();
+}
+inline void SolverParameter::clear_net_param() {
+  net_param_.Clear();
+}
+inline const ::BigBang::NetParameter& SolverParameter::net_param(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.net_param)
+  return net_param_.Get(index);
+}
+inline ::BigBang::NetParameter* SolverParameter::mutable_net_param(int index) {
+  // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.net_param)
+  return net_param_.Mutable(index);
+}
+inline ::BigBang::NetParameter* SolverParameter::add_net_param() {
+  // @@protoc_insertion_point(field_add:BigBang.SolverParameter.net_param)
+  return net_param_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >*
+SolverParameter::mutable_net_param() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.SolverParameter.net_param)
+  return &net_param_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >&
+SolverParameter::net_param() const {
+  // @@protoc_insertion_point(field_list:BigBang.SolverParameter.net_param)
+  return net_param_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -2708,10 +4854,25 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::FillerParameter_FillerType>() {
   return ::BigBang::FillerParameter_FillerType_descriptor();
 }
+template <> struct is_proto_enum< ::BigBang::WeightDecayParameter_DecayMethod> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::WeightDecayParameter_DecayMethod>() {
+  return ::BigBang::WeightDecayParameter_DecayMethod_descriptor();
+}
 template <> struct is_proto_enum< ::BigBang::PoolingLayerParameter_PoolingMethod> : ::google::protobuf::internal::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::PoolingLayerParameter_PoolingMethod>() {
   return ::BigBang::PoolingLayerParameter_PoolingMethod_descriptor();
+}
+template <> struct is_proto_enum< ::BigBang::NetParameter_State> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::NetParameter_State>() {
+  return ::BigBang::NetParameter_State_descriptor();
+}
+template <> struct is_proto_enum< ::BigBang::SolverParameter_Mode> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::SolverParameter_Mode>() {
+  return ::BigBang::SolverParameter_Mode_descriptor();
 }
 
 }  // namespace protobuf

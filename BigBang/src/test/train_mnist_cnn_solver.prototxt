@@ -1,0 +1,251 @@
+mode: GPU
+train_iterations: 150000
+validate_iterations: 10
+test_validatedata_accuracy_per_train_iterations: 500
+train_batch_size: 10
+validate_batch_size: 1000
+lr: 0.01
+net_param {
+	name: "train_minst"
+  state: TRAIN
+  layer_param {
+    name: "data"
+    type: "Data"
+    data_layer_param {
+      batch_size: 10
+      cache_batch_count: 10
+      source: "D:/deeplearning/mnist_lmdb/mnist_train.mdb"
+			preprocess_params: {
+				scale: 0.00392156
+			}
+    }
+  }
+  layer_param {
+    name: "Conv1"
+    type: "Conv"
+    conv_layer_param {
+      kernel_groups: 20
+			kernel_channels: 1
+			kernel_h: 5
+			kernel_w: 5
+			stride_h: 1
+			stride_w: 1
+      use_bias: true
+      kernel_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "Pool1"
+    type: "Pooling"
+		pooling_layer_param {
+			kernel_h: 2
+			kernel_w: 2
+			stride_h: 2
+			stride_w: 2
+		}
+  }
+	layer_param {
+    name: "neuron1"
+    type: "Relu"
+  }
+	layer_param {
+    name: "Conv1"
+    type: "Conv"
+    conv_layer_param {
+      kernel_groups: 40
+			kernel_channels: 20
+			kernel_h: 5
+			kernel_w: 5
+			stride_h: 1
+			stride_w: 1
+      use_bias: true
+      kernel_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "Pool1"
+    type: "Pooling"
+		pooling_layer_param {
+			kernel_h: 2
+			kernel_w: 2
+			stride_h: 2
+			stride_w: 2
+		}
+  }
+	layer_param {
+    name: "neuron1"
+    type: "Relu"
+  }
+  layer_param {
+    name: "inner1"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 100
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "neuron1"
+    type: "Relu"
+  }
+	layer_param {
+    name: "inner2"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 10
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "end"
+    type: "SoftmaxCost"
+  }
+}
+net_param {
+	name: "test_minst"
+  state: VALIDATE
+  layer_param {
+    name: "data"
+    type: "Data"
+    data_layer_param {
+      batch_size: 1000
+      cache_batch_count: 1
+      source: "D:/deeplearning/mnist_lmdb/mnist_test.mdb"
+			preprocess_params: {
+				scale: 0.00392156
+			}
+    }
+  }
+  layer_param {
+    name: "Conv1"
+    type: "Conv"
+    conv_layer_param {
+      kernel_groups: 20
+			kernel_channels: 1
+			kernel_h: 5
+			kernel_w: 5
+			stride_h: 1
+			stride_w: 1
+      use_bias: true
+      kernel_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "Pool1"
+    type: "Pooling"
+		pooling_layer_param {
+			kernel_h: 2
+			kernel_w: 2
+			stride_h: 2
+			stride_w: 2
+		}
+  }
+	layer_param {
+    name: "neuron1"
+    type: "Relu"
+  }
+	layer_param {
+    name: "Conv1"
+    type: "Conv"
+    conv_layer_param {
+      kernel_groups: 40
+			kernel_channels: 20
+			kernel_h: 5
+			kernel_w: 5
+			stride_h: 1
+			stride_w: 1
+      use_bias: true
+      kernel_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "Pool1"
+    type: "Pooling"
+		pooling_layer_param {
+			kernel_h: 2
+			kernel_w: 2
+			stride_h: 2
+			stride_w: 2
+		}
+  }
+	layer_param {
+    name: "neuron1"
+    type: "Relu"
+  }
+	layer_param {
+    name: "inner1"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 100
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+  layer_param {
+    name: "neuron1"
+    type: "Relu"
+  }
+	layer_param {
+    name: "inner2"
+    type: "InnerProduct"
+    inner_product_layer_param {
+      output_nums: 10
+      use_bias: true
+      weight_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+				std: 0.001
+      }
+      bias_filler: {
+        type: GAUSSIAN_DISTRIBUTION
+      }
+    }
+  }
+	layer_param {
+    name: "neuron2"
+    type: "Softmax"
+  }
+}

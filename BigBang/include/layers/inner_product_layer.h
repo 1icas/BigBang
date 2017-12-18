@@ -25,8 +25,6 @@ public:
 	}
 	virtual ~InnerProductLayer() {}
 
-	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
-
 	virtual inline const char* Type() const override {
 		return INNER_PRODUCT_LAYER_TYPE;
 	}
@@ -52,14 +50,14 @@ protected:
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
+	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
+	virtual void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 
 protected:
 	std::shared_ptr<Tensor<dtype>> weights_;
 	std::shared_ptr<Tensor<dtype>> biases_;
 
 private:
-	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
-	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void UpdateParams_CPU(const dtype* bottom_data, const dtype* delta);
 	void UpdateParams_GPU(const dtype* bottom_data, const dtype* delta);
 
@@ -69,6 +67,7 @@ private:
 	/*FillerParameter weight_filler_;
 	FillerParameter bias_filler_;*/
 	std::shared_ptr<Tensor<dtype>> middle_;
+
 	//the data infomation
 	int nums_;
 	int bottom_row_;

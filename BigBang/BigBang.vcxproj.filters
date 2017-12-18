@@ -26,6 +26,15 @@
     <CudaCompile Include="src\layers\relu_layer.cu">
       <Filter>src\layers</Filter>
     </CudaCompile>
+    <CudaCompile Include="src\layers\softmax_cost_layer.cu">
+      <Filter>src\layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\layers\softmax_layer.cu">
+      <Filter>src\layers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="src\layers\dropout_layer.cu">
+      <Filter>src\layers</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -140,6 +149,48 @@
     </ClCompile>
     <ClCompile Include="src\test\convert_cifar10_lmdb.cpp">
       <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\thread.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\layers\data_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test_load_data_async.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\solver.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test_parse_text_proto.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\parse.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\convert_mnist_lmdb.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\layers\softmax_cost_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test_softmax_cost.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\layers\softmax_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\layers\dropout_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
+    <ClCompile Include="src\test\test_dropout.cpp">
+      <Filter>src\test</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util\data_preprocess.cpp">
+      <Filter>src\layers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -261,6 +312,30 @@
       <Filter>include\util</Filter>
     </ClInclude>
     <ClInclude Include="include\util\db_lmdb.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\thread_safe_queue.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\thread.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\data_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\parse.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\softmax_cost_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\softmax_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\dropout_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\util\data_preprocess.h">
       <Filter>include\util</Filter>
     </ClInclude>
   </ItemGroup>

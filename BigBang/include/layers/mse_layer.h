@@ -19,16 +19,16 @@ public:
 	virtual inline const char* Type() const override {
 		return MSE_LAYER_TYPE;
 	}
-	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 
 protected:
 	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
+	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 
 private:
-	virtual void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
+	std::shared_ptr<Tensor<dtype>> result_;
 };
 }
 

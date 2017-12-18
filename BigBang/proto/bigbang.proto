@@ -4,8 +4,31 @@ package BigBang;
 message FillerParameter {
 	enum FillerType {
 		GAUSSIAN_DISTRIBUTION = 0;	
+		XAVIER = 1;
 	};
 	optional FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+	optional float mean = 2 [default = 0.0];
+	optional float std = 3 [default = 1.0];
+};
+
+message DataPreprocessParameter {
+	//maybe we should scale the feature
+	//sometimes the input image fature's pixel is 0 - 255
+	//we also want normalize that to (0 - 1) simply
+	optional float scale = 1 [default = 1];
+	optional bytes mean_file = 2;
+};
+
+message Shape {
+	repeated int32 dim = 1;
+};
+
+message TensorProto {
+	optional Shape shape = 1;
+	repeated float f_data = 2;
+	repeated double d_data = 3;
+	repeated float f_diff = 4;
+	repeated double d_diff = 5;
 };
 
 message Datum {
@@ -15,6 +38,15 @@ message Datum {
 	optional bytes data = 4;
 	optional int32 label = 5;
 	repeated float f_data = 6;
+};
+
+message WeightDecayParameter {
+	enum DecayMethod {
+		NONE = 0;
+		L2REGULARIZATION = 1;
+	};
+	optional DecayMethod method = 1 [default = NONE];
+	optional float alpha = 2;
 };
 
 message PoolingLayerParameter {
@@ -28,6 +60,10 @@ message PoolingLayerParameter {
 	optional uint32 kernel_w = 3 [default = 1];
 	optional uint32 stride_h = 4 [default = 1];
 	optional uint32 stride_w = 5 [default = 1];
+};
+
+message DropoutLayerParameter {
+	optional float dropout_ratio = 1 [default = 0.5];
 };
 
 message ConvLayerParameter {
@@ -45,30 +81,59 @@ message ConvLayerParameter {
 }
 
 message InnerProductLayerParameter {
-	optional bool use_bias = 1;
+	optional uint32 output_nums = 1;
+	optional bool use_bias = 2;
 	optional FillerParameter weight_filler = 10;
 	optional FillerParameter bias_filler = 11;
 }
+
+
+message DataLayerParameter {
+	optional uint32 batch_size = 1;
+	optional uint32 cache_batch_count = 2;
+	optional string source = 3;
+	optional DataPreprocessParameter preprocess_params = 4;
+};
 
 message LayerParameter {
 	optional string name = 1;
 	optional string type = 2;
 
 	optional ConvLayerParameter conv_layer_param = 100;
-	optional InnerProductLayerParameter inner_product_layer_param = 101;
-	optional PoolingLayerParameter pooling_layer_param = 102;
+	optional DataLayerParameter data_layer_param = 101;
+	optional DropoutLayerParameter dropout_layer_param = 102;
+	optional InnerProductLayerParameter inner_product_layer_param = 103;
+	optional PoolingLayerParameter pooling_layer_param = 104;
 }
 
 message NetParameter {
+	enum State {
+		TRAIN = 0;
+		VALIDATE = 1;
+		TEST = 2;
+	};
 	optional string name = 1;
+	optional State state = 2;
 
 	repeated LayerParameter layer_param = 10;
 }
 
 message SolverParameter {
-	
-	optional NetParameter net_param = 1;
-	optional float lr = 2;
+	enum Mode {
+		CPU = 0;
+		GPU = 1;
+	}
+	optional Mode mode = 1;
+	optional uint32 train_iterations = 2;
+	optional uint32 validate_iterations = 3;
+	optional uint32 test_iterations = 4;
+	optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
+	optional uint32 test_testdata_accuracy_per_train_iterations = 6;
+	optional uint32 train_batch_size = 7;
+	optional uint32 validate_batch_size = 8;
+	optional uint32 test_batch_size = 9;
+	optional float lr = 10;
+	optional WeightDecayParameter weight_decay_param = 20;
 
-
+	repeated NetParameter net_param = 30;
 }

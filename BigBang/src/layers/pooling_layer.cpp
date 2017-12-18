@@ -72,36 +72,20 @@ template void MaxPoolBackward_CPU<double>(const int count, const double* input, 
 namespace BigBang {
 
 template<typename dtype>
-void PoolingLayer<dtype>::SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
-	VALIDATE_POINTER(bottom);
-	VALIDATE_POINTER(top);
-	Prepare(bottom, top);
-	Check(bottom, top);
-}
-
-template<typename dtype>
-void PoolingLayer<dtype>::Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
+void PoolingLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	CHECK_EQ(bottom->dimension(), DATA_DIMENSION);
-	CHECK_EQ(top->dimension(), DATA_DIMENSION);
 	nums_ = bottom->shape(0);
 	bottom_channels_ = bottom->shape(1);
 	bottom_row_ = bottom->shape(2);
 	bottom_column_ = bottom->shape(3);
+	const int h = (bottom_row_ - pool_h_) / stride_h_ + 1;;
+	const int w = (bottom_column_ - pool_w_) / stride_w_ + 1;
+	top->Reshape(std::vector<int>{nums_, bottom_channels_, h, w});
 	top_channels_ = top->shape(1);
 	top_row_ = top->shape(2);
 	top_column_ = top->shape(3);
 	max_pool_pos_ = std::make_shared<Tensor<int>>(std::vector<int>{nums_,
 		bottom_channels_, top_row_, top_column_});
-}
-
-template<typename dtype>
-void PoolingLayer<dtype>::Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
-	CHECK_EQ(top->shape(0), nums_);
-	CHECK_EQ(bottom_channels_, top_channels_);
-	const int h = (bottom_row_ - pool_h_) / stride_h_ + 1;;
-	const int w = (bottom_column_ - pool_w_) / stride_w_ + 1;
-	CHECK_EQ(top_row_, h);
-	CHECK_EQ(top_column_, w);
 }
 
 //ÔÝ²»¿¼ÂÇÖØµþ
@@ -111,9 +95,10 @@ void PoolingLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>
 	dtype* top_data = top->mutable_cpu_data();
 	switch (pooling_method_) {
 	case PoolingLayerParameter::MAX: {
+		const int top_size = top->size();
 		int* pos_data = max_pool_pos_->mutable_cpu_data();
 		for (int i = 0; i < nums_; ++i) {
-			MaxPool_CPU(top->size(), bottom_data + i * bottom_channels_*bottom_row_*bottom_column_, bottom_channels_, bottom_row_,
+			MaxPool_CPU(top_size, bottom_data + i * bottom_channels_*bottom_row_*bottom_column_, bottom_channels_, bottom_row_,
 				bottom_column_, pool_h_, pool_w_, stride_h_, stride_w_, pos_data + i*bottom_channels_*top_row_*top_column_,
 				top_data + i*bottom_channels_*top_row_*top_column_);
 		}

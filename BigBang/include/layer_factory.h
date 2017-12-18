@@ -34,7 +34,7 @@ public:
 
 	static std::shared_ptr<Layer<dtype>> CreateLayer(const LayerParameter& params) {
 		CreatorRegistry& registry = Registry();
-		std::string type = params.type_;
+		std::string type = params.type();
 		if (registry.count(type)) {
 			return registry[type](params);
 		}
@@ -42,6 +42,7 @@ public:
 		THROW_EXCEPTION;
 		return nullptr;
 	}
+
 };
 
 template<typename dtype>

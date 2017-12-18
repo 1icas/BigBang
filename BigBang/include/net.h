@@ -13,14 +13,19 @@ class Net {
 public:
 	explicit Net(const NetParameter& params) :
 		net_params_(params) {
-
+		Initialize();
 	}
 
-	void TrainDebug();
+	//void TrainDebug();
+	void Train();
+
+	int TestValidateData();
+
+	std::vector<std::shared_ptr<Layer<dtype>>> Layers() const {
+		return layers_;
+	}
 
 private:
-	void GenerateLayers();
-	void GenerateInput();
 
 	void Initialize();
 
@@ -30,6 +35,7 @@ private:
 	NetParameter net_params_;
 	std::vector<std::shared_ptr<Layer<dtype>>> layers_;
 	std::vector<std::shared_ptr<Tensor<dtype>>> input_;
+	std::shared_ptr<Tensor<dtype>> predicted_tensor_;
 
 };
 }

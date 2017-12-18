@@ -386,6 +386,8 @@ D:\vs2015\VC\include\xmemory
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\sys/timeb.h
 d:\git\bigbang\bigbang\src\util\../../include/config.h
 D:\CUDAInstalled\Development\include\cuda_runtime.h
+D:\CUDAInstalled\Development\include\curand.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
 D:\CUDAInstalled\Development\include\cublas_v2.h
 d:\cudainstalled\development\include\cublas_api.h
 d:\cudainstalled\development\include\driver_types.h

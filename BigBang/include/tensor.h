@@ -57,7 +57,7 @@ public:
 		const int n = shape.size();
 		if (!n) THROW_EXCEPTION;
 		int new_size = shape[0];
-		for (int i = 0; i < shape.size(); ++i) {
+		for (int i = 1; i < n; ++i) {
 			new_size *= shape[i];
 		}
 		if (uninitialized() || size_ < new_size) {
@@ -138,6 +138,11 @@ public:
 
 	void set_diff_data_offset(int offset) {
 		diff_data_offset_ = offset;
+	}
+
+	void Reset() {
+		if (data_) data_->Reset();
+		if (diff_data_) diff_data_->Reset();
 	}
 
 private:

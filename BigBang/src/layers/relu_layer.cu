@@ -16,7 +16,7 @@ __global__ void relu_backward(const int size, const dtype* bottom_data, const dt
 	dtype* bottom_diff_data) {
 	const int index = blockIdx.x * blockDim.x + threadIdx.x;
 	if (index < size) {
-		bottom_diff_data[index] = bottom_data[index] > 0 ? top_diff_data[index] * bottom_data[index] : 0;
+		bottom_diff_data[index] = bottom_data[index] > 0 ? top_diff_data[index] * 1 : 0;
 	}
 }
 

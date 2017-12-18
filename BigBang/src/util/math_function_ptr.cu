@@ -36,6 +36,38 @@ __global__ void gpu_mmadd(const dtype* a, const dtype* b,
 	}
 }
 
+template<typename dtype>
+__global__ void gpu_gen_git_label(const dtype* a, const int size, const int classes, dtype* b) {
+	const int index = blockIdx.x * blockDim.x + threadIdx.x;
+	if (index < size) {
+		b[index*classes + static_cast<int>(a[index] + 0.1)] = 1.;
+	}
+}
+
+template<typename dtype>
+__global__ void gpu_argmax(const dtype* a, const int row, const int column, dtype* b) {
+	const int index = blockIdx.x * blockDim.x + threadIdx.x;
+	if (index < row) {
+		dtype t = a[index*column];
+		int m = 0;
+		for (int k = 1; k < column; ++k) {
+			if (t < a[index*column + k]) {
+				t = a[index*column + k];
+				m = k;
+			}
+		}
+		b[index] = m;
+	}
+}
+
+template<typename dtype>
+__global__ void gpu_equal_count(const dtype* a, const dtype* b, const int size, int* count) {
+	const int index = blockIdx.x * blockDim.x + threadIdx.x;
+	if (index < size) {
+		if (a[index] == b[index]) atomicAdd(count, 1);
+	}
+}
+
 namespace BigBang {
 template<typename dtype>
 void bigbang_gpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {
@@ -104,5 +136,29 @@ template void bigbang_gpu_mmadd<float>(const float* a, const float* b,
 template void bigbang_gpu_mmadd<double>(const double* a, const double* b,
 	const int size, double* result);
 
+template<typename dtype>
+void bigbang_gpu_argmax(const dtype* a, const int row, const int column, dtype* b) {
+	gpu_argmax << <BigBangGetBlocks(row), THREAD_MAX_NUMS >> > (a, row, column, b);
+}
+template void bigbang_gpu_argmax<float>(const float* a, const int row, const int column, float* b);
+template void bigbang_gpu_argmax<double>(const double* a, const int row, const int column, double* b);
+
+template<typename dtype>
+void bigbang_gpu_equals_count(const dtype* a, const dtype* b, const int size, int* count) {
+	gpu_equal_count << <BigBangGetBlocks(size), THREAD_MAX_NUMS >> >(a, b, size, count) ;
+}
+template void bigbang_gpu_equals_count<float>(const float* a, const float* b, const int size, int* count);
+template void bigbang_gpu_equals_count<double>(const double* a, const double* b, const int size, int* count);
+
+template<typename dtype>
+void bigbang_gpu_gen_fit_label(const dtype* a, const int size, const int classes, dtype* b) {
+	gpu_gen_git_label << <BigBangGetBlocks(size), THREAD_MAX_NUMS >> > (a, size, classes, b);
+}
+template void bigbang_gpu_gen_fit_label<float>(const float* a, const int size, const int classes, float* b);
+template void bigbang_gpu_gen_fit_label<double>(const double* a, const int size, const int classes, double* b);
+
+void bigbang_gpu_random_uniform(const int size, unsigned int* output) {
+	curandGenerate(Config::Get().CurandGenerator(), output, size);
+}
 
 }

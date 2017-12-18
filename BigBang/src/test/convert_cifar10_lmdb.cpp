@@ -1,11 +1,11 @@
 #include <cassert>
 #include <fstream>
 #include <memory>
-#include <iomanip>
 #include <string>
-#include <sstream>
+
 
 #include "../../proto/bigbang.pb.h"
+#include "../../include/util.h"
 #include "../../include/util/db_lmdb.h"
 
 using namespace BigBang;
@@ -15,13 +15,6 @@ const int kBatchSize = 10000;
 const int kPixels = 3 * 32 * 32;
 const int height = 32;
 const int width = 32;
-
-std::string convert_int_string(const int n, const int align = 0) {
-	std::ostringstream s;
-	s << std::setw(align) << std::setfill('0') << n;
-	return s.str();
-}
-
 
 void convert(const std::string& input_folder, const std::string& output_folder) {
 
@@ -67,10 +60,57 @@ void test_read() {
 	std::shared_ptr<Cursor> cursor(lmdb->CreateCursor());
 	std::string key = cursor->key();
 	std::string value = cursor->value();
-	int end = 0;
 }
 
+void compute_cifar_mean(const std::string& file, const std::string& output) {
+	std::shared_ptr<DB> lmdb(new LMDB());
+	lmdb->Open(file, DBMode::READ);
+	std::shared_ptr<Cursor> cursor(lmdb->CreateCursor());
+	Datum datum;
+	datum.ParseFromString(cursor->value());
+	
+	TensorProto tp;
+	auto shape = tp.mutable_shape();
+	shape->add_dim(1);
+	shape->add_dim(datum.channels());
+	shape->add_dim(datum.height());
+	shape->add_dim(datum.width());
+	const int size = 1 * datum.channels() * datum.height() * datum.width();
+	for (int i = 0; i < size; ++i) {
+		tp.add_f_data(0.);
+	}
+	int count = 0;
+	while (cursor->valid()) {
+		Datum datum;
+		datum.ParseFromString(cursor->value());
+		const std::string& data = datum.data();
+
+		if (!data.empty()) {
+			for (int i = 0; i < size; ++i) {
+				tp.set_f_data(i, tp.f_data(i) + data[i]);
+			}
+		}
+		else {
+			for (int i = 0; i < size; ++i) {
+				tp.set_f_data(i, tp.f_data(i) + datum.f_data(i));
+			}
+		}
+		++count;
+		cursor->Next();
+	}
+
+	for (int i = 0; i < size; ++i) {
+		tp.set_f_data(i, tp.f_data(i) / count);
+	}
+
+	std::fstream fs(output, std::ios::out | std::ios::trunc | std::ios::binary);
+	tp.SerializeToOstream(&fs);
+}
+
+
+
 //int main() {
-//	convert("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb");
-//	test_read();
+	//convert("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb");
+	//test_read();
+//	compute_cifar_mean("D:/deeplearning/cifar_lmdb/cifar10_train.mdb", "D:/deeplearning/cifar_lmdb/cifar10_meam.t");
 //}

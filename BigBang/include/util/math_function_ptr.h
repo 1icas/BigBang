@@ -32,9 +32,6 @@ template<typename dtype>
 void bigbang_cpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c);
 
 template<typename dtype>
-void bigbang_gpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c);
-
-template<typename dtype>
 void bigbang_cpu_column_sum_plus(const dtype* a, const int row, const int column, dtype* b);
 
 template<typename dtype>
@@ -42,6 +39,24 @@ void row_sum_plus(const dtype* a, const int row, const int column, dtype* b);
 
 template<typename dtype>
 void GaussianDistribution(const dtype mean, const dtype std, const int size, dtype* b);
+
+template<typename dtype>
+void bigbang_cpu_gen_fit_label(const dtype* a, const int size, const int classes, dtype* b);
+
+template<typename dtype>
+void bigbang_cpu_argmax(const dtype* a, const int row, const int column, dtype* b);
+
+template<typename dtype>
+void bigbang_cpu_equals_percent(const dtype* a, const dtype* b, const int size, dtype* percent);
+
+template<typename dtype>
+void bigbang_cpu_equals_count(const dtype* a, const dtype* b, const int size, int* count);
+
+template<typename dtype>
+void bigbang_cpu_random_uniform(const int n, const dtype a, const dtype b, dtype* c);
+
+template<typename dtype>
+void bigbang_cpu_random_bernoulli(const int size, const dtype ratio, dtype* output);
 
 #ifndef CPU_ONLY
 
@@ -69,6 +84,19 @@ void bigbang_gpu_mmadd(
 	dtype* result
 );
 
+template<typename dtype>
+void bigbang_gpu_argmax(const dtype* a, const int row, const int column, dtype* b);
+
+template<typename dtype>
+void bigbang_gpu_equals_count(const dtype* a, const dtype* b, const int size, int* count);
+
+template<typename dtype>
+void bigbang_gpu_gen_fit_label(const dtype* a, const int size, const int classes, dtype* b);
+
+template<typename dtype>
+void bigbang_gpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c);
+
+void bigbang_gpu_random_uniform(const int size, unsigned int* output);
 
 #endif
 

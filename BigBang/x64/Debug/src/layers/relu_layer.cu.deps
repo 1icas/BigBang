@@ -306,24 +306,10 @@ d:\cudainstalled\development\include\vector_types.h
 d:\git\bigbang\bigbang\src\layers\../../include/layers/relu_layer.h
 d:\git\bigbang\bigbang\include\layers\activation_func_layer.h
 d:\git\bigbang\bigbang\include\layers\layer_type_macro.h
+d:\git\bigbang\bigbang\include\layers\../base.h
+D:\vs2015\VC\include\cassert
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
 d:\git\bigbang\bigbang\include\layers\../layer.h
-d:\git\bigbang\bigbang\include\config.h
-D:\CUDAInstalled\Development\include\cuda_runtime.h
-D:\CUDAInstalled\Development\include\cublas_v2.h
-d:\cudainstalled\development\include\cublas_api.h
-d:\cudainstalled\development\include\driver_types.h
-d:\cudainstalled\development\include\cuComplex.h
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h
-d:\cudainstalled\development\include\vector_types.h
-d:\cudainstalled\development\include\cuda_fp16.h
-d:\cudainstalled\development\include\library_types.h
-d:\git\bigbang\bigbang\include\base.h
-D:\vs2015\VC\include\cassert
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
-d:\git\bigbang\bigbang\include\gtest.h
-D:\vs2015\VC\include\cassert
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
-d:\git\bigbang\bigbang\include\tensor.h
 D:\vs2015\VC\include\memory
 D:\vs2015\VC\include\xmemory
 D:\vs2015\VC\include\xmemory0
@@ -388,6 +374,22 @@ D:\vs2015\VC\include\vcruntime.h
 D:\vs2015\VC\include\vector
 D:\vs2015\VC\include\stdexcept
 D:\vs2015\VC\include\xstring
+d:\git\bigbang\bigbang\include\config.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
+D:\CUDAInstalled\Development\include\curand.h
+D:\CUDAInstalled\Development\include\cuda_runtime.h
+D:\CUDAInstalled\Development\include\cublas_v2.h
+d:\cudainstalled\development\include\cublas_api.h
+d:\cudainstalled\development\include\driver_types.h
+d:\cudainstalled\development\include\cuComplex.h
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\math.h
+d:\cudainstalled\development\include\vector_types.h
+d:\cudainstalled\development\include\cuda_fp16.h
+d:\cudainstalled\development\include\library_types.h
+d:\git\bigbang\bigbang\include\gtest.h
+D:\vs2015\VC\include\cassert
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\assert.h
+d:\git\bigbang\bigbang\include\tensor.h
 d:\git\bigbang\bigbang\include\log.h
 d:\git\bigbang\bigbang\include\synced_memory.h
 D:\CUDAInstalled\Development\include\cuda_runtime.h

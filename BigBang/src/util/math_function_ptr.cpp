@@ -161,6 +161,8 @@ template void plus<double>(const double* a, const int size, const double m, doub
 template <typename dtype>
 void bigbang_cpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {
 	for (int i = 0; i < size; ++i) {
+		auto a_v = a[i];
+		auto b_v = b[i];
 		c[i] = a[i] - alpha*b[i];
 	}
 }
@@ -193,18 +195,89 @@ template void row_sum_plus<double>(const double* a, const int row, const int col
 
 template<typename dtype>
 void GaussianDistribution(const dtype mean, const dtype std, const int size, dtype* b) {
-	//std::default_random_engine e(GenerateSeed());
-	//std::uniform_real_distribution<dtype> urd(mean, std);
-	//for (int i = 0; i < size; ++i) {
-	//	b[i] = urd(e);
-	//}
-	std::knuth_b kb;
+	std::default_random_engine e(GenerateSeed());
+	std::normal_distribution<dtype> urd(mean, std);
+	for (int i = 0; i < size; ++i) {
+		b[i] = urd(e);
+	}
+	/*std::knuth_b kb;
 	std::normal_distribution<dtype> nd;
 	for (int i = 0; i < size; ++i) {
 		b[i] = nd(kb);
-	}
+	}*/
 }
 template void GaussianDistribution<float>(const float mean, const float std, const int size, float* b);
 template void GaussianDistribution<double>(const double mean, const double std, const int size, double* b);
 
+template<typename dtype>
+void bigbang_cpu_argmax(const dtype* a, const int row, const int column, dtype* b) {
+	for (int i = 0; i < row; ++i) {
+		dtype t = a[i*column];
+		int m = 0;
+		for (int k = 1; k < column; ++k) {
+			if (t < a[i*column + k]) {
+				t = a[i*column + k];
+				m = k;
+			}
+		}
+		b[i] = m;
+	}
+}
+template void bigbang_cpu_argmax<float>(const float* a, const int row, const int column, float* b);
+template void bigbang_cpu_argmax<double>(const double* a, const int row, const int column, double* b);
+
+template<typename dtype>
+void bigbang_cpu_equals_percent(const dtype* a, const dtype* b, const int size, dtype* percent) {
+	int c = 0;
+	for (int i = 0; i < size; ++i) {
+		if (a[i] == b[i]) ++c;
+	}
+	*percent = c / size;
+}
+template void bigbang_cpu_equals_percent<float>(const float* a, const float* b, const int size, float* percent);
+template void bigbang_cpu_equals_percent<double>(const double* a, const double* b, const int size, double* percent);
+
+template<typename dtype>
+void bigbang_cpu_equals_count(const dtype* a, const dtype* b, const int size, int* count) {
+	int c = 0;
+	for (int i = 0; i < size; ++i) {
+		if (a[i] == b[i]) ++c;
+	}
+	*count = c;
+}
+template void bigbang_cpu_equals_count<float>(const float* a, const float* b, const int size, int* count);
+template void bigbang_cpu_equals_count<double>(const double* a, const double* b, const int size, int* count);
+
+
+template<typename dtype>
+void bigbang_cpu_gen_fit_label(const dtype* a, const int size, const int classes, dtype* b) {
+	for (int i = 0; i < size; ++i) {
+		//TODO£º
+		b[i*classes + static_cast<int>(a[i] + 0.1)] = 1;
+	}
+}
+template void bigbang_cpu_gen_fit_label<float>(const float* a, const int size, const int classes, float* b);
+template void bigbang_cpu_gen_fit_label<double>(const double* a, const int size, const int classes, double* b);
+
+template<typename dtype>
+void bigbang_cpu_random_uniform(const int n, const dtype a, const dtype b, dtype* c) {
+	std::uniform_real_distribution<dtype> distribution(a, b);
+	std::mt19937 mt;
+	for (int i = 0; i < n; ++i) {
+		c[i] = distribution(mt);
+	}
+}
+template void bigbang_cpu_random_uniform<float>(const int n, const float a, const float b, float* c);
+template void bigbang_cpu_random_uniform<double>(const int n, const double a, const double b, double* c);
+
+template<typename dtype>
+void bigbang_cpu_random_bernoulli(const int size, const dtype ratio, dtype* output) {
+	std::bernoulli_distribution bd(ratio);
+	std::mt19937 mt;
+	for (int i = 0; i < size; ++i) {
+		output[i] = bd(mt);
+	}
+}
+template void bigbang_cpu_random_bernoulli<float>(const int size, const float ratio, float* output);
+template void bigbang_cpu_random_bernoulli<double>(const int size, const double ratio, double* output);
 }

@@ -34,24 +34,22 @@ public:
 	virtual inline const char* Type() const override {
 		return CONV_LAYER_TYPE;
 	}
-	virtual void SetUp(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 
 protected:
 	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
+	// check the bootom tensor and top tensor format
+	// guarantee all the tensor have the right dimension info
+	virtual void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
+	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 
 protected:
 	std::shared_ptr<Tensor<dtype>> kernels_;
 	std::shared_ptr<Tensor<dtype>> biases_;
 
 private:
-
-	// check the bootom tensor and top tensor format
-	// guarantee all the tensor have the right dimension info
-	void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
-	void Prepare(const Tensor<dtype>* bottom, const Tensor<dtype>* top);
 	void UpdateParams_CPU(const dtype* bottom_data, const dtype* delta);
 	void UpdateParams_GPU(const dtype* bottom_data, const dtype* delta);
 

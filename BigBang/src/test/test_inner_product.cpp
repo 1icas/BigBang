@@ -8,9 +8,11 @@ public:
 
 	void set_weight(const std::shared_ptr<Tensor<dtype>>& weight) {
 		weights_ = weight;
+		learnable_params_[0] = weight;
 	}
 	void set_bias(const std::shared_ptr<Tensor<dtype>>& bias) {
 		biases_ = bias;
+		learnable_params_[1] = bias;
 	}
 };
 
@@ -35,6 +37,7 @@ void Test::TestInnerProduct() {
 
 	LayerParameter l_p;
 	auto inner_params = l_p.mutable_inner_product_layer_param();
+	inner_params->set_output_nums(2);
 	inner_params->set_use_bias(true);
 	auto k_f = inner_params->mutable_weight_filler();
 	k_f->set_type(FillerParameter::GAUSSIAN_DISTRIBUTION);
@@ -74,6 +77,7 @@ void Test::TestInnerProductBackward() {
 
 	LayerParameter l_p;
 	auto inner_params = l_p.mutable_inner_product_layer_param();
+	inner_params->set_output_nums(3);
 	inner_params->set_use_bias(true);
 	auto k_f = inner_params->mutable_weight_filler();
 	k_f->set_type(FillerParameter::GAUSSIAN_DISTRIBUTION);
