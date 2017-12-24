@@ -43,11 +43,11 @@ public:
 	}*/
 
 	void set_kernel(const std::shared_ptr<Tensor<dtype>>& kernel) {
-		kernels_ = kernel;
+		learnable_params_[0] = kernel;
 	}
 
 	void set_bias(const std::shared_ptr<Tensor<dtype>>& bias) {
-		biases_ = bias;
+		learnable_params_[1] = bias;
 	}
 
 };
