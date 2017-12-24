@@ -37,7 +37,7 @@ namespace protobuf_bigbang_2eproto {
 struct TableStruct {
   static const ::google::protobuf::internal::ParseTableField entries[];
   static const ::google::protobuf::internal::AuxillaryParseTableField aux[];
-  static const ::google::protobuf::internal::ParseTable schema[14];
+  static const ::google::protobuf::internal::ParseTable schema[15];
   static const ::google::protobuf::internal::FieldMetadata field_metadata[];
   static const ::google::protobuf::internal::SerializationTable serialization_table[];
   static const ::google::protobuf::uint32 offsets[];
@@ -51,6 +51,8 @@ void InitDefaultsShapeImpl();
 void InitDefaultsShape();
 void InitDefaultsTensorProtoImpl();
 void InitDefaultsTensorProto();
+void InitDefaultsTensorProtoVectorImpl();
+void InitDefaultsTensorProtoVector();
 void InitDefaultsDatumImpl();
 void InitDefaultsDatum();
 void InitDefaultsWeightDecayParameterImpl();
@@ -76,6 +78,7 @@ inline void InitDefaults() {
   InitDefaultsDataPreprocessParameter();
   InitDefaultsShape();
   InitDefaultsTensorProto();
+  InitDefaultsTensorProtoVector();
   InitDefaultsDatum();
   InitDefaultsWeightDecayParameter();
   InitDefaultsPoolingLayerParameter();
@@ -128,6 +131,9 @@ extern SolverParameterDefaultTypeInternal _SolverParameter_default_instance_;
 class TensorProto;
 class TensorProtoDefaultTypeInternal;
 extern TensorProtoDefaultTypeInternal _TensorProto_default_instance_;
+class TensorProtoVector;
+class TensorProtoVectorDefaultTypeInternal;
+extern TensorProtoVectorDefaultTypeInternal _TensorProtoVector_default_instance_;
 class WeightDecayParameter;
 class WeightDecayParameterDefaultTypeInternal;
 extern WeightDecayParameterDefaultTypeInternal _WeightDecayParameter_default_instance_;
@@ -793,6 +799,129 @@ class TensorProto : public ::google::protobuf::Message /* @@protoc_insertion_poi
 };
 // -------------------------------------------------------------------
 
+class TensorProtoVector : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.TensorProtoVector) */ {
+ public:
+  TensorProtoVector();
+  virtual ~TensorProtoVector();
+
+  TensorProtoVector(const TensorProtoVector& from);
+
+  inline TensorProtoVector& operator=(const TensorProtoVector& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  #if LANG_CXX11
+  TensorProtoVector(TensorProtoVector&& from) noexcept
+    : TensorProtoVector() {
+    *this = ::std::move(from);
+  }
+
+  inline TensorProtoVector& operator=(TensorProtoVector&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+  #endif
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields();
+  }
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields();
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const TensorProtoVector& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const TensorProtoVector* internal_default_instance() {
+    return reinterpret_cast<const TensorProtoVector*>(
+               &_TensorProtoVector_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(TensorProtoVector* other);
+  friend void swap(TensorProtoVector& a, TensorProtoVector& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline TensorProtoVector* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  TensorProtoVector* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const TensorProtoVector& from);
+  void MergeFrom(const TensorProtoVector& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(TensorProtoVector* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .BigBang.TensorProto tensor = 2;
+  int tensor_size() const;
+  void clear_tensor();
+  static const int kTensorFieldNumber = 2;
+  const ::BigBang::TensorProto& tensor(int index) const;
+  ::BigBang::TensorProto* mutable_tensor(int index);
+  ::BigBang::TensorProto* add_tensor();
+  ::google::protobuf::RepeatedPtrField< ::BigBang::TensorProto >*
+      mutable_tensor();
+  const ::google::protobuf::RepeatedPtrField< ::BigBang::TensorProto >&
+      tensor() const;
+
+  // optional int32 size = 1;
+  bool has_size() const;
+  void clear_size();
+  static const int kSizeFieldNumber = 1;
+  ::google::protobuf::int32 size() const;
+  void set_size(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:BigBang.TensorProtoVector)
+ private:
+  void set_has_size();
+  void clear_has_size();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::HasBits<1> _has_bits_;
+  mutable int _cached_size_;
+  ::google::protobuf::RepeatedPtrField< ::BigBang::TensorProto > tensor_;
+  ::google::protobuf::int32 size_;
+  friend struct ::protobuf_bigbang_2eproto::TableStruct;
+  friend void ::protobuf_bigbang_2eproto::InitDefaultsTensorProtoVectorImpl();
+};
+// -------------------------------------------------------------------
+
 class Datum : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:BigBang.Datum) */ {
  public:
   Datum();
@@ -835,7 +964,7 @@ class Datum : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
                &_Datum_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    4;
+    5;
 
   void Swap(Datum* other);
   friend void swap(Datum& a, Datum& b) {
@@ -1006,7 +1135,7 @@ class WeightDecayParameter : public ::google::protobuf::Message /* @@protoc_inse
                &_WeightDecayParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    5;
+    6;
 
   void Swap(WeightDecayParameter* other);
   friend void swap(WeightDecayParameter& a, WeightDecayParameter& b) {
@@ -1152,7 +1281,7 @@ class PoolingLayerParameter : public ::google::protobuf::Message /* @@protoc_ins
                &_PoolingLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    6;
+    7;
 
   void Swap(PoolingLayerParameter* other);
   friend void swap(PoolingLayerParameter& a, PoolingLayerParameter& b) {
@@ -1328,7 +1457,7 @@ class DropoutLayerParameter : public ::google::protobuf::Message /* @@protoc_ins
                &_DropoutLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    7;
+    8;
 
   void Swap(DropoutLayerParameter* other);
   friend void swap(DropoutLayerParameter& a, DropoutLayerParameter& b) {
@@ -1438,7 +1567,7 @@ class ConvLayerParameter : public ::google::protobuf::Message /* @@protoc_insert
                &_ConvLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    8;
+    9;
 
   void Swap(ConvLayerParameter* other);
   friend void swap(ConvLayerParameter& a, ConvLayerParameter& b) {
@@ -1652,7 +1781,7 @@ class InnerProductLayerParameter : public ::google::protobuf::Message /* @@proto
                &_InnerProductLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    9;
+    10;
 
   void Swap(InnerProductLayerParameter* other);
   friend void swap(InnerProductLayerParameter& a, InnerProductLayerParameter& b) {
@@ -1796,7 +1925,7 @@ class DataLayerParameter : public ::google::protobuf::Message /* @@protoc_insert
                &_DataLayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    10;
+    11;
 
   void Swap(DataLayerParameter* other);
   friend void swap(DataLayerParameter& a, DataLayerParameter& b) {
@@ -1946,7 +2075,7 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
                &_LayerParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    11;
+    12;
 
   void Swap(LayerParameter* other);
   friend void swap(LayerParameter& a, LayerParameter& b) {
@@ -2142,7 +2271,7 @@ class NetParameter : public ::google::protobuf::Message /* @@protoc_insertion_po
                &_NetParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    12;
+    13;
 
   void Swap(NetParameter* other);
   friend void swap(NetParameter& a, NetParameter& b) {
@@ -2311,7 +2440,7 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
                &_SolverParameter_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    13;
+    14;
 
   void Swap(SolverParameter* other);
   friend void swap(SolverParameter& a, SolverParameter& b) {
@@ -2396,6 +2525,36 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   const ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >&
       net_param() const;
 
+  // optional string read_model_dir = 12;
+  bool has_read_model_dir() const;
+  void clear_read_model_dir();
+  static const int kReadModelDirFieldNumber = 12;
+  const ::std::string& read_model_dir() const;
+  void set_read_model_dir(const ::std::string& value);
+  #if LANG_CXX11
+  void set_read_model_dir(::std::string&& value);
+  #endif
+  void set_read_model_dir(const char* value);
+  void set_read_model_dir(const char* value, size_t size);
+  ::std::string* mutable_read_model_dir();
+  ::std::string* release_read_model_dir();
+  void set_allocated_read_model_dir(::std::string* read_model_dir);
+
+  // optional string write_model_dir = 13;
+  bool has_write_model_dir() const;
+  void clear_write_model_dir();
+  static const int kWriteModelDirFieldNumber = 13;
+  const ::std::string& write_model_dir() const;
+  void set_write_model_dir(const ::std::string& value);
+  #if LANG_CXX11
+  void set_write_model_dir(::std::string&& value);
+  #endif
+  void set_write_model_dir(const char* value);
+  void set_write_model_dir(const char* value, size_t size);
+  ::std::string* mutable_write_model_dir();
+  ::std::string* release_write_model_dir();
+  void set_allocated_write_model_dir(::std::string* write_model_dir);
+
   // optional .BigBang.WeightDecayParameter weight_decay_param = 20;
   bool has_weight_decay_param() const;
   void clear_weight_decay_param();
@@ -2475,6 +2634,13 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   float lr() const;
   void set_lr(float value);
 
+  // optional float momentum_ratio = 11;
+  bool has_momentum_ratio() const;
+  void clear_momentum_ratio();
+  static const int kMomentumRatioFieldNumber = 11;
+  float momentum_ratio() const;
+  void set_momentum_ratio(float value);
+
   // @@protoc_insertion_point(class_scope:BigBang.SolverParameter)
  private:
   void set_has_mode();
@@ -2497,6 +2663,12 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_test_batch_size();
   void set_has_lr();
   void clear_has_lr();
+  void set_has_momentum_ratio();
+  void clear_has_momentum_ratio();
+  void set_has_read_model_dir();
+  void clear_has_read_model_dir();
+  void set_has_write_model_dir();
+  void clear_has_write_model_dir();
   void set_has_weight_decay_param();
   void clear_has_weight_decay_param();
 
@@ -2504,6 +2676,8 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter > net_param_;
+  ::google::protobuf::internal::ArenaStringPtr read_model_dir_;
+  ::google::protobuf::internal::ArenaStringPtr write_model_dir_;
   ::BigBang::WeightDecayParameter* weight_decay_param_;
   int mode_;
   ::google::protobuf::uint32 train_iterations_;
@@ -2515,6 +2689,7 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::uint32 validate_batch_size_;
   ::google::protobuf::uint32 test_batch_size_;
   float lr_;
+  float momentum_ratio_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsSolverParameterImpl();
 };
@@ -2903,6 +3078,64 @@ inline ::google::protobuf::RepeatedField< double >*
 TensorProto::mutable_d_diff() {
   // @@protoc_insertion_point(field_mutable_list:BigBang.TensorProto.d_diff)
   return &d_diff_;
+}
+
+// -------------------------------------------------------------------
+
+// TensorProtoVector
+
+// optional int32 size = 1;
+inline bool TensorProtoVector::has_size() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void TensorProtoVector::set_has_size() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void TensorProtoVector::clear_has_size() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void TensorProtoVector::clear_size() {
+  size_ = 0;
+  clear_has_size();
+}
+inline ::google::protobuf::int32 TensorProtoVector::size() const {
+  // @@protoc_insertion_point(field_get:BigBang.TensorProtoVector.size)
+  return size_;
+}
+inline void TensorProtoVector::set_size(::google::protobuf::int32 value) {
+  set_has_size();
+  size_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.TensorProtoVector.size)
+}
+
+// repeated .BigBang.TensorProto tensor = 2;
+inline int TensorProtoVector::tensor_size() const {
+  return tensor_.size();
+}
+inline void TensorProtoVector::clear_tensor() {
+  tensor_.Clear();
+}
+inline const ::BigBang::TensorProto& TensorProtoVector::tensor(int index) const {
+  // @@protoc_insertion_point(field_get:BigBang.TensorProtoVector.tensor)
+  return tensor_.Get(index);
+}
+inline ::BigBang::TensorProto* TensorProtoVector::mutable_tensor(int index) {
+  // @@protoc_insertion_point(field_mutable:BigBang.TensorProtoVector.tensor)
+  return tensor_.Mutable(index);
+}
+inline ::BigBang::TensorProto* TensorProtoVector::add_tensor() {
+  // @@protoc_insertion_point(field_add:BigBang.TensorProtoVector.tensor)
+  return tensor_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::BigBang::TensorProto >*
+TensorProtoVector::mutable_tensor() {
+  // @@protoc_insertion_point(field_mutable_list:BigBang.TensorProtoVector.tensor)
+  return &tensor_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::BigBang::TensorProto >&
+TensorProtoVector::tensor() const {
+  // @@protoc_insertion_point(field_list:BigBang.TensorProtoVector.tensor)
+  return tensor_;
 }
 
 // -------------------------------------------------------------------
@@ -4489,13 +4722,13 @@ NetParameter::layer_param() const {
 
 // optional .BigBang.SolverParameter.Mode mode = 1;
 inline bool SolverParameter::has_mode() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void SolverParameter::set_has_mode() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void SolverParameter::clear_has_mode() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void SolverParameter::clear_mode() {
   mode_ = 0;
@@ -4514,13 +4747,13 @@ inline void SolverParameter::set_mode(::BigBang::SolverParameter_Mode value) {
 
 // optional uint32 train_iterations = 2;
 inline bool SolverParameter::has_train_iterations() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void SolverParameter::set_has_train_iterations() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void SolverParameter::clear_has_train_iterations() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void SolverParameter::clear_train_iterations() {
   train_iterations_ = 0u;
@@ -4538,13 +4771,13 @@ inline void SolverParameter::set_train_iterations(::google::protobuf::uint32 val
 
 // optional uint32 validate_iterations = 3;
 inline bool SolverParameter::has_validate_iterations() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void SolverParameter::set_has_validate_iterations() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void SolverParameter::clear_has_validate_iterations() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void SolverParameter::clear_validate_iterations() {
   validate_iterations_ = 0u;
@@ -4562,13 +4795,13 @@ inline void SolverParameter::set_validate_iterations(::google::protobuf::uint32 
 
 // optional uint32 test_iterations = 4;
 inline bool SolverParameter::has_test_iterations() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000040u) != 0;
 }
 inline void SolverParameter::set_has_test_iterations() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000040u;
 }
 inline void SolverParameter::clear_has_test_iterations() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000040u;
 }
 inline void SolverParameter::clear_test_iterations() {
   test_iterations_ = 0u;
@@ -4586,13 +4819,13 @@ inline void SolverParameter::set_test_iterations(::google::protobuf::uint32 valu
 
 // optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
 inline bool SolverParameter::has_test_validatedata_accuracy_per_train_iterations() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000080u) != 0;
 }
 inline void SolverParameter::set_has_test_validatedata_accuracy_per_train_iterations() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000080u;
 }
 inline void SolverParameter::clear_has_test_validatedata_accuracy_per_train_iterations() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000080u;
 }
 inline void SolverParameter::clear_test_validatedata_accuracy_per_train_iterations() {
   test_validatedata_accuracy_per_train_iterations_ = 0u;
@@ -4610,13 +4843,13 @@ inline void SolverParameter::set_test_validatedata_accuracy_per_train_iterations
 
 // optional uint32 test_testdata_accuracy_per_train_iterations = 6;
 inline bool SolverParameter::has_test_testdata_accuracy_per_train_iterations() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void SolverParameter::set_has_test_testdata_accuracy_per_train_iterations() {
-  _has_bits_[0] |= 0x00000040u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void SolverParameter::clear_has_test_testdata_accuracy_per_train_iterations() {
-  _has_bits_[0] &= ~0x00000040u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void SolverParameter::clear_test_testdata_accuracy_per_train_iterations() {
   test_testdata_accuracy_per_train_iterations_ = 0u;
@@ -4634,13 +4867,13 @@ inline void SolverParameter::set_test_testdata_accuracy_per_train_iterations(::g
 
 // optional uint32 train_batch_size = 7;
 inline bool SolverParameter::has_train_batch_size() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void SolverParameter::set_has_train_batch_size() {
-  _has_bits_[0] |= 0x00000080u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void SolverParameter::clear_has_train_batch_size() {
-  _has_bits_[0] &= ~0x00000080u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void SolverParameter::clear_train_batch_size() {
   train_batch_size_ = 0u;
@@ -4658,13 +4891,13 @@ inline void SolverParameter::set_train_batch_size(::google::protobuf::uint32 val
 
 // optional uint32 validate_batch_size = 8;
 inline bool SolverParameter::has_validate_batch_size() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void SolverParameter::set_has_validate_batch_size() {
-  _has_bits_[0] |= 0x00000100u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void SolverParameter::clear_has_validate_batch_size() {
-  _has_bits_[0] &= ~0x00000100u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void SolverParameter::clear_validate_batch_size() {
   validate_batch_size_ = 0u;
@@ -4682,13 +4915,13 @@ inline void SolverParameter::set_validate_batch_size(::google::protobuf::uint32 
 
 // optional uint32 test_batch_size = 9;
 inline bool SolverParameter::has_test_batch_size() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void SolverParameter::set_has_test_batch_size() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void SolverParameter::clear_has_test_batch_size() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void SolverParameter::clear_test_batch_size() {
   test_batch_size_ = 0u;
@@ -4706,13 +4939,13 @@ inline void SolverParameter::set_test_batch_size(::google::protobuf::uint32 valu
 
 // optional float lr = 10;
 inline bool SolverParameter::has_lr() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
+  return (_has_bits_[0] & 0x00001000u) != 0;
 }
 inline void SolverParameter::set_has_lr() {
-  _has_bits_[0] |= 0x00000400u;
+  _has_bits_[0] |= 0x00001000u;
 }
 inline void SolverParameter::clear_has_lr() {
-  _has_bits_[0] &= ~0x00000400u;
+  _has_bits_[0] &= ~0x00001000u;
 }
 inline void SolverParameter::clear_lr() {
   lr_ = 0;
@@ -4728,15 +4961,165 @@ inline void SolverParameter::set_lr(float value) {
   // @@protoc_insertion_point(field_set:BigBang.SolverParameter.lr)
 }
 
-// optional .BigBang.WeightDecayParameter weight_decay_param = 20;
-inline bool SolverParameter::has_weight_decay_param() const {
+// optional float momentum_ratio = 11;
+inline bool SolverParameter::has_momentum_ratio() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void SolverParameter::set_has_momentum_ratio() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void SolverParameter::clear_has_momentum_ratio() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void SolverParameter::clear_momentum_ratio() {
+  momentum_ratio_ = 0;
+  clear_has_momentum_ratio();
+}
+inline float SolverParameter::momentum_ratio() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.momentum_ratio)
+  return momentum_ratio_;
+}
+inline void SolverParameter::set_momentum_ratio(float value) {
+  set_has_momentum_ratio();
+  momentum_ratio_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.momentum_ratio)
+}
+
+// optional string read_model_dir = 12;
+inline bool SolverParameter::has_read_model_dir() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void SolverParameter::set_has_weight_decay_param() {
+inline void SolverParameter::set_has_read_model_dir() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void SolverParameter::clear_has_weight_decay_param() {
+inline void SolverParameter::clear_has_read_model_dir() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void SolverParameter::clear_read_model_dir() {
+  read_model_dir_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_read_model_dir();
+}
+inline const ::std::string& SolverParameter::read_model_dir() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.read_model_dir)
+  return read_model_dir_.GetNoArena();
+}
+inline void SolverParameter::set_read_model_dir(const ::std::string& value) {
+  set_has_read_model_dir();
+  read_model_dir_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.read_model_dir)
+}
+#if LANG_CXX11
+inline void SolverParameter::set_read_model_dir(::std::string&& value) {
+  set_has_read_model_dir();
+  read_model_dir_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.SolverParameter.read_model_dir)
+}
+#endif
+inline void SolverParameter::set_read_model_dir(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_read_model_dir();
+  read_model_dir_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.SolverParameter.read_model_dir)
+}
+inline void SolverParameter::set_read_model_dir(const char* value, size_t size) {
+  set_has_read_model_dir();
+  read_model_dir_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:BigBang.SolverParameter.read_model_dir)
+}
+inline ::std::string* SolverParameter::mutable_read_model_dir() {
+  set_has_read_model_dir();
+  // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.read_model_dir)
+  return read_model_dir_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SolverParameter::release_read_model_dir() {
+  // @@protoc_insertion_point(field_release:BigBang.SolverParameter.read_model_dir)
+  clear_has_read_model_dir();
+  return read_model_dir_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SolverParameter::set_allocated_read_model_dir(::std::string* read_model_dir) {
+  if (read_model_dir != NULL) {
+    set_has_read_model_dir();
+  } else {
+    clear_has_read_model_dir();
+  }
+  read_model_dir_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), read_model_dir);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.read_model_dir)
+}
+
+// optional string write_model_dir = 13;
+inline bool SolverParameter::has_write_model_dir() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void SolverParameter::set_has_write_model_dir() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void SolverParameter::clear_has_write_model_dir() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void SolverParameter::clear_write_model_dir() {
+  write_model_dir_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  clear_has_write_model_dir();
+}
+inline const ::std::string& SolverParameter::write_model_dir() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.write_model_dir)
+  return write_model_dir_.GetNoArena();
+}
+inline void SolverParameter::set_write_model_dir(const ::std::string& value) {
+  set_has_write_model_dir();
+  write_model_dir_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.write_model_dir)
+}
+#if LANG_CXX11
+inline void SolverParameter::set_write_model_dir(::std::string&& value) {
+  set_has_write_model_dir();
+  write_model_dir_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:BigBang.SolverParameter.write_model_dir)
+}
+#endif
+inline void SolverParameter::set_write_model_dir(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  set_has_write_model_dir();
+  write_model_dir_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:BigBang.SolverParameter.write_model_dir)
+}
+inline void SolverParameter::set_write_model_dir(const char* value, size_t size) {
+  set_has_write_model_dir();
+  write_model_dir_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:BigBang.SolverParameter.write_model_dir)
+}
+inline ::std::string* SolverParameter::mutable_write_model_dir() {
+  set_has_write_model_dir();
+  // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.write_model_dir)
+  return write_model_dir_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* SolverParameter::release_write_model_dir() {
+  // @@protoc_insertion_point(field_release:BigBang.SolverParameter.write_model_dir)
+  clear_has_write_model_dir();
+  return write_model_dir_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void SolverParameter::set_allocated_write_model_dir(::std::string* write_model_dir) {
+  if (write_model_dir != NULL) {
+    set_has_write_model_dir();
+  } else {
+    clear_has_write_model_dir();
+  }
+  write_model_dir_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), write_model_dir);
+  // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.write_model_dir)
+}
+
+// optional .BigBang.WeightDecayParameter weight_decay_param = 20;
+inline bool SolverParameter::has_weight_decay_param() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void SolverParameter::set_has_weight_decay_param() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void SolverParameter::clear_has_weight_decay_param() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void SolverParameter::clear_weight_decay_param() {
   if (weight_decay_param_ != NULL) weight_decay_param_->Clear();
@@ -4815,6 +5198,8 @@ SolverParameter::net_param() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

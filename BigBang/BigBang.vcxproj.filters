@@ -34,6 +34,9 @@
     <CudaCompile Include="src\layers\dropout_layer.cu">
       <Filter>src\layers</Filter>
     </CudaCompile>
+    <CudaCompile Include="src\layers\log_likelihood_layer.cu">
+      <Filter>src\layers</Filter>
+    </CudaCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include">
@@ -194,6 +197,9 @@
     <ClCompile Include="src\test\train_cifar10.cpp">
       <Filter>src\test</Filter>
     </ClCompile>
+    <ClCompile Include="src\layers\log_likelihood_layer.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\big_bang.h">
@@ -339,6 +345,9 @@
     </ClInclude>
     <ClInclude Include="include\util\data_preprocess.h">
       <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\log_likelihood_layer.h">
+      <Filter>include\layers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

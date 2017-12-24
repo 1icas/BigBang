@@ -68,6 +68,14 @@ __global__ void gpu_equal_count(const dtype* a, const dtype* b, const int size, 
 	}
 }
 
+template<typename dtype>
+__global__ void gpu_plus(const dtype* a, const int size, const dtype alpha, const dtype beta, dtype* b) {
+	const int index = blockIdx.x * blockDim.x + threadIdx.x;
+	if (index < size) {
+		b[index] = beta*b[index] + alpha*a[index];
+	}
+}
+
 namespace BigBang {
 template<typename dtype>
 void bigbang_gpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {
@@ -160,5 +168,13 @@ template void bigbang_gpu_gen_fit_label<double>(const double* a, const int size,
 void bigbang_gpu_random_uniform(const int size, unsigned int* output) {
 	curandGenerate(Config::Get().CurandGenerator(), output, size);
 }
+
+template<typename dtype>
+void bigbang_gpu_plus(const dtype* a, const int size, const dtype alpha, const dtype beta, dtype* b) {
+	gpu_plus << <BigBangGetBlocks(size), THREAD_MAX_NUMS >> > (a, size, alpha, beta, b);
+}
+
+template void bigbang_gpu_plus<float>(const float* a, const int size, const float alpha, const float beta, float* b);
+template void bigbang_gpu_plus<double>(const double* a, const int size, const double alpha, const double beta, double* b);
 
 }

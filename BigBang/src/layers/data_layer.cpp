@@ -5,6 +5,7 @@
 #include "../../include/config.h"
 #include "../../include/gtest.h"
 #include "../../include/layer_factory.h"
+#include "../../include/util/math_function_ptr.h"
 
 namespace BigBang {
 
@@ -52,6 +53,10 @@ void DataLayer<dtype>::entry() {
 		dtype* labels_data = image_blob.labels_->mutable_cpu_data();
 		for (int i = 0; i < batch_size; ++i) {
 			if (!cursor->valid()) cursor->SeekToFirst();
+			while (Skip()) {
+				cursor->Next();
+				if (!cursor->valid()) cursor->SeekToFirst();
+			}
 			std::string value = cursor->value();
 			Datum datum;
 			datum.ParseFromString(value);
@@ -93,6 +98,13 @@ void DataLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* t
 template<typename dtype>
 void DataLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	Forward_CPU(bottom, top);
+}
+
+template<typename dtype>
+bool DataLayer<dtype>::Skip() {
+	dtype value = 0.;
+	bigbang_cpu_random_bernoulli(1, static_cast<dtype>(0.5), &value);
+	return value == 1.;
 }
 
 INSTANTIATE_CLASS(DataLayer);

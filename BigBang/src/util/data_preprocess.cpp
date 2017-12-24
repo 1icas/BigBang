@@ -10,9 +10,10 @@ void DataPreprocess<dtype>::Init() {
 	const std::string& mean_file_path = params_.mean_file();
 	if (!mean_file_path.empty()) {
 		TensorProto tp;
-		ParseTextFileToMessage(mean_file_path, &tp);
+		ParseBinaryFileToMessage(mean_file_path, &tp);
 		auto shape = tp.shape();
 		const int n = shape.dim_size();
+		CHECK_NE(n, 0);
 		int size = 1;
 		for (int i = 0; i < n; ++i) {
 			size *= shape.dim(i);

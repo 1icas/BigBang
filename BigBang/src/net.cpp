@@ -44,22 +44,24 @@ void Net<dtype>::Train() {
 template<typename dtype>
 int Net<dtype>::TestValidateData() {
 	const int layer_size = layers_.size();
-	for (int i = 0; i < layer_size; ++i) {
+	layers_[0]->Forward(input_[0].get(), input_[1].get());
+	input_[input_.size() - 1]->shared_data(*(layers_[0]->Labels().get()));
+	for (int i = 1; i < layer_size; ++i) {
 		layers_[i]->Forward(input_[i].get(), input_[i + 1].get());
 	}
-	auto output = input_[layer_size];
-	predicted_tensor_->Reshape(std::vector<int>{output->shape(0), 1, 1, 1});
+	auto predict = input_[layer_size-1];
+	predicted_tensor_->Reshape(std::vector<int>{predict->shape(0), 1, 1, 1});
 	predicted_tensor_->Reset();
 
 	Tensor<int> count(std::vector<int>{1, 1, 1, 1});
 	if (Config::Get().mode() == Config::ProcessUnit::CPU) {
-		bigbang_cpu_argmax(output->cpu_data(), output->shape(0), output->shape(2)*output->shape(3),
+		bigbang_cpu_argmax(predict->cpu_data(), predict->shape(0), predict->shape(2)*predict->shape(3),
 			predicted_tensor_->mutable_cpu_data());
 		bigbang_cpu_equals_count(layers_[0]->Labels().get()->cpu_data(), predicted_tensor_->cpu_data(),
 			predicted_tensor_->size(), count.mutable_cpu_data());
 	}
 	else {
-		bigbang_gpu_argmax(output->gpu_data(), output->shape(0), output->shape(2)*output->shape(3),
+		bigbang_gpu_argmax(predict->gpu_data(), predict->shape(0), predict->shape(2)*predict->shape(3),
 			predicted_tensor_->mutable_gpu_data());
 		bigbang_gpu_equals_count(layers_[0]->Labels().get()->gpu_data(), predicted_tensor_->gpu_data(),
 			predicted_tensor_->size(), count.mutable_gpu_data());

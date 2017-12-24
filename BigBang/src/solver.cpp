@@ -5,6 +5,7 @@
 #include "../include/config.h"
 #include "../include/gtest.h"
 #include "../include/util/math_function_ptr.h"
+#include "../include/util/parse.h"
 
 namespace BigBang {
 	
@@ -25,9 +26,10 @@ void Solver<dtype>::Train() {
 			Validate();
 		}
 
+		MomentumProcess();
 		UpdateLearnableParams();
 	}
-
+	SerializeNumerical();
 }
 
 template<typename dtype>
@@ -40,7 +42,6 @@ void Solver<dtype>::Validate() {
 	for (int i = 0; i < validate_iters; ++i) {
 		count += net->TestValidateData();
 	}
-
 	const dtype percent = static_cast<dtype>(count) / static_cast<dtype>(batch_size*validate_iters);
 	std::cout << "the validate data accuracy is : " << percent << std::endl;
 }
@@ -49,17 +50,20 @@ template<typename dtype>
 void Solver<dtype>::UpdateLearnableParams() {
 	bool is_cpu = Config::Get().mode() == Config::ProcessUnit::CPU;
 	const int size = learnable_params_.size();
-	const dtype learn_rate = params_.lr();
+	dtype learn_rate = params_.lr();
 	const int batch_size = params_.train_batch_size();
 	for (int i = 0; i < size; ++i) {
 		for (int k = 0; k < learnable_params_[i].size(); ++k) {
 			auto lp = learnable_params_[i][k];
+			auto mp = momentum_params_[i][k];
 			//the zero index is weight
 			if (k == 0) {
 				WeightDecay(lp);
 			}
 			if (is_cpu) {
-				const dtype* diff_data = lp->cpu_diff_data();
+				//TODO: mp->cpu_diff_data()
+				const dtype* diff_data = params_.momentum_ratio() == 0. ?
+					lp->cpu_diff_data() : mp->cpu_data();
 				dtype* data = lp->mutable_cpu_data();
 				bigbang_cpu_minus<dtype>(data, diff_data, lp->size(), learn_rate / batch_size, data);
 				/*for (int i = 0; i < lp->size(); ++i) {
@@ -67,7 +71,8 @@ void Solver<dtype>::UpdateLearnableParams() {
 				}*/
 			}
 			else {
-				const dtype* diff_data = lp->gpu_diff_data();
+				const dtype* diff_data = params_.momentum_ratio() == 0. ? 
+					lp->gpu_diff_data() : mp->gpu_data();
 				dtype* data = lp->mutable_gpu_data();
 				bigbang_gpu_minus<dtype>(data, diff_data, lp->size(), learn_rate / batch_size, data);
 			}
@@ -92,6 +97,85 @@ void Solver<dtype>::WeightDecay(const std::shared_ptr<Tensor<dtype>>& weights) {
 		}
 		break;
 	default: break;
+	}
+}
+
+template<typename dtype>
+void Solver<dtype>::MomentumParamsInit() {
+	int n = learnable_params_.size();
+	for (int i = 0; i < n; ++i) {
+		std::vector<std::shared_ptr<Tensor<dtype>>> param;
+		for (int k = 0; k < learnable_params_[i].size(); ++k) {
+			param.push_back(std::make_shared<Tensor<dtype>>(learnable_params_[i][k]->shape()));
+		}
+		momentum_params_.push_back(param);
+	}
+}
+
+template<typename dtype>
+void Solver<dtype>::MomentumProcess() {
+	dtype ratio = static_cast<dtype>(params_.momentum_ratio());
+	if (ratio <= 0) return;
+	bool is_cpu = Config::Get().mode() == Config::ProcessUnit::CPU;
+	for (int i = 0; i < momentum_params_.size(); ++i) {
+		auto params = momentum_params_[i];
+		for (int k = 0; k < params.size(); ++k) {
+			if (is_cpu) {
+				bigbang_cpu_plus(learnable_params_[i][k]->cpu_diff_data(), params[k]->size(), static_cast<dtype>(1.) - ratio,
+					ratio, params[k]->mutable_cpu_data());
+			}
+			else {
+				bigbang_gpu_plus(learnable_params_[i][k]->gpu_diff_data(), params[k]->size(), static_cast<dtype>(1.) - ratio,
+					ratio, params[k]->mutable_gpu_data());
+			}
+		}
+	}
+}
+
+template<typename dtype>
+void Solver<dtype>::SerializeNumerical() {
+	const std::string write_model_dir = params_.write_model_dir();
+	if (write_model_dir.empty()) return;
+	TensorProtoVector tpv;
+	auto learn_param_serialize = [&](const std::vector<std::vector<std::shared_ptr<Tensor<dtype>>>>& p) {
+		for (int i = 0; i < p.size(); ++i) {
+			for (int k = 0; k < p[i].size(); ++k) {
+				TensorProto* tp = tpv.add_tensor();
+				p[i][k]->Serialize(tp);
+			}
+		}
+	};
+	//serialize the learnable_params
+	learn_param_serialize(learnable_params_);
+	//serialize the momentum_params
+	dtype ratio = static_cast<dtype>(params_.momentum_ratio());
+	if (ratio > 0) {
+		learn_param_serialize(momentum_params_);
+	}
+	//write the tensorprotovector in the file
+	ParseMessageToBinaryFile(write_model_dir, tpv);
+}
+
+template<typename dtype>
+void Solver<dtype>::DeserializeNumerical() {
+	const std::string read_model_dir = params_.read_model_dir();
+	if (read_model_dir.empty()) return;
+	TensorProtoVector tpv;
+	ParseBinaryFileToMessage(read_model_dir, &tpv);
+	int index = 0;
+	auto learn_param_deserialize = [&](std::vector<std::vector<std::shared_ptr<Tensor<dtype>>>>& p) {
+		for (int i = 0; i < p.size(); ++i) {
+			for (int k = 0; k < p[i].size(); ++k) {
+				p[i][k]->Deserialize(&(tpv.tensor(index++)));
+			}
+		}
+	};
+	//deserialize the learnable_params
+	learn_param_deserialize(learnable_params_);
+	//deserialize the momentum_params
+	dtype ratio = static_cast<dtype>(params_.momentum_ratio());
+	if (ratio > 0) {
+		learn_param_deserialize(momentum_params_);
 	}
 }
 

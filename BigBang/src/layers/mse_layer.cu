@@ -5,6 +5,7 @@ namespace BigBang {
 
 template<typename dtype>
 void MSELayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	Forward_CPU(bottom, top);
 }
 
 template<typename dtype>

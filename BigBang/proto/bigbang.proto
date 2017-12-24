@@ -31,6 +31,10 @@ message TensorProto {
 	repeated double d_diff = 5;
 };
 
+message TensorProtoVector {
+	repeated TensorProto tensor = 2;
+}
+
 message Datum {
 	optional int32 channels = 1;
 	optional int32 height = 2;
@@ -133,6 +137,9 @@ message SolverParameter {
 	optional uint32 validate_batch_size = 8;
 	optional uint32 test_batch_size = 9;
 	optional float lr = 10;
+	optional float momentum_ratio = 11;
+	optional string read_model_dir = 12;
+	optional string write_model_dir = 13;
 	optional WeightDecayParameter weight_decay_param = 20;
 
 	repeated NetParameter net_param = 30;

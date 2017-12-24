@@ -54,7 +54,7 @@ namespace BigBang {
 		const int nums = bottom->shape(0);
 		const int size = bottom->size();
 		const int per_data_size = size / nums;
-
+		softmax_sum_->Reset();
 		dtype* softmax_sum_data = softmax_sum_->mutable_gpu_data();
 		dtype* top_data = top->mutable_gpu_data();
 		dtype* mutable_max_num = max_num_->mutable_gpu_data();

@@ -55,13 +55,16 @@ void SoftmaxCostLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dt
 	}
 
 	//compute the cost
-	const dtype* labels = top->cpu_data();
-	dtype loss = 0;
-	for (int i = 0; i < nums; ++i) {
-		//solve the numerical issues
-		loss += -log(std::max<dtype>(softmax_result_data[static_cast<int>(labels[i] + 0.1) + i*per_data_size], FLT_MIN));
+	if (++count_ % times_ == 0) {
+		const dtype* labels = top->cpu_data();
+		dtype loss = 0;
+		for (int i = 0; i < nums; ++i) {
+			//solve the numerical issues
+			loss += -log(std::max<dtype>(softmax_result_data[static_cast<int>(labels[i] + 0.1) + i*per_data_size], FLT_MIN));
+		}
+		std::cout << "softmax loglikelihood training " << count_ << " times, the error is: " << loss / nums << std::endl;
 	}
-	std::cout << loss << std::endl;
+	
 }
 
 template<typename dtype>

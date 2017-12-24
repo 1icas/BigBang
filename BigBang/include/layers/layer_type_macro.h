@@ -13,6 +13,7 @@
 //cost func
 #define MSE_LAYER_TYPE "MSE"
 #define SOFTMAX_COST_LAYER_TYPE "SoftmaxCost"
+#define LOG_LIKELIHOOD "LogLikelihood"
 //activation func
 #define SIGMOID_LAYER_TYPE "Sigmoid"
 #define RELU_LAYER_TYPE "Relu"

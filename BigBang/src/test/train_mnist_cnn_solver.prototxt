@@ -248,4 +248,8 @@ net_param {
     name: "neuron2"
     type: "Softmax"
   }
+	layer_param {
+    name: "end"
+    type: "LogLikelihood"
+  }
 }

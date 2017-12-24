@@ -7,6 +7,7 @@
 #include "../../proto/bigbang.pb.h"
 #include "../../include/util.h"
 #include "../../include/util/db_lmdb.h"
+#include "../../include/util/parse.h"
 
 using namespace BigBang;
 
@@ -119,7 +120,7 @@ void compute_cifar_mean(const std::string& file, const std::string& output) {
 
 		if (!data.empty()) {
 			for (int i = 0; i < size; ++i) {
-				tp.set_f_data(i, tp.f_data(i) + data[i]);
+				tp.set_f_data(i, tp.f_data(i) + (uint8_t)data[i]);
 			}
 		}
 		else {
@@ -135,15 +136,50 @@ void compute_cifar_mean(const std::string& file, const std::string& output) {
 		tp.set_f_data(i, tp.f_data(i) / count);
 	}
 
-	std::fstream fs(output, std::ios::out | std::ios::trunc | std::ios::binary);
-	tp.SerializeToOstream(&fs);
+	ParseMessageToBinaryFile(output, tp);
 }
 
+void convert_only_test_the_model(const std::string& input_folder, const std::string& output_folder) {
+
+	auto read_write = [&](bool is_train) {
+		std::shared_ptr<DB> lmdb(new LMDB());
+		lmdb->Open(output_folder + (is_train ? "/cifar10_test_model" : "/cifar10_test") + ".mdb",
+			DBMode::CREATE);
+		std::shared_ptr<Transaction> transaction(lmdb->CreateTransaction());
+
+		char data[kPixels];
+		Datum datum;
+		datum.set_channels(3);
+		datum.set_height(height);
+		datum.set_width(width);
+		for (int i = 0; i < 1; ++i) {
+			std::string file_name = input_folder + (is_train ? ("/data_batch_" + convert_int_string(i + 1)) : "/test_batch")
+				+ ".bin";
+			std::ifstream fstream(file_name.c_str(), std::ios::in | std::ios::binary);
+			if (!fstream) assert(false);
+			char label = 0;
+			for (int k = 0; k < 500; ++k) {
+				fstream.read(&label, 1);
+				fstream.read(data, kPixels);
+				datum.set_label(label);
+				datum.set_data(data, kPixels);
+				std::string out;
+				datum.SerializeToString(&out);
+				transaction->Put(convert_int_string(i * kBatchNums + k, 5), out);
+			}
+		}
+		transaction->Commit();
+		lmdb->Close();
+	};
+
+	read_write(true);
+}
 
 
 //int main() {
 	//convert_cifar_compute_mean("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb/");
 	//convert("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb");
 	//test_read();
-	//compute_cifar_mean("D:/deeplearning/cifar_lmdb/cifar10.mdb", "D:/deeplearning/cifar_lmdb/cifar10.mean");
+	//compute_cifar_mean("D:/deeplearning/cifar_lmdb/cifar10.mdb", "D:/deeplearning/cifar_lmdb/cifar10_mean.proto");
+	//convert_only_test_the_model("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb");
 //}

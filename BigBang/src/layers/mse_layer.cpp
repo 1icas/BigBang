@@ -24,26 +24,31 @@ void MSELayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 
 template<typename dtype>
 void MSELayer<dtype>::Forward_CPU(const Tensor<dtype>* input, Tensor<dtype>* output) {
-	//double m = 0.0;
-	//const int row = input->shape(0);
-	//const int column = input->shape(3);
-	//const dtype* r_data = output->cpu_data();
-	//const dtype* i_data = input->cpu_data();
-	//result_->Reset();
-	//dtype* result_data = result_->mutable_cpu_data();
-	//const int num = result_->shape(0);
-	//const int classes = result_->shape(3);
-	//for (int i = 0; i < num; ++i) {
-	//	//TODO£º
-	//	result_data[i*classes + static_cast<int>(r_data[i] + 0.1)] = 1;
-	//}
-	//for (int i = 0; i < row; ++i) {
-	//	for (int k = 0; k < column; ++k) {
-	//		m += pow((result_data[i*column + k] - i_data[i*column + k]), 2);
-	//	}
-	//}
+	if (++count_ % times_ == 0) {
+		double m = 0.0;
+		const int row = input->shape(0);
+		const int column = input->shape(3);
+		const dtype* r_data = output->cpu_data();
+		const dtype* i_data = input->cpu_data();
+		result_->Reset();
+		dtype* result_data = result_->mutable_cpu_data();
+		const int num = result_->shape(0);
+		const int classes = result_->shape(3);
+		for (int i = 0; i < num; ++i) {
+			//TODO£º
+			result_data[i*classes + static_cast<int>(r_data[i] + 0.1)] = 1;
+		}
+		for (int i = 0; i < row; ++i) {
+			for (int k = 0; k < column; ++k) {
+				m += pow((result_data[i*column + k] - i_data[i*column + k]), 2);
+			}
+		}
 
-	//std::cout << "the cost function is: " << m / row << std::endl;
+		std::cout << "mse training " << count_ << " times, the error is: " << m / row << std::endl;
+
+	}
+
+	
 }
 
 //suppose all of the label index start at zero

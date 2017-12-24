@@ -32,6 +32,9 @@ template<typename dtype>
 void bigbang_cpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c);
 
 template<typename dtype>
+void bigbang_cpu_plus(const dtype* a, const int size, const dtype alpha, const dtype beta, dtype* b);
+
+template<typename dtype>
 void bigbang_cpu_column_sum_plus(const dtype* a, const int row, const int column, dtype* b);
 
 template<typename dtype>
@@ -95,6 +98,9 @@ void bigbang_gpu_gen_fit_label(const dtype* a, const int size, const int classes
 
 template<typename dtype>
 void bigbang_gpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c);
+
+template<typename dtype>
+void bigbang_gpu_plus(const dtype* a, const int size, const dtype alpha, const dtype beta, dtype* b);
 
 void bigbang_gpu_random_uniform(const int size, unsigned int* output);
 

@@ -7,15 +7,15 @@
 class Thread {
 public:
 	Thread(): thread_(nullptr) {}
-	virtual ~Thread() {}
+	virtual ~Thread() {
+		Stop();
+	}
 	void Start();
 	void Stop();
 	bool Should_Stop();
 
 protected:
-	virtual void entry() {
-		int end = 0;
-	}
+	virtual void entry() {}
 
 private:
 	std::shared_ptr<std::thread> thread_;

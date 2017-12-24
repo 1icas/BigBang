@@ -22,6 +22,10 @@ protected:
 	virtual void Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override = 0;
 	virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override = 0;
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override = 0;
+
+protected:
+	int count_ = 0;
+	const static int times_ = 750;
 };
 
 }

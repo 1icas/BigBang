@@ -26,9 +26,7 @@ public:
 		data_preprocess_.reset(new DataPreprocess<dtype>(data_layer_params_.preprocess_params()));
 	}
 
-	virtual ~DataLayer() {
-		Stop();
-	}
+	virtual ~DataLayer() {}
 
 	virtual inline const char* Type() const { return DATA_LAYER; }
 
@@ -39,6 +37,9 @@ protected:
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override {};
 	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void entry();
+
+private:
+	bool Skip();
 
 private:
 	ThreadSafeQueue<ImageBlob<dtype>> free_queue_;

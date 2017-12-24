@@ -5,6 +5,8 @@ test_validatedata_accuracy_per_train_iterations: 5000
 train_batch_size: 10
 validate_batch_size: 5000
 lr: 1
+read_model_dir: "D:/deeplearning/mnist_lmdb/mnist_model.proto"
+write_model_dir: "D:/deeplearning/mnist_lmdb/mnist_model.proto"
 net_param {
 	name: "test_minst"
   state: TRAIN
@@ -111,5 +113,9 @@ net_param {
   layer_param {
     name: "neuron1"
     type: "Sigmoid"
+  }
+	layer_param {
+    name: "end"
+    type: "MSE"
   }
 }

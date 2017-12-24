@@ -11,6 +11,8 @@ namespace BigBang {
 
 void ParseTextFileToMessage(const std::string& file_name, Message* message);
 void ParseMessageToTextFile(const std::string& file_name, const Message& message);
+void ParseBinaryFileToMessage(const std::string& file_name, Message* message);
+void ParseMessageToBinaryFile(const std::string& file_name, const Message& message);
 
 }
 

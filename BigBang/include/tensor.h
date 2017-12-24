@@ -7,6 +7,7 @@
 #include "gtest.h"
 #include "log.h"
 #include "synced_memory.h"
+#include "../proto/bigbang.pb.h"
 
 namespace BigBang {
 // it's enough to use a 4 dimension tensor now(cnn and dnn)
@@ -145,6 +146,27 @@ public:
 		if (diff_data_) diff_data_->Reset();
 	}
 
+	//now we only serialize the data_
+	void Serialize(TensorProto* tp) {
+		auto shape = tp->mutable_shape();
+		for (int i = 0; i < shape_.size(); ++i) {
+			shape->add_dim(shape_[i]);
+		}
+		const dtype* data = cpu_data();
+		for (int i = 0; i < size_; ++i) {
+			tp->add_d_data(data[i]);
+		}
+	}
+
+	//we only handle the data_ now
+	void Deserialize(const TensorProto* tp) {
+		const int size = tp->d_data_size();
+		dtype* cpu_mutable_data = mutable_cpu_data();
+		for (int i = 0; i < size; ++i) {
+			cpu_mutable_data[i] = tp->d_data(i);
+		}
+	}
+	
 private:
 	void check() const {
 		if (uninitialized()) {

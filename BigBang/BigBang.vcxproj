@@ -160,6 +160,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <CudaCompile Include="src\layers\conv_layer.cu" />
     <CudaCompile Include="src\layers\dropout_layer.cu" />
+    <CudaCompile Include="src\layers\log_likelihood_layer.cu" />
     <CudaCompile Include="src\layers\mse_layer.cu" />
     <CudaCompile Include="src\layers\pooling_layer.cu" />
     <CudaCompile Include="src\layers\relu_layer.cu" />
@@ -178,6 +179,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClCompile Include="src\layers\dropout_layer.cpp" />
     <ClCompile Include="src\layers\image_layer.cpp" />
     <ClCompile Include="src\layers\inner_product_layer.cpp" />
+    <ClCompile Include="src\layers\log_likelihood_layer.cpp" />
     <ClCompile Include="src\layers\mse_layer.cpp" />
     <ClCompile Include="src\layers\pooling_layer.cpp" />
     <ClCompile Include="src\layers\relu_layer.cpp" />
@@ -232,6 +234,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\layers\image_layer.h" />
     <ClInclude Include="include\layers\inner_product_layer.h" />
     <ClInclude Include="include\layers\layer_type_macro.h" />
+    <ClInclude Include="include\layers\log_likelihood_layer.h" />
     <ClInclude Include="include\layers\mse_layer.h" />
     <ClInclude Include="include\layers\neuron_func_layer.h" />
     <ClInclude Include="include\layers\pooling_layer.h" />

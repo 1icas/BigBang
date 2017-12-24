@@ -96,31 +96,16 @@ void SoftmaxCostLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dt
 		per_data_size, softmax_sum_data);
 	gpu_exp_div <<<BigBangGetBlocks(size), THREAD_MAX_NUMS >>> (softmax_sum_data, size, per_data_size, softmax_result_data);
 
-	//compute the cost
-	//const dtype* top_data = top->gpu_data();
-	//Tensor<dtype> loss(std::vector<int>{1, 1, 1, 1});
-	//softmax_cost<<<BigBangGetBlocks(size), THREAD_MAX_NUMS >> > (softmax_result_data, size, nums, 
-	//	top_data, loss.mutable_gpu_data());
-	//dtype loss_value = loss.cpu_data()[0];
-	//std::cout << loss_value << std::endl;
-	/*const dtype* bottom_cpu_data = bottom->cpu_data();
-	for (int i = 0; i < size; ++i) {
-		std::cout << bottom_cpu_data[i] << std::endl;
-	}*/
-
-	const dtype* labels = top->cpu_data();
-	const dtype* softmax_result_cpu_data = softmax_result_->cpu_data();
-	/*for (int i = 0; i < size; ++i) {
-		std::cout << softmax_result_cpu_data[i] << std::endl;
-	}*/
-	const int r = size / nums;
-	dtype loss = 0;
-	for (int i = 0; i < nums; ++i) {
-		auto n = labels[i];
-		auto m = softmax_result_cpu_data[static_cast<int>(labels[i] + 0.1) + i*r];
-		loss += -log(softmax_result_cpu_data[static_cast<int>(labels[i]+0.1) + i*r]);
+	//compute the error
+	if (++count_ % times_ == 0) {
+		const dtype* labels = top->cpu_data();
+		const dtype* softmax_result_cpu_data = softmax_result_->cpu_data();
+		dtype loss = 0;
+		for (int i = 0; i < nums; ++i) {
+			loss += -log(softmax_result_cpu_data[static_cast<int>(labels[i] + 0.1) + i*per_data_size]);
+		}
+		std::cout << "training " << count_ << " times, the error is: " << loss / nums << std::endl;
 	}
-	//std::cout << loss << std::endl;
 }
 
 template<typename dtype>

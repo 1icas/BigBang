@@ -262,7 +262,7 @@ template void bigbang_cpu_gen_fit_label<double>(const double* a, const int size,
 template<typename dtype>
 void bigbang_cpu_random_uniform(const int n, const dtype a, const dtype b, dtype* c) {
 	std::uniform_real_distribution<dtype> distribution(a, b);
-	std::mt19937 mt;
+	std::mt19937 mt(GenerateSeed());
 	for (int i = 0; i < n; ++i) {
 		c[i] = distribution(mt);
 	}
@@ -273,11 +273,22 @@ template void bigbang_cpu_random_uniform<double>(const int n, const double a, co
 template<typename dtype>
 void bigbang_cpu_random_bernoulli(const int size, const dtype ratio, dtype* output) {
 	std::bernoulli_distribution bd(ratio);
-	std::mt19937 mt;
+	std::mt19937 mt(GenerateSeed());
 	for (int i = 0; i < size; ++i) {
 		output[i] = bd(mt);
 	}
 }
 template void bigbang_cpu_random_bernoulli<float>(const int size, const float ratio, float* output);
 template void bigbang_cpu_random_bernoulli<double>(const int size, const double ratio, double* output);
+
+
+template<typename dtype>
+void bigbang_cpu_plus(const dtype* a, const int size, const dtype alpha, const dtype beta, dtype* b) {
+	for (int i = 0; i < size; ++i) {
+		b[i] = beta*b[i] + alpha*a[i];
+	}
+}
+template void bigbang_cpu_plus<float>(const float* a, const int size, const float alpha, const float beta, float* b);
+template void bigbang_cpu_plus<double>(const double* a, const int size, const double alpha, const double beta, double* b);
+
 }
