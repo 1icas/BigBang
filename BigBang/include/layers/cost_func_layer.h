@@ -25,7 +25,7 @@ protected:
 
 protected:
 	int count_ = 0;
-	const static int times_ = 750;
+	const static int times_ = 500;
 };
 
 }

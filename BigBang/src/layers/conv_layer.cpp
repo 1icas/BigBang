@@ -127,7 +127,7 @@ void ConvLayer<dtype>::Backward_CPU(const Tensor<dtype>* top, Tensor<dtype>* bot
 		dtype* temp = relay_space_->mutable_cpu_data();
 		bigbang_cpu_gemm(true, false, kernel_channels_*kernel_h_*kernel_w_, top_row_*top_column_, kernel_groups_,
 			static_cast<dtype>(1.), kernel_mutable_cpu_data, top_diff_data + i*top_channels_*top_row_*top_column_,
-			static_cast<dtype>(1.), temp);
+			static_cast<dtype>(0.), temp);
 		bigbang_cpu_col2im(temp, bottom_channels_, bottom_row_, bottom_column_, kernel_h_, kernel_w_, padding_h_, padding_w_,
 			stride_h_, stride_w_, 0, 0, bottom_mutable_diff_data + i*bottom_channels_*bottom_row_*bottom_column_);
 	}
@@ -212,12 +212,10 @@ void ConvLayer<dtype>::Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bot
 	dtype* bottom_mutable_diff_data = bottom->mutable_gpu_diff_data();
 	dtype* kernel_mutable_gpu_data = learnable_params_[0]->mutable_gpu_data();
 	for (int i = 0; i < nums_; ++i) {
-		//TODO: the gpu will memset the memory in the gemm
 		dtype* temp = relay_space_->mutable_gpu_data();
-		//bigbangcpumemset(temp, 0, sizeof(dtype)*relay_space_->size());
 		bigbang_gpu_gemm(true, false, kernel_channels_*kernel_h_*kernel_w_, top_row_*top_column_, kernel_groups_,
 			static_cast<dtype>(1.0), kernel_mutable_gpu_data, top_diff_data + i*top_channels_*top_row_*top_column_,
-			static_cast<dtype>(1.0), temp);
+			static_cast<dtype>(0.0), temp);
 		bigbang_gpu_col2im(temp, bottom_channels_, bottom_row_, bottom_column_, kernel_h_, kernel_w_, padding_h_, padding_w_,
 			stride_h_, stride_w_, 0, 0, bottom_mutable_diff_data + i*bottom_channels_*bottom_row_*bottom_column_);
 	}

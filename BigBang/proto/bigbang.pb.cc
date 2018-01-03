@@ -437,8 +437,8 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, type_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, mean_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, std_),
-  0,
   1,
+  0,
   2,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::DataPreprocessParameter, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::DataPreprocessParameter, _internal_metadata_),
@@ -476,9 +476,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::TensorProtoVector, size_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::TensorProtoVector, tensor_),
-  0,
   ~0u,
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, _has_bits_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::Datum, _internal_metadata_),
@@ -652,17 +650,17 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 11, 18, sizeof(::BigBang::DataPreprocessParameter)},
   { 20, 26, sizeof(::BigBang::Shape)},
   { 27, 37, sizeof(::BigBang::TensorProto)},
-  { 42, 49, sizeof(::BigBang::TensorProtoVector)},
-  { 51, 62, sizeof(::BigBang::Datum)},
-  { 68, 75, sizeof(::BigBang::WeightDecayParameter)},
-  { 77, 87, sizeof(::BigBang::PoolingLayerParameter)},
-  { 92, 98, sizeof(::BigBang::DropoutLayerParameter)},
-  { 99, 115, sizeof(::BigBang::ConvLayerParameter)},
-  { 126, 135, sizeof(::BigBang::InnerProductLayerParameter)},
-  { 139, 148, sizeof(::BigBang::DataLayerParameter)},
-  { 152, 164, sizeof(::BigBang::LayerParameter)},
-  { 171, 179, sizeof(::BigBang::NetParameter)},
-  { 182, 202, sizeof(::BigBang::SolverParameter)},
+  { 42, 48, sizeof(::BigBang::TensorProtoVector)},
+  { 49, 60, sizeof(::BigBang::Datum)},
+  { 66, 73, sizeof(::BigBang::WeightDecayParameter)},
+  { 75, 85, sizeof(::BigBang::PoolingLayerParameter)},
+  { 90, 96, sizeof(::BigBang::DropoutLayerParameter)},
+  { 97, 113, sizeof(::BigBang::ConvLayerParameter)},
+  { 124, 133, sizeof(::BigBang::InnerProductLayerParameter)},
+  { 137, 146, sizeof(::BigBang::DataLayerParameter)},
+  { 150, 162, sizeof(::BigBang::LayerParameter)},
+  { 169, 177, sizeof(::BigBang::NetParameter)},
+  { 180, 200, sizeof(::BigBang::SolverParameter)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -705,76 +703,76 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
-      "\n\rbigbang.proto\022\007BigBang\"\261\001\n\017FillerParam"
-      "eter\022H\n\004type\030\001 \001(\0162#.BigBang.FillerParam"
-      "eter.FillerType:\025GAUSSIAN_DISTRIBUTION\022\017"
-      "\n\004mean\030\002 \001(\002:\0010\022\016\n\003std\030\003 \001(\002:\0011\"3\n\nFille"
-      "rType\022\031\n\025GAUSSIAN_DISTRIBUTION\020\000\022\n\n\006XAVI"
-      "ER\020\001\">\n\027DataPreprocessParameter\022\020\n\005scale"
-      "\030\001 \001(\002:\0011\022\021\n\tmean_file\030\002 \001(\014\"\024\n\005Shape\022\013\n"
-      "\003dim\030\001 \003(\005\"l\n\013TensorProto\022\035\n\005shape\030\001 \001(\013"
-      "2\016.BigBang.Shape\022\016\n\006f_data\030\002 \003(\002\022\016\n\006d_da"
-      "ta\030\003 \003(\001\022\016\n\006f_diff\030\004 \003(\002\022\016\n\006d_diff\030\005 \003(\001"
-      "\"G\n\021TensorProtoVector\022\014\n\004size\030\001 \001(\005\022$\n\006t"
-      "ensor\030\002 \003(\0132\024.BigBang.TensorProto\"e\n\005Dat"
-      "um\022\020\n\010channels\030\001 \001(\005\022\016\n\006height\030\002 \001(\005\022\r\n\005"
-      "width\030\003 \001(\005\022\014\n\004data\030\004 \001(\014\022\r\n\005label\030\005 \001(\005"
-      "\022\016\n\006f_data\030\006 \003(\002\"\225\001\n\024WeightDecayParamete"
-      "r\022\?\n\006method\030\001 \001(\0162).BigBang.WeightDecayP"
-      "arameter.DecayMethod:\004NONE\022\r\n\005alpha\030\002 \001("
-      "\002\"-\n\013DecayMethod\022\010\n\004NONE\020\000\022\024\n\020L2REGULARI"
-      "ZATION\020\001\"\323\001\n\025PoolingLayerParameter\022\?\n\004po"
-      "ol\030\001 \001(\0162,.BigBang.PoolingLayerParameter"
-      ".PoolingMethod:\003MAX\022\023\n\010kernel_h\030\002 \001(\r:\0011"
-      "\022\023\n\010kernel_w\030\003 \001(\r:\0011\022\023\n\010stride_h\030\004 \001(\r:"
-      "\0011\022\023\n\010stride_w\030\005 \001(\r:\0011\"%\n\rPoolingMethod"
-      "\022\007\n\003MAX\020\000\022\013\n\007AVERAGE\020\001\"3\n\025DropoutLayerPa"
-      "rameter\022\032\n\rdropout_ratio\030\001 \001(\002:\0030.5\"\256\002\n\022"
-      "ConvLayerParameter\022\030\n\rkernel_groups\030\001 \001("
-      "\r:\0011\022\032\n\017kernel_channels\030\002 \001(\r:\0011\022\023\n\010kern"
-      "el_h\030\003 \001(\r:\0011\022\023\n\010kernel_w\030\004 \001(\r:\0011\022\r\n\005pa"
-      "d_h\030\005 \001(\r\022\r\n\005pad_w\030\006 \001(\r\022\023\n\010stride_h\030\007 \001"
-      "(\r:\0011\022\023\n\010stride_w\030\010 \001(\r:\0011\022\020\n\010use_bias\030\t"
-      " \001(\010\022/\n\rkernel_filler\030\n \001(\0132\030.BigBang.Fi"
-      "llerParameter\022-\n\013bias_filler\030\013 \001(\0132\030.Big"
-      "Bang.FillerParameter\"\243\001\n\032InnerProductLay"
-      "erParameter\022\023\n\013output_nums\030\001 \001(\r\022\020\n\010use_"
-      "bias\030\002 \001(\010\022/\n\rweight_filler\030\n \001(\0132\030.BigB"
-      "ang.FillerParameter\022-\n\013bias_filler\030\013 \001(\013"
-      "2\030.BigBang.FillerParameter\"\220\001\n\022DataLayer"
-      "Parameter\022\022\n\nbatch_size\030\001 \001(\r\022\031\n\021cache_b"
-      "atch_count\030\002 \001(\r\022\016\n\006source\030\003 \001(\t\022;\n\021prep"
-      "rocess_params\030\004 \001(\0132 .BigBang.DataPrepro"
-      "cessParameter\"\334\002\n\016LayerParameter\022\014\n\004name"
-      "\030\001 \001(\t\022\014\n\004type\030\002 \001(\t\0225\n\020conv_layer_param"
-      "\030d \001(\0132\033.BigBang.ConvLayerParameter\0225\n\020d"
-      "ata_layer_param\030e \001(\0132\033.BigBang.DataLaye"
-      "rParameter\022;\n\023dropout_layer_param\030f \001(\0132"
-      "\036.BigBang.DropoutLayerParameter\022F\n\031inner"
-      "_product_layer_param\030g \001(\0132#.BigBang.Inn"
-      "erProductLayerParameter\022;\n\023pooling_layer"
-      "_param\030h \001(\0132\036.BigBang.PoolingLayerParam"
-      "eter\"\242\001\n\014NetParameter\022\014\n\004name\030\001 \001(\t\022*\n\005s"
-      "tate\030\002 \001(\0162\033.BigBang.NetParameter.State\022"
-      ",\n\013layer_param\030\n \003(\0132\027.BigBang.LayerPara"
-      "meter\"*\n\005State\022\t\n\005TRAIN\020\000\022\014\n\010VALIDATE\020\001\022"
-      "\010\n\004TEST\020\002\"\240\004\n\017SolverParameter\022+\n\004mode\030\001 "
-      "\001(\0162\035.BigBang.SolverParameter.Mode\022\030\n\020tr"
-      "ain_iterations\030\002 \001(\r\022\033\n\023validate_iterati"
-      "ons\030\003 \001(\r\022\027\n\017test_iterations\030\004 \001(\r\0227\n/te"
-      "st_validatedata_accuracy_per_train_itera"
-      "tions\030\005 \001(\r\0223\n+test_testdata_accuracy_pe"
-      "r_train_iterations\030\006 \001(\r\022\030\n\020train_batch_"
-      "size\030\007 \001(\r\022\033\n\023validate_batch_size\030\010 \001(\r\022"
-      "\027\n\017test_batch_size\030\t \001(\r\022\n\n\002lr\030\n \001(\002\022\026\n\016"
-      "momentum_ratio\030\013 \001(\002\022\026\n\016read_model_dir\030\014"
-      " \001(\t\022\027\n\017write_model_dir\030\r \001(\t\0229\n\022weight_"
-      "decay_param\030\024 \001(\0132\035.BigBang.WeightDecayP"
-      "arameter\022(\n\tnet_param\030\036 \003(\0132\025.BigBang.Ne"
-      "tParameter\"\030\n\004Mode\022\007\n\003CPU\020\000\022\007\n\003GPU\020\001"
+      "\n\rbigbang.proto\022\007BigBang\"\260\001\n\017FillerParam"
+      "eter\022:\n\004type\030\001 \001(\0162#.BigBang.FillerParam"
+      "eter.FillerType:\007DEFAULT\022\017\n\004mean\030\002 \001(\002:\001"
+      "0\022\016\n\003std\030\003 \001(\002:\0011\"@\n\nFillerType\022\031\n\025GAUSS"
+      "IAN_DISTRIBUTION\020\000\022\n\n\006XAVIER\020\001\022\013\n\007DEFAUL"
+      "T\020\002\">\n\027DataPreprocessParameter\022\020\n\005scale\030"
+      "\001 \001(\002:\0011\022\021\n\tmean_file\030\002 \001(\014\"\024\n\005Shape\022\013\n\003"
+      "dim\030\001 \003(\005\"l\n\013TensorProto\022\035\n\005shape\030\001 \001(\0132"
+      "\016.BigBang.Shape\022\016\n\006f_data\030\002 \003(\002\022\016\n\006d_dat"
+      "a\030\003 \003(\001\022\016\n\006f_diff\030\004 \003(\002\022\016\n\006d_diff\030\005 \003(\001\""
+      "9\n\021TensorProtoVector\022$\n\006tensor\030\002 \003(\0132\024.B"
+      "igBang.TensorProto\"e\n\005Datum\022\020\n\010channels\030"
+      "\001 \001(\005\022\016\n\006height\030\002 \001(\005\022\r\n\005width\030\003 \001(\005\022\014\n\004"
+      "data\030\004 \001(\014\022\r\n\005label\030\005 \001(\005\022\016\n\006f_data\030\006 \003("
+      "\002\"\225\001\n\024WeightDecayParameter\022\?\n\006method\030\001 \001"
+      "(\0162).BigBang.WeightDecayParameter.DecayM"
+      "ethod:\004NONE\022\r\n\005alpha\030\002 \001(\002\"-\n\013DecayMetho"
+      "d\022\010\n\004NONE\020\000\022\024\n\020L2REGULARIZATION\020\001\"\323\001\n\025Po"
+      "olingLayerParameter\022\?\n\004pool\030\001 \001(\0162,.BigB"
+      "ang.PoolingLayerParameter.PoolingMethod:"
+      "\003MAX\022\023\n\010kernel_h\030\002 \001(\r:\0011\022\023\n\010kernel_w\030\003 "
+      "\001(\r:\0011\022\023\n\010stride_h\030\004 \001(\r:\0011\022\023\n\010stride_w\030"
+      "\005 \001(\r:\0011\"%\n\rPoolingMethod\022\007\n\003MAX\020\000\022\013\n\007AV"
+      "ERAGE\020\001\"3\n\025DropoutLayerParameter\022\032\n\rdrop"
+      "out_ratio\030\001 \001(\002:\0030.5\"\256\002\n\022ConvLayerParame"
+      "ter\022\030\n\rkernel_groups\030\001 \001(\r:\0011\022\032\n\017kernel_"
+      "channels\030\002 \001(\r:\0011\022\023\n\010kernel_h\030\003 \001(\r:\0011\022\023"
+      "\n\010kernel_w\030\004 \001(\r:\0011\022\r\n\005pad_h\030\005 \001(\r\022\r\n\005pa"
+      "d_w\030\006 \001(\r\022\023\n\010stride_h\030\007 \001(\r:\0011\022\023\n\010stride"
+      "_w\030\010 \001(\r:\0011\022\020\n\010use_bias\030\t \001(\010\022/\n\rkernel_"
+      "filler\030\n \001(\0132\030.BigBang.FillerParameter\022-"
+      "\n\013bias_filler\030\013 \001(\0132\030.BigBang.FillerPara"
+      "meter\"\243\001\n\032InnerProductLayerParameter\022\023\n\013"
+      "output_nums\030\001 \001(\r\022\020\n\010use_bias\030\002 \001(\010\022/\n\rw"
+      "eight_filler\030\n \001(\0132\030.BigBang.FillerParam"
+      "eter\022-\n\013bias_filler\030\013 \001(\0132\030.BigBang.Fill"
+      "erParameter\"\220\001\n\022DataLayerParameter\022\022\n\nba"
+      "tch_size\030\001 \001(\r\022\031\n\021cache_batch_count\030\002 \001("
+      "\r\022\016\n\006source\030\003 \001(\t\022;\n\021preprocess_params\030\004"
+      " \001(\0132 .BigBang.DataPreprocessParameter\"\334"
+      "\002\n\016LayerParameter\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030"
+      "\002 \001(\t\0225\n\020conv_layer_param\030d \001(\0132\033.BigBan"
+      "g.ConvLayerParameter\0225\n\020data_layer_param"
+      "\030e \001(\0132\033.BigBang.DataLayerParameter\022;\n\023d"
+      "ropout_layer_param\030f \001(\0132\036.BigBang.Dropo"
+      "utLayerParameter\022F\n\031inner_product_layer_"
+      "param\030g \001(\0132#.BigBang.InnerProductLayerP"
+      "arameter\022;\n\023pooling_layer_param\030h \001(\0132\036."
+      "BigBang.PoolingLayerParameter\"\242\001\n\014NetPar"
+      "ameter\022\014\n\004name\030\001 \001(\t\022*\n\005state\030\002 \001(\0162\033.Bi"
+      "gBang.NetParameter.State\022,\n\013layer_param\030"
+      "\n \003(\0132\027.BigBang.LayerParameter\"*\n\005State\022"
+      "\t\n\005TRAIN\020\000\022\014\n\010VALIDATE\020\001\022\010\n\004TEST\020\002\"\240\004\n\017S"
+      "olverParameter\022+\n\004mode\030\001 \001(\0162\035.BigBang.S"
+      "olverParameter.Mode\022\030\n\020train_iterations\030"
+      "\002 \001(\r\022\033\n\023validate_iterations\030\003 \001(\r\022\027\n\017te"
+      "st_iterations\030\004 \001(\r\0227\n/test_validatedata"
+      "_accuracy_per_train_iterations\030\005 \001(\r\0223\n+"
+      "test_testdata_accuracy_per_train_iterati"
+      "ons\030\006 \001(\r\022\030\n\020train_batch_size\030\007 \001(\r\022\033\n\023v"
+      "alidate_batch_size\030\010 \001(\r\022\027\n\017test_batch_s"
+      "ize\030\t \001(\r\022\n\n\002lr\030\n \001(\002\022\026\n\016momentum_ratio\030"
+      "\013 \001(\002\022\026\n\016read_model_dir\030\014 \001(\t\022\027\n\017write_m"
+      "odel_dir\030\r \001(\t\0229\n\022weight_decay_param\030\024 \001"
+      "(\0132\035.BigBang.WeightDecayParameter\022(\n\tnet"
+      "_param\030\036 \003(\0132\025.BigBang.NetParameter\"\030\n\004M"
+      "ode\022\007\n\003CPU\020\000\022\007\n\003GPU\020\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2676);
+      descriptor, 2661);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "bigbang.proto", &protobuf_RegisterTypes);
 }
@@ -799,6 +797,7 @@ bool FillerParameter_FillerType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
       return true;
     default:
       return false;
@@ -808,6 +807,7 @@ bool FillerParameter_FillerType_IsValid(int value) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const FillerParameter_FillerType FillerParameter::GAUSSIAN_DISTRIBUTION;
 const FillerParameter_FillerType FillerParameter::XAVIER;
+const FillerParameter_FillerType FillerParameter::DEFAULT;
 const FillerParameter_FillerType FillerParameter::FillerType_MIN;
 const FillerParameter_FillerType FillerParameter::FillerType_MAX;
 const int FillerParameter::FillerType_ARRAYSIZE;
@@ -923,17 +923,16 @@ FillerParameter::FillerParameter(const FillerParameter& from)
       _has_bits_(from._has_bits_),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  ::memcpy(&type_, &from.type_,
+  ::memcpy(&mean_, &from.mean_,
     static_cast<size_t>(reinterpret_cast<char*>(&std_) -
-    reinterpret_cast<char*>(&type_)) + sizeof(std_));
+    reinterpret_cast<char*>(&mean_)) + sizeof(std_));
   // @@protoc_insertion_point(copy_constructor:BigBang.FillerParameter)
 }
 
 void FillerParameter::SharedCtor() {
   _cached_size_ = 0;
-  ::memset(&type_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&mean_) -
-      reinterpret_cast<char*>(&type_)) + sizeof(mean_));
+  mean_ = 0;
+  type_ = 2;
   std_ = 1;
 }
 
@@ -976,9 +975,8 @@ void FillerParameter::Clear() {
 
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 7u) {
-    ::memset(&type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&mean_) -
-        reinterpret_cast<char*>(&type_)) + sizeof(mean_));
+    mean_ = 0;
+    type_ = 2;
     std_ = 1;
   }
   _has_bits_.Clear();
@@ -995,7 +993,7 @@ bool FillerParameter::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+      // optional .BigBang.FillerParameter.FillerType type = 1 [default = DEFAULT];
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
@@ -1070,14 +1068,14 @@ void FillerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
-  if (cached_has_bits & 0x00000001u) {
+  // optional .BigBang.FillerParameter.FillerType type = 1 [default = DEFAULT];
+  if (cached_has_bits & 0x00000002u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
   }
 
   // optional float mean = 2 [default = 0];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(2, this->mean(), output);
   }
 
@@ -1101,14 +1099,14 @@ void FillerParameter::SerializeWithCachedSizes(
   (void) cached_has_bits;
 
   cached_has_bits = _has_bits_[0];
-  // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
-  if (cached_has_bits & 0x00000001u) {
+  // optional .BigBang.FillerParameter.FillerType type = 1 [default = DEFAULT];
+  if (cached_has_bits & 0x00000002u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
   }
 
   // optional float mean = 2 [default = 0];
-  if (cached_has_bits & 0x00000002u) {
+  if (cached_has_bits & 0x00000001u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(2, this->mean(), target);
   }
 
@@ -1135,15 +1133,15 @@ size_t FillerParameter::ByteSizeLong() const {
         _internal_metadata_.unknown_fields());
   }
   if (_has_bits_[0 / 32] & 7u) {
-    // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
-    if (has_type()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
-    }
-
     // optional float mean = 2 [default = 0];
     if (has_mean()) {
       total_size += 1 + 4;
+    }
+
+    // optional .BigBang.FillerParameter.FillerType type = 1 [default = DEFAULT];
+    if (has_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
     }
 
     // optional float std = 3 [default = 1];
@@ -1184,10 +1182,10 @@ void FillerParameter::MergeFrom(const FillerParameter& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 7u) {
     if (cached_has_bits & 0x00000001u) {
-      type_ = from.type_;
+      mean_ = from.mean_;
     }
     if (cached_has_bits & 0x00000002u) {
-      mean_ = from.mean_;
+      type_ = from.type_;
     }
     if (cached_has_bits & 0x00000004u) {
       std_ = from.std_;
@@ -1220,8 +1218,8 @@ void FillerParameter::Swap(FillerParameter* other) {
 }
 void FillerParameter::InternalSwap(FillerParameter* other) {
   using std::swap;
-  swap(type_, other->type_);
   swap(mean_, other->mean_);
+  swap(type_, other->type_);
   swap(std_, other->std_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
@@ -2209,7 +2207,6 @@ void TensorProto::InternalSwap(TensorProto* other) {
 void TensorProtoVector::InitAsDefaultInstance() {
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int TensorProtoVector::kSizeFieldNumber;
 const int TensorProtoVector::kTensorFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -2228,13 +2225,11 @@ TensorProtoVector::TensorProtoVector(const TensorProtoVector& from)
       _cached_size_(0),
       tensor_(from.tensor_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  size_ = from.size_;
   // @@protoc_insertion_point(copy_constructor:BigBang.TensorProtoVector)
 }
 
 void TensorProtoVector::SharedCtor() {
   _cached_size_ = 0;
-  size_ = 0;
 }
 
 TensorProtoVector::~TensorProtoVector() {
@@ -2275,7 +2270,6 @@ void TensorProtoVector::Clear() {
   (void) cached_has_bits;
 
   tensor_.Clear();
-  size_ = 0;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -2290,20 +2284,6 @@ bool TensorProtoVector::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional int32 size = 1;
-      case 1: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u /* 8 & 0xFF */)) {
-          set_has_size();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &size_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
       // repeated .BigBang.TensorProto tensor = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
@@ -2341,12 +2321,6 @@ void TensorProtoVector::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  cached_has_bits = _has_bits_[0];
-  // optional int32 size = 1;
-  if (cached_has_bits & 0x00000001u) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->size(), output);
-  }
-
   // repeated .BigBang.TensorProto tensor = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->tensor_size()); i < n; i++) {
@@ -2367,12 +2341,6 @@ void TensorProtoVector::SerializeWithCachedSizes(
   // @@protoc_insertion_point(serialize_to_array_start:BigBang.TensorProtoVector)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
-
-  cached_has_bits = _has_bits_[0];
-  // optional int32 size = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->size(), target);
-  }
 
   // repeated .BigBang.TensorProto tensor = 2;
   for (unsigned int i = 0,
@@ -2410,13 +2378,6 @@ size_t TensorProtoVector::ByteSizeLong() const {
     }
   }
 
-  // optional int32 size = 1;
-  if (has_size()) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::Int32Size(
-        this->size());
-  }
-
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = cached_size;
@@ -2447,9 +2408,6 @@ void TensorProtoVector::MergeFrom(const TensorProtoVector& from) {
   (void) cached_has_bits;
 
   tensor_.MergeFrom(from.tensor_);
-  if (from.has_size()) {
-    set_size(from.size());
-  }
 }
 
 void TensorProtoVector::CopyFrom(const ::google::protobuf::Message& from) {
@@ -2477,7 +2435,6 @@ void TensorProtoVector::Swap(TensorProtoVector* other) {
 void TensorProtoVector::InternalSwap(TensorProtoVector* other) {
   using std::swap;
   tensor_.InternalSwap(&other->tensor_);
-  swap(size_, other->size_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);

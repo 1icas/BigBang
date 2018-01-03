@@ -161,8 +161,6 @@ template void plus<double>(const double* a, const int size, const double m, doub
 template <typename dtype>
 void bigbang_cpu_minus(const dtype* a, const dtype* b, const int size, const dtype alpha, dtype* c) {
 	for (int i = 0; i < size; ++i) {
-		auto a_v = a[i];
-		auto b_v = b[i];
 		c[i] = a[i] - alpha*b[i];
 	}
 }

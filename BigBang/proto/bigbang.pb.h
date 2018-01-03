@@ -142,11 +142,12 @@ namespace BigBang {
 
 enum FillerParameter_FillerType {
   FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION = 0,
-  FillerParameter_FillerType_XAVIER = 1
+  FillerParameter_FillerType_XAVIER = 1,
+  FillerParameter_FillerType_DEFAULT = 2
 };
 bool FillerParameter_FillerType_IsValid(int value);
 const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MIN = FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
-const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MAX = FillerParameter_FillerType_XAVIER;
+const FillerParameter_FillerType FillerParameter_FillerType_FillerType_MAX = FillerParameter_FillerType_DEFAULT;
 const int FillerParameter_FillerType_FillerType_ARRAYSIZE = FillerParameter_FillerType_FillerType_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* FillerParameter_FillerType_descriptor();
@@ -330,6 +331,8 @@ class FillerParameter : public ::google::protobuf::Message /* @@protoc_insertion
     FillerParameter_FillerType_GAUSSIAN_DISTRIBUTION;
   static const FillerType XAVIER =
     FillerParameter_FillerType_XAVIER;
+  static const FillerType DEFAULT =
+    FillerParameter_FillerType_DEFAULT;
   static inline bool FillerType_IsValid(int value) {
     return FillerParameter_FillerType_IsValid(value);
   }
@@ -353,19 +356,19 @@ class FillerParameter : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
-  bool has_type() const;
-  void clear_type();
-  static const int kTypeFieldNumber = 1;
-  ::BigBang::FillerParameter_FillerType type() const;
-  void set_type(::BigBang::FillerParameter_FillerType value);
-
   // optional float mean = 2 [default = 0];
   bool has_mean() const;
   void clear_mean();
   static const int kMeanFieldNumber = 2;
   float mean() const;
   void set_mean(float value);
+
+  // optional .BigBang.FillerParameter.FillerType type = 1 [default = DEFAULT];
+  bool has_type() const;
+  void clear_type();
+  static const int kTypeFieldNumber = 1;
+  ::BigBang::FillerParameter_FillerType type() const;
+  void set_type(::BigBang::FillerParameter_FillerType value);
 
   // optional float std = 3 [default = 1];
   bool has_std() const;
@@ -386,8 +389,8 @@ class FillerParameter : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  int type_;
   float mean_;
+  int type_;
   float std_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsFillerParameterImpl();
@@ -900,23 +903,13 @@ class TensorProtoVector : public ::google::protobuf::Message /* @@protoc_inserti
   const ::google::protobuf::RepeatedPtrField< ::BigBang::TensorProto >&
       tensor() const;
 
-  // optional int32 size = 1;
-  bool has_size() const;
-  void clear_size();
-  static const int kSizeFieldNumber = 1;
-  ::google::protobuf::int32 size() const;
-  void set_size(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:BigBang.TensorProtoVector)
  private:
-  void set_has_size();
-  void clear_has_size();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
   ::google::protobuf::RepeatedPtrField< ::BigBang::TensorProto > tensor_;
-  ::google::protobuf::int32 size_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsTensorProtoVectorImpl();
 };
@@ -2704,18 +2697,18 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
 #endif  // __GNUC__
 // FillerParameter
 
-// optional .BigBang.FillerParameter.FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+// optional .BigBang.FillerParameter.FillerType type = 1 [default = DEFAULT];
 inline bool FillerParameter::has_type() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void FillerParameter::set_has_type() {
-  _has_bits_[0] |= 0x00000001u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void FillerParameter::clear_has_type() {
-  _has_bits_[0] &= ~0x00000001u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void FillerParameter::clear_type() {
-  type_ = 0;
+  type_ = 2;
   clear_has_type();
 }
 inline ::BigBang::FillerParameter_FillerType FillerParameter::type() const {
@@ -2731,13 +2724,13 @@ inline void FillerParameter::set_type(::BigBang::FillerParameter_FillerType valu
 
 // optional float mean = 2 [default = 0];
 inline bool FillerParameter::has_mean() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void FillerParameter::set_has_mean() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000001u;
 }
 inline void FillerParameter::clear_has_mean() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void FillerParameter::clear_mean() {
   mean_ = 0;
@@ -3083,30 +3076,6 @@ TensorProto::mutable_d_diff() {
 // -------------------------------------------------------------------
 
 // TensorProtoVector
-
-// optional int32 size = 1;
-inline bool TensorProtoVector::has_size() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void TensorProtoVector::set_has_size() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void TensorProtoVector::clear_has_size() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void TensorProtoVector::clear_size() {
-  size_ = 0;
-  clear_has_size();
-}
-inline ::google::protobuf::int32 TensorProtoVector::size() const {
-  // @@protoc_insertion_point(field_get:BigBang.TensorProtoVector.size)
-  return size_;
-}
-inline void TensorProtoVector::set_size(::google::protobuf::int32 value) {
-  set_has_size();
-  size_ = value;
-  // @@protoc_insertion_point(field_set:BigBang.TensorProtoVector.size)
-}
 
 // repeated .BigBang.TensorProto tensor = 2;
 inline int TensorProtoVector::tensor_size() const {

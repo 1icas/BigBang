@@ -34,6 +34,8 @@
 # files
 BigBang.VC.db
 BigBang/vc140.pdb
+BigBang/src/test/train_cifar10_solver_copy_caffe.prototxt
+BigBang/src/test/train_cifar10_solver_copy_caffe_1.prototxt
 
 # folders
 .vs/

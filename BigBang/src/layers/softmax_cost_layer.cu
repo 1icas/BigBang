@@ -85,7 +85,7 @@ void SoftmaxCostLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dt
 	const int nums = bottom->shape(0);
 	const int size = bottom->size();
 	const int per_data_size = size / nums;
-	//TODO: can we use another ways to do this thing(or we can don't memset the memory ?)
+	//TODO: can we use another ways to do this thing(or Can we don't need memset the memory ?)
 	softmax_sum_->Reset();
 	dtype* softmax_sum_data = softmax_sum_->mutable_gpu_data();
 	dtype* softmax_result_data = softmax_result_->mutable_gpu_data();
@@ -97,15 +97,15 @@ void SoftmaxCostLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dt
 	gpu_exp_div <<<BigBangGetBlocks(size), THREAD_MAX_NUMS >>> (softmax_sum_data, size, per_data_size, softmax_result_data);
 
 	//compute the error
-	if (++count_ % times_ == 0) {
+	//if (++count_ % times_ == 0) {
 		const dtype* labels = top->cpu_data();
 		const dtype* softmax_result_cpu_data = softmax_result_->cpu_data();
 		dtype loss = 0;
 		for (int i = 0; i < nums; ++i) {
 			loss += -log(softmax_result_cpu_data[static_cast<int>(labels[i] + 0.1) + i*per_data_size]);
 		}
-		std::cout << "training " << count_ << " times, the error is: " << loss / nums << std::endl;
-	}
+		std::cout << "training " << count_++ << " times, the error is: " << loss / nums << std::endl;
+	//}
 }
 
 template<typename dtype>

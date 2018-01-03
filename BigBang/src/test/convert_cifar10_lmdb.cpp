@@ -180,6 +180,6 @@ void convert_only_test_the_model(const std::string& input_folder, const std::str
 	//convert_cifar_compute_mean("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb/");
 	//convert("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb");
 	//test_read();
-	//compute_cifar_mean("D:/deeplearning/cifar_lmdb/cifar10.mdb", "D:/deeplearning/cifar_lmdb/cifar10_mean.proto");
+	//compute_cifar_mean("D:/deeplearning/cifar_lmdb/cifar10_test.mdb", "D:/deeplearning/cifar_lmdb/cifar10_mean.proto");
 	//convert_only_test_the_model("D:/deeplearning/cifar-10-batches-bin", "D:/deeplearning/cifar_lmdb");
 //}

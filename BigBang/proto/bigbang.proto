@@ -5,8 +5,9 @@ message FillerParameter {
 	enum FillerType {
 		GAUSSIAN_DISTRIBUTION = 0;	
 		XAVIER = 1;
+		DEFAULT = 2;
 	};
-	optional FillerType type = 1 [default = GAUSSIAN_DISTRIBUTION];
+	optional FillerType type = 1 [default = DEFAULT];
 	optional float mean = 2 [default = 0.0];
 	optional float std = 3 [default = 1.0];
 };

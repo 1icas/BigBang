@@ -8,7 +8,7 @@ __global__ void dropout_forward_backward(const unsigned int threshold, const dty
 	const unsigned int* mask, const dtype* input, dtype* output) {
 	const int index = blockIdx.x * blockDim.x + threadIdx.x;
 	if (index < size) {
-		output[index] = input[index] * (mask[index] > threshold) * scale;
+		output[index] = input[index] * (mask[index] >= threshold) * scale;
 	}
 }
 
@@ -28,7 +28,7 @@ void DropoutLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>
 template<typename dtype>
 void DropoutLayer<dtype>::Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) {
 	const int size = top->size();
-	unsigned int* mask_data = mask_->mutable_gpu_data();
+	const unsigned int* mask_data = mask_->gpu_data();
 	const dtype* top_diff_data = top->gpu_diff_data();
 	dtype* bottom_diff_data = bottom->mutable_gpu_diff_data();
 	dropout_forward_backward<<<BigBangGetBlocks(size), THREAD_MAX_NUMS >>>(threshold_, scale_, size, mask_data, top_diff_data, bottom_diff_data);

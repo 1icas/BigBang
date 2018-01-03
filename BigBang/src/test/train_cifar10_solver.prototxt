@@ -1,18 +1,18 @@
 mode: GPU
 #93720
-train_iterations: 100000
+train_iterations: 6002
 validate_iterations: 20
-test_validatedata_accuracy_per_train_iterations: 1500
-train_batch_size: 32
+test_validatedata_accuracy_per_train_iterations: 500
+train_batch_size: 100
 validate_batch_size: 500
 #lr: 0.005
-lr: 0.01
+lr: 0.0005
 write_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
-#read_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
+read_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
 momentum_ratio: 0.9
 weight_decay_param: {
 	method: L2REGULARIZATION,
-	alpha: 0.0003
+	alpha: 0.00003
 }
 net_param {
 	name: "train_minst"
@@ -21,11 +21,11 @@ net_param {
     name: "data"
     type: "Data"
     data_layer_param {
-      batch_size: 32
+      batch_size: 100
       cache_batch_count: 10
       source: "D:/deeplearning/cifar_lmdb/cifar10_train.mdb"
 			preprocess_params: {
-				scale: 0.00392156
+				#scale: 0.00392156
 				mean_file: "D:/deeplearning/cifar_lmdb/cifar10_mean.proto"
 			}
     }
@@ -34,7 +34,7 @@ net_param {
     name: "Conv1"
     type: "Conv"
     conv_layer_param {
-      kernel_groups: 128
+      kernel_groups: 48
 			kernel_channels: 3
 			kernel_h: 5
 			kernel_w: 5
@@ -43,13 +43,17 @@ net_param {
       use_bias: true
       kernel_filler: {
         type: XAVIER
-				std: 0.01
+				std: 0.0001
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
     }
   }
+	layer_param {
+		name: "neuron1"
+    type: "Relu"
+	}
   layer_param {
     name: "Pool1"
     type: "Pooling"
@@ -61,15 +65,11 @@ net_param {
 		}
   }
 	layer_param {
-		name: "neuron1"
-    type: "Relu"
-	}
-	layer_param {
     name: "Conv2"
     type: "Conv"
     conv_layer_param {
       kernel_groups: 96
-			kernel_channels: 128
+			kernel_channels: 48
 			kernel_h: 3
 			kernel_w: 3
 			stride_h: 1
@@ -80,10 +80,14 @@ net_param {
 				std: 0.01
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
     }
   }
+	layer_param {
+		name: "neuron1"
+    type: "Relu"
+	}
   layer_param {
     name: "Pool2"
     type: "Pooling"
@@ -95,10 +99,6 @@ net_param {
 		}
   }
 	layer_param {
-		name: "neuron1"
-    type: "Relu"
-	}
-	layer_param {
 		name: "dropout1"
 		type: "Dropout"
 		dropout_layer_param {
@@ -109,14 +109,14 @@ net_param {
     name: "inner1"
     type: "InnerProduct"
     inner_product_layer_param {
-      output_nums: 800
+      output_nums: 512
       use_bias: true
       weight_filler: {
         type: XAVIER
 				std: 0.01
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
     }
   }
@@ -142,9 +142,9 @@ net_param {
 				std: 0.01
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
-    }
+    }	
   }
   layer_param {
     name: "end"
@@ -162,7 +162,7 @@ net_param {
       cache_batch_count: 2
       source: "D:/deeplearning/cifar_lmdb/cifar10_test.mdb"
 			preprocess_params: {
-				scale: 0.00392156
+				#scale: 0.00392156
 				mean_file: "D:/deeplearning/cifar_lmdb/cifar10_mean.proto"
 			}
     }
@@ -171,7 +171,7 @@ net_param {
     name: "Conv1"
     type: "Conv"
     conv_layer_param {
-      kernel_groups: 128
+      kernel_groups: 48
 			kernel_channels: 3
 			kernel_h: 5
 			kernel_w: 5
@@ -180,13 +180,17 @@ net_param {
       use_bias: true
       kernel_filler: {
         type: XAVIER
-				std: 0.01
+				std: 0.0001
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
     }
   }
+	layer_param {
+		name: "neuron1"
+    type: "Relu"
+	}
   layer_param {
     name: "Pool1"
     type: "Pooling"
@@ -198,15 +202,11 @@ net_param {
 		}
   }
 	layer_param {
-		name: "neuron1"
-    type: "Relu"
-	}
-	layer_param {
     name: "Conv2"
     type: "Conv"
     conv_layer_param {
       kernel_groups: 96
-			kernel_channels: 128
+			kernel_channels: 48
 			kernel_h: 3
 			kernel_w: 3
 			stride_h: 1
@@ -217,10 +217,14 @@ net_param {
 				std: 0.01
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
     }
   }
+	layer_param {
+		name: "neuron1"
+    type: "Relu"
+	}
   layer_param {
     name: "Pool1"
     type: "Pooling"
@@ -231,10 +235,6 @@ net_param {
 			stride_w: 2
 		}
   }
-	layer_param {
-		name: "neuron1"
-    type: "Relu"
-	}
 	layer_param {
 		name: "dropout1"
 		type: "Dropout"
@@ -246,14 +246,14 @@ net_param {
     name: "inner1"
     type: "InnerProduct"
     inner_product_layer_param {
-      output_nums: 800
+      output_nums: 512
       use_bias: true
       weight_filler: {
         type: XAVIER
 				std: 0.01
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
     }
   }
@@ -279,7 +279,7 @@ net_param {
 				std: 0.01
       }
       bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
+        type: DEFAULT
       }
     }
   }

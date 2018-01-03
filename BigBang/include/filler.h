@@ -16,7 +16,7 @@ class Filler {
 public:
 	explicit Filler(const FillerParameter& params)
 		:params_(params){}
-	virtual void Fill(Tensor<dtype>* t) = 0;
+	virtual void Fill(Tensor<dtype>* t) {};
 
 protected:
 	FillerParameter params_;
@@ -59,6 +59,8 @@ std::shared_ptr<Filler<dtype>> CreateFiller(const FillerParameter& params) {
 	case FillerParameter::XAVIER:
 		return std::make_shared<XavierFiller<dtype>>(params);
 		break;
+	case FillerParameter::DEFAULT:
+		return std::make_shared<Filler<dtype>>(params);
 	default:
 		THROW_EXCEPTION;
 	}

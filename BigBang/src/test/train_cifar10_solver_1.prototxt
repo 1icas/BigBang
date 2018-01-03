@@ -1,12 +1,12 @@
 mode: GPU
 #93720
-train_iterations: 600
+train_iterations: 20000
 train_batch_size: 32
 #lr: 0.005
 lr: 0.005
 momentum_ratio: 0.9
-write_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
-read_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
+#write_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
+#read_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
 weight_decay_param: {
 	method: L2REGULARIZATION,
 	alpha: 0.0003

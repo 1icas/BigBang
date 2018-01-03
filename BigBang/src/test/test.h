@@ -43,7 +43,7 @@ public:
 	}
 
 	void TestAll() {
-		TestTensor_CPU();
+		/*TestTensor_CPU();
 		TestTensor_GPU();
 		TestConvLayerFeedForward_CPU();
 		TestConvLayerBackward_CPU();
@@ -53,7 +53,7 @@ public:
 		TestMaxPoolLayerBackward();
 		TestGpuGemm();
 		TestSoftmaxCostLayerBackward_CPU();
-		TestSoftmaxCostLayerBackward_GPU();
+		TestSoftmaxCostLayerBackward_GPU();*/
 		//TestDropoutLayerForward_Backward_CPU();
 		//TestDropoutLayerForward_Backward_GPU();
 		//TestFullyConnectLayer<double>();
@@ -63,7 +63,7 @@ public:
 		//TestConvLayerNetwork1<double>();
 		//TestLoadDataAsync();
 		//TestParseTextFileToProtobuf();
-		//TestCifar10Model<double>();
+		TestCifar10Model<double>();
 	}
 
 
