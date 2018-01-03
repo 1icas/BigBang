@@ -97,7 +97,7 @@ void SoftmaxCostLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dt
 	gpu_exp_div <<<BigBangGetBlocks(size), THREAD_MAX_NUMS >>> (softmax_sum_data, size, per_data_size, softmax_result_data);
 
 	//compute the error
-	//if (++count_ % times_ == 0) {
+	if (++count_ % times_ == 0) {
 		const dtype* labels = top->cpu_data();
 		const dtype* softmax_result_cpu_data = softmax_result_->cpu_data();
 		dtype loss = 0;
@@ -105,7 +105,7 @@ void SoftmaxCostLayer<dtype>::Forward_GPU(const Tensor<dtype>* bottom, Tensor<dt
 			loss += -log(softmax_result_cpu_data[static_cast<int>(labels[i] + 0.1) + i*per_data_size]);
 		}
 		std::cout << "training " << count_++ << " times, the error is: " << loss / nums << std::endl;
-	//}
+	}
 }
 
 template<typename dtype>
