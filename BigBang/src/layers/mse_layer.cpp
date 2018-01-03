@@ -17,11 +17,6 @@ void MSELayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	result_.reset(new Tensor<dtype>(bottom->shape()));
 }
 
-//template<typename dtype>
-//void MSELayer<dtype>::Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
-//	CHECK_EQ(top->size(), bottom->size());
-//}
-
 template<typename dtype>
 void MSELayer<dtype>::Forward_CPU(const Tensor<dtype>* input, Tensor<dtype>* output) {
 	if (++count_ % times_ == 0) {

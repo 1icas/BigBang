@@ -95,10 +95,6 @@ void InnerProductLayer<dtype>::UpdateParams_CPU(const dtype* bottom_data, const 
 		dtype* biases_mutable_diff_data = learnable_params_[1]->mutable_cpu_diff_data();
 		bigbang_cpu_gemm<dtype>(false, false, 1, top_column_, top_row_, 1., middle_->cpu_data(), 
 			delta, 0., biases_mutable_diff_data);
-		/*bigbangcpumemset(biases_mutable_diff_data, 0, sizeof(dtype)*learnable_params_[1]->size());
-		bigbang_cpu_column_sum_plus(delta, bottom_row_, biases_row_, biases_mutable_diff_data);*/
-	/*	bigbang_cpu_minus(biases_->cpu_data(), biases_mutable_diff_data, biases_row_, alpha_ / bottom_row_, 
-			biases_->mutable_cpu_data());*/
 	}
 }
 

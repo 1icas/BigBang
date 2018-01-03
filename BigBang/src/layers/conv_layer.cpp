@@ -228,22 +228,10 @@ template <typename dtype>
 void ConvLayer<dtype>::UpdateParams_GPU(const dtype* bottom_data, const dtype* delta) {
 	const int bottom_unroll_row = unroll_bottom_->shape(2);
 	const int bottom_unroll_column = unroll_bottom_->shape(3);
-	//update biases_
-	/*if (use_bias_) {
-		const int biases_size = biases_->size();
-		dtype* biases_diff_data = biases_->mutable_cpu_diff_data();
-		for (int i = 0; i < nums_; ++i) {
-			row_sum_plus(delta + i*top_channels_*top_row_*top_column_, top_channels_, top_row_*top_column_, biases_diff_data);
-		}
-		dtype* biases_mutable_data = biases_->mutable_cpu_data();
-		bigbang_cpu_minus(biases_mutable_data, biases_diff_data, biases_size, alpha_ / nums_, biases_mutable_data);
-	}*/
 
 	//update kernels
 	const int kernel_size = learnable_params_[0]->size();
 	dtype* mutable_kernels_diff_data = learnable_params_[0]->mutable_gpu_diff_data();
-//	dtype* kernel_diff_data = kernel_diff_->mutable_gpu_data();
-	//bigbanggpumemset(kernel_diff_data, 0, sizeof(dtype)*kernel_size);
 	const int unroll_size = bottom_unroll_row*bottom_unroll_column;
 	for (int i = 0; i < nums_; ++i) {
 		bigbang_gpu_gemm(false, true, top_channels_, bottom_unroll_row, bottom_unroll_column, static_cast<dtype>(1.),
