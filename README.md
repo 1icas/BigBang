@@ -1,6 +1,6 @@
 # BigBang
 It's an open framework for deep learning.<br>
-Alos It's a vs project(temporary, i think the project will support the linux system in the near feature).<br>
+Also It's a vs project(temporary, i think the project will support the linux system in the near feature).<br>
 
 You need some tools for run the project.<br>
 1.visual studio 2015(install from the offical website)<br>
