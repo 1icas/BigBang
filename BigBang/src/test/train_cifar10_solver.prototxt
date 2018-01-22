@@ -6,13 +6,13 @@ test_validatedata_accuracy_per_train_iterations: 500
 train_batch_size: 100
 validate_batch_size: 500
 #lr: 0.005
-lr: 0.0005
+lr: 0.00005
 write_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
 read_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
 momentum_ratio: 0.9
 weight_decay_param: {
 	method: L2REGULARIZATION,
-	alpha: 0.00003
+	alpha: 0.000003
 }
 net_param {
 	name: "train_minst"

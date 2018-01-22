@@ -174,6 +174,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
   <ItemGroup>
     <ClCompile Include="proto\bigbang.pb.cc" />
     <ClCompile Include="src\big_bang.cpp" />
+    <ClCompile Include="src\layers\batch_normalization.cpp" />
     <ClCompile Include="src\layers\conv_layer.cpp" />
     <ClCompile Include="src\layers\data_layer.cpp" />
     <ClCompile Include="src\layers\dropout_layer.cpp" />
@@ -226,6 +227,7 @@ copy "$(CudaToolkitBinDir)\cudart*.dll" "$(OutDir)"</Command>
     <ClInclude Include="include\gtest.h" />
     <ClInclude Include="include\layer.h" />
     <ClInclude Include="include\layers\activation_func_layer.h" />
+    <ClInclude Include="include\layers\batch_normalization_layer.h" />
     <ClInclude Include="include\layers\conv_layer.h" />
     <ClInclude Include="include\layers\cost_func_layer.h" />
     <ClInclude Include="include\layers\data_layer.h" />

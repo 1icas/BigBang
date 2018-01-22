@@ -26,10 +26,7 @@ public:
 	}
 
 private:
-
 	void Initialize();
-
-
 
 private:
 	NetParameter net_params_;

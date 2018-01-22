@@ -200,6 +200,9 @@
     <ClCompile Include="src\layers\log_likelihood_layer.cpp">
       <Filter>src\layers</Filter>
     </ClCompile>
+    <ClCompile Include="src\layers\batch_normalization.cpp">
+      <Filter>src\layers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\big_bang.h">
@@ -347,6 +350,9 @@
       <Filter>include\util</Filter>
     </ClInclude>
     <ClInclude Include="include\layers\log_likelihood_layer.h">
+      <Filter>include\layers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\layers\batch_normalization_layer.h">
       <Filter>include\layers</Filter>
     </ClInclude>
   </ItemGroup>

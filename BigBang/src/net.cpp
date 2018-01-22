@@ -6,8 +6,6 @@
 #include "../include/util/math_function_ptr.h"
 
 namespace BigBang {
-
-
 template<typename dtype>
 void Net<dtype>::Initialize() {
 	const int layer_size = net_params_.layer_param_size();
@@ -19,7 +17,6 @@ void Net<dtype>::Initialize() {
 		layers_.push_back(LayerRegistry<dtype>::CreateLayer(net_params_.layer_param(i)));
 		layers_[i]->SetUp(input_[i].get(), input_[i + 1].get());
 	}
-
 	predicted_tensor_.reset(new Tensor<dtype>());
 }
 
