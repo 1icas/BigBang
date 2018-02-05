@@ -44,6 +44,7 @@ protected:
 	// guarantee all the tensor have the right dimension info
 	virtual void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
 	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
+	virtual void reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 
 protected:
 	std::shared_ptr<Tensor<dtype>> kernels_;

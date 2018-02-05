@@ -18,6 +18,8 @@ public:
 
 	//void TrainDebug();
 	void Train();
+	int Test();
+
 
 	int TestValidateData();
 
@@ -27,13 +29,13 @@ public:
 
 private:
 	void Initialize();
+	void Run();
 
 private:
 	NetParameter net_params_;
 	std::vector<std::shared_ptr<Layer<dtype>>> layers_;
 	std::vector<std::shared_ptr<Tensor<dtype>>> input_;
 	std::shared_ptr<Tensor<dtype>> predicted_tensor_;
-
 };
 }
 

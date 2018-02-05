@@ -11,6 +11,11 @@ void LogLikelihoodLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtyp
 }
 
 template<typename dtype>
+void LogLikelihoodLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	top->Reshape(std::vector<int>{bottom->shape(0), 1, 1, 1});
+}
+
+template<typename dtype>
 void LogLikelihoodLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	//TODO: i will modify this soon.(the number 1)
 	if (++count_ % 1 == 0) {

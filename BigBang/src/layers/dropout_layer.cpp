@@ -16,6 +16,13 @@ void DropoutLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* to
 }
 
 template<typename dtype>
+void DropoutLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	auto shape = bottom->shape();
+	top->Reshape(shape);
+	mask_->Reshape(shape);
+}
+
+template<typename dtype>
 void DropoutLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	const int size = bottom->size();
 	const dtype* bottom_data = bottom->cpu_data();

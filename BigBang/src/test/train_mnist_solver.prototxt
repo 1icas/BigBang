@@ -1,18 +1,18 @@
 mode: GPU
-train_iterations: 150000
-validate_iterations: 2
-test_validatedata_accuracy_per_train_iterations: 5000
+train_iterations: 93720
+test_iterations: 10
+train_test_rate: 500
 train_batch_size: 10
-validate_batch_size: 5000
-lr: 1
-read_model_dir: "D:/deeplearning/mnist_lmdb/mnist_model.proto"
-write_model_dir: "D:/deeplearning/mnist_lmdb/mnist_model.proto"
+test_batch_size: 1000
+lr: 3
+#read_model_dir: "D:/deeplearning/mnist_lmdb/mnist_model.proto"
+#write_model_dir: "D:/deeplearning/mnist_lmdb/mnist_model.proto"
 net_param {
 	name: "test_minst"
-  state: TRAIN
   layer_param {
     name: "data"
     type: "Data"
+		phase: TRAIN
     data_layer_param {
       batch_size: 10
       cache_batch_count: 10
@@ -22,67 +22,24 @@ net_param {
 			}
     }
   }
-  layer_param {
-    name: "inner"
-    type: "InnerProduct"
-    inner_product_layer_param {
-      output_nums: 30
-      use_bias: true
-      weight_filler: {
-        type: GAUSSIAN_DISTRIBUTION
-      }
-      bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
-      }
-    }
-  }
-  layer_param {
-    name: "neuron"
-    type: "Sigmoid"
-  }
-  layer_param {
-    name: "inner1"
-    type: "InnerProduct"
-    inner_product_layer_param {
-      output_nums: 10
-      use_bias: true
-      weight_filler: {
-        type: GAUSSIAN_DISTRIBUTION
-      }
-      bias_filler: {
-        type: GAUSSIAN_DISTRIBUTION
-      }
-    }
-  }
-  layer_param {
-    name: "neuron1"
-    type: "Sigmoid"
-  }
-  layer_param {
-    name: "end"
-    type: "MSE"
-  }
-}
-net_param {
-	name: "test_minst"
-  state: VALIDATE
-  layer_param {
+	layer_param {
     name: "data"
     type: "Data"
+		phase: TEST
     data_layer_param {
-      batch_size: 5000
-      cache_batch_count: 1
+      batch_size: 1000
+      cache_batch_count: 2
       source: "D:/deeplearning/mnist_lmdb/mnist_test.mdb"
 			preprocess_params: {
 				scale: 0.00392156
 			}
     }
   }
-  layer_param {
-    name: "inner"
+	layer_param {
+    name: "inner1"
     type: "InnerProduct"
     inner_product_layer_param {
-      output_nums: 30
+      output_nums: 100
       use_bias: true
       weight_filler: {
         type: GAUSSIAN_DISTRIBUTION
@@ -114,8 +71,9 @@ net_param {
     name: "neuron1"
     type: "Sigmoid"
   }
-	layer_param {
+  layer_param {
     name: "end"
     type: "MSE"
+		phase: TRAIN
   }
 }

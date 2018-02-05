@@ -18,28 +18,35 @@ Solver<dtype>::Solver(const SolverParameter& params)
 	else {
 		Config::Get().set_mode(Config::ProcessUnit::GPU);
 	}
-	const int net_size = params.net_param_size();
-	for (int i = 0; i < net_size; ++i) {
-		const int state = params.net_param(i).state();
-		nets_.insert(std::make_pair(state,
-			std::make_shared<Net<dtype>>(params.net_param(i))));
-		auto layers_ = nets_[state]->Layers();
-		const int size = layers_.size();
-		if (params.net_param(i).state() == NetParameter::TRAIN) {
-			for (int k = 0; k < size; ++k) {
-				learnable_params_.push_back(layers_[k]->get_learnable_params());
-			}
-		}
-		else {
-			//the other net should be shared the train net learnable parameter
-			CHECK_NE(learnable_params_.size(), 0);
-			for (int k = 0; k < size; ++k) {
-				if (layers_[k]->get_learnable_params().size() != 0) {
-					layers_[k]->get_learnable_params() = learnable_params_[k];
-				}
-			}
-		}
+
+	net_ = std::make_shared<Net<dtype>>(params.net_param());
+	auto net_layers = net_->Layers();
+	for (int i = 0; i < net_layers.size(); ++i) {
+		learnable_params_.push_back(net_layers[i]->get_learnable_params());
 	}
+
+	//const int net_size = params.net_param_size();
+	//for (int i = 0; i < net_size; ++i) {
+	//	const int state = params.net_param(i).state();
+	//	nets_.insert(std::make_pair(state,
+	//		std::make_shared<Net<dtype>>(params.net_param(i))));
+	//	auto layers_ = nets_[state]->Layers();
+	//	const int size = layers_.size();
+	//	if (params.net_param(i).state() == NetParameter::TRAIN) {
+	//		for (int k = 0; k < size; ++k) {
+	//			learnable_params_.push_back(layers_[k]->get_learnable_params());
+	//		}
+	//	}
+	//	else {
+	//		//the other net should be shared the train net learnable parameter
+	//		CHECK_NE(learnable_params_.size(), 0);
+	//		for (int k = 0; k < size; ++k) {
+	//			if (layers_[k]->get_learnable_params().size() != 0) {
+	//				layers_[k]->get_learnable_params() = learnable_params_[k];
+	//			}
+	//		}
+	//	}
+	//}
 	MomentumParamsInit();
 	DeserializeNumerical();
 }
@@ -51,14 +58,12 @@ void Solver<dtype>::Run() {
 
 template<typename dtype>
 void Solver<dtype>::Train() {
-	auto net = nets_[NetParameter::TRAIN];
-	if (!net) THROW_EXCEPTION;
 	const int train_iters = params_.train_iterations();
 	for (int i = 0; i < train_iters; ++i) {
-		net->Train();
-		auto times = params_.test_validatedata_accuracy_per_train_iterations();
+		net_->Train();
+		auto times = params_.train_test_rate();
 		if (i != 0 && times != 0 && i % times == 0) {
-			Validate();
+			Test();
 		}
 
 		MomentumProcess();
@@ -67,18 +72,30 @@ void Solver<dtype>::Train() {
 	SerializeNumerical();
 }
 
+//template<typename dtype>
+//void Solver<dtype>::Validate() {
+//	auto net = nets_[NetParameter::VALIDATE];
+//	if (!net) THROW_EXCEPTION;
+//	const int validate_iters = params_.validate_iterations();
+//	const int batch_size = params_.validate_batch_size();
+//	int count = 0;
+//	for (int i = 0; i < validate_iters; ++i) {
+//		count += net->TestValidateData();
+//	}
+//	const dtype percent = static_cast<dtype>(count) / static_cast<dtype>(batch_size*validate_iters);
+//	std::cout << "the validate data accuracy is : " << percent << std::endl;
+//}
+
 template<typename dtype>
-void Solver<dtype>::Validate() {
-	auto net = nets_[NetParameter::VALIDATE];
-	if (!net) THROW_EXCEPTION;
-	const int validate_iters = params_.validate_iterations();
-	const int batch_size = params_.validate_batch_size();
+void Solver<dtype>::Test() {
+	const int test_iters = params_.test_iterations();
+	const int batch_size = params_.test_batch_size();
 	int count = 0;
-	for (int i = 0; i < validate_iters; ++i) {
-		count += net->TestValidateData();
+	for (int i = 0; i < test_iters; ++i) {
+		count += net_->Test();
 	}
-	const dtype percent = static_cast<dtype>(count) / static_cast<dtype>(batch_size*validate_iters);
-	std::cout << "the validate data accuracy is : " << percent << std::endl;
+	const dtype percent = static_cast<dtype>(count) / static_cast<dtype>(batch_size*test_iters);
+	std::cout << "the test data accuracy is : " << percent << std::endl;
 }
 
 template<typename dtype>
@@ -109,6 +126,12 @@ void Solver<dtype>::UpdateLearnableParams() {
 				const dtype* diff_data = params_.momentum_ratio() == 0. ? 
 					lp->gpu_diff_data() : mp->gpu_data();
 				dtype* data = lp->mutable_gpu_data();
+				//test
+		/*		const dtype* ttt = lp->cpu_diff_data();
+				for (int i = 0; i < lp->size(); ++i) {
+					std::cout << ttt[i] << std::endl;
+				}*/
+				//
 				bigbang_gpu_minus<dtype>(data, diff_data, lp->size(), learn_rate / batch_size, data);
 			}
 		}

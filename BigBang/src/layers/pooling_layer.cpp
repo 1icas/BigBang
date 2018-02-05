@@ -74,6 +74,20 @@ namespace BigBang {
 template<typename dtype>
 void PoolingLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	CHECK_EQ(bottom->dimension(), DATA_DIMENSION);
+	do_reshape(bottom, top);
+	max_pool_pos_ = std::make_shared<Tensor<int>>(std::vector<int>{nums_,
+		bottom_channels_, top_row_, top_column_});
+}
+
+template<typename dtype>
+void PoolingLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	do_reshape(bottom, top);
+	max_pool_pos_->Reshape(std::vector<int>{nums_,
+		bottom_channels_, top_row_, top_column_});
+}
+
+template<typename dtype>
+void PoolingLayer<dtype>::do_reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	nums_ = bottom->shape(0);
 	bottom_channels_ = bottom->shape(1);
 	bottom_row_ = bottom->shape(2);
@@ -84,9 +98,8 @@ void PoolingLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* to
 	top_channels_ = top->shape(1);
 	top_row_ = top->shape(2);
 	top_column_ = top->shape(3);
-	max_pool_pos_ = std::make_shared<Tensor<int>>(std::vector<int>{nums_,
-		bottom_channels_, top_row_, top_column_});
 }
+
 
 //ÔÝ²»¿¼ÂÇÖØµþ
 template<typename dtype>

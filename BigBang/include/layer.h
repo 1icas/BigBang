@@ -28,6 +28,14 @@ public:
 		Check(bottom, top);
 	}
 
+	void Reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+		VALIDATE_POINTER(bottom);
+		VALIDATE_POINTER(top);
+		CHECK_EQ(bottom->dimension(), DATA_DIMENSION);
+		CHECK_EQ(top->dimension(), DATA_DIMENSION);
+		reshape(bottom, top);
+	}
+
 	void Forward(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 		if (Config::Get().mode() == Config::ProcessUnit::GPU) {
 			Forward_GPU(bottom, top);
@@ -53,6 +61,9 @@ public:
 		return learnable_params_;
 	}
 
+	LayerParameter::Phase Phase() {
+		return params_.phase();
+	}
 
 protected:
 	virtual void Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) = 0;
@@ -62,7 +73,7 @@ protected:
 
 	virtual void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {}
 	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {}
-
+	virtual void reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) = 0;
 protected:
 	LayerParameter params_;
 	std::shared_ptr<Tensor<dtype>> labels_;

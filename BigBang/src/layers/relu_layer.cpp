@@ -16,6 +16,11 @@ void ReluLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) 
 }
 
 template<typename dtype>
+void ReluLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	top->Reshape(bottom->shape());
+}
+
+template<typename dtype>
 void ReluLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	const int size = bottom->size();
 	const dtype* bottom_data = bottom->cpu_data();

@@ -36,6 +36,12 @@ void DataLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) 
 }
 
 template<typename dtype>
+void DataLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	top->Reshape(std::vector<int>{(int)data_layer_params_.batch_size(), top->shape(1), top->shape(2),
+		top->shape(3)});
+}
+
+template<typename dtype>
 void DataLayer<dtype>::entry() {
 	bool use_gpu = Config::Get().mode() == Config::ProcessUnit::GPU;
 	std::shared_ptr<Cursor> cursor(lmdb_->CreateCursor());
@@ -53,7 +59,7 @@ void DataLayer<dtype>::entry() {
 		dtype* labels_data = image_blob.labels_->mutable_cpu_data();
 		for (int i = 0; i < batch_size; ++i) {
 			if (!cursor->valid()) cursor->SeekToFirst();
-			while (Skip()) {
+			while (params_.phase() == LayerParameter::TRAIN && Skip()) {
 				cursor->Next();
 				if (!cursor->valid()) cursor->SeekToFirst();
 			}

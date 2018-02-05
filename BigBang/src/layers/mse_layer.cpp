@@ -18,6 +18,12 @@ void MSELayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 }
 
 template<typename dtype>
+void MSELayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	top->Reshape(std::vector<int>{bottom->shape(0), 1, 1, 1});
+	result_->Reshape(bottom->shape());
+}
+
+template<typename dtype>
 void MSELayer<dtype>::Forward_CPU(const Tensor<dtype>* input, Tensor<dtype>* output) {
 	if (++count_ % times_ == 0) {
 		double m = 0.0;

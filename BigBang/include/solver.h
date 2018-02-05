@@ -17,7 +17,7 @@ public:
 
 	void Run();
 	void Train();
-	void Validate();
+	void Test();
 	void SerializeNumerical();
 	void DeserializeNumerical();
 
@@ -30,7 +30,8 @@ private:
 
 private:
 	SolverParameter params_;
-	std::map<int, std::shared_ptr<Net<dtype>>> nets_;
+	//std::map<int, std::shared_ptr<Net<dtype>>> nets_;
+	std::shared_ptr<Net<dtype>> net_;
 	std::vector<std::vector<std::shared_ptr<Tensor<dtype>>>> learnable_params_;
 	std::vector<std::vector<std::shared_ptr<Tensor<dtype>>>> momentum_params_;
 	//std::vector<std::shared_ptr<Net<dtype>>> nets_;

@@ -26,6 +26,14 @@ namespace BigBang {
 	}
 
 	template<typename dtype>
+	void SoftmaxLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+		top->Reshape(bottom->shape());
+		softmax_sum_->Reshape(std::vector<int>{bottom->shape(0), 1, 1, 1});
+		max_num_->Reshape(std::vector<int>{bottom->shape(0), 1, 1, 1});
+	}
+
+
+	template<typename dtype>
 	void SoftmaxLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 		const dtype* bottom_data = bottom->cpu_data();
 		const int nums = bottom->shape(0);

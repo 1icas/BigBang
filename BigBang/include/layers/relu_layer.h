@@ -19,6 +19,7 @@ namespace BigBang {
 		virtual void Forward_GPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 		virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 		virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
+		virtual void reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	};
 }
 

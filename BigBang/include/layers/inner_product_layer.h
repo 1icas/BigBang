@@ -52,6 +52,7 @@ protected:
 	virtual void Backward_GPU(const Tensor<dtype>* top, Tensor<dtype>* bottom) override;
 	virtual void Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 	virtual void Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) override;
+	virtual void reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) override;
 
 protected:
 	std::shared_ptr<Tensor<dtype>> weights_;

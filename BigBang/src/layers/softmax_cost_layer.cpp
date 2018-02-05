@@ -27,6 +27,16 @@ void SoftmaxCostLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>
 }
 
 template<typename dtype>
+void SoftmaxCostLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	auto s = bottom->shape(0);
+	top->Reshape(std::vector<int>{s, 1, 1, 1});
+	softmax_result_->Reshape(bottom->shape());
+	softmax_sum_->Reshape(std::vector<int>{s, 1, 1, 1});
+	max_num_->Reshape(std::vector<int>{s, 1, 1, 1});
+}
+
+
+template<typename dtype>
 void SoftmaxCostLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	const dtype* bottom_data = bottom->cpu_data();
 	const int nums = bottom->shape(0);

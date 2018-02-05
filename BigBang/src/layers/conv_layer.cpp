@@ -72,6 +72,14 @@ void ConvLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* top) 
 }
 
 template <typename dtype>
+void ConvLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	nums_ = bottom->shape(0);
+	top->Reshape(std::vector<int>{nums_, top->shape(1), top->shape(2), top->shape(3)});
+	unroll_bottom_ = std::make_shared<Tensor<dtype>>(std::vector<int>{nums_, 1, unroll_bottom_->shape(2), 
+		unroll_bottom_->shape(3)});
+}
+
+template <typename dtype>
 void ConvLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	const dtype* bottom_data = bottom->cpu_data();
 	const dtype* kernel_cpu_data = learnable_params_[0]->cpu_data();

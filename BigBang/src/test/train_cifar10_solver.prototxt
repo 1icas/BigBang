@@ -1,18 +1,18 @@
 mode: GPU
 #93720
 train_iterations: 6002
-validate_iterations: 20
-test_validatedata_accuracy_per_train_iterations: 500
+test_iterations: 20
+train_test_rate: 500
 train_batch_size: 100
-validate_batch_size: 500
+test_batch_size: 500
 #lr: 0.005
-lr: 0.00005
+lr: 0.005
 write_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
-read_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
+#read_model_dir: "D:/deeplearning/cifar_lmdb/cifar10_model.proto"
 momentum_ratio: 0.9
 weight_decay_param: {
 	method: L2REGULARIZATION,
-	alpha: 0.000003
+	alpha: 0.0003
 }
 net_param {
 	name: "train_minst"
@@ -29,6 +29,21 @@ net_param {
 				mean_file: "D:/deeplearning/cifar_lmdb/cifar10_mean.proto"
 			}
     }
+		phase: TRAIN
+  }
+	layer_param {
+    name: "data"
+    type: "Data"
+    data_layer_param {
+      batch_size: 500
+      cache_batch_count: 2
+      source: "D:/deeplearning/cifar_lmdb/cifar10_test.mdb"
+			preprocess_params: {
+				#scale: 0.00392156
+				mean_file: "D:/deeplearning/cifar_lmdb/cifar10_mean.proto"
+			}
+    }
+		phase: TEST
   }
   layer_param {
     name: "Conv1"
@@ -104,6 +119,7 @@ net_param {
 		dropout_layer_param {
 			dropout_ratio: 0.5
 		}
+		phase: TRAIN
 	}
   layer_param {
     name: "inner1"
@@ -126,6 +142,7 @@ net_param {
 		dropout_layer_param {
 			dropout_ratio: 0.5
 		}
+		phase: TRAIN
 	}
   layer_param {
     name: "neuron1"
@@ -149,146 +166,15 @@ net_param {
   layer_param {
     name: "end"
     type: "SoftmaxCost"
-  }
-}
-net_param {
-	name: "test_minst"
-  state: VALIDATE
-  layer_param {
-    name: "data"
-    type: "Data"
-    data_layer_param {
-      batch_size: 500
-      cache_batch_count: 2
-      source: "D:/deeplearning/cifar_lmdb/cifar10_test.mdb"
-			preprocess_params: {
-				#scale: 0.00392156
-				mean_file: "D:/deeplearning/cifar_lmdb/cifar10_mean.proto"
-			}
-    }
-  }
-  layer_param {
-    name: "Conv1"
-    type: "Conv"
-    conv_layer_param {
-      kernel_groups: 48
-			kernel_channels: 3
-			kernel_h: 5
-			kernel_w: 5
-			stride_h: 1
-			stride_w: 1
-      use_bias: true
-      kernel_filler: {
-        type: XAVIER
-				std: 0.0001
-      }
-      bias_filler: {
-        type: DEFAULT
-      }
-    }
-  }
-	layer_param {
-		name: "neuron1"
-    type: "Relu"
-	}
-  layer_param {
-    name: "Pool1"
-    type: "Pooling"
-		pooling_layer_param {
-			kernel_h: 2
-			kernel_w: 2
-			stride_h: 2
-			stride_w: 2
-		}
-  }
-	layer_param {
-    name: "Conv2"
-    type: "Conv"
-    conv_layer_param {
-      kernel_groups: 96
-			kernel_channels: 48
-			kernel_h: 3
-			kernel_w: 3
-			stride_h: 1
-			stride_w: 1
-      use_bias: true
-      kernel_filler: {
-        type: XAVIER
-				std: 0.01
-      }
-      bias_filler: {
-        type: DEFAULT
-      }
-    }
-  }
-	layer_param {
-		name: "neuron1"
-    type: "Relu"
-	}
-  layer_param {
-    name: "Pool1"
-    type: "Pooling"
-		pooling_layer_param {
-			kernel_h: 2
-			kernel_w: 2
-			stride_h: 2
-			stride_w: 2
-		}
-  }
-	layer_param {
-		name: "dropout1"
-		type: "Dropout"
-		dropout_layer_param {
-			dropout_ratio: 0.0
-		}
-	}
-  layer_param {
-    name: "inner1"
-    type: "InnerProduct"
-    inner_product_layer_param {
-      output_nums: 512
-      use_bias: true
-      weight_filler: {
-        type: XAVIER
-				std: 0.01
-      }
-      bias_filler: {
-        type: DEFAULT
-      }
-    }
-  }
-  layer_param {
-    name: "neuron1"
-    type: "Relu"
-  }
-	layer_param {
-		name: "dropout1"
-		type: "Dropout"
-		dropout_layer_param {
-			dropout_ratio: 0.0
-		}
-	}
-	layer_param {
-    name: "inner2"
-    type: "InnerProduct"
-    inner_product_layer_param {
-      output_nums: 10
-      use_bias: true
-      weight_filler: {
-        type: XAVIER
-				std: 0.01
-      }
-      bias_filler: {
-        type: DEFAULT
-      }
-    }
+		phase: TRAIN
   }
 	layer_param {
     name: "LastActivation"
     type: "Softmax"
+		phase: TEST
   }
-	layer_param {
-    name: "Cost"
-    type: "LogLikelihood"
-  }
+	#layer_param {
+   # name: "Cost"
+   #type: "LogLikelihood"
+  #}
 }

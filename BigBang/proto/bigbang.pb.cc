@@ -426,7 +426,7 @@ void InitDefaultsSolverParameter() {
 }
 
 ::google::protobuf::Metadata file_level_metadata[15];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[6];
 
 const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::FillerParameter, _has_bits_),
@@ -586,6 +586,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, name_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, phase_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, conv_layer_param_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, data_layer_param_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, dropout_layer_param_),
@@ -593,6 +594,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::LayerParameter, pooling_layer_param_),
   0,
   1,
+  7,
   2,
   3,
   4,
@@ -616,12 +618,9 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, mode_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, train_iterations_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, validate_iterations_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, test_iterations_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, test_validatedata_accuracy_per_train_iterations_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, test_testdata_accuracy_per_train_iterations_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, train_test_rate_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, train_batch_size_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, validate_batch_size_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, test_batch_size_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, lr_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, momentum_ratio_),
@@ -629,7 +628,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, write_model_dir_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, weight_decay_param_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(::BigBang::SolverParameter, net_param_),
-  3,
   4,
   5,
   6,
@@ -638,12 +636,10 @@ const ::google::protobuf::uint32 TableStruct::offsets[] GOOGLE_PROTOBUF_ATTRIBUT
   9,
   10,
   11,
-  12,
-  13,
   0,
   1,
   2,
-  ~0u,
+  3,
 };
 static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROTOBUF_ATTRIBUTE_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, sizeof(::BigBang::FillerParameter)},
@@ -658,9 +654,9 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] GOOGLE_PROT
   { 97, 113, sizeof(::BigBang::ConvLayerParameter)},
   { 124, 133, sizeof(::BigBang::InnerProductLayerParameter)},
   { 137, 146, sizeof(::BigBang::DataLayerParameter)},
-  { 150, 162, sizeof(::BigBang::LayerParameter)},
-  { 169, 177, sizeof(::BigBang::NetParameter)},
-  { 180, 200, sizeof(::BigBang::SolverParameter)},
+  { 150, 163, sizeof(::BigBang::LayerParameter)},
+  { 171, 179, sizeof(::BigBang::NetParameter)},
+  { 182, 199, sizeof(::BigBang::SolverParameter)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -742,37 +738,36 @@ void AddDescriptorsImpl() {
       "erParameter\"\220\001\n\022DataLayerParameter\022\022\n\nba"
       "tch_size\030\001 \001(\r\022\031\n\021cache_batch_count\030\002 \001("
       "\r\022\016\n\006source\030\003 \001(\t\022;\n\021preprocess_params\030\004"
-      " \001(\0132 .BigBang.DataPreprocessParameter\"\334"
-      "\002\n\016LayerParameter\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030"
-      "\002 \001(\t\0225\n\020conv_layer_param\030d \001(\0132\033.BigBan"
-      "g.ConvLayerParameter\0225\n\020data_layer_param"
-      "\030e \001(\0132\033.BigBang.DataLayerParameter\022;\n\023d"
-      "ropout_layer_param\030f \001(\0132\036.BigBang.Dropo"
-      "utLayerParameter\022F\n\031inner_product_layer_"
-      "param\030g \001(\0132#.BigBang.InnerProductLayerP"
-      "arameter\022;\n\023pooling_layer_param\030h \001(\0132\036."
-      "BigBang.PoolingLayerParameter\"\242\001\n\014NetPar"
-      "ameter\022\014\n\004name\030\001 \001(\t\022*\n\005state\030\002 \001(\0162\033.Bi"
-      "gBang.NetParameter.State\022,\n\013layer_param\030"
-      "\n \003(\0132\027.BigBang.LayerParameter\"*\n\005State\022"
-      "\t\n\005TRAIN\020\000\022\014\n\010VALIDATE\020\001\022\010\n\004TEST\020\002\"\240\004\n\017S"
-      "olverParameter\022+\n\004mode\030\001 \001(\0162\035.BigBang.S"
-      "olverParameter.Mode\022\030\n\020train_iterations\030"
-      "\002 \001(\r\022\033\n\023validate_iterations\030\003 \001(\r\022\027\n\017te"
-      "st_iterations\030\004 \001(\r\0227\n/test_validatedata"
-      "_accuracy_per_train_iterations\030\005 \001(\r\0223\n+"
-      "test_testdata_accuracy_per_train_iterati"
-      "ons\030\006 \001(\r\022\030\n\020train_batch_size\030\007 \001(\r\022\033\n\023v"
-      "alidate_batch_size\030\010 \001(\r\022\027\n\017test_batch_s"
-      "ize\030\t \001(\r\022\n\n\002lr\030\n \001(\002\022\026\n\016momentum_ratio\030"
-      "\013 \001(\002\022\026\n\016read_model_dir\030\014 \001(\t\022\027\n\017write_m"
-      "odel_dir\030\r \001(\t\0229\n\022weight_decay_param\030\024 \001"
-      "(\0132\035.BigBang.WeightDecayParameter\022(\n\tnet"
-      "_param\030\036 \003(\0132\025.BigBang.NetParameter\"\030\n\004M"
-      "ode\022\007\n\003CPU\020\000\022\007\n\003GPU\020\001"
+      " \001(\0132 .BigBang.DataPreprocessParameter\"\274"
+      "\003\n\016LayerParameter\022\014\n\004name\030\001 \001(\t\022\014\n\004type\030"
+      "\002 \001(\t\0224\n\005phase\030\003 \001(\0162\035.BigBang.LayerPara"
+      "meter.Phase:\006COMMON\0225\n\020conv_layer_param\030"
+      "d \001(\0132\033.BigBang.ConvLayerParameter\0225\n\020da"
+      "ta_layer_param\030e \001(\0132\033.BigBang.DataLayer"
+      "Parameter\022;\n\023dropout_layer_param\030f \001(\0132\036"
+      ".BigBang.DropoutLayerParameter\022F\n\031inner_"
+      "product_layer_param\030g \001(\0132#.BigBang.Inne"
+      "rProductLayerParameter\022;\n\023pooling_layer_"
+      "param\030h \001(\0132\036.BigBang.PoolingLayerParame"
+      "ter\"(\n\005Phase\022\n\n\006COMMON\020\000\022\t\n\005TRAIN\020\001\022\010\n\004T"
+      "EST\020\002\"\242\001\n\014NetParameter\022\014\n\004name\030\001 \001(\t\022*\n\005"
+      "state\030\002 \001(\0162\033.BigBang.NetParameter.State"
+      "\022,\n\013layer_param\030\n \003(\0132\027.BigBang.LayerPar"
+      "ameter\"*\n\005State\022\t\n\005TRAIN\020\000\022\014\n\010VALIDATE\020\001"
+      "\022\010\n\004TEST\020\002\"\221\003\n\017SolverParameter\022+\n\004mode\030\001"
+      " \001(\0162\035.BigBang.SolverParameter.Mode\022\030\n\020t"
+      "rain_iterations\030\002 \001(\r\022\027\n\017test_iterations"
+      "\030\003 \001(\r\022\027\n\017train_test_rate\030\004 \001(\r\022\030\n\020train"
+      "_batch_size\030\007 \001(\r\022\027\n\017test_batch_size\030\t \001"
+      "(\r\022\n\n\002lr\030\n \001(\002\022\026\n\016momentum_ratio\030\013 \001(\002\022\026"
+      "\n\016read_model_dir\030\014 \001(\t\022\027\n\017write_model_di"
+      "r\030\r \001(\t\0229\n\022weight_decay_param\030\024 \001(\0132\035.Bi"
+      "gBang.WeightDecayParameter\022(\n\tnet_param\030"
+      "\036 \001(\0132\025.BigBang.NetParameter\"\030\n\004Mode\022\007\n\003"
+      "CPU\020\000\022\007\n\003GPU\020\001"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 2661);
+      descriptor, 2614);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "bigbang.proto", &protobuf_RegisterTypes);
 }
@@ -854,9 +849,32 @@ const PoolingLayerParameter_PoolingMethod PoolingLayerParameter::PoolingMethod_M
 const PoolingLayerParameter_PoolingMethod PoolingLayerParameter::PoolingMethod_MAX;
 const int PoolingLayerParameter::PoolingMethod_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* NetParameter_State_descriptor() {
+const ::google::protobuf::EnumDescriptor* LayerParameter_Phase_descriptor() {
   protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_bigbang_2eproto::file_level_enum_descriptors[3];
+}
+bool LayerParameter_Phase_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const LayerParameter_Phase LayerParameter::COMMON;
+const LayerParameter_Phase LayerParameter::TRAIN;
+const LayerParameter_Phase LayerParameter::TEST;
+const LayerParameter_Phase LayerParameter::Phase_MIN;
+const LayerParameter_Phase LayerParameter::Phase_MAX;
+const int LayerParameter::Phase_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* NetParameter_State_descriptor() {
+  protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_bigbang_2eproto::file_level_enum_descriptors[4];
 }
 bool NetParameter_State_IsValid(int value) {
   switch (value) {
@@ -879,7 +897,7 @@ const int NetParameter::State_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 const ::google::protobuf::EnumDescriptor* SolverParameter_Mode_descriptor() {
   protobuf_bigbang_2eproto::protobuf_AssignDescriptorsOnce();
-  return protobuf_bigbang_2eproto::file_level_enum_descriptors[4];
+  return protobuf_bigbang_2eproto::file_level_enum_descriptors[5];
 }
 bool SolverParameter_Mode_IsValid(int value) {
   switch (value) {
@@ -5333,6 +5351,7 @@ void LayerParameter::InitAsDefaultInstance() {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int LayerParameter::kNameFieldNumber;
 const int LayerParameter::kTypeFieldNumber;
+const int LayerParameter::kPhaseFieldNumber;
 const int LayerParameter::kConvLayerParamFieldNumber;
 const int LayerParameter::kDataLayerParamFieldNumber;
 const int LayerParameter::kDropoutLayerParamFieldNumber;
@@ -5387,6 +5406,7 @@ LayerParameter::LayerParameter(const LayerParameter& from)
   } else {
     pooling_layer_param_ = NULL;
   }
+  phase_ = from.phase_;
   // @@protoc_insertion_point(copy_constructor:BigBang.LayerParameter)
 }
 
@@ -5395,8 +5415,8 @@ void LayerParameter::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   type_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&conv_layer_param_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&pooling_layer_param_) -
-      reinterpret_cast<char*>(&conv_layer_param_)) + sizeof(pooling_layer_param_));
+      reinterpret_cast<char*>(&phase_) -
+      reinterpret_cast<char*>(&conv_layer_param_)) + sizeof(phase_));
 }
 
 LayerParameter::~LayerParameter() {
@@ -5474,6 +5494,7 @@ void LayerParameter::Clear() {
       pooling_layer_param_->Clear();
     }
   }
+  phase_ = 0;
   _has_bits_.Clear();
   _internal_metadata_.Clear();
 }
@@ -5514,6 +5535,26 @@ bool LayerParameter::MergePartialFromCodedStream(
             this->type().data(), static_cast<int>(this->type().length()),
             ::google::protobuf::internal::WireFormat::PARSE,
             "BigBang.LayerParameter.type");
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // optional .BigBang.LayerParameter.Phase phase = 3 [default = COMMON];
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          if (::BigBang::LayerParameter_Phase_IsValid(value)) {
+            set_phase(static_cast< ::BigBang::LayerParameter_Phase >(value));
+          } else {
+            mutable_unknown_fields()->AddVarint(
+                3, static_cast< ::google::protobuf::uint64>(value));
+          }
         } else {
           goto handle_unusual;
         }
@@ -5627,6 +5668,12 @@ void LayerParameter::SerializeWithCachedSizes(
       2, this->type(), output);
   }
 
+  // optional .BigBang.LayerParameter.Phase phase = 3 [default = COMMON];
+  if (cached_has_bits & 0x00000080u) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->phase(), output);
+  }
+
   // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
   if (cached_has_bits & 0x00000004u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
@@ -5694,6 +5741,12 @@ void LayerParameter::SerializeWithCachedSizes(
         2, this->type(), target);
   }
 
+  // optional .BigBang.LayerParameter.Phase phase = 3 [default = COMMON];
+  if (cached_has_bits & 0x00000080u) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->phase(), target);
+  }
+
   // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
   if (cached_has_bits & 0x00000004u) {
     target = ::google::protobuf::internal::WireFormatLite::
@@ -5746,7 +5799,7 @@ size_t LayerParameter::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  if (_has_bits_[0 / 32] & 127u) {
+  if (_has_bits_[0 / 32] & 255u) {
     // optional string name = 1;
     if (has_name()) {
       total_size += 1 +
@@ -5796,6 +5849,12 @@ size_t LayerParameter::ByteSizeLong() const {
           *this->pooling_layer_param_);
     }
 
+    // optional .BigBang.LayerParameter.Phase phase = 3 [default = COMMON];
+    if (has_phase()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::EnumSize(this->phase());
+    }
+
   }
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
@@ -5827,7 +5886,7 @@ void LayerParameter::MergeFrom(const LayerParameter& from) {
   (void) cached_has_bits;
 
   cached_has_bits = from._has_bits_[0];
-  if (cached_has_bits & 127u) {
+  if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
       set_has_name();
       name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
@@ -5851,6 +5910,10 @@ void LayerParameter::MergeFrom(const LayerParameter& from) {
     if (cached_has_bits & 0x00000040u) {
       mutable_pooling_layer_param()->::BigBang::PoolingLayerParameter::MergeFrom(from.pooling_layer_param());
     }
+    if (cached_has_bits & 0x00000080u) {
+      phase_ = from.phase_;
+    }
+    _has_bits_[0] |= cached_has_bits;
   }
 }
 
@@ -5885,6 +5948,7 @@ void LayerParameter::InternalSwap(LayerParameter* other) {
   swap(dropout_layer_param_, other->dropout_layer_param_);
   swap(inner_product_layer_param_, other->inner_product_layer_param_);
   swap(pooling_layer_param_, other->pooling_layer_param_);
+  swap(phase_, other->phase_);
   swap(_has_bits_[0], other->_has_bits_[0]);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   swap(_cached_size_, other->_cached_size_);
@@ -6260,16 +6324,15 @@ void NetParameter::InternalSwap(NetParameter* other) {
 void SolverParameter::InitAsDefaultInstance() {
   ::BigBang::_SolverParameter_default_instance_._instance.get_mutable()->weight_decay_param_ = const_cast< ::BigBang::WeightDecayParameter*>(
       ::BigBang::WeightDecayParameter::internal_default_instance());
+  ::BigBang::_SolverParameter_default_instance_._instance.get_mutable()->net_param_ = const_cast< ::BigBang::NetParameter*>(
+      ::BigBang::NetParameter::internal_default_instance());
 }
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int SolverParameter::kModeFieldNumber;
 const int SolverParameter::kTrainIterationsFieldNumber;
-const int SolverParameter::kValidateIterationsFieldNumber;
 const int SolverParameter::kTestIterationsFieldNumber;
-const int SolverParameter::kTestValidatedataAccuracyPerTrainIterationsFieldNumber;
-const int SolverParameter::kTestTestdataAccuracyPerTrainIterationsFieldNumber;
+const int SolverParameter::kTrainTestRateFieldNumber;
 const int SolverParameter::kTrainBatchSizeFieldNumber;
-const int SolverParameter::kValidateBatchSizeFieldNumber;
 const int SolverParameter::kTestBatchSizeFieldNumber;
 const int SolverParameter::kLrFieldNumber;
 const int SolverParameter::kMomentumRatioFieldNumber;
@@ -6291,8 +6354,7 @@ SolverParameter::SolverParameter(const SolverParameter& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _has_bits_(from._has_bits_),
-      _cached_size_(0),
-      net_param_(from.net_param_) {
+      _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   read_model_dir_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.has_read_model_dir()) {
@@ -6306,6 +6368,11 @@ SolverParameter::SolverParameter(const SolverParameter& from)
     weight_decay_param_ = new ::BigBang::WeightDecayParameter(*from.weight_decay_param_);
   } else {
     weight_decay_param_ = NULL;
+  }
+  if (from.has_net_param()) {
+    net_param_ = new ::BigBang::NetParameter(*from.net_param_);
+  } else {
+    net_param_ = NULL;
   }
   ::memcpy(&mode_, &from.mode_,
     static_cast<size_t>(reinterpret_cast<char*>(&momentum_ratio_) -
@@ -6331,6 +6398,7 @@ void SolverParameter::SharedDtor() {
   read_model_dir_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   write_model_dir_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) delete weight_decay_param_;
+  if (this != internal_default_instance()) delete net_param_;
 }
 
 void SolverParameter::SetCachedSize(int size) const {
@@ -6362,9 +6430,8 @@ void SolverParameter::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  net_param_.Clear();
   cached_has_bits = _has_bits_[0];
-  if (cached_has_bits & 7u) {
+  if (cached_has_bits & 15u) {
     if (cached_has_bits & 0x00000001u) {
       GOOGLE_DCHECK(!read_model_dir_.IsDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited()));
       (*read_model_dir_.UnsafeRawStringPointer())->clear();
@@ -6377,16 +6444,20 @@ void SolverParameter::Clear() {
       GOOGLE_DCHECK(weight_decay_param_ != NULL);
       weight_decay_param_->Clear();
     }
+    if (cached_has_bits & 0x00000008u) {
+      GOOGLE_DCHECK(net_param_ != NULL);
+      net_param_->Clear();
+    }
   }
-  if (cached_has_bits & 248u) {
+  if (cached_has_bits & 240u) {
     ::memset(&mode_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&test_validatedata_accuracy_per_train_iterations_) -
-        reinterpret_cast<char*>(&mode_)) + sizeof(test_validatedata_accuracy_per_train_iterations_));
+        reinterpret_cast<char*>(&train_test_rate_) -
+        reinterpret_cast<char*>(&mode_)) + sizeof(train_test_rate_));
   }
-  if (cached_has_bits & 16128u) {
-    ::memset(&test_testdata_accuracy_per_train_iterations_, 0, static_cast<size_t>(
+  if (cached_has_bits & 3840u) {
+    ::memset(&train_batch_size_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&momentum_ratio_) -
-        reinterpret_cast<char*>(&test_testdata_accuracy_per_train_iterations_)) + sizeof(momentum_ratio_));
+        reinterpret_cast<char*>(&train_batch_size_)) + sizeof(momentum_ratio_));
   }
   _has_bits_.Clear();
   _internal_metadata_.Clear();
@@ -6436,24 +6507,10 @@ bool SolverParameter::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 validate_iterations = 3;
+      // optional uint32 test_iterations = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u /* 24 & 0xFF */)) {
-          set_has_validate_iterations();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &validate_iterations_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional uint32 test_iterations = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
           set_has_test_iterations();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
@@ -6464,28 +6521,14 @@ bool SolverParameter::MergePartialFromCodedStream(
         break;
       }
 
-      // optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
-      case 5: {
+      // optional uint32 train_test_rate = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u /* 40 & 0xFF */)) {
-          set_has_test_validatedata_accuracy_per_train_iterations();
+            static_cast< ::google::protobuf::uint8>(32u /* 32 & 0xFF */)) {
+          set_has_train_test_rate();
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &test_validatedata_accuracy_per_train_iterations_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional uint32 test_testdata_accuracy_per_train_iterations = 6;
-      case 6: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(48u /* 48 & 0xFF */)) {
-          set_has_test_testdata_accuracy_per_train_iterations();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &test_testdata_accuracy_per_train_iterations_)));
+                 input, &train_test_rate_)));
         } else {
           goto handle_unusual;
         }
@@ -6500,20 +6543,6 @@ bool SolverParameter::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &train_batch_size_)));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // optional uint32 validate_batch_size = 8;
-      case 8: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(64u /* 64 & 0xFF */)) {
-          set_has_validate_batch_size();
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &validate_batch_size_)));
         } else {
           goto handle_unusual;
         }
@@ -6606,11 +6635,12 @@ bool SolverParameter::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .BigBang.NetParameter net_param = 30;
+      // optional .BigBang.NetParameter net_param = 30;
       case 30: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(242u /* 242 & 0xFF */)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(input, add_net_param()));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessage(
+               input, mutable_net_param()));
         } else {
           goto handle_unusual;
         }
@@ -6645,58 +6675,43 @@ void SolverParameter::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // optional .BigBang.SolverParameter.Mode mode = 1;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->mode(), output);
   }
 
   // optional uint32 train_iterations = 2;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->train_iterations(), output);
   }
 
-  // optional uint32 validate_iterations = 3;
-  if (cached_has_bits & 0x00000020u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->validate_iterations(), output);
-  }
-
-  // optional uint32 test_iterations = 4;
+  // optional uint32 test_iterations = 3;
   if (cached_has_bits & 0x00000040u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->test_iterations(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->test_iterations(), output);
   }
 
-  // optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
+  // optional uint32 train_test_rate = 4;
   if (cached_has_bits & 0x00000080u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->test_validatedata_accuracy_per_train_iterations(), output);
-  }
-
-  // optional uint32 test_testdata_accuracy_per_train_iterations = 6;
-  if (cached_has_bits & 0x00000100u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->test_testdata_accuracy_per_train_iterations(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->train_test_rate(), output);
   }
 
   // optional uint32 train_batch_size = 7;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000100u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->train_batch_size(), output);
   }
 
-  // optional uint32 validate_batch_size = 8;
-  if (cached_has_bits & 0x00000400u) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->validate_batch_size(), output);
-  }
-
   // optional uint32 test_batch_size = 9;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000200u) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->test_batch_size(), output);
   }
 
   // optional float lr = 10;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00000400u) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(10, this->lr(), output);
   }
 
   // optional float momentum_ratio = 11;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00000800u) {
     ::google::protobuf::internal::WireFormatLite::WriteFloat(11, this->momentum_ratio(), output);
   }
 
@@ -6726,11 +6741,10 @@ void SolverParameter::SerializeWithCachedSizes(
       20, *this->weight_decay_param_, output);
   }
 
-  // repeated .BigBang.NetParameter net_param = 30;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->net_param_size()); i < n; i++) {
+  // optional .BigBang.NetParameter net_param = 30;
+  if (cached_has_bits & 0x00000008u) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      30, this->net_param(static_cast<int>(i)), output);
+      30, *this->net_param_, output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6749,58 +6763,43 @@ void SolverParameter::SerializeWithCachedSizes(
 
   cached_has_bits = _has_bits_[0];
   // optional .BigBang.SolverParameter.Mode mode = 1;
-  if (cached_has_bits & 0x00000008u) {
+  if (cached_has_bits & 0x00000010u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->mode(), target);
   }
 
   // optional uint32 train_iterations = 2;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->train_iterations(), target);
   }
 
-  // optional uint32 validate_iterations = 3;
-  if (cached_has_bits & 0x00000020u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->validate_iterations(), target);
-  }
-
-  // optional uint32 test_iterations = 4;
+  // optional uint32 test_iterations = 3;
   if (cached_has_bits & 0x00000040u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->test_iterations(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->test_iterations(), target);
   }
 
-  // optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
+  // optional uint32 train_test_rate = 4;
   if (cached_has_bits & 0x00000080u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->test_validatedata_accuracy_per_train_iterations(), target);
-  }
-
-  // optional uint32 test_testdata_accuracy_per_train_iterations = 6;
-  if (cached_has_bits & 0x00000100u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->test_testdata_accuracy_per_train_iterations(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->train_test_rate(), target);
   }
 
   // optional uint32 train_batch_size = 7;
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000100u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->train_batch_size(), target);
   }
 
-  // optional uint32 validate_batch_size = 8;
-  if (cached_has_bits & 0x00000400u) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->validate_batch_size(), target);
-  }
-
   // optional uint32 test_batch_size = 9;
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00000200u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->test_batch_size(), target);
   }
 
   // optional float lr = 10;
-  if (cached_has_bits & 0x00001000u) {
+  if (cached_has_bits & 0x00000400u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(10, this->lr(), target);
   }
 
   // optional float momentum_ratio = 11;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00000800u) {
     target = ::google::protobuf::internal::WireFormatLite::WriteFloatToArray(11, this->momentum_ratio(), target);
   }
 
@@ -6833,12 +6832,11 @@ void SolverParameter::SerializeWithCachedSizes(
         20, *this->weight_decay_param_, deterministic, target);
   }
 
-  // repeated .BigBang.NetParameter net_param = 30;
-  for (unsigned int i = 0,
-      n = static_cast<unsigned int>(this->net_param_size()); i < n; i++) {
+  // optional .BigBang.NetParameter net_param = 30;
+  if (cached_has_bits & 0x00000008u) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageToArray(
-        30, this->net_param(static_cast<int>(i)), deterministic, target);
+        30, *this->net_param_, deterministic, target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6858,17 +6856,6 @@ size_t SolverParameter::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
         _internal_metadata_.unknown_fields());
   }
-  // repeated .BigBang.NetParameter net_param = 30;
-  {
-    unsigned int count = static_cast<unsigned int>(this->net_param_size());
-    total_size += 2UL * count;
-    for (unsigned int i = 0; i < count; i++) {
-      total_size +=
-        ::google::protobuf::internal::WireFormatLite::MessageSize(
-          this->net_param(static_cast<int>(i)));
-    }
-  }
-
   if (_has_bits_[0 / 32] & 255u) {
     // optional string read_model_dir = 12;
     if (has_read_model_dir()) {
@@ -6891,6 +6878,13 @@ size_t SolverParameter::ByteSizeLong() const {
           *this->weight_decay_param_);
     }
 
+    // optional .BigBang.NetParameter net_param = 30;
+    if (has_net_param()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::MessageSize(
+          *this->net_param_);
+    }
+
     // optional .BigBang.SolverParameter.Mode mode = 1;
     if (has_mode()) {
       total_size += 1 +
@@ -6904,48 +6898,27 @@ size_t SolverParameter::ByteSizeLong() const {
           this->train_iterations());
     }
 
-    // optional uint32 validate_iterations = 3;
-    if (has_validate_iterations()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->validate_iterations());
-    }
-
-    // optional uint32 test_iterations = 4;
+    // optional uint32 test_iterations = 3;
     if (has_test_iterations()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->test_iterations());
     }
 
-    // optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
-    if (has_test_validatedata_accuracy_per_train_iterations()) {
+    // optional uint32 train_test_rate = 4;
+    if (has_train_test_rate()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->test_validatedata_accuracy_per_train_iterations());
+          this->train_test_rate());
     }
 
   }
-  if (_has_bits_[8 / 32] & 16128u) {
-    // optional uint32 test_testdata_accuracy_per_train_iterations = 6;
-    if (has_test_testdata_accuracy_per_train_iterations()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->test_testdata_accuracy_per_train_iterations());
-    }
-
+  if (_has_bits_[8 / 32] & 3840u) {
     // optional uint32 train_batch_size = 7;
     if (has_train_batch_size()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->train_batch_size());
-    }
-
-    // optional uint32 validate_batch_size = 8;
-    if (has_validate_batch_size()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->validate_batch_size());
     }
 
     // optional uint32 test_batch_size = 9;
@@ -6995,7 +6968,6 @@ void SolverParameter::MergeFrom(const SolverParameter& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  net_param_.MergeFrom(from.net_param_);
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 255u) {
     if (cached_has_bits & 0x00000001u) {
@@ -7010,39 +6982,33 @@ void SolverParameter::MergeFrom(const SolverParameter& from) {
       mutable_weight_decay_param()->::BigBang::WeightDecayParameter::MergeFrom(from.weight_decay_param());
     }
     if (cached_has_bits & 0x00000008u) {
-      mode_ = from.mode_;
+      mutable_net_param()->::BigBang::NetParameter::MergeFrom(from.net_param());
     }
     if (cached_has_bits & 0x00000010u) {
-      train_iterations_ = from.train_iterations_;
+      mode_ = from.mode_;
     }
     if (cached_has_bits & 0x00000020u) {
-      validate_iterations_ = from.validate_iterations_;
+      train_iterations_ = from.train_iterations_;
     }
     if (cached_has_bits & 0x00000040u) {
       test_iterations_ = from.test_iterations_;
     }
     if (cached_has_bits & 0x00000080u) {
-      test_validatedata_accuracy_per_train_iterations_ = from.test_validatedata_accuracy_per_train_iterations_;
+      train_test_rate_ = from.train_test_rate_;
     }
     _has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 16128u) {
+  if (cached_has_bits & 3840u) {
     if (cached_has_bits & 0x00000100u) {
-      test_testdata_accuracy_per_train_iterations_ = from.test_testdata_accuracy_per_train_iterations_;
-    }
-    if (cached_has_bits & 0x00000200u) {
       train_batch_size_ = from.train_batch_size_;
     }
-    if (cached_has_bits & 0x00000400u) {
-      validate_batch_size_ = from.validate_batch_size_;
-    }
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00000200u) {
       test_batch_size_ = from.test_batch_size_;
     }
-    if (cached_has_bits & 0x00001000u) {
+    if (cached_has_bits & 0x00000400u) {
       lr_ = from.lr_;
     }
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00000800u) {
       momentum_ratio_ = from.momentum_ratio_;
     }
     _has_bits_[0] |= cached_has_bits;
@@ -7073,18 +7039,15 @@ void SolverParameter::Swap(SolverParameter* other) {
 }
 void SolverParameter::InternalSwap(SolverParameter* other) {
   using std::swap;
-  net_param_.InternalSwap(&other->net_param_);
   read_model_dir_.Swap(&other->read_model_dir_);
   write_model_dir_.Swap(&other->write_model_dir_);
   swap(weight_decay_param_, other->weight_decay_param_);
+  swap(net_param_, other->net_param_);
   swap(mode_, other->mode_);
   swap(train_iterations_, other->train_iterations_);
-  swap(validate_iterations_, other->validate_iterations_);
   swap(test_iterations_, other->test_iterations_);
-  swap(test_validatedata_accuracy_per_train_iterations_, other->test_validatedata_accuracy_per_train_iterations_);
-  swap(test_testdata_accuracy_per_train_iterations_, other->test_testdata_accuracy_per_train_iterations_);
+  swap(train_test_rate_, other->train_test_rate_);
   swap(train_batch_size_, other->train_batch_size_);
-  swap(validate_batch_size_, other->validate_batch_size_);
   swap(test_batch_size_, other->test_batch_size_);
   swap(lr_, other->lr_);
   swap(momentum_ratio_, other->momentum_ratio_);

@@ -49,6 +49,27 @@ void InnerProductLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype
 }
 
 template<typename dtype>
+void InnerProductLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	bottom_row_ = bottom->shape(0);
+	bottom_column_ = bottom->shape(1);
+	for (int i = 2; i < bottom->dimension(); ++i) {
+		bottom_column_ *= bottom->shape(i);
+	}
+	const int output_nums = inner_params_.output_nums();
+	top->Reshape(std::vector<int>{bottom_row_, 1, 1, output_nums});
+	top_row_ = top->shape(0);
+	top_column_ = top->shape(3);
+	if (use_bias_) {
+		middle_->Reshape(std::vector<int>{1, 1, top_row_, 1});
+		dtype* middle_mutable_data = middle_->mutable_cpu_data();
+		for (int i = 0; i < middle_->size(); ++i) {
+			middle_mutable_data[i] = static_cast<dtype>(1);
+		}
+	}
+}
+
+
+template<typename dtype>
 void InnerProductLayer<dtype>::Check(const Tensor<dtype>* bottom, const Tensor<dtype>* top) {
 	CHECK_EQ(bottom_row_, top_row_);
 	CHECK_EQ(bottom_column_, weights_row_);

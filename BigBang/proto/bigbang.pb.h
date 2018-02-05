@@ -198,6 +198,26 @@ inline bool PoolingLayerParameter_PoolingMethod_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<PoolingLayerParameter_PoolingMethod>(
     PoolingLayerParameter_PoolingMethod_descriptor(), name, value);
 }
+enum LayerParameter_Phase {
+  LayerParameter_Phase_COMMON = 0,
+  LayerParameter_Phase_TRAIN = 1,
+  LayerParameter_Phase_TEST = 2
+};
+bool LayerParameter_Phase_IsValid(int value);
+const LayerParameter_Phase LayerParameter_Phase_Phase_MIN = LayerParameter_Phase_COMMON;
+const LayerParameter_Phase LayerParameter_Phase_Phase_MAX = LayerParameter_Phase_TEST;
+const int LayerParameter_Phase_Phase_ARRAYSIZE = LayerParameter_Phase_Phase_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* LayerParameter_Phase_descriptor();
+inline const ::std::string& LayerParameter_Phase_Name(LayerParameter_Phase value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    LayerParameter_Phase_descriptor(), value);
+}
+inline bool LayerParameter_Phase_Parse(
+    const ::std::string& name, LayerParameter_Phase* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<LayerParameter_Phase>(
+    LayerParameter_Phase_descriptor(), name, value);
+}
 enum NetParameter_State {
   NetParameter_State_TRAIN = 0,
   NetParameter_State_VALIDATE = 1,
@@ -2113,6 +2133,34 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
 
   // nested types ----------------------------------------------------
 
+  typedef LayerParameter_Phase Phase;
+  static const Phase COMMON =
+    LayerParameter_Phase_COMMON;
+  static const Phase TRAIN =
+    LayerParameter_Phase_TRAIN;
+  static const Phase TEST =
+    LayerParameter_Phase_TEST;
+  static inline bool Phase_IsValid(int value) {
+    return LayerParameter_Phase_IsValid(value);
+  }
+  static const Phase Phase_MIN =
+    LayerParameter_Phase_Phase_MIN;
+  static const Phase Phase_MAX =
+    LayerParameter_Phase_Phase_MAX;
+  static const int Phase_ARRAYSIZE =
+    LayerParameter_Phase_Phase_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  Phase_descriptor() {
+    return LayerParameter_Phase_descriptor();
+  }
+  static inline const ::std::string& Phase_Name(Phase value) {
+    return LayerParameter_Phase_Name(value);
+  }
+  static inline bool Phase_Parse(const ::std::string& name,
+      Phase* value) {
+    return LayerParameter_Phase_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
   // optional string name = 1;
@@ -2190,12 +2238,21 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   ::BigBang::PoolingLayerParameter* mutable_pooling_layer_param();
   void set_allocated_pooling_layer_param(::BigBang::PoolingLayerParameter* pooling_layer_param);
 
+  // optional .BigBang.LayerParameter.Phase phase = 3 [default = COMMON];
+  bool has_phase() const;
+  void clear_phase();
+  static const int kPhaseFieldNumber = 3;
+  ::BigBang::LayerParameter_Phase phase() const;
+  void set_phase(::BigBang::LayerParameter_Phase value);
+
   // @@protoc_insertion_point(class_scope:BigBang.LayerParameter)
  private:
   void set_has_name();
   void clear_has_name();
   void set_has_type();
   void clear_has_type();
+  void set_has_phase();
+  void clear_has_phase();
   void set_has_conv_layer_param();
   void clear_has_conv_layer_param();
   void set_has_data_layer_param();
@@ -2217,6 +2274,7 @@ class LayerParameter : public ::google::protobuf::Message /* @@protoc_insertion_
   ::BigBang::DropoutLayerParameter* dropout_layer_param_;
   ::BigBang::InnerProductLayerParameter* inner_product_layer_param_;
   ::BigBang::PoolingLayerParameter* pooling_layer_param_;
+  int phase_;
   friend struct ::protobuf_bigbang_2eproto::TableStruct;
   friend void ::protobuf_bigbang_2eproto::InitDefaultsLayerParameterImpl();
 };
@@ -2506,18 +2564,6 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
 
   // accessors -------------------------------------------------------
 
-  // repeated .BigBang.NetParameter net_param = 30;
-  int net_param_size() const;
-  void clear_net_param();
-  static const int kNetParamFieldNumber = 30;
-  const ::BigBang::NetParameter& net_param(int index) const;
-  ::BigBang::NetParameter* mutable_net_param(int index);
-  ::BigBang::NetParameter* add_net_param();
-  ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >*
-      mutable_net_param();
-  const ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >&
-      net_param() const;
-
   // optional string read_model_dir = 12;
   bool has_read_model_dir() const;
   void clear_read_model_dir();
@@ -2557,6 +2603,15 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   ::BigBang::WeightDecayParameter* mutable_weight_decay_param();
   void set_allocated_weight_decay_param(::BigBang::WeightDecayParameter* weight_decay_param);
 
+  // optional .BigBang.NetParameter net_param = 30;
+  bool has_net_param() const;
+  void clear_net_param();
+  static const int kNetParamFieldNumber = 30;
+  const ::BigBang::NetParameter& net_param() const;
+  ::BigBang::NetParameter* release_net_param();
+  ::BigBang::NetParameter* mutable_net_param();
+  void set_allocated_net_param(::BigBang::NetParameter* net_param);
+
   // optional .BigBang.SolverParameter.Mode mode = 1;
   bool has_mode() const;
   void clear_mode();
@@ -2571,33 +2626,19 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::uint32 train_iterations() const;
   void set_train_iterations(::google::protobuf::uint32 value);
 
-  // optional uint32 validate_iterations = 3;
-  bool has_validate_iterations() const;
-  void clear_validate_iterations();
-  static const int kValidateIterationsFieldNumber = 3;
-  ::google::protobuf::uint32 validate_iterations() const;
-  void set_validate_iterations(::google::protobuf::uint32 value);
-
-  // optional uint32 test_iterations = 4;
+  // optional uint32 test_iterations = 3;
   bool has_test_iterations() const;
   void clear_test_iterations();
-  static const int kTestIterationsFieldNumber = 4;
+  static const int kTestIterationsFieldNumber = 3;
   ::google::protobuf::uint32 test_iterations() const;
   void set_test_iterations(::google::protobuf::uint32 value);
 
-  // optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
-  bool has_test_validatedata_accuracy_per_train_iterations() const;
-  void clear_test_validatedata_accuracy_per_train_iterations();
-  static const int kTestValidatedataAccuracyPerTrainIterationsFieldNumber = 5;
-  ::google::protobuf::uint32 test_validatedata_accuracy_per_train_iterations() const;
-  void set_test_validatedata_accuracy_per_train_iterations(::google::protobuf::uint32 value);
-
-  // optional uint32 test_testdata_accuracy_per_train_iterations = 6;
-  bool has_test_testdata_accuracy_per_train_iterations() const;
-  void clear_test_testdata_accuracy_per_train_iterations();
-  static const int kTestTestdataAccuracyPerTrainIterationsFieldNumber = 6;
-  ::google::protobuf::uint32 test_testdata_accuracy_per_train_iterations() const;
-  void set_test_testdata_accuracy_per_train_iterations(::google::protobuf::uint32 value);
+  // optional uint32 train_test_rate = 4;
+  bool has_train_test_rate() const;
+  void clear_train_test_rate();
+  static const int kTrainTestRateFieldNumber = 4;
+  ::google::protobuf::uint32 train_test_rate() const;
+  void set_train_test_rate(::google::protobuf::uint32 value);
 
   // optional uint32 train_batch_size = 7;
   bool has_train_batch_size() const;
@@ -2605,13 +2646,6 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   static const int kTrainBatchSizeFieldNumber = 7;
   ::google::protobuf::uint32 train_batch_size() const;
   void set_train_batch_size(::google::protobuf::uint32 value);
-
-  // optional uint32 validate_batch_size = 8;
-  bool has_validate_batch_size() const;
-  void clear_validate_batch_size();
-  static const int kValidateBatchSizeFieldNumber = 8;
-  ::google::protobuf::uint32 validate_batch_size() const;
-  void set_validate_batch_size(::google::protobuf::uint32 value);
 
   // optional uint32 test_batch_size = 9;
   bool has_test_batch_size() const;
@@ -2640,18 +2674,12 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_mode();
   void set_has_train_iterations();
   void clear_has_train_iterations();
-  void set_has_validate_iterations();
-  void clear_has_validate_iterations();
   void set_has_test_iterations();
   void clear_has_test_iterations();
-  void set_has_test_validatedata_accuracy_per_train_iterations();
-  void clear_has_test_validatedata_accuracy_per_train_iterations();
-  void set_has_test_testdata_accuracy_per_train_iterations();
-  void clear_has_test_testdata_accuracy_per_train_iterations();
+  void set_has_train_test_rate();
+  void clear_has_train_test_rate();
   void set_has_train_batch_size();
   void clear_has_train_batch_size();
-  void set_has_validate_batch_size();
-  void clear_has_validate_batch_size();
   void set_has_test_batch_size();
   void clear_has_test_batch_size();
   void set_has_lr();
@@ -2664,22 +2692,21 @@ class SolverParameter : public ::google::protobuf::Message /* @@protoc_insertion
   void clear_has_write_model_dir();
   void set_has_weight_decay_param();
   void clear_has_weight_decay_param();
+  void set_has_net_param();
+  void clear_has_net_param();
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
   ::google::protobuf::internal::HasBits<1> _has_bits_;
   mutable int _cached_size_;
-  ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter > net_param_;
   ::google::protobuf::internal::ArenaStringPtr read_model_dir_;
   ::google::protobuf::internal::ArenaStringPtr write_model_dir_;
   ::BigBang::WeightDecayParameter* weight_decay_param_;
+  ::BigBang::NetParameter* net_param_;
   int mode_;
   ::google::protobuf::uint32 train_iterations_;
-  ::google::protobuf::uint32 validate_iterations_;
   ::google::protobuf::uint32 test_iterations_;
-  ::google::protobuf::uint32 test_validatedata_accuracy_per_train_iterations_;
-  ::google::protobuf::uint32 test_testdata_accuracy_per_train_iterations_;
+  ::google::protobuf::uint32 train_test_rate_;
   ::google::protobuf::uint32 train_batch_size_;
-  ::google::protobuf::uint32 validate_batch_size_;
   ::google::protobuf::uint32 test_batch_size_;
   float lr_;
   float momentum_ratio_;
@@ -4293,6 +4320,31 @@ inline void LayerParameter::set_allocated_type(::std::string* type) {
   // @@protoc_insertion_point(field_set_allocated:BigBang.LayerParameter.type)
 }
 
+// optional .BigBang.LayerParameter.Phase phase = 3 [default = COMMON];
+inline bool LayerParameter::has_phase() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void LayerParameter::set_has_phase() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void LayerParameter::clear_has_phase() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void LayerParameter::clear_phase() {
+  phase_ = 0;
+  clear_has_phase();
+}
+inline ::BigBang::LayerParameter_Phase LayerParameter::phase() const {
+  // @@protoc_insertion_point(field_get:BigBang.LayerParameter.phase)
+  return static_cast< ::BigBang::LayerParameter_Phase >(phase_);
+}
+inline void LayerParameter::set_phase(::BigBang::LayerParameter_Phase value) {
+  assert(::BigBang::LayerParameter_Phase_IsValid(value));
+  set_has_phase();
+  phase_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.LayerParameter.phase)
+}
+
 // optional .BigBang.ConvLayerParameter conv_layer_param = 100;
 inline bool LayerParameter::has_conv_layer_param() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
@@ -4691,13 +4743,13 @@ NetParameter::layer_param() const {
 
 // optional .BigBang.SolverParameter.Mode mode = 1;
 inline bool SolverParameter::has_mode() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void SolverParameter::set_has_mode() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void SolverParameter::clear_has_mode() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void SolverParameter::clear_mode() {
   mode_ = 0;
@@ -4716,13 +4768,13 @@ inline void SolverParameter::set_mode(::BigBang::SolverParameter_Mode value) {
 
 // optional uint32 train_iterations = 2;
 inline bool SolverParameter::has_train_iterations() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000020u) != 0;
 }
 inline void SolverParameter::set_has_train_iterations() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000020u;
 }
 inline void SolverParameter::clear_has_train_iterations() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000020u;
 }
 inline void SolverParameter::clear_train_iterations() {
   train_iterations_ = 0u;
@@ -4738,31 +4790,7 @@ inline void SolverParameter::set_train_iterations(::google::protobuf::uint32 val
   // @@protoc_insertion_point(field_set:BigBang.SolverParameter.train_iterations)
 }
 
-// optional uint32 validate_iterations = 3;
-inline bool SolverParameter::has_validate_iterations() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void SolverParameter::set_has_validate_iterations() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void SolverParameter::clear_has_validate_iterations() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void SolverParameter::clear_validate_iterations() {
-  validate_iterations_ = 0u;
-  clear_has_validate_iterations();
-}
-inline ::google::protobuf::uint32 SolverParameter::validate_iterations() const {
-  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.validate_iterations)
-  return validate_iterations_;
-}
-inline void SolverParameter::set_validate_iterations(::google::protobuf::uint32 value) {
-  set_has_validate_iterations();
-  validate_iterations_ = value;
-  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.validate_iterations)
-}
-
-// optional uint32 test_iterations = 4;
+// optional uint32 test_iterations = 3;
 inline bool SolverParameter::has_test_iterations() const {
   return (_has_bits_[0] & 0x00000040u) != 0;
 }
@@ -4786,63 +4814,39 @@ inline void SolverParameter::set_test_iterations(::google::protobuf::uint32 valu
   // @@protoc_insertion_point(field_set:BigBang.SolverParameter.test_iterations)
 }
 
-// optional uint32 test_validatedata_accuracy_per_train_iterations = 5;
-inline bool SolverParameter::has_test_validatedata_accuracy_per_train_iterations() const {
+// optional uint32 train_test_rate = 4;
+inline bool SolverParameter::has_train_test_rate() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void SolverParameter::set_has_test_validatedata_accuracy_per_train_iterations() {
+inline void SolverParameter::set_has_train_test_rate() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void SolverParameter::clear_has_test_validatedata_accuracy_per_train_iterations() {
+inline void SolverParameter::clear_has_train_test_rate() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void SolverParameter::clear_test_validatedata_accuracy_per_train_iterations() {
-  test_validatedata_accuracy_per_train_iterations_ = 0u;
-  clear_has_test_validatedata_accuracy_per_train_iterations();
+inline void SolverParameter::clear_train_test_rate() {
+  train_test_rate_ = 0u;
+  clear_has_train_test_rate();
 }
-inline ::google::protobuf::uint32 SolverParameter::test_validatedata_accuracy_per_train_iterations() const {
-  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.test_validatedata_accuracy_per_train_iterations)
-  return test_validatedata_accuracy_per_train_iterations_;
+inline ::google::protobuf::uint32 SolverParameter::train_test_rate() const {
+  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.train_test_rate)
+  return train_test_rate_;
 }
-inline void SolverParameter::set_test_validatedata_accuracy_per_train_iterations(::google::protobuf::uint32 value) {
-  set_has_test_validatedata_accuracy_per_train_iterations();
-  test_validatedata_accuracy_per_train_iterations_ = value;
-  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.test_validatedata_accuracy_per_train_iterations)
-}
-
-// optional uint32 test_testdata_accuracy_per_train_iterations = 6;
-inline bool SolverParameter::has_test_testdata_accuracy_per_train_iterations() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void SolverParameter::set_has_test_testdata_accuracy_per_train_iterations() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void SolverParameter::clear_has_test_testdata_accuracy_per_train_iterations() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void SolverParameter::clear_test_testdata_accuracy_per_train_iterations() {
-  test_testdata_accuracy_per_train_iterations_ = 0u;
-  clear_has_test_testdata_accuracy_per_train_iterations();
-}
-inline ::google::protobuf::uint32 SolverParameter::test_testdata_accuracy_per_train_iterations() const {
-  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.test_testdata_accuracy_per_train_iterations)
-  return test_testdata_accuracy_per_train_iterations_;
-}
-inline void SolverParameter::set_test_testdata_accuracy_per_train_iterations(::google::protobuf::uint32 value) {
-  set_has_test_testdata_accuracy_per_train_iterations();
-  test_testdata_accuracy_per_train_iterations_ = value;
-  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.test_testdata_accuracy_per_train_iterations)
+inline void SolverParameter::set_train_test_rate(::google::protobuf::uint32 value) {
+  set_has_train_test_rate();
+  train_test_rate_ = value;
+  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.train_test_rate)
 }
 
 // optional uint32 train_batch_size = 7;
 inline bool SolverParameter::has_train_batch_size() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+  return (_has_bits_[0] & 0x00000100u) != 0;
 }
 inline void SolverParameter::set_has_train_batch_size() {
-  _has_bits_[0] |= 0x00000200u;
+  _has_bits_[0] |= 0x00000100u;
 }
 inline void SolverParameter::clear_has_train_batch_size() {
-  _has_bits_[0] &= ~0x00000200u;
+  _has_bits_[0] &= ~0x00000100u;
 }
 inline void SolverParameter::clear_train_batch_size() {
   train_batch_size_ = 0u;
@@ -4858,39 +4862,15 @@ inline void SolverParameter::set_train_batch_size(::google::protobuf::uint32 val
   // @@protoc_insertion_point(field_set:BigBang.SolverParameter.train_batch_size)
 }
 
-// optional uint32 validate_batch_size = 8;
-inline bool SolverParameter::has_validate_batch_size() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void SolverParameter::set_has_validate_batch_size() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void SolverParameter::clear_has_validate_batch_size() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void SolverParameter::clear_validate_batch_size() {
-  validate_batch_size_ = 0u;
-  clear_has_validate_batch_size();
-}
-inline ::google::protobuf::uint32 SolverParameter::validate_batch_size() const {
-  // @@protoc_insertion_point(field_get:BigBang.SolverParameter.validate_batch_size)
-  return validate_batch_size_;
-}
-inline void SolverParameter::set_validate_batch_size(::google::protobuf::uint32 value) {
-  set_has_validate_batch_size();
-  validate_batch_size_ = value;
-  // @@protoc_insertion_point(field_set:BigBang.SolverParameter.validate_batch_size)
-}
-
 // optional uint32 test_batch_size = 9;
 inline bool SolverParameter::has_test_batch_size() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
+  return (_has_bits_[0] & 0x00000200u) != 0;
 }
 inline void SolverParameter::set_has_test_batch_size() {
-  _has_bits_[0] |= 0x00000800u;
+  _has_bits_[0] |= 0x00000200u;
 }
 inline void SolverParameter::clear_has_test_batch_size() {
-  _has_bits_[0] &= ~0x00000800u;
+  _has_bits_[0] &= ~0x00000200u;
 }
 inline void SolverParameter::clear_test_batch_size() {
   test_batch_size_ = 0u;
@@ -4908,13 +4888,13 @@ inline void SolverParameter::set_test_batch_size(::google::protobuf::uint32 valu
 
 // optional float lr = 10;
 inline bool SolverParameter::has_lr() const {
-  return (_has_bits_[0] & 0x00001000u) != 0;
+  return (_has_bits_[0] & 0x00000400u) != 0;
 }
 inline void SolverParameter::set_has_lr() {
-  _has_bits_[0] |= 0x00001000u;
+  _has_bits_[0] |= 0x00000400u;
 }
 inline void SolverParameter::clear_has_lr() {
-  _has_bits_[0] &= ~0x00001000u;
+  _has_bits_[0] &= ~0x00000400u;
 }
 inline void SolverParameter::clear_lr() {
   lr_ = 0;
@@ -4932,13 +4912,13 @@ inline void SolverParameter::set_lr(float value) {
 
 // optional float momentum_ratio = 11;
 inline bool SolverParameter::has_momentum_ratio() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00000800u) != 0;
 }
 inline void SolverParameter::set_has_momentum_ratio() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00000800u;
 }
 inline void SolverParameter::clear_has_momentum_ratio() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00000800u;
 }
 inline void SolverParameter::clear_momentum_ratio() {
   momentum_ratio_ = 0;
@@ -5134,34 +5114,58 @@ inline void SolverParameter::set_allocated_weight_decay_param(::BigBang::WeightD
   // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.weight_decay_param)
 }
 
-// repeated .BigBang.NetParameter net_param = 30;
-inline int SolverParameter::net_param_size() const {
-  return net_param_.size();
+// optional .BigBang.NetParameter net_param = 30;
+inline bool SolverParameter::has_net_param() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void SolverParameter::set_has_net_param() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void SolverParameter::clear_has_net_param() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void SolverParameter::clear_net_param() {
-  net_param_.Clear();
+  if (net_param_ != NULL) net_param_->Clear();
+  clear_has_net_param();
 }
-inline const ::BigBang::NetParameter& SolverParameter::net_param(int index) const {
+inline const ::BigBang::NetParameter& SolverParameter::net_param() const {
+  const ::BigBang::NetParameter* p = net_param_;
   // @@protoc_insertion_point(field_get:BigBang.SolverParameter.net_param)
-  return net_param_.Get(index);
+  return p != NULL ? *p : *reinterpret_cast<const ::BigBang::NetParameter*>(
+      &::BigBang::_NetParameter_default_instance_);
 }
-inline ::BigBang::NetParameter* SolverParameter::mutable_net_param(int index) {
+inline ::BigBang::NetParameter* SolverParameter::release_net_param() {
+  // @@protoc_insertion_point(field_release:BigBang.SolverParameter.net_param)
+  clear_has_net_param();
+  ::BigBang::NetParameter* temp = net_param_;
+  net_param_ = NULL;
+  return temp;
+}
+inline ::BigBang::NetParameter* SolverParameter::mutable_net_param() {
+  set_has_net_param();
+  if (net_param_ == NULL) {
+    net_param_ = new ::BigBang::NetParameter;
+  }
   // @@protoc_insertion_point(field_mutable:BigBang.SolverParameter.net_param)
-  return net_param_.Mutable(index);
-}
-inline ::BigBang::NetParameter* SolverParameter::add_net_param() {
-  // @@protoc_insertion_point(field_add:BigBang.SolverParameter.net_param)
-  return net_param_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >*
-SolverParameter::mutable_net_param() {
-  // @@protoc_insertion_point(field_mutable_list:BigBang.SolverParameter.net_param)
-  return &net_param_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::BigBang::NetParameter >&
-SolverParameter::net_param() const {
-  // @@protoc_insertion_point(field_list:BigBang.SolverParameter.net_param)
   return net_param_;
+}
+inline void SolverParameter::set_allocated_net_param(::BigBang::NetParameter* net_param) {
+  ::google::protobuf::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == NULL) {
+    delete net_param_;
+  }
+  if (net_param) {
+    ::google::protobuf::Arena* submessage_arena = NULL;
+    if (message_arena != submessage_arena) {
+      net_param = ::google::protobuf::internal::GetOwnedMessage(
+          message_arena, net_param, submessage_arena);
+    }
+    set_has_net_param();
+  } else {
+    clear_has_net_param();
+  }
+  net_param_ = net_param;
+  // @@protoc_insertion_point(field_set_allocated:BigBang.SolverParameter.net_param)
 }
 
 #ifdef __GNUC__
@@ -5217,6 +5221,11 @@ template <> struct is_proto_enum< ::BigBang::PoolingLayerParameter_PoolingMethod
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::PoolingLayerParameter_PoolingMethod>() {
   return ::BigBang::PoolingLayerParameter_PoolingMethod_descriptor();
+}
+template <> struct is_proto_enum< ::BigBang::LayerParameter_Phase> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::BigBang::LayerParameter_Phase>() {
+  return ::BigBang::LayerParameter_Phase_descriptor();
 }
 template <> struct is_proto_enum< ::BigBang::NetParameter_State> : ::google::protobuf::internal::true_type {};
 template <>

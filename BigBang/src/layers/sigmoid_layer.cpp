@@ -21,6 +21,12 @@ void SigmoidLayer<dtype>::Prepare(const Tensor<dtype>* bottom, Tensor<dtype>* to
 }
 
 template<typename dtype>
+void SigmoidLayer<dtype>::reshape(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
+	top->Reshape(bottom->shape());
+}
+
+
+template<typename dtype>
 void SigmoidLayer<dtype>::Forward_CPU(const Tensor<dtype>* bottom, Tensor<dtype>* top) {
 	const int size = bottom->size();
 	const dtype* bottom_data = bottom->cpu_data();
